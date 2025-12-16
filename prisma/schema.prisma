@@ -1,0 +1,26 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PromptEntry {
+  id             String   @id @default(uuid())
+  prompt         String
+  negativePrompt String?
+  imageUrl       String?
+  width          Int      @default(1024)
+  height         Int      @default(1024)
+  sampler        String?  @default("Euler a")
+  seed           Int?     @default(-1)
+  cfgScale       Float?   @default(7.0)
+  steps          Int?     @default(25)
+  tags           String?
+  promptZh       String?  // Translated Chinese prompt for display
+  originalPrompt String?  // User's original input (preserving language)
+  isFavorite     Boolean  @default(false)
+  createdAt      DateTime @default(now())
+}
