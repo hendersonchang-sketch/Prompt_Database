@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PromptForm from "@/components/PromptForm";
 import PromptGallery from "@/components/PromptGallery";
+import ServerStatus from "@/components/ServerStatus";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -13,12 +14,12 @@ export default function Home() {
     };
 
     return (
-        <main className="min-h-screen flex flex-col items-center py-20 gap-16">
-            <div className="text-center space-y-4">
-                <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600 animate-pulse">
-                    Graphic Prompt Database
+        <main className="min-h-screen flex flex-col items-center py-8 md:py-20 gap-8 md:gap-16 px-4">
+            <div className="text-center space-y-2 md:space-y-4">
+                <h1 className="text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                    Prompt Database
                 </h1>
-                <p className="text-gray-400 text-lg">打造您的專屬提示詞庫，生成無限創意。</p>
+                <p className="text-gray-400 text-sm md:text-lg">打造您的專屬提示詞庫</p>
             </div>
 
             <PromptForm onSuccess={handleSuccess} initialData={reuseData} />
@@ -26,6 +27,9 @@ export default function Home() {
             <div className="w-full border-t border-white/10" />
 
             <PromptGallery refreshTrigger={refreshTrigger} onReuse={setReuseData} />
+
+            {/* Server Status Indicator */}
+            <ServerStatus />
         </main>
     );
 }
