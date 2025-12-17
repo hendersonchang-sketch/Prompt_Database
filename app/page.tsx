@@ -9,6 +9,7 @@ import InspirationMap from "@/components/InspirationMap";
 import StoryboardModal from "@/components/StoryboardModal";
 import MagicCanvas from "@/components/MagicCanvas";
 import StyleTunerModal from "@/components/StyleTunerModal";
+import BatchImportModal from "@/components/BatchImportModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -20,6 +21,7 @@ export default function Home() {
     const [showStoryboard, setShowStoryboard] = useState(false);
     const [showMagicCanvas, setShowMagicCanvas] = useState(false);
     const [showStyleTuner, setShowStyleTuner] = useState(false);
+    const [showBatchImport, setShowBatchImport] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -50,6 +52,7 @@ export default function Home() {
         setShowStoryboard(false);
         setShowMagicCanvas(false);
         setShowStyleTuner(false);
+        setShowBatchImport(false);
     };
 
 
@@ -103,6 +106,13 @@ export default function Home() {
                         className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
                     >
                         ⚖️ 風格調校
+                    </button>
+                    {/* Batch Import Button */}
+                    <button
+                        onClick={() => setShowBatchImport(true)}
+                        className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-1"
+                    >
+                        📥 批量匯入
                     </button>
                 </div>
             </div>
@@ -186,6 +196,9 @@ export default function Home() {
 
             {/* Style Tuner Modal */}
             <StyleTunerModal isOpen={showStyleTuner} onClose={() => setShowStyleTuner(false)} />
+
+            {/* Batch Import Modal */}
+            <BatchImportModal isOpen={showBatchImport} onClose={() => setShowBatchImport(false)} />
         </main>
     );
 }
