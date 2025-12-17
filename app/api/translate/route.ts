@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         }
 
         const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const model = genAI.getGenerativeModel({ model: "gemini-3.0-flash-exp" });
 
         // Determine translation direction
         const isToZh = targetLang === 'zh-TW' || targetLang === 'zh';

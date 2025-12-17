@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
         const genAI = new GoogleGenerativeAI(key);
         // Use Gemini 2.0 Flash Experimental for vision capabilities  
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const model = genAI.getGenerativeModel({ model: "gemini-3.0-flash-exp" });
 
         // Remove header if present (data:image/png;base64,)
         const base64Data = image.replace(/^data:image\/\w+;base64,/, "");

@@ -8,7 +8,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing imageBase64 or apiKey' }, { status: 400 });
         }
 
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash-exp:generateContent?key=${apiKey}`;
 
         const evaluationPrompt = `你是世界級的圖片評估專家，擁有 20 年以上的藝術評論和商業攝影經驗。請對這張圖片進行全面性的專業評估，以 JSON 格式返回以下詳細分析。所有描述請使用繁體中文：
 
@@ -124,7 +124,7 @@ export async function POST(request: Request) {
                         }
                     ]
                 }],
-                generationConfig: { 
+                generationConfig: {
                     responseMimeType: "application/json",
                     temperature: 0.7,
                     maxOutputTokens: 4096

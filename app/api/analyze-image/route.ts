@@ -8,7 +8,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing imageBase64 or apiKey' }, { status: 400 });
         }
 
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash-exp:generateContent?key=${apiKey}`;
 
         const analysisPrompt = `你是專業的圖片分析專家。請詳細分析這張圖片，並以 JSON 格式返回以下資訊。所有描述請使用繁體中文：
 
