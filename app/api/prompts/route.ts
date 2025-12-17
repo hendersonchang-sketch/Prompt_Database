@@ -31,8 +31,7 @@ export async function POST(request: Request) {
             apiUrl,
             apiKey,
             imageCount = 1,  // 1-4 images
-            previewMode = false, // If true, return images without saving to DB
-            referenceImage = null // Base64 reference image for img2img
+            previewMode = false // If true, return images without saving to DB
         } = body;
 
         // Initialize Bilingual Data
@@ -142,50 +141,49 @@ export async function POST(request: Request) {
 
         // Provider Logic (Now uses finalPrompt which is likely English)
         if (provider === "gemini" && apiKey) {
-            try {
-                console.log("Attempting to call Imagen API with:", finalPrompt);
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+            const imageEngine = body.imageEngine || "imagen"; // Default to imagen
 
-                // Build payload (referenceImages disabled - needs Vertex AI)
-                const payload = {
-                    instances: [{ prompt: finalPrompt }],
-                    parameters: {
-                        sampleCount: Math.min(Math.max(imageCount, 1), 4), // 1-4 images
-                        aspectRatio: width === height ? "1:1" : width > height ? "16:9" : "9:16",
-                    }
-                };
+            if (imageEngine === "gemini-native") {
+                // Gemini Native Image Generation (better text rendering)
+                try {
+                    console.log("Attempting Gemini Native Image Generation with:", finalPrompt);
+                    const genAI = new GoogleGenerativeAI(apiKey);
+                    const model = genAI.getGenerativeModel({
+                        model: "gemini-2.0-flash-exp-image-generation",
+                        generationConfig: {
+                            responseModalities: ["TEXT", "IMAGE"] as any
+                        } as any
+                    });
 
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                    const result = await model.generateContent(finalPrompt);
+                    const response = result.response;
 
-                const responseText = await response.text();
-                if (!response.ok) throw new Error(`Imagen API Error (${response.status}): ${responseText}`);
-
-                const data = JSON.parse(responseText);
-
-                if (data.predictions && data.predictions.length > 0) {
-                    const generatedImages: string[] = [];
                     const fs = require('fs');
                     const path = require('path');
                     const uploadDir = path.join(process.cwd(), 'public', 'uploads');
                     if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
-                    for (let i = 0; i < data.predictions.length; i++) {
-                        const pred = data.predictions[i];
-                        if (pred.bytesBase64Encoded) {
-                            const buffer = Buffer.from(pred.bytesBase64Encoded, 'base64');
-                            const filename = `imagen-${Date.now()}-${i}-${Math.random().toString(36).substring(7)}.png`;
+                    const generatedImages: string[] = [];
+
+                    // Extract images from response
+                    for (const part of response.candidates?.[0]?.content?.parts || []) {
+                        if (part.inlineData && part.inlineData.mimeType?.startsWith('image/')) {
+                            const buffer = Buffer.from(part.inlineData.data, 'base64');
+                            const filename = `gemini-native-${Date.now()}-${Math.random().toString(36).substring(7)}.png`;
                             const filepath = path.join(uploadDir, filename);
                             fs.writeFileSync(filepath, buffer);
                             generatedImages.push(`/uploads/${filename}`);
                         }
                     }
 
-                    // If preview mode or multiple images, return array without saving to DB
-                    if (previewMode || imageCount > 1) {
+                    if (generatedImages.length === 0) {
+                        // Fallback to Imagen if Gemini Native fails
+                        console.log("Gemini Native returned no image, falling back to Imagen...");
+                        throw new Error("FALLBACK_TO_IMAGEN");
+                    }
+
+                    // Gemini Native only generates 1 image
+                    if (previewMode) {
                         return NextResponse.json({
                             previewMode: true,
                             images: generatedImages,
@@ -202,15 +200,92 @@ export async function POST(request: Request) {
                         });
                     }
 
-                    // Single image, save directly
                     finalImageUrl = generatedImages[0] || "";
-                } else {
-                    throw new Error("Invalid Imagen response - no predictions");
-                }
 
-            } catch (err: any) {
-                console.error("Imagen Gen Failed:", err);
-                throw new Error("Imagen Generation Failed: " + err.message);
+                } catch (err: any) {
+                    if (err.message === "FALLBACK_TO_IMAGEN") {
+                        console.log("Falling back to Imagen 4.0...");
+                        // Will continue to Imagen section below
+                    } else {
+                        console.error("Gemini Native Generation Failed:", err);
+                        throw new Error("Gemini Native Generation Failed: " + err.message);
+                    }
+                }
+            }
+
+            // Imagen 4.0 (default, or fallback from Gemini Native)
+            if (imageEngine === "imagen" || !finalImageUrl) {
+                // Imagen 4.0 (default - better photorealism)
+                try {
+                    console.log("Attempting to call Imagen API with:", finalPrompt);
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+
+                    // Build payload (referenceImages disabled - needs Vertex AI)
+                    const payload = {
+                        instances: [{ prompt: finalPrompt }],
+                        parameters: {
+                            sampleCount: Math.min(Math.max(imageCount, 1), 4), // 1-4 images
+                            aspectRatio: width === height ? "1:1" : width > height ? "16:9" : "9:16",
+                        }
+                    };
+
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const responseText = await response.text();
+                    if (!response.ok) throw new Error(`Imagen API Error (${response.status}): ${responseText}`);
+
+                    const data = JSON.parse(responseText);
+
+                    if (data.predictions && data.predictions.length > 0) {
+                        const generatedImages: string[] = [];
+                        const fs = require('fs');
+                        const path = require('path');
+                        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+                        if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+
+                        for (let i = 0; i < data.predictions.length; i++) {
+                            const pred = data.predictions[i];
+                            if (pred.bytesBase64Encoded) {
+                                const buffer = Buffer.from(pred.bytesBase64Encoded, 'base64');
+                                const filename = `imagen-${Date.now()}-${i}-${Math.random().toString(36).substring(7)}.png`;
+                                const filepath = path.join(uploadDir, filename);
+                                fs.writeFileSync(filepath, buffer);
+                                generatedImages.push(`/uploads/${filename}`);
+                            }
+                        }
+
+                        // If preview mode or multiple images, return array without saving to DB
+                        if (previewMode || imageCount > 1) {
+                            return NextResponse.json({
+                                previewMode: true,
+                                images: generatedImages,
+                                prompt: finalPrompt,
+                                originalPrompt: originalPrompt,
+                                promptZh: promptZh,
+                                tags: tagsResult,
+                                width,
+                                height,
+                                seed: finalSeed,
+                                cfgScale,
+                                steps,
+                                negativePrompt
+                            });
+                        }
+
+                        // Single image, save directly
+                        finalImageUrl = generatedImages[0] || "";
+                    } else {
+                        throw new Error("Invalid Imagen response - no predictions");
+                    }
+
+                } catch (err: any) {
+                    console.error("Imagen Gen Failed:", err);
+                    throw new Error("Imagen Generation Failed: " + err.message);
+                }
             }
         } else if (provider === "sd" && apiUrl) {
             console.log("SD Generation requested from:", apiUrl);

@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function POST(request: Request) {
     try {
-        const { text, apiKey } = await request.json();
+        const { text, apiKey, targetLang } = await request.json();
 
         if (!text) {
             return NextResponse.json({ error: 'Text is required' }, { status: 400 });
@@ -17,8 +17,16 @@ export async function POST(request: Request) {
         const genAI = new GoogleGenerativeAI(key);
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
 
-        const translatePrompt = `
-You are an expert AI Art Prompt Engineer. Translate the following Chinese description into a professional English image generation prompt.
+        // Determine translation direction
+        const isToZh = targetLang === 'zh-TW' || targetLang === 'zh';
+
+        const translatePrompt = isToZh
+            ? `將以下英文圖片生成提示詞翻譯成繁體中文。只輸出翻譯結果，不要任何解釋：
+
+"${text}"
+
+繁體中文翻譯：`
+            : `You are an expert AI Art Prompt Engineer. Translate the following Chinese description into a professional English image generation prompt.
 
 Chinese input: "${text}"
 

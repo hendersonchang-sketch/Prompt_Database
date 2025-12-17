@@ -201,8 +201,10 @@ const PROMPT_TEMPLATES: PromptTemplate[] = [
     { category: "3D Art", name: "商品化公仔", prompt: "Create a hyper-realistic 1/7 scale commercialized figurine of [角色描述], presented as a finished collectible product in a real-world setting. The figurine is displayed on a computer desk, standing on a clean, round transparent acrylic base with no labels or text. In the background, the computer screen shows the ZBrush modeling process of this same figurine, highlighting the contrast between the ongoing \"work in progress\" digital sculpt and the completed physical product on the desk. Next to the figurine, include a professionally designed packaging box with rounded corners, a transparent front window, and realistic commercial details.", desc: "角色轉商品模型展示" },
     { category: "3D Art", name: "3D 盲盒", prompt: "Cute 3D blind box toy of [主體], chibi style, soft smooth lighting, pastel colors, isometric view, plastic material, octane render.", desc: "可愛 Q 版公仔" },
     { category: "3D Art", name: "3D 渲染", prompt: "High quality 3D render of [主體], unreal engine 5, ray tracing, realistic textures, cinematic lighting, 8k.", desc: "擬真 3D 渲染" },
-    { category: "3D Art", name: "等距微縮", prompt: "Cute isometric 3D render of [主體], low poly style, soft pastel colors, blender 3d, orthographic view, minimal background.", desc: "3D 微縮模型" },
-    { category: "3D Art", name: "等距房間", prompt: "Isometric cutaway render of a [主體] room, 3d blender style, cozy lighting, detailed furniture, diorama style.", desc: "3D 小房間剖面" },
+    { category: "3D Art", name: "等距微縮", prompt: "Cute isometric 3D render of [主體], low poly style, soft pastel colors, blender 3d, orthographic view, minimal background.", desc: "3D 微縮模型（可愛風）" },
+    { category: "3D Art", name: "等距微縮 PBR", prompt: "A clear 45° top-down isometric miniature 3D scene of [主體], featuring detailed architectural elements. [WEATHER:Integrate current realistic weather conditions into the scene atmosphere] [TIME:Current time of day lighting and mood] Soft refined textures with realistic PBR materials, gentle lifelike lighting and shadows. Clean minimalistic composition with soft solid-colored background, museum diorama quality, hyperrealistic detail.", desc: "3D 微縮（寫實）可刪[WEATHER][TIME]" },
+    { category: "3D Art", name: "等距房間", prompt: "Isometric cutaway render of a [主體] room, 3d blender style, cozy lighting, detailed furniture, diorama style.", desc: "3D 小房間剖面（可愛風）" },
+    { category: "3D Art", name: "等距房間 PBR", prompt: "A clear 45° top-down isometric cutaway of a [主體] room interior. Realistic PBR materials, refined textures on furniture and walls, soft natural lighting with gentle shadows. Detailed props and decorations, architectural visualization quality, clean solid-colored background.", desc: "3D 小房間剖面（寫實風）" },
     { category: "3D Art", name: "遊戲資產", prompt: "Isometric game asset of [主體], low poly style, stylized hand-painted texture, isolated on black background, unity 3d asset.", desc: "遊戲道具去背" },
     { category: "3D Art", name: "體素藝術", prompt: "Voxel art of [主體], 3d pixel style, minecraft aesthetic, blocky, vibrant colors, isometric view.", desc: "麥塊方塊風格" },
     { category: "3D Art", name: "低多邊形", prompt: "Low poly 3d art of [主體], geometric shapes, flat shading, minimalist style, pastel colors, blender render.", desc: "幾何簡約 3D" },
@@ -211,6 +213,9 @@ const PROMPT_TEMPLATES: PromptTemplate[] = [
     { category: "3D Art", name: "表情包", prompt: "Character expression sheet of [主體], showing 9 different emotions: happy, sad, angry, surprised, shy, sleepy, confused, excited, neutral, same character consistent design, white background, anime style, reference sheet.", desc: "角色表情變化" },
     { category: "3D Art", name: "動作設定", prompt: "Character action pose sheet of [主體], showing 6 dynamic poses: standing, running, jumping, sitting, fighting, sleeping, same character consistent outfit and features, white background, concept art style.", desc: "角色動態參考" },
     { category: "3D Art", name: "遊戲立繪", prompt: "Dynamic video game splash art of [主體], action pose, magical effects, high detail, league of legends style, cinematic lighting.", desc: "遊戲角色宣傳圖" },
+    { category: "3D Art", name: "城市微縮", prompt: "A miniature diorama of [CITY], condensed into a tiny tabletop world. Iconic buildings simplified but recognizable, tiny people, vehicles, trees, and street details. Soft ambient lighting, tilt-shift photography style, museum-quality realism.", desc: "城市微縮模型" },
+    { category: "3D Art", name: "微縮工人", prompt: "A giant [PRODUCT] positioned like a monumental structure, with intricate scaffolding and dozens of miniature [WORKER] swarming around it. They are polishing surfaces, applying details, cleaning, and inspecting. Tilt-shift macro photography style, shallow depth of field, warm cinematic lighting, hyperrealistic detail, museum diorama quality.", desc: "產品+微縮人物施工場景" },
+    { category: "3D Art", name: "展示卡", prompt: "Present a clear 45° top-down isometric miniature 3D diorama of [主體]. The subject is the main focus, placed on a small raised diorama-style base that reflects its most recognizable environment, with subtle contextual details and tiny stylized figures if appropriate. Use soft refined textures, realistic PBR materials, and gentle cinematic lighting. The subject should feel premium, collectible, and instantly recognizable. Use a clean solid [BACKGROUND COLOR] background with no gradients. At the top-center, display \"[TITLE]\" in large bold text. Directly beneath it, display \"[SUBTITLE]\" in medium text. Optionally place an official logo or emblem below the text. All text must automatically match background contrast. Square 1080x1080, ultra-clean high-clarity diorama aesthetic.", desc: "萬用展示卡（載具/美食/事件）" },
 
     // ==========================================
     // Group 3: 專業攝影與寫實 (Photography & Realism)
@@ -278,11 +283,12 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     const [useMagicEnhancer, setUseMagicEnhancer] = useState(false);
 
     // Template Selector State
-    const [isTemplateOpen, setIsTemplateOpen] = useState(true);
+    const [isTemplateOpen, setIsTemplateOpen] = useState(false);
     const [activeCategory, setActiveCategory] = useState<TemplateCategory>("Commercial");
 
     // Multi-Image Generation State
     const [imageCount, setImageCount] = useState(1);
+    const [imageEngine, setImageEngine] = useState<"imagen" | "gemini-native">("imagen");
     const [previewImages, setPreviewImages] = useState<string[]>([]);
     const [previewData, setPreviewData] = useState<any>(null);
     const [isPreviewMode, setIsPreviewMode] = useState(false);
@@ -293,6 +299,18 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
 
     // Prompt Queue State (for batch variations)
     const [promptQueue, setPromptQueue] = useState<string[]>([]);
+
+    // Template Usage Statistics
+    const [templateStats, setTemplateStats] = useState<Record<string, number>>({});
+
+    // Track template usage
+    const trackTemplateUsage = (templateName: string) => {
+        const stored = localStorage.getItem('templateStats');
+        const stats: Record<string, number> = stored ? JSON.parse(stored) : {};
+        stats[templateName] = (stats[templateName] || 0) + 1;
+        localStorage.setItem('templateStats', JSON.stringify(stats));
+        setTemplateStats(stats);
+    };
 
     // Load saved characters from localStorage on mount
     useEffect(() => {
@@ -311,6 +329,16 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 setPromptQueue(JSON.parse(queueStr));
             } catch (e) {
                 console.error('Failed to load queue', e);
+            }
+        }
+
+        // Load template stats
+        const statsStr = localStorage.getItem('templateStats');
+        if (statsStr) {
+            try {
+                setTemplateStats(JSON.parse(statsStr));
+            } catch (e) {
+                console.error('Failed to load template stats', e);
             }
         }
 
@@ -362,9 +390,51 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
 
     // Delete character DNA
     const deleteCharacterDNA = (index: number) => {
+        if (!confirm('確定要刪除這個角色嗎？')) return;
         const newCharacters = savedCharacters.filter((_, i) => i !== index);
         setSavedCharacters(newCharacters);
         localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
+    };
+
+    // Edit character DNA - allow editing both name and description
+    const editCharacterDNA = (index: number) => {
+        const char = savedCharacters[index];
+
+        // Ask what to edit
+        const choice = window.prompt(
+            `編輯角色「${char.name}」\n\n輸入選項：\n1 = 只改名稱\n2 = 只改描述\n3 = 兩個都改`,
+            "1"
+        );
+
+        if (choice === null) return; // cancelled
+
+        let newName = char.name;
+        let newPrompt = char.prompt;
+
+        if (choice === "1" || choice === "3") {
+            const inputName = window.prompt('修改角色名稱:', char.name);
+            if (inputName === null) return;
+            newName = inputName || char.name;
+        }
+
+        if (choice === "2" || choice === "3") {
+            const inputPrompt = window.prompt('修改角色描述:', char.prompt);
+            if (inputPrompt === null) return;
+            newPrompt = inputPrompt || char.prompt;
+        }
+
+        // Update character
+        const newCharacters = [...savedCharacters];
+        newCharacters[index] = { name: newName, prompt: newPrompt };
+        setSavedCharacters(newCharacters);
+        localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
+    };
+
+    // Preview character DNA - just show, no side effects
+    const previewCharacterDNA = (char: { name: string, prompt: string }) => {
+        // Use a custom approach to avoid focus issues
+        const message = `【${char.name}】\n\n${char.prompt}`;
+        window.alert(message);
     };
 
     // Default State
@@ -519,8 +589,9 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 prompt: useMagicEnhancer
                     ? applyUltimateMasterFilter(formData.prompt)
                     : formData.prompt,
-                imageCount,
-                previewMode: imageCount > 1
+                imageCount: imageEngine === "gemini-native" ? 1 : imageCount, // Gemini Native only supports 1
+                imageEngine,
+                previewMode: imageEngine === "gemini-native" ? false : imageCount > 1
             };
 
             const res = await fetch("/api/prompts", {
@@ -702,10 +773,16 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                     type="button"
                                     onClick={() => {
                                         setFormData(prev => ({ ...prev, prompt: template.prompt }));
+                                        trackTemplateUsage(template.name);
                                         setIsTemplateOpen(false);
                                     }}
-                                    className="group p-3 bg-white/5 hover:bg-purple-500/20 border border-white/5 hover:border-purple-500/50 rounded-lg text-left transition-all"
+                                    className="group p-3 bg-white/5 hover:bg-purple-500/20 border border-white/5 hover:border-purple-500/50 rounded-lg text-left transition-all relative"
                                 >
+                                    {templateStats[template.name] && (
+                                        <span className="absolute -top-1 -right-1 bg-purple-600 text-white text-[9px] px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
+                                            {templateStats[template.name]}
+                                        </span>
+                                    )}
                                     <div className="text-sm font-medium text-white group-hover:text-purple-200 truncate">
                                         {template.name}
                                     </div>
@@ -875,17 +952,39 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                     {savedCharacters.length > 0 ? (
                                         <div className="space-y-2 max-h-48 overflow-y-auto">
                                             {savedCharacters.map((char, idx) => (
-                                                <div key={idx} className="flex items-center gap-2">
+                                                <div key={idx} className="flex items-center gap-1 group">
                                                     <button
                                                         onClick={() => loadCharacterDNA(char.prompt)}
                                                         className="flex-1 text-left px-3 py-2 bg-white/5 hover:bg-cyan-500/20 rounded-lg text-sm text-white transition-colors truncate"
-                                                        title={char.prompt}
+                                                        title="點擊套用此角色"
                                                     >
                                                         {char.name}
                                                     </button>
+                                                    {/* Preview Button */}
+                                                    <button
+                                                        onClick={() => previewCharacterDNA(char)}
+                                                        className="p-1.5 text-gray-400 hover:text-cyan-300 hover:bg-cyan-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
+                                                        title="預覽角色描述"
+                                                    >
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                        </svg>
+                                                    </button>
+                                                    {/* Edit Button */}
+                                                    <button
+                                                        onClick={() => editCharacterDNA(idx)}
+                                                        className="p-1.5 text-gray-400 hover:text-yellow-300 hover:bg-yellow-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
+                                                        title="編輯角色"
+                                                    >
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                        </svg>
+                                                    </button>
+                                                    {/* Delete Button */}
                                                     <button
                                                         onClick={() => deleteCharacterDNA(idx)}
-                                                        className="p-1.5 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-all"
+                                                        className="p-1.5 text-gray-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
                                                         title="刪除此角色"
                                                     >
                                                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -916,7 +1015,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         value={formData.prompt}
                         onChange={handleChange}
                         placeholder="描述您想生成的畫面..."
-                        className="w-full bg-black/40 border-white/10 rounded-xl p-4 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none pr-12"
+                        className="w-full bg-black/40 border-white/10 rounded-xl p-4 pb-14 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none"
                     />
                     {/* Magic Upload Buttons - bottom right */}
                     <div className="absolute bottom-2 right-2 flex gap-1">
@@ -977,6 +1076,37 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             >
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        )}
+                        {/* Copy Prompt Button */}
+                        {formData.prompt && (
+                            <button
+                                type="button"
+                                onClick={async () => {
+                                    try {
+                                        if (navigator.clipboard && window.isSecureContext) {
+                                            await navigator.clipboard.writeText(formData.prompt);
+                                        } else {
+                                            const textArea = document.createElement("textarea");
+                                            textArea.value = formData.prompt;
+                                            textArea.style.position = "fixed";
+                                            textArea.style.left = "-999999px";
+                                            document.body.appendChild(textArea);
+                                            textArea.select();
+                                            document.execCommand("copy");
+                                            textArea.remove();
+                                        }
+                                        alert("已複製 Prompt！");
+                                    } catch (err) {
+                                        alert("複製失敗，請手動選取複製");
+                                    }
+                                }}
+                                className="p-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-indigo-500/30"
+                                title="複製 Prompt"
+                            >
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                                 </svg>
                             </button>
                         )}
@@ -1140,6 +1270,38 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                     </div>
                 </div>
             )}
+
+            {/* Image Engine Selector */}
+            <div className="space-y-2">
+                <label className="text-xs text-gray-400 block">生圖引擎 (Image Engine)</label>
+                <div className="flex gap-2">
+                    <button
+                        type="button"
+                        onClick={() => setImageEngine("imagen")}
+                        className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-all ${imageEngine === "imagen"
+                            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                            : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                            }`}
+                    >
+                        🎨 Imagen 4.0
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setImageEngine("gemini-native")}
+                        className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-all ${imageEngine === "gemini-native"
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
+                            : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                            }`}
+                    >
+                        ✨ Gemini Native
+                    </button>
+                </div>
+                <p className="text-[10px] text-gray-500">
+                    {imageEngine === "imagen"
+                        ? "📷 寫實風格強，支援多圖生成"
+                        : "📝 文字渲染優秀，適合圖文混合（限 1 張）"}
+                </p>
+            </div>
 
             {/* Image Count Selector */}
             <div className="space-y-2">
