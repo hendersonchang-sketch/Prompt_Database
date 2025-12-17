@@ -67,6 +67,12 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     // Reverse Prompt Result State
     const [reversePromptResult, setReversePromptResult] = useState<string | null>(null);
 
+    // Comprehensive Evaluation State
+    const [comprehensiveEval, setComprehensiveEval] = useState<any>(null);
+    const [comprehensiveLoading, setComprehensiveLoading] = useState(false);
+    const [showEvalModal, setShowEvalModal] = useState(false);
+
+
     // Extract Unique Tags
     const allTags = Array.from(new Set(
         prompts.flatMap(p => p.tags ? p.tags.split(',').map(t => t.trim()) : [])
@@ -1809,7 +1815,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                 setDeepAnalysis(null);
                                                 try {
                                                     // Get image as base64
-                                                    const imgRes = await fetch(selectedImage.imageUrl);
+                                                    const imgRes = await fetch(selectedImage.imageUrl!);
                                                     const blob = await imgRes.blob();
                                                     const reader = new FileReader();
                                                     const base64 = await new Promise<string>((resolve) => {
@@ -1839,6 +1845,47 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                             title="深度分析圖片（構圖、風格、標籤等）"
                                         >
                                             {deepAnalysisLoading ? '分析中...' : '🔬 深度分析'}
+                                        </button>
+
+                                        {/* Comprehensive Evaluation Button */}
+                                        <button
+                                            onClick={async () => {
+                                                setComprehensiveLoading(true);
+                                                setComprehensiveEval(null);
+                                                try {
+                                                    // Get image as base64
+                                                    const imgRes = await fetch(selectedImage.imageUrl!);
+                                                    const blob = await imgRes.blob();
+                                                    const reader = new FileReader();
+                                                    const base64 = await new Promise<string>((resolve) => {
+                                                        reader.onloadend = () => resolve(reader.result as string);
+                                                        reader.readAsDataURL(blob);
+                                                    });
+
+                                                    const res = await fetch('/api/comprehensive-eval', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            imageBase64: base64,
+                                                            apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error(await res.text());
+                                                    const data = await res.json();
+                                                    setComprehensiveEval(data);
+                                                    setShowEvalModal(true);
+                                                } catch (err: any) {
+                                                    setComprehensiveEval({ error: err.message });
+                                                    setShowEvalModal(true);
+                                                } finally {
+                                                    setComprehensiveLoading(false);
+                                                }
+                                            }}
+                                            disabled={comprehensiveLoading}
+                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-amber-600/20 to-orange-600/20 hover:from-amber-600 hover:to-orange-600 text-amber-200 hover:text-white border border-amber-500/30 rounded-xl text-sm font-medium transition-all whitespace-nowrap disabled:opacity-50"
+                                            title="全面性評估（AI檢測、版權、市場價值等）"
+                                        >
+                                            {comprehensiveLoading ? '評估中...' : '📊 全面評估'}
                                         </button>
 
                                         <button
@@ -1902,6 +1949,360 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     onClose={() => setFusionDialogData(null)}
                 />
             )}
+
+            {/* Comprehensive Evaluation Modal */}
+            {showEvalModal && comprehensiveEval && (
+                <div
+                    className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+                    onClick={() => setShowEvalModal(false)}
+                >
+                    <div
+                        className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {/* Header */}
+                        <div className="flex justify-between items-center p-4 border-b border-white/10 shrink-0">
+                            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                                📊 全面性評估報告
+                                {comprehensiveEval.overallScore && (
+                                    <span className={`px-3 py-1 rounded-full text-sm font-bold ${comprehensiveEval.overallScore.grade === 'A' ? 'bg-green-500/20 text-green-400' :
+                                        comprehensiveEval.overallScore.grade === 'B' ? 'bg-blue-500/20 text-blue-400' :
+                                            comprehensiveEval.overallScore.grade === 'C' ? 'bg-yellow-500/20 text-yellow-400' :
+                                                'bg-red-500/20 text-red-400'
+                                        }`}>
+                                        {comprehensiveEval.overallScore.grade} ({comprehensiveEval.overallScore.total}/100)
+                                    </span>
+                                )}
+                            </h2>
+                            <div className="flex items-center gap-2">
+                                {/* Export Button */}
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            const res = await fetch('/api/export-report', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({
+                                                    evaluation: comprehensiveEval,
+                                                    imageInfo: selectedImage,
+                                                    format: 'markdown'
+                                                })
+                                            });
+                                            if (!res.ok) throw new Error('匯出失敗');
+                                            const data = await res.json();
+                                            // Download as file
+                                            const blob = new Blob([data.content], { type: 'text/markdown' });
+                                            const url = URL.createObjectURL(blob);
+                                            const a = document.createElement('a');
+                                            a.href = url;
+                                            a.download = data.filename;
+                                            a.click();
+                                            URL.revokeObjectURL(url);
+                                        } catch (err) {
+                                            alert('匯出報告失敗');
+                                        }
+                                    }}
+                                    className="px-3 py-1.5 bg-green-600/20 hover:bg-green-600 text-green-300 hover:text-white rounded-lg text-sm transition-colors"
+                                >
+                                    📥 匯出 MD
+                                </button>
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            const res = await fetch('/api/export-report', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({
+                                                    evaluation: comprehensiveEval,
+                                                    imageInfo: selectedImage,
+                                                    format: 'html'
+                                                })
+                                            });
+                                            if (!res.ok) throw new Error('匯出失敗');
+                                            const data = await res.json();
+                                            // Download as file
+                                            const blob = new Blob([data.content], { type: 'text/html' });
+                                            const url = URL.createObjectURL(blob);
+                                            const a = document.createElement('a');
+                                            a.href = url;
+                                            a.download = data.filename;
+                                            a.click();
+                                            URL.revokeObjectURL(url);
+                                        } catch (err) {
+                                            alert('匯出 HTML 失敗');
+                                        }
+                                    }}
+                                    className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white rounded-lg text-sm transition-colors"
+                                >
+                                    🌐 匯出 HTML
+                                </button>
+                                <button
+                                    onClick={() => setShowEvalModal(false)}
+                                    className="text-gray-500 hover:text-white text-2xl"
+                                >×</button>
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="overflow-y-auto p-4 space-y-4">
+                            {comprehensiveEval.error ? (
+                                <div className="text-red-400 p-4 bg-red-500/10 rounded-lg">
+                                    ❌ 評估失敗：{comprehensiveEval.error}
+                                </div>
+                            ) : (
+                                <>
+                                    {/* Overall Summary */}
+                                    {comprehensiveEval.overallScore?.summary && (
+                                        <div className="p-4 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl border border-amber-500/20">
+                                            <p className="text-amber-200 text-center text-lg">{comprehensiveEval.overallScore.summary}</p>
+                                        </div>
+                                    )}
+
+                                    {/* Radar Scores */}
+                                    {comprehensiveEval.radarScores && (
+                                        <details className="group" open>
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-cyan-400 font-medium">📈 五維度評分</span>
+                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                </div>
+                                            </summary>
+                                            <div className="p-4 grid grid-cols-2 md:grid-cols-5 gap-3">
+                                                {[
+                                                    { key: 'composition', label: '🎨 構圖', color: 'from-pink-500 to-rose-500' },
+                                                    { key: 'color', label: '🌈 色彩', color: 'from-purple-500 to-violet-500' },
+                                                    { key: 'creativity', label: '💡 創意', color: 'from-amber-500 to-yellow-500' },
+                                                    { key: 'technical', label: '⚙️ 技術', color: 'from-cyan-500 to-blue-500' },
+                                                    { key: 'emotion', label: '💖 情感', color: 'from-red-500 to-pink-500' },
+                                                ].map(dim => {
+                                                    const data = comprehensiveEval.radarScores[dim.key];
+                                                    return data ? (
+                                                        <div key={dim.key} className="p-3 bg-white/5 rounded-xl text-center">
+                                                            <div className="text-2xl font-bold bg-gradient-to-r ${dim.color} bg-clip-text text-transparent">
+                                                                {data.score}/10
+                                                            </div>
+                                                            <div className="text-xs text-gray-400 mt-1">{dim.label}</div>
+                                                            <div className="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                                                                <div className={`h-1.5 rounded-full bg-gradient-to-r ${dim.color}`} style={{ width: `${data.score * 10}%` }}></div>
+                                                            </div>
+                                                            {data.comment && <div className="text-[10px] text-gray-500 mt-2">{data.comment}</div>}
+                                                        </div>
+                                                    ) : null;
+                                                })}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {/* AI Detection */}
+                                    {comprehensiveEval.aiDetection && (
+                                        <details className="group">
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-purple-400 font-medium">🤖 AI 生成檢測</span>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.aiDetection.isAiGenerated
+                                                            ? 'bg-purple-500/20 text-purple-300'
+                                                            : 'bg-green-500/20 text-green-300'
+                                                            }`}>
+                                                            {comprehensiveEval.aiDetection.isAiGenerated ? '🤖 AI 生成' : '📷 非 AI'}
+                                                        </span>
+                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                    </div>
+                                                </div>
+                                            </summary>
+                                            <div className="p-3 space-y-2">
+                                                <div className="flex items-center gap-3">
+                                                    <span className="text-gray-500 text-sm">可信度：</span>
+                                                    <div className="flex-1 bg-gray-700 rounded-full h-2">
+                                                        <div className="h-2 rounded-full bg-purple-500" style={{ width: `${(comprehensiveEval.aiDetection.confidence || 0) * 100}%` }}></div>
+                                                    </div>
+                                                    <span className="text-purple-300 text-sm">{Math.round((comprehensiveEval.aiDetection.confidence || 0) * 100)}%</span>
+                                                </div>
+                                                {comprehensiveEval.aiDetection.aiTool && (
+                                                    <p className="text-gray-300 text-sm"><span className="text-gray-500">推測工具：</span>{comprehensiveEval.aiDetection.aiTool}</p>
+                                                )}
+                                                {comprehensiveEval.aiDetection.indicators?.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1 mt-2">
+                                                        {comprehensiveEval.aiDetection.indicators.map((ind: string, i: number) => (
+                                                            <span key={i} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px]">{ind}</span>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {/* Copyright Risk */}
+                                    {comprehensiveEval.copyrightRisk && (
+                                        <details className="group">
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-yellow-400 font-medium">⚠️ 版權風險</span>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.copyrightRisk.riskLevel === 'low' ? 'bg-green-500/20 text-green-300' :
+                                                            comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
+                                                                'bg-red-500/20 text-red-300'
+                                                            }`}>
+                                                            {comprehensiveEval.copyrightRisk.riskLevel === 'low' ? '🟢 低風險' :
+                                                                comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? '🟡 中風險' : '🔴 高風險'}
+                                                        </span>
+                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                    </div>
+                                                </div>
+                                            </summary>
+                                            <div className="p-3 space-y-2">
+                                                {comprehensiveEval.copyrightRisk.concerns?.length > 0 && (
+                                                    <div className="space-y-2">
+                                                        {comprehensiveEval.copyrightRisk.concerns.map((c: any, i: number) => (
+                                                            <div key={i} className="p-2 bg-yellow-500/10 rounded text-sm">
+                                                                <span className="text-yellow-400 font-medium">{c.type}</span>
+                                                                <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] ${c.severity === 'high' ? 'bg-red-500/30 text-red-300' :
+                                                                    c.severity === 'medium' ? 'bg-yellow-500/30 text-yellow-300' :
+                                                                        'bg-green-500/30 text-green-300'
+                                                                    }`}>{c.severity}</span>
+                                                                <p className="text-gray-400 text-xs mt-1">{c.description}</p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                                {comprehensiveEval.copyrightRisk.recommendation && (
+                                                    <p className="text-green-300 text-sm p-2 bg-green-500/10 rounded">
+                                                        💡 {comprehensiveEval.copyrightRisk.recommendation}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {/* Improvement Roadmap */}
+                                    {comprehensiveEval.improvementRoadmap?.length > 0 && (
+                                        <details className="group">
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-emerald-400 font-medium">🛠️ 優化路線圖 ({comprehensiveEval.improvementRoadmap.length})</span>
+                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                </div>
+                                            </summary>
+                                            <div className="p-3 space-y-3">
+                                                {comprehensiveEval.improvementRoadmap.map((item: any, i: number) => (
+                                                    <div key={i} className="p-3 bg-white/5 rounded-lg border-l-4 border-emerald-500">
+                                                        <div className="flex items-center gap-2 mb-2">
+                                                            <span className="w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold">{item.priority || i + 1}</span>
+                                                            <span className="text-white font-medium">{item.area}</span>
+                                                            <span className={`px-2 py-0.5 rounded text-[10px] ${item.difficulty === 'easy' ? 'bg-green-500/20 text-green-300' :
+                                                                item.difficulty === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
+                                                                    'bg-red-500/20 text-red-300'
+                                                                }`}>{item.difficulty === 'easy' ? '簡單' : item.difficulty === 'medium' ? '中等' : '困難'}</span>
+                                                        </div>
+                                                        <p className="text-gray-400 text-xs"><span className="text-gray-500">目前：</span>{item.current}</p>
+                                                        <p className="text-gray-300 text-xs mt-1"><span className="text-gray-500">目標：</span>{item.target}</p>
+                                                        {item.action && (
+                                                            <div className="mt-2 p-2 bg-black/40 rounded">
+                                                                <div className="flex justify-between items-center">
+                                                                    <span className="text-gray-500 text-[10px]">Prompt:</span>
+                                                                    <button
+                                                                        onClick={() => {
+                                                                            navigator.clipboard.writeText(item.action);
+                                                                            alert('已複製！');
+                                                                        }}
+                                                                        className="text-[9px] px-1.5 py-0.5 bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white rounded"
+                                                                    >複製</button>
+                                                                </div>
+                                                                <p className="text-cyan-300 text-[10px] font-mono mt-1">{item.action}</p>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {/* Market Value */}
+                                    {comprehensiveEval.marketValue && (
+                                        <details className="group">
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-amber-400 font-medium">💰 市場價值評估</span>
+                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                </div>
+                                            </summary>
+                                            <div className="p-3 space-y-3">
+                                                {comprehensiveEval.marketValue.estimatedPrice && (
+                                                    <div className="grid grid-cols-3 gap-2">
+                                                        <div className="p-2 bg-white/5 rounded text-center">
+                                                            <div className="text-xs text-gray-500">圖庫授權</div>
+                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.stockPhoto}</div>
+                                                        </div>
+                                                        <div className="p-2 bg-white/5 rounded text-center">
+                                                            <div className="text-xs text-gray-500">商業授權</div>
+                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.commercial}</div>
+                                                        </div>
+                                                        <div className="p-2 bg-white/5 rounded text-center">
+                                                            <div className="text-xs text-gray-500">獨家授權</div>
+                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.exclusive}</div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                <div className="grid grid-cols-2 gap-2 text-sm">
+                                                    <p><span className="text-gray-500">市場需求：</span><span className="text-gray-300">{comprehensiveEval.marketValue.demandLevel}</span></p>
+                                                    <p><span className="text-gray-500">競爭力：</span><span className="text-gray-300">{comprehensiveEval.marketValue.competitiveness}</span></p>
+                                                </div>
+                                                {comprehensiveEval.marketValue.suitablePlatforms?.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1">
+                                                        {comprehensiveEval.marketValue.suitablePlatforms.map((p: string, i: number) => (
+                                                            <span key={i} className="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px]">{p}</span>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {/* Expert Comment */}
+                                    {comprehensiveEval.expertComment && (
+                                        <details className="group" open>
+                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-blue-400 font-medium">💬 專家評語</span>
+                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                </div>
+                                            </summary>
+                                            <div className="p-3 space-y-2">
+                                                {comprehensiveEval.expertComment.strengths?.length > 0 && (
+                                                    <div>
+                                                        <p className="text-green-400 text-sm font-medium mb-1">✅ 優點</p>
+                                                        <ul className="space-y-1">
+                                                            {comprehensiveEval.expertComment.strengths.map((s: string, i: number) => (
+                                                                <li key={i} className="text-gray-300 text-xs pl-3">• {s}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                )}
+                                                {comprehensiveEval.expertComment.weaknesses?.length > 0 && (
+                                                    <div>
+                                                        <p className="text-yellow-400 text-sm font-medium mb-1">⚠️ 需注意</p>
+                                                        <ul className="space-y-1">
+                                                            {comprehensiveEval.expertComment.weaknesses.map((w: string, i: number) => (
+                                                                <li key={i} className="text-gray-300 text-xs pl-3">• {w}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                )}
+                                                {comprehensiveEval.expertComment.professionalTip && (
+                                                    <div className="p-3 bg-blue-500/10 rounded-lg border-l-4 border-blue-500 mt-2">
+                                                        <p className="text-blue-300 text-sm">💡 {comprehensiveEval.expertComment.professionalTip}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </details>
+                                    )}
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
+
     );
 }
