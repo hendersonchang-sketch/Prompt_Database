@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
+import SocialPreview from "./SocialPreview";
+import InspirationMap from "./InspirationMap";
 
 interface PromptEntry {
     id: string;
@@ -71,8 +73,10 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     const [comprehensiveEval, setComprehensiveEval] = useState<any>(null);
     const [comprehensiveLoading, setComprehensiveLoading] = useState(false);
     const [showEvalModal, setShowEvalModal] = useState(false);
+    const [showSocialPreview, setShowSocialPreview] = useState(false);
+    const [viewMode, setViewMode] = useState<'gallery' | 'map'>('gallery');
 
-
+    const [useSemanticSearch, setUseSemanticSearch] = useState(false);
     // Extract Unique Tags
     const allTags = Array.from(new Set(
         prompts.flatMap(p => p.tags ? p.tags.split(',').map(t => t.trim()) : [])
@@ -82,13 +86,60 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
         fetchPrompts();
     }, [refreshTrigger]);
 
-    const fetchPrompts = async () => {
+    const fetchPrompts = async (overrideSearch?: string, useSemantic?: boolean) => {
         try {
-            const res = await fetch("/api/prompts");
+            setLoading(true);
+            const isSemantic = useSemantic !== undefined ? useSemantic : useSemanticSearch;
+            const query = overrideSearch !== undefined ? overrideSearch : searchQuery;
+
+            let url = "/api/prompts";
+            const params = new URLSearchParams();
+
+            if (isSemantic && query) {
+                params.append("search", query);
+                params.append("semantic", "true");
+                const key = localStorage.getItem("geminiApiKey");
+                if (key) params.append("apiKey", key);
+                url += "?" + params.toString();
+            }
+
+            const res = await fetch(url);
             const data = await res.json();
             setPrompts(data);
         } catch (error) {
             console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleReindex = async () => {
+        const apiKey = localStorage.getItem('geminiApiKey');
+        if (!apiKey) {
+            alert("請先在設定中輸入 Gemini API Key");
+            return;
+        }
+        if (!confirm("確定要為所有圖片建立語義索引嗎？\n這將使用您的 Gemini API Quota，並可能需要幾分鐘時間。")) return;
+
+        setLoading(true);
+        let count = 0;
+        try {
+            // Process sequentially to avoid rate limits
+            for (const p of prompts) {
+                try {
+                    const res = await fetch('/api/embeddings/generate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: p.id, apiKey })
+                    });
+                    if (res.ok) count++;
+                } catch (e) {
+                    console.error(`Failed to index ${p.id}`, e);
+                }
+            }
+            alert(`索引重建完成！成功處理: ${count}/${prompts.length}`);
+        } catch (e) {
+            alert("索引過程中發生錯誤");
         } finally {
             setLoading(false);
         }
@@ -208,6 +259,16 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     };
 
     const filteredPrompts = prompts.filter((p) => {
+        // If using semantic search and we have a query, skip local keyword filtering
+        // (Trust the backend results which are already sorted by similarity)
+        if (useSemanticSearch && searchQuery) {
+            const matchesFav = showFavoritesOnly ? p.isFavorite : true;
+            // Still allow tag filtering on top of semantic results
+            const itemTags = p.tags ? p.tags.split(',').map(t => t.trim()) : [];
+            const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => itemTags.includes(tag));
+            return matchesFav && matchesTags;
+        }
+
         const matchesSearch = p.prompt.toLowerCase().includes(searchQuery.toLowerCase()) ||
             (p.tags && p.tags.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -421,393 +482,449 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
             )}
 
             {/* Toolbar */}
-            <div className="grid grid-cols-3 md:flex md:flex-row md:justify-end items-center gap-2 md:gap-4 w-full">
-                {/* Selection Mode Toggle */}
-                <button
-                    onClick={() => {
-                        setIsSelectionMode(!isSelectionMode);
-                        if (isSelectionMode) setSelectedIds(new Set());
-                    }}
-                    className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${isSelectionMode
-                        ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
-                        : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                        }`}
-                >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                    </svg>
-                    <span className="hidden sm:inline">{isSelectionMode ? "退出選擇" : "批次"}</span>
-                </button>
+            <div className="grid grid-cols-1 md:flex md:flex-row md:justify-between items-center gap-4 w-full">
 
-                <button
-                    onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-                    className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${showFavoritesOnly
-                        ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
-                        : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                        }`}
-                >
-                    <svg className={`w-4 h-4 ${showFavoritesOnly ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                    <span className="hidden sm:inline">最愛</span>
-                </button>
-
-                {/* Import Button */}
-                <div className="relative">
-                    <input
-                        type="file"
-                        accept=".json"
-                        className="hidden"
-                        id="import-file"
-                        onChange={async (e) => {
-                            const file = e.target.files?.[0];
-                            if (!file) return;
-
-                            try {
-                                const text = await file.text();
-                                const data = JSON.parse(text);
-
-                                const res = await fetch('/api/import', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: text,
-                                });
-
-                                if (!res.ok) throw new Error(await res.text());
-                                const result = await res.json();
-
-                                alert(`匯入完成！\n成功: ${result.imported}\n跳過: ${result.skipped}\n總計: ${result.total}`);
-
-                                // Refresh the gallery
-                                window.location.reload();
-                            } catch (err: any) {
-                                alert('匯入失敗: ' + (err.message || '未知錯誤'));
-                            }
-
-                            // Reset input
-                            e.target.value = '';
-                        }}
-                    />
-                    <label
-                        htmlFor="import-file"
-                        className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
+                {/* View Toggle */}
+                <div className="flex bg-white/5 p-1 rounded-lg self-start md:self-auto">
+                    <button
+                        onClick={() => setViewMode('gallery')}
+                        className={`px-3 py-1.5 rounded-md text-sm transition-all ${viewMode === 'gallery' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
                     >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                        </svg>
-                        <span className="hidden sm:inline">匯入</span>
-                    </label>
+                        🖼️
+                    </button>
+                    <button
+                        onClick={() => setViewMode('map')}
+                        className={`px-3 py-1.5 rounded-md text-sm transition-all ${viewMode === 'map' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
+                    >
+                        🕸️
+                    </button>
                 </div>
 
-                {/* Backup/Export All Button (JSON) */}
-                <button
-                    onClick={async () => {
-                        try {
-                            const res = await fetch('/api/backup');
-                            if (!res.ok) throw new Error('備份失敗');
-
-                            const blob = await res.blob();
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = `prompt-database-backup-${Date.now()}.json`;
-                            a.click();
-                            URL.revokeObjectURL(url);
-                        } catch (err) {
-                            alert('備份失敗');
-                        }
-                    }}
-                    className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                    title="備份 JSON 資料"
-                >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                    </svg>
-                    <span className="hidden sm:inline">JSON</span>
-                </button>
-
-                {/* ZIP Export Button (Images + JSON) */}
-                <button
-                    onClick={async () => {
-                        const btn = document.getElementById('zip-export-btn') as HTMLButtonElement;
-                        if (btn) btn.disabled = true;
-
-                        try {
-                            const res = await fetch('/api/backup-zip');
-                            if (!res.ok) throw new Error('ZIP 匯出失敗');
-
-                            const blob = await res.blob();
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = `prompt-database-full-backup-${Date.now()}.zip`;
-                            a.click();
-                            URL.revokeObjectURL(url);
-                            alert('ZIP 匯出完成！包含所有圖片與資料。');
-                        } catch (err) {
-                            alert('ZIP 匯出失敗');
-                        } finally {
-                            if (btn) btn.disabled = false;
-                        }
-                    }}
-                    id="zip-export-btn"
-                    className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-gradient-to-r from-emerald-600/20 to-cyan-600/20 text-emerald-300 hover:from-emerald-600 hover:to-cyan-600 hover:text-white border border-emerald-500/30 disabled:opacity-50 disabled:cursor-wait"
-                    title="匯出 ZIP（包含所有圖片 + JSON）"
-                >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                    </svg>
-                    <span className="hidden sm:inline">ZIP 完整備份</span>
-                </button>
-
-                {/* Tag Filter Dropdown */}
-                <div className="relative">
+                <div className="flex items-center gap-2 md:gap-4 flex-wrap md:flex-nowrap justify-end">
+                    {/* Selection Mode Toggle */}
                     <button
-                        onClick={() => setIsTagMenuOpen(!isTagMenuOpen)}
-                        className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${selectedTags.length > 0 || isTagMenuOpen
-                            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                        onClick={() => {
+                            setIsSelectionMode(!isSelectionMode);
+                            if (isSelectionMode) setSelectedIds(new Set());
+                        }}
+                        className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${isSelectionMode
+                            ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
                             : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                         </svg>
-                        標籤篩選
-                        {selectedTags.length > 0 && (
-                            <span className="bg-white text-purple-600 text-[10px] font-bold px-1.5 rounded-full min-w-[1.2rem] h-[1.2rem] flex items-center justify-center">
-                                {selectedTags.length}
-                            </span>
-                        )}
+                        <span className="hidden sm:inline">{isSelectionMode ? "退出選擇" : "批次"}</span>
                     </button>
 
-                    {/* Dropdown Menu */}
-                    {isTagMenuOpen && (
-                        <div className="absolute top-12 right-0 z-30 w-72 max-h-96 overflow-y-auto bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-4 animate-in fade-in slide-in-from-top-2">
-                            <div className="flex justify-between items-center mb-3 pb-2 border-b border-white/10">
-                                <span className="text-xs text-gray-400">選擇標籤 (多選)</span>
-                                {selectedTags.length > 0 && (
-                                    <button
-                                        onClick={() => setSelectedTags([])}
-                                        className="text-xs text-red-400 hover:text-red-300 transition-colors"
-                                    >
-                                        清除全部
-                                    </button>
-                                )}
-                            </div>
-
-                            <div className="flex flex-wrap gap-2">
-                                {allTags.length > 0 ? (
-                                    allTags.map(tag => (
-                                        <button
-                                            key={tag}
-                                            onClick={() => toggleTag(tag)}
-                                            className={`px-3 py-1.5 rounded-lg text-xs transition-colors border ${selectedTags.includes(tag)
-                                                ? "bg-purple-600 border-purple-500 text-white shadow-md shadow-purple-500/20"
-                                                : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
-                                                }`}
-                                        >
-                                            {tag}
-                                        </button>
-                                    ))
-                                ) : (
-                                    <div className="text-gray-500 text-xs text-center w-full py-4">
-                                        暫無可用標籤
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Backdrop to close */}
-                    {isTagMenuOpen && (
-                        <div className="fixed inset-0 z-20" onClick={() => setIsTagMenuOpen(false)} />
-                    )}
-                </div>
-
-                <input
-                    type="text"
-                    placeholder="搜尋提示詞或標籤..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all w-full md:w-64 focus:w-80"
-                />
-
-                {/* Upload Image Button */}
-                <input
-                    type="file"
-                    id="uploadImageInput"
-                    accept="image/*"
-                    multiple
-                    className="hidden"
-                    onChange={async (e) => {
-                        const files = e.target.files;
-                        if (!files || files.length === 0) return;
-
-                        for (let i = 0; i < files.length; i++) {
-                            const file = files[i];
-                            const reader = new FileReader();
-                            reader.onloadend = async () => {
-                                try {
-                                    const base64 = reader.result as string;
-                                    const res = await fetch('/api/upload-image', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({
-                                            imageBase64: base64,
-                                            filename: file.name,
-                                            tags: '上傳'
-                                        })
-                                    });
-                                    if (!res.ok) throw new Error('上傳失敗');
-                                    fetchPrompts(); // Refresh gallery
-                                } catch (err: any) {
-                                    alert(err.message || '上傳失敗');
-                                }
-                            };
-                            reader.readAsDataURL(file);
-                        }
-                        e.target.value = ''; // Reset input
-                    }}
-                />
-                <button
-                    onClick={() => document.getElementById('uploadImageInput')?.click()}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
-                    title="上傳圖片到圖庫（可多選）"
-                >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                    </svg>
-                    上傳圖片
-                </button>
-            </div>
-
-            {/* Masonry Grid */}
-            <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                {filteredPrompts.map((item) => (
-                    <div
-                        key={item.id}
-                        onClick={() => {
-                            if (isSelectionMode) {
-                                toggleSelection(item.id);
-                            } else {
-                                setSelectedImage(item);
-                            }
-                        }}
-                        className={`break-inside-avoid group relative bg-white/5 rounded-2xl overflow-hidden border transition-all hover:shadow-xl cursor-pointer ${selectedIds.has(item.id)
-                            ? "border-red-500 shadow-lg shadow-red-500/20"
-                            : "border-white/10 hover:shadow-purple-500/10"
+                    <button
+                        onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                        className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${showFavoritesOnly
+                            ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
+                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                     >
-                        {/* Selection Checkbox */}
-                        {isSelectionMode && (
-                            <div className="absolute top-3 left-3 z-10">
-                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${selectedIds.has(item.id)
-                                    ? "bg-red-500 border-red-500"
-                                    : "bg-black/50 border-white/50 group-hover:border-white"
-                                    }`}>
-                                    {selectedIds.has(item.id) && (
-                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                        </svg>
+                        <svg className={`w-4 h-4 ${showFavoritesOnly ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <span className="hidden sm:inline">最愛</span>
+                    </button>
+
+                    {/* Import Button */}
+                    <div className="relative">
+                        <input
+                            type="file"
+                            accept=".json"
+                            className="hidden"
+                            id="import-file"
+                            onChange={async (e) => {
+                                const file = e.target.files?.[0];
+                                if (!file) return;
+
+                                try {
+                                    const text = await file.text();
+                                    const data = JSON.parse(text);
+
+                                    const res = await fetch('/api/import', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: text,
+                                    });
+
+                                    if (!res.ok) throw new Error(await res.text());
+                                    const result = await res.json();
+
+                                    alert(`匯入完成！\n成功: ${result.imported}\n跳過: ${result.skipped}\n總計: ${result.total}`);
+
+                                    // Refresh the gallery
+                                    window.location.reload();
+                                } catch (err: any) {
+                                    alert('匯入失敗: ' + (err.message || '未知錯誤'));
+                                }
+
+                                // Reset input
+                                e.target.value = '';
+                            }}
+                        />
+                        <label
+                            htmlFor="import-file"
+                            className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            <span className="hidden sm:inline">匯入</span>
+                        </label>
+                    </div>
+
+                    {/* Backup/Export All Button (JSON) */}
+                    <button
+                        onClick={async () => {
+                            try {
+                                const res = await fetch('/api/backup');
+                                if (!res.ok) throw new Error('備份失敗');
+
+                                const blob = await res.blob();
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = `prompt-database-backup-${Date.now()}.json`;
+                                a.click();
+                                URL.revokeObjectURL(url);
+                            } catch (err) {
+                                alert('備份失敗');
+                            }
+                        }}
+                        className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                        title="備份 JSON 資料"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                        </svg>
+                        <span className="hidden sm:inline">JSON</span>
+                    </button>
+
+                    {/* ZIP Export Button (Images + JSON) */}
+                    <button
+                        onClick={async () => {
+                            const btn = document.getElementById('zip-export-btn') as HTMLButtonElement;
+                            if (btn) btn.disabled = true;
+
+                            try {
+                                const res = await fetch('/api/backup-zip');
+                                if (!res.ok) throw new Error('ZIP 匯出失敗');
+
+                                const blob = await res.blob();
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = `prompt-database-full-backup-${Date.now()}.zip`;
+                                a.click();
+                                URL.revokeObjectURL(url);
+                                alert('ZIP 匯出完成！包含所有圖片與資料。');
+                            } catch (err) {
+                                alert('ZIP 匯出失敗');
+                            } finally {
+                                if (btn) btn.disabled = false;
+                            }
+                        }}
+                        id="zip-export-btn"
+                        className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-gradient-to-r from-emerald-600/20 to-cyan-600/20 text-emerald-300 hover:from-emerald-600 hover:to-cyan-600 hover:text-white border border-emerald-500/30 disabled:opacity-50 disabled:cursor-wait"
+                        title="匯出 ZIP（包含所有圖片 + JSON）"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        </svg>
+                        <span className="hidden sm:inline">ZIP 完整備份</span>
+                    </button>
+
+                    {/* Tag Filter Dropdown */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsTagMenuOpen(!isTagMenuOpen)}
+                            className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${selectedTags.length > 0 || isTagMenuOpen
+                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                                }`}
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
+                            標籤篩選
+                            {selectedTags.length > 0 && (
+                                <span className="bg-white text-purple-600 text-[10px] font-bold px-1.5 rounded-full min-w-[1.2rem] h-[1.2rem] flex items-center justify-center">
+                                    {selectedTags.length}
+                                </span>
+                            )}
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        {isTagMenuOpen && (
+                            <div className="absolute top-12 right-0 z-30 w-72 max-h-96 overflow-y-auto bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-4 animate-in fade-in slide-in-from-top-2">
+                                <div className="flex justify-between items-center mb-3 pb-2 border-b border-white/10">
+                                    <span className="text-xs text-gray-400">選擇標籤 (多選)</span>
+                                    {selectedTags.length > 0 && (
+                                        <button
+                                            onClick={() => setSelectedTags([])}
+                                            className="text-xs text-red-400 hover:text-red-300 transition-colors"
+                                        >
+                                            清除全部
+                                        </button>
+                                    )}
+                                </div>
+
+                                <div className="flex flex-wrap gap-2">
+                                    {allTags.length > 0 ? (
+                                        allTags.map(tag => (
+                                            <button
+                                                key={tag}
+                                                onClick={() => toggleTag(tag)}
+                                                className={`px-3 py-1.5 rounded-lg text-xs transition-colors border ${selectedTags.includes(tag)
+                                                    ? "bg-purple-600 border-purple-500 text-white shadow-md shadow-purple-500/20"
+                                                    : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                                                    }`}
+                                            >
+                                                {tag}
+                                            </button>
+                                        ))
+                                    ) : (
+                                        <div className="text-gray-500 text-xs text-center w-full py-4">
+                                            暫無可用標籤
+                                        </div>
                                     )}
                                 </div>
                             </div>
                         )}
 
-                        {item.imageUrl && (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img
-                                src={item.imageUrl}
-                                alt={item.prompt}
-                                className="w-full h-auto object-cover"
-                                loading="lazy"
-                            />
-                        )}
-
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-1 mb-2">
-                                {item.tags && item.tags.split(',').slice(0, 3).map((tag, idx) => (
-                                    <span
-                                        key={idx}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            // Add to selected tags instead of replacing search query
-                                            toggleTag(tag.trim());
-                                        }}
-                                        className={`text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm cursor-pointer transition-colors ${selectedTags.includes(tag.trim())
-                                            ? "bg-purple-500 text-white"
-                                            : "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white"
-                                            }`}
-                                    >
-                                        {tag.trim()}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <p className="text-white text-xs line-clamp-2 font-medium mb-3">
-                                {item.promptZh || item.prompt}
-                            </p>
-
-                            <div className="flex items-center justify-between">
-                                <span className="text-[10px] text-gray-400">
-                                    {item.width}x{item.height}
-                                </span>
-                                <div className="flex gap-2">
-                                    <button
-                                        onClick={(e) => toggleFavorite(e, item.id, item.isFavorite)}
-                                        className={`p-2 rounded-full transition-colors ${item.isFavorite ? "text-pink-500 bg-pink-500/10" : "text-white/50 hover:text-white hover:bg-white/10"}`}
-                                        title={item.isFavorite ? "移除最愛" : "加入最愛"}
-                                    >
-                                        <svg className={`w-4 h-4 ${item.isFavorite ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                        </svg>
-                                    </button>
-                                    {/* Quick Chain Button */}
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setSelectedImage(item);
-                                            setIsVariationMenuOpen(true);
-                                        }}
-                                        className="p-2 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-white rounded-full transition-colors"
-                                        title="接龍變體"
-                                    >
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                                        </svg>
-                                    </button>
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            if (confirm("確定要刪除這張圖片嗎？")) handleDelete(item.id);
-                                        }}
-                                        className="p-2 bg-red-500/20 hover:bg-red-500 text-red-200 hover:text-white rounded-full transition-colors"
-                                        title="刪除"
-                                    >
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Always visible Favorite Icon if active */}
-                        {item.isFavorite && (
-                            <div className="absolute top-2 right-2 text-pink-500 drop-shadow-md">
-                                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </div>
+                        {/* Backdrop to close */}
+                        {isTagMenuOpen && (
+                            <div className="fixed inset-0 z-20" onClick={() => setIsTagMenuOpen(false)} />
                         )}
                     </div>
-                ))}
+
+                    <div className="flex items-center gap-2 w-full md:w-auto">
+                        <button
+                            onClick={() => setUseSemanticSearch(!useSemanticSearch)}
+                            className={`p-2 rounded-full transition-colors ${useSemanticSearch
+                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                                : "bg-white/5 text-gray-500 hover:text-white"}`}
+                            title={useSemanticSearch ? "語義搜尋已啟用 (按 Enter 搜尋)" : "啟用語義搜尋 (自然語言)"}
+                        >
+                            🧠
+                        </button>
+
+                        <input
+                            type="text"
+                            placeholder={useSemanticSearch ? "輸入描述 (如: 憂鬱的藍色調畫面)..." : "搜尋提示詞或標籤..."}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && useSemanticSearch) {
+                                    fetchPrompts(searchQuery, true);
+                                }
+                            }}
+                            className={`bg-white/5 border rounded-full px-4 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 transition-all w-full md:w-64 focus:w-80 ${useSemanticSearch ? "border-purple-500/50 focus:ring-purple-500" : "border-white/10 focus:ring-gray-500"}`}
+                        />
+
+                        {useSemanticSearch && (
+                            <button
+                                onClick={handleReindex}
+                                className="p-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-full transition-colors"
+                                title="重建語義索引 (Re-index)"
+                            >
+                                ⚙️
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Upload Image Button */}
+                    <input
+                        type="file"
+                        id="uploadImageInput"
+                        accept="image/*"
+                        multiple
+                        className="hidden"
+                        onChange={async (e) => {
+                            const files = e.target.files;
+                            if (!files || files.length === 0) return;
+
+                            for (let i = 0; i < files.length; i++) {
+                                const file = files[i];
+                                const reader = new FileReader();
+                                reader.onloadend = async () => {
+                                    try {
+                                        const base64 = reader.result as string;
+                                        const res = await fetch('/api/upload-image', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({
+                                                imageBase64: base64,
+                                                filename: file.name,
+                                                tags: '上傳'
+                                            })
+                                        });
+                                        if (!res.ok) throw new Error('上傳失敗');
+                                        fetchPrompts(); // Refresh gallery
+                                    } catch (err: any) {
+                                        alert(err.message || '上傳失敗');
+                                    }
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                            e.target.value = ''; // Reset input
+                        }}
+                    />
+                    <button
+                        onClick={() => document.getElementById('uploadImageInput')?.click()}
+                        className="flex items-center gap-1.5 px-3 py-2 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
+                        title="上傳圖片到圖庫（可多選）"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        上傳圖片
+                    </button>
+                </div>
             </div>
 
-            {filteredPrompts.length === 0 && (
+            {/* Masonry Grid */}
+            {/* Content Area */}
+            {viewMode === 'map' ? (
+                <InspirationMap onSelect={(id) => {
+                    const found = prompts.find(p => p.id === id);
+                    if (found) {
+                        setSelectedImage(found);
+                    }
+                }} />
+            ) : (
+                <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+                    {filteredPrompts.map((item) => (
+                        <div
+                            key={item.id}
+                            onClick={() => {
+                                if (isSelectionMode) {
+                                    toggleSelection(item.id);
+                                } else {
+                                    setSelectedImage(item);
+                                }
+                            }}
+                            className={`break-inside-avoid group relative bg-white/5 rounded-2xl overflow-hidden border transition-all hover:shadow-xl cursor-pointer ${selectedIds.has(item.id)
+                                ? "border-red-500 shadow-lg shadow-red-500/20"
+                                : "border-white/10 hover:shadow-purple-500/10"
+                                }`}
+                        >
+                            {/* Selection Checkbox */}
+                            {isSelectionMode && (
+                                <div className="absolute top-3 left-3 z-10">
+                                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${selectedIds.has(item.id)
+                                        ? "bg-red-500 border-red-500"
+                                        : "bg-black/50 border-white/50 group-hover:border-white"
+                                        }`}>
+                                        {selectedIds.has(item.id) && (
+                                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+
+                            {item.imageUrl && (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img
+                                    src={item.imageUrl}
+                                    alt={item.prompt}
+                                    className="w-full h-auto object-cover"
+                                    loading="lazy"
+                                />
+                            )}
+
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+
+                                {/* Tags */}
+                                <div className="flex flex-wrap gap-1 mb-2">
+                                    {item.tags && item.tags.split(',').slice(0, 3).map((tag, idx) => (
+                                        <span
+                                            key={idx}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                // Add to selected tags instead of replacing search query
+                                                toggleTag(tag.trim());
+                                            }}
+                                            className={`text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm cursor-pointer transition-colors ${selectedTags.includes(tag.trim())
+                                                ? "bg-purple-500 text-white"
+                                                : "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white"
+                                                }`}
+                                        >
+                                            {tag.trim()}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <p className="text-white text-xs line-clamp-2 font-medium mb-3">
+                                    {item.promptZh || item.prompt}
+                                </p>
+
+                                <div className="flex items-center justify-between">
+                                    <span className="text-[10px] text-gray-400">
+                                        {item.width}x{item.height}
+                                    </span>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={(e) => toggleFavorite(e, item.id, item.isFavorite)}
+                                            className={`p-2 rounded-full transition-colors ${item.isFavorite ? "text-pink-500 bg-pink-500/10" : "text-white/50 hover:text-white hover:bg-white/10"}`}
+                                            title={item.isFavorite ? "移除最愛" : "加入最愛"}
+                                        >
+                                            <svg className={`w-4 h-4 ${item.isFavorite ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            </svg>
+                                        </button>
+                                        {/* Quick Chain Button */}
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedImage(item);
+                                                setIsVariationMenuOpen(true);
+                                            }}
+                                            className="p-2 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-white rounded-full transition-colors"
+                                            title="接龍變體"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (confirm("確定要刪除這張圖片嗎？")) handleDelete(item.id);
+                                            }}
+                                            className="p-2 bg-red-500/20 hover:bg-red-500 text-red-200 hover:text-white rounded-full transition-colors"
+                                            title="刪除"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Always visible Favorite Icon if active */}
+                            {item.isFavorite && (
+                                <div className="absolute top-2 right-2 text-pink-500 drop-shadow-md">
+                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {filteredPrompts.length === 0 && viewMode !== 'map' && (
                 <div className="text-center text-gray-500 py-20 flex flex-col items-center">
                     <p className="text-lg">這裡空空如也。</p>
                     {showFavoritesOnly && <p className="text-sm">試著去把一些喜歡的圖片加入最愛吧！</p>}
@@ -1975,67 +2092,89 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                 )}
                             </h2>
                             <div className="flex items-center gap-2">
-                                {/* Export Button */}
-                                <button
-                                    onClick={async () => {
-                                        try {
-                                            const res = await fetch('/api/export-report', {
-                                                method: 'POST',
-                                                headers: { 'Content-Type': 'application/json' },
-                                                body: JSON.stringify({
-                                                    evaluation: comprehensiveEval,
-                                                    imageInfo: selectedImage,
-                                                    format: 'markdown'
-                                                })
-                                            });
-                                            if (!res.ok) throw new Error('匯出失敗');
-                                            const data = await res.json();
-                                            // Download as file
-                                            const blob = new Blob([data.content], { type: 'text/markdown' });
-                                            const url = URL.createObjectURL(blob);
-                                            const a = document.createElement('a');
-                                            a.href = url;
-                                            a.download = data.filename;
-                                            a.click();
-                                            URL.revokeObjectURL(url);
-                                        } catch (err) {
-                                            alert('匯出報告失敗');
-                                        }
-                                    }}
-                                    className="px-3 py-1.5 bg-green-600/20 hover:bg-green-600 text-green-300 hover:text-white rounded-lg text-sm transition-colors"
-                                >
-                                    📥 匯出 MD
-                                </button>
-                                <button
-                                    onClick={async () => {
-                                        try {
-                                            const res = await fetch('/api/export-report', {
-                                                method: 'POST',
-                                                headers: { 'Content-Type': 'application/json' },
-                                                body: JSON.stringify({
-                                                    evaluation: comprehensiveEval,
-                                                    imageInfo: selectedImage,
-                                                    format: 'html'
-                                                })
-                                            });
-                                            if (!res.ok) throw new Error('匯出失敗');
-                                            const data = await res.json();
-                                            // Download as file
-                                            const blob = new Blob([data.content], { type: 'text/html' });
-                                            const url = URL.createObjectURL(blob);
-                                            const a = document.createElement('a');
-                                            a.href = url;
-                                            a.download = data.filename;
-                                            a.click();
-                                            URL.revokeObjectURL(url);
-                                        } catch (err) {
-                                            alert('匯出 HTML 失敗');
-                                        }
-                                    }}
-                                    className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white rounded-lg text-sm transition-colors"
-                                >
-                                    🌐 匯出 HTML
-                                </button>
+                                {/* View Toggle */}
+                                <div className="bg-gray-800 rounded-lg p-1 flex mr-4 border border-gray-700">
+                                    <button
+                                        onClick={() => setShowSocialPreview(false)}
+                                        className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${!showSocialPreview ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-400 hover:text-white'
+                                            }`}
+                                    >
+                                        📝 報告
+                                    </button>
+                                    <button
+                                        onClick={() => setShowSocialPreview(true)}
+                                        className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${showSocialPreview ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-400 hover:text-white'
+                                            }`}
+                                    >
+                                        📱 預覽
+                                    </button>
+                                </div>
+
+                                {!showSocialPreview && (
+                                    <>
+                                        {/* Export Button */}
+                                        <button
+                                            onClick={async () => {
+                                                try {
+                                                    const res = await fetch('/api/export-report', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            evaluation: comprehensiveEval,
+                                                            imageInfo: selectedImage,
+                                                            format: 'markdown'
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error('匯出失敗');
+                                                    const data = await res.json();
+                                                    // Download as file
+                                                    const blob = new Blob([data.content], { type: 'text/markdown' });
+                                                    const url = URL.createObjectURL(blob);
+                                                    const a = document.createElement('a');
+                                                    a.href = url;
+                                                    a.download = data.filename;
+                                                    a.click();
+                                                    URL.revokeObjectURL(url);
+                                                } catch (err) {
+                                                    alert('匯出報告失敗');
+                                                }
+                                            }}
+                                            className="px-3 py-1.5 bg-green-600/20 hover:bg-green-600 text-green-300 hover:text-white rounded-lg text-sm transition-colors"
+                                        >
+                                            📥 匯出 MD
+                                        </button>
+                                        <button
+                                            onClick={async () => {
+                                                try {
+                                                    const res = await fetch('/api/export-report', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            evaluation: comprehensiveEval,
+                                                            imageInfo: selectedImage,
+                                                            format: 'html'
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error('匯出失敗');
+                                                    const data = await res.json();
+                                                    // Download as file
+                                                    const blob = new Blob([data.content], { type: 'text/html' });
+                                                    const url = URL.createObjectURL(blob);
+                                                    const a = document.createElement('a');
+                                                    a.href = url;
+                                                    a.download = data.filename;
+                                                    a.click();
+                                                    URL.revokeObjectURL(url);
+                                                } catch (err) {
+                                                    alert('匯出 HTML 失敗');
+                                                }
+                                            }}
+                                            className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white rounded-lg text-sm transition-colors"
+                                        >
+                                            🌐 匯出 HTML
+                                        </button>
+                                    </>
+                                )}
                                 <button
                                     onClick={() => setShowEvalModal(false)}
                                     className="text-gray-500 hover:text-white text-2xl"
@@ -2050,253 +2189,263 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     ❌ 評估失敗：{comprehensiveEval.error}
                                 </div>
                             ) : (
-                                <>
-                                    {/* Overall Summary */}
-                                    {comprehensiveEval.overallScore?.summary && (
-                                        <div className="p-4 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl border border-amber-500/20">
-                                            <p className="text-amber-200 text-center text-lg">{comprehensiveEval.overallScore.summary}</p>
-                                        </div>
-                                    )}
-
-                                    {/* Radar Scores */}
-                                    {comprehensiveEval.radarScores && (
-                                        <details className="group" open>
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-cyan-400 font-medium">📈 五維度評分</span>
-                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                                </div>
-                                            </summary>
-                                            <div className="p-4 grid grid-cols-2 md:grid-cols-5 gap-3">
-                                                {[
-                                                    { key: 'composition', label: '🎨 構圖', color: 'from-pink-500 to-rose-500' },
-                                                    { key: 'color', label: '🌈 色彩', color: 'from-purple-500 to-violet-500' },
-                                                    { key: 'creativity', label: '💡 創意', color: 'from-amber-500 to-yellow-500' },
-                                                    { key: 'technical', label: '⚙️ 技術', color: 'from-cyan-500 to-blue-500' },
-                                                    { key: 'emotion', label: '💖 情感', color: 'from-red-500 to-pink-500' },
-                                                ].map(dim => {
-                                                    const data = comprehensiveEval.radarScores[dim.key];
-                                                    return data ? (
-                                                        <div key={dim.key} className="p-3 bg-white/5 rounded-xl text-center">
-                                                            <div className="text-2xl font-bold bg-gradient-to-r ${dim.color} bg-clip-text text-transparent">
-                                                                {data.score}/10
-                                                            </div>
-                                                            <div className="text-xs text-gray-400 mt-1">{dim.label}</div>
-                                                            <div className="w-full bg-gray-700 rounded-full h-1.5 mt-2">
-                                                                <div className={`h-1.5 rounded-full bg-gradient-to-r ${dim.color}`} style={{ width: `${data.score * 10}%` }}></div>
-                                                            </div>
-                                                            {data.comment && <div className="text-[10px] text-gray-500 mt-2">{data.comment}</div>}
-                                                        </div>
-                                                    ) : null;
-                                                })}
+                                showSocialPreview ? (
+                                    <div className="flex items-center justify-center min-h-[60vh] bg-gray-50/5 rounded-xl p-8">
+                                        <SocialPreview
+                                            imageUrl={selectedImage?.imageUrl || ''}
+                                            analysis={comprehensiveEval}
+                                            isLoading={false}
+                                        />
+                                    </div>
+                                ) : (
+                                    <>
+                                        {/* Overall Summary */}
+                                        {comprehensiveEval.overallScore?.summary && (
+                                            <div className="p-4 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl border border-amber-500/20">
+                                                <p className="text-amber-200 text-center text-lg">{comprehensiveEval.overallScore.summary}</p>
                                             </div>
-                                        </details>
-                                    )}
+                                        )}
 
-                                    {/* AI Detection */}
-                                    {comprehensiveEval.aiDetection && (
-                                        <details className="group">
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-purple-400 font-medium">🤖 AI 生成檢測</span>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.aiDetection.isAiGenerated
-                                                            ? 'bg-purple-500/20 text-purple-300'
-                                                            : 'bg-green-500/20 text-green-300'
-                                                            }`}>
-                                                            {comprehensiveEval.aiDetection.isAiGenerated ? '🤖 AI 生成' : '📷 非 AI'}
-                                                        </span>
+                                        {/* Radar Scores */}
+                                        {comprehensiveEval.radarScores && (
+                                            <details className="group" open>
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-cyan-400 font-medium">📈 五維度評分</span>
                                                         <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                                     </div>
-                                                </div>
-                                            </summary>
-                                            <div className="p-3 space-y-2">
-                                                <div className="flex items-center gap-3">
-                                                    <span className="text-gray-500 text-sm">可信度：</span>
-                                                    <div className="flex-1 bg-gray-700 rounded-full h-2">
-                                                        <div className="h-2 rounded-full bg-purple-500" style={{ width: `${(comprehensiveEval.aiDetection.confidence || 0) * 100}%` }}></div>
-                                                    </div>
-                                                    <span className="text-purple-300 text-sm">{Math.round((comprehensiveEval.aiDetection.confidence || 0) * 100)}%</span>
-                                                </div>
-                                                {comprehensiveEval.aiDetection.aiTool && (
-                                                    <p className="text-gray-300 text-sm"><span className="text-gray-500">推測工具：</span>{comprehensiveEval.aiDetection.aiTool}</p>
-                                                )}
-                                                {comprehensiveEval.aiDetection.indicators?.length > 0 && (
-                                                    <div className="flex flex-wrap gap-1 mt-2">
-                                                        {comprehensiveEval.aiDetection.indicators.map((ind: string, i: number) => (
-                                                            <span key={i} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px]">{ind}</span>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </details>
-                                    )}
-
-                                    {/* Copyright Risk */}
-                                    {comprehensiveEval.copyrightRisk && (
-                                        <details className="group">
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-yellow-400 font-medium">⚠️ 版權風險</span>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.copyrightRisk.riskLevel === 'low' ? 'bg-green-500/20 text-green-300' :
-                                                            comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
-                                                                'bg-red-500/20 text-red-300'
-                                                            }`}>
-                                                            {comprehensiveEval.copyrightRisk.riskLevel === 'low' ? '🟢 低風險' :
-                                                                comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? '🟡 中風險' : '🔴 高風險'}
-                                                        </span>
-                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                                    </div>
-                                                </div>
-                                            </summary>
-                                            <div className="p-3 space-y-2">
-                                                {comprehensiveEval.copyrightRisk.concerns?.length > 0 && (
-                                                    <div className="space-y-2">
-                                                        {comprehensiveEval.copyrightRisk.concerns.map((c: any, i: number) => (
-                                                            <div key={i} className="p-2 bg-yellow-500/10 rounded text-sm">
-                                                                <span className="text-yellow-400 font-medium">{c.type}</span>
-                                                                <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] ${c.severity === 'high' ? 'bg-red-500/30 text-red-300' :
-                                                                    c.severity === 'medium' ? 'bg-yellow-500/30 text-yellow-300' :
-                                                                        'bg-green-500/30 text-green-300'
-                                                                    }`}>{c.severity}</span>
-                                                                <p className="text-gray-400 text-xs mt-1">{c.description}</p>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                                {comprehensiveEval.copyrightRisk.recommendation && (
-                                                    <p className="text-green-300 text-sm p-2 bg-green-500/10 rounded">
-                                                        💡 {comprehensiveEval.copyrightRisk.recommendation}
-                                                    </p>
-                                                )}
-                                            </div>
-                                        </details>
-                                    )}
-
-                                    {/* Improvement Roadmap */}
-                                    {comprehensiveEval.improvementRoadmap?.length > 0 && (
-                                        <details className="group">
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-emerald-400 font-medium">🛠️ 優化路線圖 ({comprehensiveEval.improvementRoadmap.length})</span>
-                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                                </div>
-                                            </summary>
-                                            <div className="p-3 space-y-3">
-                                                {comprehensiveEval.improvementRoadmap.map((item: any, i: number) => (
-                                                    <div key={i} className="p-3 bg-white/5 rounded-lg border-l-4 border-emerald-500">
-                                                        <div className="flex items-center gap-2 mb-2">
-                                                            <span className="w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold">{item.priority || i + 1}</span>
-                                                            <span className="text-white font-medium">{item.area}</span>
-                                                            <span className={`px-2 py-0.5 rounded text-[10px] ${item.difficulty === 'easy' ? 'bg-green-500/20 text-green-300' :
-                                                                item.difficulty === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
-                                                                    'bg-red-500/20 text-red-300'
-                                                                }`}>{item.difficulty === 'easy' ? '簡單' : item.difficulty === 'medium' ? '中等' : '困難'}</span>
-                                                        </div>
-                                                        <p className="text-gray-400 text-xs"><span className="text-gray-500">目前：</span>{item.current}</p>
-                                                        <p className="text-gray-300 text-xs mt-1"><span className="text-gray-500">目標：</span>{item.target}</p>
-                                                        {item.action && (
-                                                            <div className="mt-2 p-2 bg-black/40 rounded">
-                                                                <div className="flex justify-between items-center">
-                                                                    <span className="text-gray-500 text-[10px]">Prompt:</span>
-                                                                    <button
-                                                                        onClick={() => {
-                                                                            navigator.clipboard.writeText(item.action);
-                                                                            alert('已複製！');
-                                                                        }}
-                                                                        className="text-[9px] px-1.5 py-0.5 bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white rounded"
-                                                                    >複製</button>
+                                                </summary>
+                                                <div className="p-4 grid grid-cols-2 md:grid-cols-5 gap-3">
+                                                    {[
+                                                        { key: 'composition', label: '🎨 構圖', color: 'from-pink-500 to-rose-500' },
+                                                        { key: 'color', label: '🌈 色彩', color: 'from-purple-500 to-violet-500' },
+                                                        { key: 'creativity', label: '💡 創意', color: 'from-amber-500 to-yellow-500' },
+                                                        { key: 'technical', label: '⚙️ 技術', color: 'from-cyan-500 to-blue-500' },
+                                                        { key: 'emotion', label: '💖 情感', color: 'from-red-500 to-pink-500' },
+                                                    ].map(dim => {
+                                                        const data = comprehensiveEval.radarScores[dim.key];
+                                                        return data ? (
+                                                            <div key={dim.key} className="p-3 bg-white/5 rounded-xl text-center">
+                                                                <div className="text-2xl font-bold bg-gradient-to-r ${dim.color} bg-clip-text text-transparent">
+                                                                    {data.score}/10
                                                                 </div>
-                                                                <p className="text-cyan-300 text-[10px] font-mono mt-1">{item.action}</p>
+                                                                <div className="text-xs text-gray-400 mt-1">{dim.label}</div>
+                                                                <div className="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                                                                    <div className={`h-1.5 rounded-full bg-gradient-to-r ${dim.color}`} style={{ width: `${data.score * 10}%` }}></div>
+                                                                </div>
+                                                                {data.comment && <div className="text-[10px] text-gray-500 mt-2">{data.comment}</div>}
                                                             </div>
-                                                        )}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </details>
-                                    )}
+                                                        ) : null;
+                                                    })}
+                                                </div>
+                                            </details>
+                                        )}
 
-                                    {/* Market Value */}
-                                    {comprehensiveEval.marketValue && (
-                                        <details className="group">
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-amber-400 font-medium">💰 市場價值評估</span>
-                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                                </div>
-                                            </summary>
-                                            <div className="p-3 space-y-3">
-                                                {comprehensiveEval.marketValue.estimatedPrice && (
-                                                    <div className="grid grid-cols-3 gap-2">
-                                                        <div className="p-2 bg-white/5 rounded text-center">
-                                                            <div className="text-xs text-gray-500">圖庫授權</div>
-                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.stockPhoto}</div>
-                                                        </div>
-                                                        <div className="p-2 bg-white/5 rounded text-center">
-                                                            <div className="text-xs text-gray-500">商業授權</div>
-                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.commercial}</div>
-                                                        </div>
-                                                        <div className="p-2 bg-white/5 rounded text-center">
-                                                            <div className="text-xs text-gray-500">獨家授權</div>
-                                                            <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.exclusive}</div>
+                                        {/* AI Detection */}
+                                        {comprehensiveEval.aiDetection && (
+                                            <details className="group">
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-purple-400 font-medium">🤖 AI 生成檢測</span>
+                                                        <div className="flex items-center gap-2">
+                                                            <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.aiDetection.isAiGenerated
+                                                                ? 'bg-purple-500/20 text-purple-300'
+                                                                : 'bg-green-500/20 text-green-300'
+                                                                }`}>
+                                                                {comprehensiveEval.aiDetection.isAiGenerated ? '🤖 AI 生成' : '📷 非 AI'}
+                                                            </span>
+                                                            <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                                         </div>
                                                     </div>
-                                                )}
-                                                <div className="grid grid-cols-2 gap-2 text-sm">
-                                                    <p><span className="text-gray-500">市場需求：</span><span className="text-gray-300">{comprehensiveEval.marketValue.demandLevel}</span></p>
-                                                    <p><span className="text-gray-500">競爭力：</span><span className="text-gray-300">{comprehensiveEval.marketValue.competitiveness}</span></p>
-                                                </div>
-                                                {comprehensiveEval.marketValue.suitablePlatforms?.length > 0 && (
-                                                    <div className="flex flex-wrap gap-1">
-                                                        {comprehensiveEval.marketValue.suitablePlatforms.map((p: string, i: number) => (
-                                                            <span key={i} className="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px]">{p}</span>
-                                                        ))}
+                                                </summary>
+                                                <div className="p-3 space-y-2">
+                                                    <div className="flex items-center gap-3">
+                                                        <span className="text-gray-500 text-sm">可信度：</span>
+                                                        <div className="flex-1 bg-gray-700 rounded-full h-2">
+                                                            <div className="h-2 rounded-full bg-purple-500" style={{ width: `${(comprehensiveEval.aiDetection.confidence || 0) * 100}%` }}></div>
+                                                        </div>
+                                                        <span className="text-purple-300 text-sm">{Math.round((comprehensiveEval.aiDetection.confidence || 0) * 100)}%</span>
                                                     </div>
-                                                )}
-                                            </div>
-                                        </details>
-                                    )}
+                                                    {comprehensiveEval.aiDetection.aiTool && (
+                                                        <p className="text-gray-300 text-sm"><span className="text-gray-500">推測工具：</span>{comprehensiveEval.aiDetection.aiTool}</p>
+                                                    )}
+                                                    {comprehensiveEval.aiDetection.indicators?.length > 0 && (
+                                                        <div className="flex flex-wrap gap-1 mt-2">
+                                                            {comprehensiveEval.aiDetection.indicators.map((ind: string, i: number) => (
+                                                                <span key={i} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px]">{ind}</span>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </details>
+                                        )}
 
-                                    {/* Expert Comment */}
-                                    {comprehensiveEval.expertComment && (
-                                        <details className="group" open>
-                                            <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-blue-400 font-medium">💬 專家評語</span>
-                                                    <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                        {/* Copyright Risk */}
+                                        {comprehensiveEval.copyrightRisk && (
+                                            <details className="group">
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-yellow-400 font-medium">⚠️ 版權風險</span>
+                                                        <div className="flex items-center gap-2">
+                                                            <span className={`px-2 py-0.5 rounded text-xs ${comprehensiveEval.copyrightRisk.riskLevel === 'low' ? 'bg-green-500/20 text-green-300' :
+                                                                comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
+                                                                    'bg-red-500/20 text-red-300'
+                                                                }`}>
+                                                                {comprehensiveEval.copyrightRisk.riskLevel === 'low' ? '🟢 低風險' :
+                                                                    comprehensiveEval.copyrightRisk.riskLevel === 'medium' ? '🟡 中風險' : '🔴 高風險'}
+                                                            </span>
+                                                            <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                        </div>
+                                                    </div>
+                                                </summary>
+                                                <div className="p-3 space-y-2">
+                                                    {comprehensiveEval.copyrightRisk.concerns?.length > 0 && (
+                                                        <div className="space-y-2">
+                                                            {comprehensiveEval.copyrightRisk.concerns.map((c: any, i: number) => (
+                                                                <div key={i} className="p-2 bg-yellow-500/10 rounded text-sm">
+                                                                    <span className="text-yellow-400 font-medium">{c.type}</span>
+                                                                    <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] ${c.severity === 'high' ? 'bg-red-500/30 text-red-300' :
+                                                                        c.severity === 'medium' ? 'bg-yellow-500/30 text-yellow-300' :
+                                                                            'bg-green-500/30 text-green-300'
+                                                                        }`}>{c.severity}</span>
+                                                                    <p className="text-gray-400 text-xs mt-1">{c.description}</p>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                    {comprehensiveEval.copyrightRisk.recommendation && (
+                                                        <p className="text-green-300 text-sm p-2 bg-green-500/10 rounded">
+                                                            💡 {comprehensiveEval.copyrightRisk.recommendation}
+                                                        </p>
+                                                    )}
                                                 </div>
-                                            </summary>
-                                            <div className="p-3 space-y-2">
-                                                {comprehensiveEval.expertComment.strengths?.length > 0 && (
-                                                    <div>
-                                                        <p className="text-green-400 text-sm font-medium mb-1">✅ 優點</p>
-                                                        <ul className="space-y-1">
-                                                            {comprehensiveEval.expertComment.strengths.map((s: string, i: number) => (
-                                                                <li key={i} className="text-gray-300 text-xs pl-3">• {s}</li>
+                                            </details>
+                                        )}
+
+                                        {/* Improvement Roadmap */}
+                                        {comprehensiveEval.improvementRoadmap?.length > 0 && (
+                                            <details className="group">
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-emerald-400 font-medium">🛠️ 優化路線圖 ({comprehensiveEval.improvementRoadmap.length})</span>
+                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                    </div>
+                                                </summary>
+                                                <div className="p-3 space-y-3">
+                                                    {comprehensiveEval.improvementRoadmap.map((item: any, i: number) => (
+                                                        <div key={i} className="p-3 bg-white/5 rounded-lg border-l-4 border-emerald-500">
+                                                            <div className="flex items-center gap-2 mb-2">
+                                                                <span className="w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold">{item.priority || i + 1}</span>
+                                                                <span className="text-white font-medium">{item.area}</span>
+                                                                <span className={`px-2 py-0.5 rounded text-[10px] ${item.difficulty === 'easy' ? 'bg-green-500/20 text-green-300' :
+                                                                    item.difficulty === 'medium' ? 'bg-yellow-500/20 text-yellow-300' :
+                                                                        'bg-red-500/20 text-red-300'
+                                                                    }`}>{item.difficulty === 'easy' ? '簡單' : item.difficulty === 'medium' ? '中等' : '困難'}</span>
+                                                            </div>
+                                                            <p className="text-gray-400 text-xs"><span className="text-gray-500">目前：</span>{item.current}</p>
+                                                            <p className="text-gray-300 text-xs mt-1"><span className="text-gray-500">目標：</span>{item.target}</p>
+                                                            {item.action && (
+                                                                <div className="mt-2 p-2 bg-black/40 rounded">
+                                                                    <div className="flex justify-between items-center">
+                                                                        <span className="text-gray-500 text-[10px]">Prompt:</span>
+                                                                        <button
+                                                                            onClick={() => {
+                                                                                navigator.clipboard.writeText(item.action);
+                                                                                alert('已複製！');
+                                                                            }}
+                                                                            className="text-[9px] px-1.5 py-0.5 bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white rounded"
+                                                                        >複製</button>
+                                                                    </div>
+                                                                    <p className="text-cyan-300 text-[10px] font-mono mt-1">{item.action}</p>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </details>
+                                        )}
+
+                                        {/* Market Value */}
+                                        {comprehensiveEval.marketValue && (
+                                            <details className="group">
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-amber-400 font-medium">💰 市場價值評估</span>
+                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                    </div>
+                                                </summary>
+                                                <div className="p-3 space-y-3">
+                                                    {comprehensiveEval.marketValue.estimatedPrice && (
+                                                        <div className="grid grid-cols-3 gap-2">
+                                                            <div className="p-2 bg-white/5 rounded text-center">
+                                                                <div className="text-xs text-gray-500">圖庫授權</div>
+                                                                <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.stockPhoto}</div>
+                                                            </div>
+                                                            <div className="p-2 bg-white/5 rounded text-center">
+                                                                <div className="text-xs text-gray-500">商業授權</div>
+                                                                <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.commercial}</div>
+                                                            </div>
+                                                            <div className="p-2 bg-white/5 rounded text-center">
+                                                                <div className="text-xs text-gray-500">獨家授權</div>
+                                                                <div className="text-amber-300 font-bold">{comprehensiveEval.marketValue.estimatedPrice.exclusive}</div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    <div className="grid grid-cols-2 gap-2 text-sm">
+                                                        <p><span className="text-gray-500">市場需求：</span><span className="text-gray-300">{comprehensiveEval.marketValue.demandLevel}</span></p>
+                                                        <p><span className="text-gray-500">競爭力：</span><span className="text-gray-300">{comprehensiveEval.marketValue.competitiveness}</span></p>
+                                                    </div>
+                                                    {comprehensiveEval.marketValue.suitablePlatforms?.length > 0 && (
+                                                        <div className="flex flex-wrap gap-1">
+                                                            {comprehensiveEval.marketValue.suitablePlatforms.map((p: string, i: number) => (
+                                                                <span key={i} className="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px]">{p}</span>
                                                             ))}
-                                                        </ul>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </details>
+                                        )}
+
+                                        {/* Expert Comment */}
+                                        {comprehensiveEval.expertComment && (
+                                            <details className="group" open>
+                                                <summary className="p-3 bg-white/5 rounded-lg cursor-pointer list-none">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="text-blue-400 font-medium">💬 專家評語</span>
+                                                        <svg className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                                     </div>
-                                                )}
-                                                {comprehensiveEval.expertComment.weaknesses?.length > 0 && (
-                                                    <div>
-                                                        <p className="text-yellow-400 text-sm font-medium mb-1">⚠️ 需注意</p>
-                                                        <ul className="space-y-1">
-                                                            {comprehensiveEval.expertComment.weaknesses.map((w: string, i: number) => (
-                                                                <li key={i} className="text-gray-300 text-xs pl-3">• {w}</li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                )}
-                                                {comprehensiveEval.expertComment.professionalTip && (
-                                                    <div className="p-3 bg-blue-500/10 rounded-lg border-l-4 border-blue-500 mt-2">
-                                                        <p className="text-blue-300 text-sm">💡 {comprehensiveEval.expertComment.professionalTip}</p>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </details>
-                                    )}
-                                </>
+                                                </summary>
+                                                <div className="p-3 space-y-2">
+                                                    {comprehensiveEval.expertComment.strengths?.length > 0 && (
+                                                        <div>
+                                                            <p className="text-green-400 text-sm font-medium mb-1">✅ 優點</p>
+                                                            <ul className="space-y-1">
+                                                                {comprehensiveEval.expertComment.strengths.map((s: string, i: number) => (
+                                                                    <li key={i} className="text-gray-300 text-xs pl-3">• {s}</li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    )}
+                                                    {comprehensiveEval.expertComment.weaknesses?.length > 0 && (
+                                                        <div>
+                                                            <p className="text-yellow-400 text-sm font-medium mb-1">⚠️ 需注意</p>
+                                                            <ul className="space-y-1">
+                                                                {comprehensiveEval.expertComment.weaknesses.map((w: string, i: number) => (
+                                                                    <li key={i} className="text-gray-300 text-xs pl-3">• {w}</li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    )}
+                                                    {comprehensiveEval.expertComment.professionalTip && (
+                                                        <div className="p-3 bg-blue-500/10 rounded-lg border-l-4 border-blue-500 mt-2">
+                                                            <p className="text-blue-300 text-sm">💡 {comprehensiveEval.expertComment.professionalTip}</p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </details>
+                                        )}
+                                    </>
+                                )
                             )}
                         </div>
                     </div>

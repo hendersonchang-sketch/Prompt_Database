@@ -14,6 +14,10 @@
   - 💰 市場價值評估（授權定價、平台建議）
   - 💬 專家評語（優點、需注意、專業建議）
 - **新增** 「📥 匯出報告」功能（支援 **Markdown** 與 **HTML** 雙格式）
+- **新增** 「📱 社群媒體模擬器」：即時預覽 IG 貼文效果，含 AI 自動生成文案與 Hashtag。
+- **新增** 「🧪 Prompt 實驗室」：積木式 Prompt 編輯器與語句庫管理，支援拖放組合與自定義儲存。
+- **新增** 「🧠 語義搜尋」：支援自然語言搜尋 (Phase 3)。
+- **新增** 「🕸️ 靈感地圖」：視覺化圖片關聯性知識圖譜 (Phase 4)。
 
 
 
@@ -84,6 +88,9 @@ Prompt_Database/
 │   │   ├── describe/         # 反推 Prompt
 │   │   ├── enhance/          # Prompt 增強
 │   │   ├── prompts/          # CRUD 操作
+│   │   ├── embeddings/       # 向量生成 (New)
+│   │   ├── inspiration-graph/# 靈感地圖 (New)
+│   │   ├── prompt-lab/       # 實驗室 API (New)
 │   │   ├── translate/        # 翻譯
 │   │   ├── upload-image/     # 上傳圖片
 │   │   └── variation/        # 變體生成
@@ -114,4 +121,5 @@ Prompt_Database/
 | cfgScale | Float? | CFG 強度 |
 | steps | Int? | 生成步數 |
 | negativePrompt | String? | 負面提示詞 |
+| embedding | String? | 向量數據 (JSON) |
 | createdAt | DateTime | 建立時間 |

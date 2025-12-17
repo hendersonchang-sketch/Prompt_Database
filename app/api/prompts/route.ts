@@ -2,13 +2,98 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function GET() {
+// Helper to calculate cosine similarity
+function cosineSimilarity(vecA: number[], vecB: number[]) {
+    let dotProduct = 0;
+    let normA = 0;
+    let normB = 0;
+    for (let i = 0; i < vecA.length; i++) {
+        dotProduct += vecA[i] * vecB[i];
+        normA += vecA[i] * vecA[i];
+        normB += vecB[i] * vecB[i];
+    }
+    return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+}
+
+export async function GET(request: Request) {
     try {
-        console.log("GET /api/prompts hit");
-        const prompts = await prisma.promptEntry.findMany({
-            orderBy: { createdAt: 'desc' },
-        });
-        return NextResponse.json(prompts);
+        const { searchParams } = new URL(request.url);
+        const search = searchParams.get('search');
+        const semantic = searchParams.get('semantic') === 'true';
+        const apiKey = request.headers.get('x-api-key') || searchParams.get('apiKey');
+
+        console.log(`GET /api/prompts hit. Search: ${search}, Semantic: ${semantic}`);
+
+        // 1. Semantic Search
+        if (semantic && search && apiKey) {
+            console.log("Performing Semantic Search...");
+            // Get query embedding
+            const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${apiKey}`;
+            const embedResponse = await fetch(geminiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: "models/text-embedding-004",
+                    content: { parts: [{ text: search }] }
+                })
+            });
+
+            if (!embedResponse.ok) {
+                console.error("Embedding API Failed", await embedResponse.text());
+                throw new Error("Failed to embed query");
+            }
+
+            const embedData = await embedResponse.json();
+            const queryVector = embedData.embedding?.values;
+
+            if (!queryVector) throw new Error("No embedding returned");
+
+            // Fetch all prompts with embeddings
+            // @ts-ignore
+            const prompts = await prisma.promptEntry.findMany();
+
+            const scoredPrompts = prompts
+                .filter((p: any) => p.embedding) // Must have embedding
+                .map((p: any) => {
+                    try {
+                        const vec = JSON.parse(p.embedding);
+                        return { ...p, score: cosineSimilarity(queryVector, vec) };
+                    } catch (e) {
+                        return { ...p, score: -1 };
+                    }
+                })
+                .filter((p: any) => p.score > 0.3) // Filter low relevance
+                .sort((a: any, b: any) => b.score - a.score)
+                .slice(0, 50); // Top 50
+
+            return NextResponse.json(scoredPrompts);
+        }
+
+        // 2. Keyword Search
+        else if (search) {
+            // @ts-ignore
+            const prompts = await prisma.promptEntry.findMany({
+                where: {
+                    OR: [
+                        { prompt: { contains: search } }, // SQLite is case-insensitive by default roughly, usually
+                        { promptZh: { contains: search } },
+                        { tags: { contains: search } },
+                        { originalPrompt: { contains: search } }
+                    ]
+                },
+                orderBy: { createdAt: 'desc' },
+            });
+            return NextResponse.json(prompts);
+        }
+
+        // 3. Default List
+        else {
+            // @ts-ignore
+            const prompts = await prisma.promptEntry.findMany({
+                orderBy: { createdAt: 'desc' },
+            });
+            return NextResponse.json(prompts);
+        }
     } catch (error) {
         console.error('Failed to fetch prompts:', error);
         return NextResponse.json({ error: 'Failed to fetch prompts' }, { status: 500 });

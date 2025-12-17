@@ -23,4 +23,13 @@ model PromptEntry {
   originalPrompt String?  // User's original input (preserving language)
   isFavorite     Boolean  @default(false)
   createdAt      DateTime @default(now())
+  embedding      String?  // JSON string of float array for semantic search
+}
+
+model PromptSnippet {
+  id        String   @id @default(uuid())
+  category  String   // "Lighting", "Camera", "Style", "Quality", "subject"
+  content   String   // "rim lighting", "8k resolution"
+  label     String   // "輪廓光", "8K"
+  createdAt DateTime @default(now())
 }

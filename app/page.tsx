@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import PromptForm from "@/components/PromptForm";
 import PromptGallery from "@/components/PromptGallery";
 import ServerStatus from "@/components/ServerStatus";
+import PromptLabModal from "@/components/PromptLabModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
     const [reuseData, setReuseData] = useState<any>(null);
     const [showChangelog, setShowChangelog] = useState(false);
     const [changelog, setChangelog] = useState<string>("");
+    const [showPromptLab, setShowPromptLab] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -25,6 +27,19 @@ export default function Home() {
         setRefreshTrigger((prev) => prev + 1);
     };
 
+    const handleUsePrompt = (prompt: string) => {
+        setReuseData({
+            prompt: prompt,
+            // Keep defaults
+            width: 1024,
+            height: 1024,
+            steps: 25,
+            cfgScale: 7.0,
+            seed: -1
+        });
+        setShowPromptLab(false);
+    };
+
     return (
         <main className="min-h-screen flex flex-col items-center py-8 md:py-20 gap-8 md:gap-16 px-4">
             <div className="text-center space-y-2 md:space-y-4">
@@ -32,14 +47,30 @@ export default function Home() {
                     Prompt Database
                 </h1>
                 <p className="text-gray-400 text-sm md:text-lg">打造您的專屬提示詞庫</p>
-                {/* Changelog Button */}
-                <button
-                    onClick={() => setShowChangelog(true)}
-                    className="text-xs text-gray-500 hover:text-cyan-400 transition-colors underline underline-offset-2"
-                >
-                    📋 查看更新日誌
-                </button>
+
+                <div className="flex justify-center gap-4 text-xs font-semibold">
+                    {/* Changelog Button */}
+                    <button
+                        onClick={() => setShowChangelog(true)}
+                        className="text-gray-500 hover:text-cyan-400 transition-colors underline underline-offset-2"
+                    >
+                        📋 查看更新日誌
+                    </button>
+                    {/* Prompt Lab Button */}
+                    <button
+                        onClick={() => setShowPromptLab(true)}
+                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
+                    >
+                        🧪 Prompt 實驗室
+                    </button>
+                </div>
             </div>
+
+            <PromptLabModal
+                isOpen={showPromptLab}
+                onClose={() => setShowPromptLab(false)}
+                onUsePrompt={handleUsePrompt}
+            />
 
             <PromptForm onSuccess={handleSuccess} initialData={reuseData} />
 
