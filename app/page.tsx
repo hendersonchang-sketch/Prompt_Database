@@ -5,6 +5,7 @@ import PromptForm from "@/components/PromptForm";
 import PromptGallery from "@/components/PromptGallery";
 import ServerStatus from "@/components/ServerStatus";
 import PromptLabModal from "@/components/PromptLabModal";
+import InspirationMap from "@/components/InspirationMap";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -12,6 +13,7 @@ export default function Home() {
     const [showChangelog, setShowChangelog] = useState(false);
     const [changelog, setChangelog] = useState<string>("");
     const [showPromptLab, setShowPromptLab] = useState(false);
+    const [showInspirationMap, setShowInspirationMap] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -38,7 +40,9 @@ export default function Home() {
             seed: -1
         });
         setShowPromptLab(false);
+        setShowInspirationMap(false);
     };
+
 
     return (
         <main className="min-h-screen flex flex-col items-center py-8 md:py-20 gap-8 md:gap-16 px-4">
@@ -62,6 +66,13 @@ export default function Home() {
                         className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
                     >
                         🧪 Prompt 實驗室
+                    </button>
+                    {/* Inspiration Map Button */}
+                    <button
+                        onClick={() => setShowInspirationMap(true)}
+                        className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1"
+                    >
+                        🕸️ 靈感地圖
                     </button>
                 </div>
             </div>
@@ -102,6 +113,36 @@ export default function Home() {
                             <pre className="whitespace-pre-wrap text-xs text-gray-300 font-mono leading-relaxed">
                                 {changelog || '載入中...'}
                             </pre>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Inspiration Map Modal */}
+            {showInspirationMap && (
+                <div
+                    className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+                    onClick={() => setShowInspirationMap(false)}
+                >
+                    <div
+                        className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-5xl h-[80vh] flex flex-col relative"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <div className="flex justify-between items-center p-4 border-b border-white/10 shrink-0">
+                            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                                🕸️ 靈感地圖
+                                <span className="text-xs font-normal text-gray-400 bg-white/10 px-2 py-0.5 rounded">Beta</span>
+                            </h2>
+                            <button
+                                onClick={() => setShowInspirationMap(false)}
+                                className="text-gray-500 hover:text-white text-2xl"
+                            >×</button>
+                        </div>
+                        <div className="flex-1 overflow-hidden relative p-4">
+                            <InspirationMap onSelect={handleUsePrompt} />
+                        </div>
+                        <div className="p-4 border-t border-white/10 text-center text-xs text-gray-500">
+                            點擊節點可直接將 Prompt 帶入輸入框
                         </div>
                     </div>
                 </div>

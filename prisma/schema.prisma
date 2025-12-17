@@ -33,3 +33,13 @@ model PromptSnippet {
   label     String   // "輪廓光", "8K"
   createdAt DateTime @default(now())
 }
+
+model Character {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  basePrompt  String
+  seed        Int?     @default(-1)
+  avatarUrl   String?
+  createdAt   DateTime @default(now())
+}

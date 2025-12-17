@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 
 export async function GET() {
     try {
-        // @ts-ignore
         const snippets = await prisma.promptSnippet.findMany({
             orderBy: { createdAt: 'desc' }
         });
@@ -34,7 +33,6 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        // @ts-ignore
         const snippet = await prisma.promptSnippet.create({
             data: {
                 category,
@@ -58,7 +56,6 @@ export async function DELETE(request: Request) {
             return NextResponse.json({ error: 'Missing id' }, { status: 400 });
         }
 
-        // @ts-ignore
         await prisma.promptSnippet.delete({
             where: { id }
         });

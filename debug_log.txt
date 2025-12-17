@@ -1311,3 +1311,19 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "亞洲女性, 攝影肖像, 黃金時段, 精緻服裝, 電影氛圍"
 }
 -------------------
+
+[2025-12-17T13:47:04.640Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese beauty, 20 years old, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "高端人像攝影，一位台灣美女，20歲，全身照，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影感光線，細緻的皮膚紋理，背景虛化。",
+  "tags": "台灣美女, 人像攝影, 電影感, 85mm鏡頭, 高端時尚"
+}
+-------------------
+
+[2025-12-17T13:48:44.894Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl, 20 years old, full body, delicate features, straight nose, black shiny hair in a high ponytail, slender figure, graceful posture, slender physique, wearing a gray fitted hooded long coat above her thighs, zipper slightly open, revealing a light gray strapless top, gray fur trim on hood and collar, smiling at the camera on a bustling Tokyo street, neon signs, wet pavement after rain, pedestrians with umbrellas, towering skyscraper in background obscured by light fog, 8k, detailed.",
+  "zhPrompt": "台灣美女，20歲，全身照，一位台灣優雅美麗的女孩，五官精緻，鼻樑挺直。她的頭髮烏黑亮麗，紮成高馬尾。她身材苗條，姿態優雅，體態纖細。她穿著一件灰色修身連帽長外套，長度在大腿以上，拉鍊微微敞開，露出淺灰色的抹胸上衣。外套的帽子和領子飾有灰色毛皮。她在繁華的東京街道上對著鏡頭微笑。霓虹燈以鮮豔的色彩照亮了場景，倒映在剛下過雨的濕漉漉的人行道上。行人撐著傘擠滿了人行道。背景中，一棟高聳的摩天大樓隱約可見，被淡淡的薄霧所籠罩。8k，細節豐富。",
+  "tags": "台灣美女, 東京街頭, 20歲, 時尚, 8K"
+}
+-------------------

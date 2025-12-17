@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import CharacterManager from "./CharacterManager";
 
 interface PromptFormProps {
     onSuccess: () => void;
@@ -296,6 +297,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     // Character DNA State
     const [savedCharacters, setSavedCharacters] = useState<{ name: string, prompt: string }[]>([]);
     const [isCharacterMenuOpen, setIsCharacterMenuOpen] = useState(false);
+    const [showCharManager, setShowCharManager] = useState(false);
 
     // Prompt Queue State (for batch variations)
     const [promptQueue, setPromptQueue] = useState<string[]>([]);
@@ -1197,6 +1199,22 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                 🧑 提取角色 DNA（不含場景）
                             </span>
                         </button>
+
+                        {/* Character Vault Button */}
+                        <button
+                            type="button"
+                            onClick={() => setShowCharManager(true)}
+                            className="p-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-indigo-500/30 group"
+                            title="打開角色庫"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span className="sr-only">角色庫</span>
+                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                👤 管理角色 DNA
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1405,6 +1423,19 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                     "開始生圖 (Generate)"
                 )}
             </button>
+
+            <CharacterManager
+                isOpen={showCharManager}
+                onClose={() => setShowCharManager(false)}
+                onSelect={(char) => {
+                    setFormData(prev => ({
+                        ...prev,
+                        prompt: char.basePrompt + (prev.prompt ? ", " + prev.prompt : ""),
+                        seed: (char.seed !== null && char.seed !== -1) ? char.seed : prev.seed
+                    }));
+                    setShowCharManager(false);
+                }}
+            />
         </form>
     );
 }

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false });
 
 interface InspirationMapProps {
-    onSelect: (promptId: string) => void;
+    onSelect: (prompt: string) => void;
 }
 
 export default function InspirationMap({ onSelect }: InspirationMapProps) {
@@ -50,7 +50,9 @@ export default function InspirationMap({ onSelect }: InspirationMapProps) {
     };
 
     const handleNodeClick = useCallback((node: any) => {
-        onSelect(node.id);
+        if (node.fullPrompt) {
+            onSelect(node.fullPrompt);
+        }
     }, [onSelect]);
 
     return (
