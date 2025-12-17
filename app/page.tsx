@@ -10,6 +10,7 @@ import StoryboardModal from "@/components/StoryboardModal";
 import MagicCanvas from "@/components/MagicCanvas";
 import StyleTunerModal from "@/components/StyleTunerModal";
 import BatchImportModal from "@/components/BatchImportModal";
+import AutoRefinerModal from "@/components/AutoRefinerModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -22,6 +23,7 @@ export default function Home() {
     const [showMagicCanvas, setShowMagicCanvas] = useState(false);
     const [showStyleTuner, setShowStyleTuner] = useState(false);
     const [showBatchImport, setShowBatchImport] = useState(false);
+    const [showAutoRefiner, setShowAutoRefiner] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -53,6 +55,7 @@ export default function Home() {
         setShowMagicCanvas(false);
         setShowStyleTuner(false);
         setShowBatchImport(false);
+        setShowAutoRefiner(false);
     };
 
 
@@ -113,6 +116,13 @@ export default function Home() {
                         className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-1"
                     >
                         📥 批量匯入
+                    </button>
+                    {/* Auto Refiner Button */}
+                    <button
+                        onClick={() => setShowAutoRefiner(true)}
+                        className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
+                    >
+                        🤖 Auto Agent
                     </button>
                 </div>
             </div>
@@ -199,6 +209,9 @@ export default function Home() {
 
             {/* Batch Import Modal */}
             <BatchImportModal isOpen={showBatchImport} onClose={() => setShowBatchImport(false)} />
+
+            {/* Auto Refiner Modal */}
+            <AutoRefinerModal isOpen={showAutoRefiner} onClose={() => setShowAutoRefiner(false)} />
         </main>
     );
 }
