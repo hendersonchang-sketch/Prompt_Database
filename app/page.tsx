@@ -7,6 +7,8 @@ import ServerStatus from "@/components/ServerStatus";
 import PromptLabModal from "@/components/PromptLabModal";
 import InspirationMap from "@/components/InspirationMap";
 import StoryboardModal from "@/components/StoryboardModal";
+import MagicCanvas from "@/components/MagicCanvas";
+import StyleTunerModal from "@/components/StyleTunerModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -16,6 +18,8 @@ export default function Home() {
     const [showPromptLab, setShowPromptLab] = useState(false);
     const [showInspirationMap, setShowInspirationMap] = useState(false);
     const [showStoryboard, setShowStoryboard] = useState(false);
+    const [showMagicCanvas, setShowMagicCanvas] = useState(false);
+    const [showStyleTuner, setShowStyleTuner] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -44,6 +48,8 @@ export default function Home() {
         setShowPromptLab(false);
         setShowInspirationMap(false);
         setShowStoryboard(false);
+        setShowMagicCanvas(false);
+        setShowStyleTuner(false);
     };
 
 
@@ -83,6 +89,20 @@ export default function Home() {
                         className="text-yellow-400 hover:text-yellow-300 transition-colors flex items-center gap-1"
                     >
                         🎬 故事板
+                    </button>
+                    {/* Magic Canvas Button */}
+                    <button
+                        onClick={() => setShowMagicCanvas(true)}
+                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
+                    >
+                        🖌️ Magic Canvas
+                    </button>
+                    {/* Style Tuner Button */}
+                    <button
+                        onClick={() => setShowStyleTuner(true)}
+                        className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
+                    >
+                        ⚖️ 風格調校
                     </button>
                 </div>
             </div>
@@ -160,6 +180,12 @@ export default function Home() {
 
             {/* AI Storyboard Modal */}
             <StoryboardModal isOpen={showStoryboard} onClose={() => setShowStoryboard(false)} />
+
+            {/* Magic Canvas Modal */}
+            <MagicCanvas isOpen={showMagicCanvas} onClose={() => setShowMagicCanvas(false)} />
+
+            {/* Style Tuner Modal */}
+            <StyleTunerModal isOpen={showStyleTuner} onClose={() => setShowStyleTuner(false)} />
         </main>
     );
 }
