@@ -6,6 +6,7 @@ import PromptGallery from "@/components/PromptGallery";
 import ServerStatus from "@/components/ServerStatus";
 import PromptLabModal from "@/components/PromptLabModal";
 import InspirationMap from "@/components/InspirationMap";
+import StoryboardModal from "@/components/StoryboardModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -14,6 +15,7 @@ export default function Home() {
     const [changelog, setChangelog] = useState<string>("");
     const [showPromptLab, setShowPromptLab] = useState(false);
     const [showInspirationMap, setShowInspirationMap] = useState(false);
+    const [showStoryboard, setShowStoryboard] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -41,6 +43,7 @@ export default function Home() {
         });
         setShowPromptLab(false);
         setShowInspirationMap(false);
+        setShowStoryboard(false);
     };
 
 
@@ -73,6 +76,13 @@ export default function Home() {
                         className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1"
                     >
                         🕸️ 靈感地圖
+                    </button>
+                    {/* Storyboard Button */}
+                    <button
+                        onClick={() => setShowStoryboard(true)}
+                        className="text-yellow-400 hover:text-yellow-300 transition-colors flex items-center gap-1"
+                    >
+                        🎬 故事板
                     </button>
                 </div>
             </div>
@@ -147,6 +157,9 @@ export default function Home() {
                     </div>
                 </div>
             )}
+
+            {/* AI Storyboard Modal */}
+            <StoryboardModal isOpen={showStoryboard} onClose={() => setShowStoryboard(false)} />
         </main>
     );
 }
