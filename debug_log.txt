@@ -1,0 +1,1313 @@
+
+[2025-12-16T03:51:15.462Z] API Error 404:
+{
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+[2025-12-16T03:52:59.930Z] API Error 404:
+{
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+[2025-12-16T03:54:23.673Z] API Error 404:
+{
+  "error": {
+    "code": 404,
+    "message": "models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+[2025-12-16T03:56:03.571Z] API Error 404:
+{
+  "error": {
+    "code": 404,
+    "message": "models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview, models/veo-3.1-fast-generate-preview
+
+[2025-12-16T03:57:56.487Z] Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic cinematic portrait photography of a woman in traditional Chinese hanfu attire, captured from a slightly elevated top-down three-quarter angle. Subject is seated on a wooden platform or pavilion floor, body angled slightly sideways, head gently tilted upward toward the camera. Posture is elegant and composed, shoulders relaxed, hands softly clasping a pale pink peony flower near the chest.",
+  "zhPrompt": "超現實主義電影人像攝影，一位身著傳統中國漢服的女子，從略微抬高的俯視四分之三角度拍攝。主體坐在木製平台或亭閣地板上，身體稍微側向，頭部輕輕向上傾斜朝向鏡頭。姿態優雅而沉穩，肩膀放鬆，雙手輕柔地握著一朵淡粉色的牡丹花，靠近胸前。",
+  "tags": "漢服, 人像攝影, 電影感, 女性, 牡丹花"
+}
+-------------------
+
+[2025-12-16T04:02:42.661Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo.",
+  "zhPrompt": "一張年輕日本女子站在日落時分的寧靜傳統日本街道上的真實照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色手提袋，袋子裡坐著一隻毛茸茸的白色貓。溫暖的黃金時段光線，傳統木屋，寧靜的氣氛。自然的臉龐，真實的比例，高品質的照片。",
+  "tags": "日系, 哥德蘿莉塔, 貓, 黃昏, 寫實"
+}
+-------------------
+
+[2025-12-16T04:30:27.675Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo.",
+  "zhPrompt": "一張真實照片，一位年輕的日本女性站在日落時分安靜的傳統日式街道上。她穿著一件黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色手提袋，一隻蓬鬆的白色貓咪坐在袋子裡。溫暖的黃金時段光線，傳統木屋，寧靜的氛圍。自然的臉部，真實的比例，高品質的照片。",
+  "tags": "日系, 蘿莉塔, 貓咪, 黃昏, 街景"
+}
+-------------------
+
+[2025-12-16T04:31:31.268Z] Raw Gemini Response:
+{
+  "enPrompt": "Generate a highly realistic, movie poster-quality image with the theme \"Nine Lifetimes of Reincarnation.\" The overall composition is a vertical movie poster style. The central focus is the encounter in the present life, with the shadows of past lives layered above and below, as if memories of fate are slowly emerging in the scene.\n\nCentral Main Scene (9th Life - Present):\nThe center of the image features a man and a woman holding hands, centered in the composition with strong emotional impact.\nThe man stands on the left, and the woman stands on the right, from different eras.\nOn the left is a Taiwanese street scene from the 1980s, with old arcades, iron window frames, mottled walls, hand-written signs, old scooters, and dim streetlights, with a film grain and warm color tones. The man is dressed in 1980s-style clothing, with a deep and familiar expression, as if his soul already remembers the other person, reaching out his left hand towards the center.\nOn the right is a modern Taiwanese street scene, with tall buildings, glass display windows, and modern streetlights. The image is clear and sharp, with a cooler color tone. An elderly woman with white hair is dressed in modern clothing, reaching out her right hand towards the center.\nIn the very center of the image, the man's left hand and the woman's right hand are tightly clasped together. Their hands are the clearest and brightest visual focus of the entire poster, symbolizing their reunion in the ninth life.\n\nUpper Scene (1st to 4th Lifetimes - Shadows of the Past):\nThe upper half of the image is presented in a semi-transparent, layered, memory-like manner, unclear but emotionally intense, like the soul's memories.\nVisible elements:\nA man and a woman in ancient attire looking at each other amidst war.\nA figure separating under an ancient city wall.\nA moment of passing by in the rain but turning back.\nGazing at each other from a distance under candlelight.\nFacial features do not need to be completely clear, appearing as afterimages, silhouettes, or blurred scenes, with warmer, darker tones, evoking a sense of time and fate.\n\nLower Scene (5th to 8th Lifetimes - Shadows of the Past):\nThe lower half of the image similarly presents past life fragments in a layered shadow manner, closer to modern times.\nVisible elements:\nA chance encounter on an old-fashioned street.\nA back view of separation on a platform.\nTurning back towards each other in a crowd but unable to get close.\nA moment of reaching out but failing to hold hands.\nThe image has a sense of fluidity and slight blur, with color tones between warm and cool.\n\nBelow the hands of the man and woman, write:\n\"I was not born when you were, and you are old when I am born.\"\n\"You regret that I was born late, and I regret that you were born early.\"\n\nAt the very bottom, add small text:\nStarring Actor A, Actress B, Passerby A, Villager B\nVenice Film Festival: No one moved to tears, no awards won\nRenowned Director Ang Lee, Warner Bros. Pictures, Studio Ghibli: No recommendations\n\nWill Not Be Released on December 31 (enlarge the font)",
+  "zhPrompt": "生成一張高度寫實、電影海報等級的影像，主題為 「九世輪迴」。整體構圖為直式電影海報風格，畫面中央是今生的相遇，上下層疊呈現前世的殘影，如同命運的記憶在畫面中緩緩浮現。\n\n中央主畫面（第九世・今生）\n畫面正中央是一對男女的牽手畫面，構圖居中、情感強烈。\n男人站在左側，女人站在右側，兩人來自不同時代。\n左側是 1980 年代台灣街道，老騎樓、鐵窗、斑駁牆面、手寫招牌、老機車、昏黃路燈，帶有底片顆粒感與溫暖色調。男人穿著 1980 年代風格服裝，神情深情而熟悉，像是靈魂早已記得對方，左手向中央伸出。\n右側是 現代台灣街道，高樓、玻璃櫥窗、現代街燈，畫面清晰銳利，色調偏冷。白髮蒼蒼的老年女人穿著現代服裝，右手向中央伸出。\n在畫面正中央，男人的左手與女人的右手 緊緊牽在一起，雙手是整張海報最清晰、最明亮的視覺焦點，象徵第九世終於再次相遇。\n\n上方畫面（第一世 ～ 第四世・前世殘影）\n畫面上半部以半透明、層疊、如記憶般的方式呈現多個前世片段，不清晰但情感強烈，彷彿靈魂的回憶。\n可見：\n古代服飾的男女在戰亂中對望\n古城牆下分離的身影\n雨中錯身而過卻回頭的瞬間\n燭光下隔著距離卻彼此凝視\n人物臉部不需完全清楚，像殘影、剪影或霧化畫面，色調偏暖、偏暗，帶有歲月與宿命感\n\n下方畫面（第五世 ～ 第八世・前世殘影）\n畫面下半部同樣以層疊殘影方式呈現較接近現代的前世片段。\n可見：\n舊時代街道中擦肩而過\n月台上分離的背影\n人群中彼此回頭卻無法靠近\n伸手卻沒能牽到的瞬間\n畫面帶有流動感與淡淡模糊，色調介於暖與冷之間\n\n男女主牽手的下面寫：\n君生我未生，我生君已老。\n君恨我生遲，我恨君生早。\n\n最下面加點小字\n主角A 女主B 路人甲 村民乙 領銜主演\n威尼斯影展 沒人感動落淚 沒有得獎\n知名導演 李安 美國華納兄弟 日本吉卜力 沒有推薦\n\n12月31日 不會上映（字體放大）",
+  "tags": "電影海報, 輪迴, 前世今生, 宿命感, 愛情"
+}
+-------------------
+
+[2025-12-16T04:33:49.068Z] Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic cinematic portrait photography of a woman in traditional Chinese hanfu attire, captured from a slightly elevated top-down three-quarter angle. Subject is seated on a wooden platform or pavilion floor, body angled slightly sideways, head gently tilted upward toward the camera. Posture is elegant and composed, shoulders relaxed, hands softly clasping a pale pink peony flower near the chest.",
+  "zhPrompt": "超現實主義電影人像攝影，一位身穿中國傳統漢服的女子，從略微升高的由上往下的四分之三角度拍攝。主體坐在木製平台或亭閣地板上，身體稍微側向，頭部輕輕向上傾斜朝向相機。姿勢優雅而鎮定，肩膀放鬆，雙手輕柔地握住胸前一朵淡粉色的牡丹花。",
+  "tags": "漢服, 人像攝影, 電影風格, 女性, 牡丹花"
+}
+-------------------
+
+[2025-12-16T05:08:26.169Z] Raw Gemini Response:
+{
+  "enPrompt": "a cat",
+  "zhPrompt": "一隻貓",
+  "tags": "貓, 動物, 寵物"
+}
+-------------------
+
+[2025-12-16T05:08:39.986Z] Raw Gemini Response:
+{
+  "enPrompt": "a cat",
+  "zhPrompt": "一隻貓",
+  "tags": "貓, 動物, 寵物"
+}
+-------------------
+
+[2025-12-16T05:08:57.686Z] Raw Gemini Response:
+{
+  "enPrompt": "Cinematic Lighting, Volumetric Lighting, Studio Quality, Dramatic Atmosphere, Shallow Depth of Field, High Dynamic Range (HDR), Octane Render, Unreal Engine 5 render, Ray Tracing, Global Illumination, Subsurface Scattering (SSS), Masterpiece, best quality, ultra-detailed, 8k resolution, Sharp focus, Incredible texture details, a cat",
+  "zhPrompt": "電影光效、體積光、工作室品質、戲劇性氛圍、淺景深、高動態範圍 (HDR)、Octane 渲染、Unreal Engine 5 渲染、光線追蹤、全局照明、次表面散射 (SSS)、傑作、最佳品質、超細緻、8k 解析度、清晰對焦、驚人的紋理細節、一隻貓",
+  "tags": "貓, 電影光效, 高解析度, 超細緻, 渲染"
+}
+-------------------
+
+[2025-12-16T05:09:20.948Z] Raw Gemini Response:
+{
+  "enPrompt": "Cinematic Lighting, Volumetric Lighting, Studio Quality, Dramatic Atmosphere, Shallow Depth of Field, High Dynamic Range (HDR). Octane Render, Unreal Engine 5 render, Ray Tracing, Global Illumination, Subsurface Scattering (SSS). Masterpiece, best quality, ultra-detailed, 8k resolution, Sharp focus, Incredible texture details, a cat",
+  "zhPrompt": "電影光效、體積光、工作室品質、戲劇性氛圍、淺景深、高動態範圍 (HDR)。Octane 渲染、Unreal Engine 5 渲染、光線追蹤、全局照明、次表面散射 (SSS)。傑作、最佳品質、超細緻、8k 解析度、清晰對焦、令人難以置信的紋理細節，一隻貓",
+  "tags": "貓, 電影光效, 高解析度, 超細緻, 渲染"
+}
+-------------------
+
+[2025-12-16T05:10:00.266Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo. Cinematic Lighting, Volumetric Lighting, Studio Quality, Dramatic Atmosphere, Shallow Depth of Field, High Dynamic Range (HDR). Octane Render, Unreal Engine 5 render, Ray Tracing, Global Illumination, Subsurface Scattering (SSS). Masterpiece, best quality, ultra-detailed, 8k resolution, Sharp focus, Incredible texture details.",
+  "zhPrompt": "在日落時分，一位年輕的日本女性站在寧靜的傳統日本街道上的逼真照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色手提袋，裡面坐著一隻毛茸茸的白色貓。溫暖的黃金時段光線，傳統的木製房屋，寧靜的氣氛。自然的臉部，逼真的比例，高品質的照片。電影燈光，體積光，工作室品質，戲劇性的氣氛，淺景深，高動態範圍（HDR）。Octane Render，Unreal Engine 5 渲染，光線追蹤，全局照明，次表面散射（SSS）。傑作，最佳品質，超細緻，8k分辨率，清晰對焦，令人難以置信的紋理細節。",
+  "tags": "日系, 哥德蘿莉塔, 貓耳耳機, 黃昏, 街景"
+}
+-------------------
+
+[2025-12-16T05:10:27.487Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo. Cinematic Lighting, Volumetric Lighting, Studio Quality, Dramatic Atmosphere, Shallow Depth of Field, High Dynamic Range (HDR). Octane Render, Unreal Engine 5 render, Ray Tracing, Global Illumination, Subsurface Scattering (SSS). Masterpiece, best quality, ultra-detailed, 8k resolution, Sharp focus, Incredible texture details.",
+  "zhPrompt": "在日落時分，一位年輕的日本女子站在安靜的傳統日本街道上的逼真照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色的手提袋，裡面坐著一隻毛茸茸的白色貓。溫暖的黃金時段光線，傳統木屋，寧靜的氣氛。自然的臉，逼真的比例，高品質的照片。電影照明，體積照明，工作室品質，戲劇性的氣氛，淺景深，高動態範圍（HDR）。Octane 渲染，Unreal Engine 5 渲染，光線追蹤，全局照明，次表面散射（SSS）。傑作，最佳品質，超詳細，8k 分辨率，清晰對焦，令人難以置信的紋理細節。",
+  "tags": "日本, 哥德蘿莉塔, 日落, 貓, 街景"
+}
+-------------------
+
+[2025-12-16T05:31:41.264Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "在日落時分，一位年輕的日本女子站在安靜的傳統日本街道上，這是一張逼真的照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色的手提袋，裡面坐著一隻毛茸茸的白色貓咪。溫暖的金色時刻光線，傳統的木製房屋，寧靜的氛圍。自然的臉部，逼真的比例，高品質的照片。(電影照明:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，黃金時刻，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，安妮·萊柏維茲風格。傑作，最佳品質，超精細，8k解析度，獲獎攝影。",
+  "tags": "日系, 哥德蘿莉塔, 貓, 黃昏, 街景"
+}
+-------------------
+
+[2025-12-16T05:32:30.408Z] Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic cinematic portrait photography of a woman in traditional Chinese hanfu attire, captured from a slightly elevated top-down three-quarter angle. Subject is seated on a wooden platform or pavilion floor, body angled slightly sideways, head gently tilted upward toward the camera. Posture is elegant and composed, shoulders relaxed, hands softly clasping a pale pink peony flower near the chest. Cinematic Lighting, Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "以略微升高的俯視四分之三角度拍攝，一位身穿中國傳統漢服的女性的超逼真電影人像攝影。主體坐在木製平台或亭台樓閣的地板上，身體稍微側向，頭部輕輕向上傾斜朝向鏡頭。姿勢優雅而鎮定，肩膀放鬆，雙手輕輕地將一朵淡粉色的牡丹花抱在胸前。電影照明，柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，安妮·萊博維茨風格。傑作，最佳品質，超細緻，8k分辨率，獲獎攝影。",
+  "tags": "漢服, 人像攝影, 電影感, 女性, 牡丹"
+}
+-------------------
+
+[2025-12-16T05:33:26.726Z] Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic cinematic portrait photography of a woman in traditional Chinese hanfu attire, captured from a slightly elevated top-down three-quarter angle. Subject is seated on a wooden platform or pavilion floor, body angled slightly sideways, head gently tilted upward toward the camera. Posture is elegant and composed, shoulders relaxed, hands softly clasping a pale pink peony flower near the chest. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "以略微升高的由上往下的四分之三角度拍攝，一位身穿中國傳統漢服的女性的超真實電影肖像攝影。主體坐在木製平台或亭閣地板上，身體略微側向，頭部輕輕向上傾斜朝向相機。姿態優雅而鎮定，肩膀放鬆，雙手輕柔地握住胸前的一朵淡粉色牡丹花。（電影照明：1.3），柯達 Portra 400 膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用 Arri Alexa Mini 拍攝，安妮·萊博維茨風格。傑作，最佳品質，超細緻，8k 解析度，獲獎攝影。",
+  "tags": "漢服, 牡丹, 電影肖像, 女性攝影, 傳統服飾"
+}
+-------------------
+
+[2025-12-16T05:34:08.725Z] Raw Gemini Response:
+{
+  "enPrompt": "Highly realistic and cinematic image with strong emotional tension. The central dividing line represents time, with different eras on each side. The left half shows a nostalgic 1980s Taiwanese street with old-fashioned arcades, iron windows, weathered walls, hand-painted signs, and old scooters parked on the roadside. The streetlights cast a dim, warm glow, with a grainy, warm-toned film photography quality characteristic of the 1980s. A man on the left side, dressed in 1980s Taiwanese attire—a wide-collared shirt, khaki pants, and retro shoes—with a period-appropriate hairstyle. His expression is shocked yet affectionate, as he runs slightly towards the right, his left hand reaching towards the center. The right half displays a modern Taiwanese street. High-rise buildings, glass windows reflecting city lights, and clean, sharp streets showcase a modern digital photography quality, symbolizing the present era. A modern woman on the right, dressed in simple, stylish contemporary clothing, stops walking, her right hand reaching towards the center. In the exact center, the man's left hand and the woman's right hand are tightly clasped together, becoming the core focus of the image. Maintain realism and authenticity, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代。畫面左半邊是1980年代的台灣街道，街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片。左側是一名男人，穿著1980年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出。畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代。右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出。在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心。照片保持寫實與真實, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "tags": "台灣街景, 懷舊, 電影感, 情感張力, 時光交錯"
+}
+-------------------
+
+[2025-12-16T05:36:12.203Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. Generate a highly realistic image filled with cinematic and emotional tension, with the center of the frame acting as a timeline dividing different eras.\n\nThe left half of the image depicts a Taiwanese street scene from the 1980s, imbued with a strong sense of nostalgia. Features include old-style arcades, iron window frames, weathered walls, hand-painted signs, and old scooters parked along the roadside. Streetlights emit a dim, yellowish glow, with the overall texture resembling film photography, slightly grainy and with a warm color palette, consistent with the 1980s.\n\nOn the left side is a man dressed in 1980s Taiwanese-style clothing: a wide-cut shirt, khaki trousers, and retro shoes, with a hairstyle characteristic of the era. His expression is one of shock and deep affection. The man is running slightly towards the right-front, with his left hand reaching out towards the center of the frame.\n\nThe right half of the image shows a modern Taiwanese street. High-rise buildings stand tall, with glass windows reflecting city lights. The street is clean and sharp, presenting a modern digital photography texture, symbolizing the present era. All street signs are in Traditional Chinese characters (UTF-8).\n\nOn the right side is a modern woman dressed in simple yet fashionable contemporary clothing. She is walking forward but has stopped in her tracks, with her right hand reaching out towards the center of the frame.\n\nIn the very center of the frame, the man's left hand and the woman's right hand are clasped tightly together, their hands becoming the core of the entire image.\n\nKeep the photo realistic and authentic, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感與物理屬性。逐步思考：優先考慮光線以達到敘事效果，並優先考慮紋理以達到絕對逼真度。生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代。\n\n畫面左半邊是1980 年代的台灣街道，街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片。\n\n左側是一名男人，穿著 1980 年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出。\n\n畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代，所有街道招牌都是繁体中文字(UTF-8)。\n\n右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出。\n\n在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心。\n\n照片保持寫實與真實, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "tags": "台灣, 懷舊, 寫實, 電影感, 世代交替"
+}
+-------------------
+
+[2025-12-16T05:37:45.587Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Generate a hyperrealistic, cinematic, and emotionally charged image. The image is divided in the center to represent different eras.\n\nThe left half depicts a Taiwan street in the 1980s, with traditional Chinese characters on the signs. The street scene has a strong nostalgic atmosphere, with old-fashioned arcades, iron windows, mottled walls, hand-written signs, and old motorcycles parked on the roadside. The street lamps emit a dim yellow halo, and the overall presentation has a film photography texture, slightly grainy and with warm tones, consistent with photos from the 1980s.\n\nOn the left is a man dressed in 1980s Taiwan-style clothing: a wide-collared shirt, khaki pants, and retro shoes, with a hairstyle full of the era's style. His expression is shocked and affectionate. The man is running slightly to the right-front, with his left hand extended towards the center of the picture.\n\nThe right half depicts a modern Taiwan street with skyscrapers and glass windows reflecting the city lights. The street is clean and neat, and the picture is clear and sharp, presenting the texture of modern digital photography, symbolizing the current era. The street signs are in traditional Chinese characters.\n\nOn the right is a modern woman wearing simple and fashionable contemporary clothing. She is walking forward but stops at a certain moment, extending her right hand towards the center of the picture.\n\nIn the very center of the picture, the man's left hand and the woman's right hand are tightly held together, and the hands become the core of the entire picture.\n\nMaintain realism and authenticity, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感與物理屬性。逐步思考：優先考慮光線以營造敘事衝擊力，並優先考慮紋理以實現絕對保真度。生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代\n\n畫面左半邊是1980 年代的台灣街道，街道招牌都是繁体中文字, 街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片\n\n左側是一名男人，穿著 1980 年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出\n\n畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代，街道招牌都是繁体中文字 \n\n右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出\n\n在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心\n\n照片保持寫實與真實, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "tags": "台灣, 懷舊, 電影感, 跨時代, 情感"
+}
+-------------------
+
+[2025-12-16T05:38:51.369Z] Raw Gemini Response:
+{
+  "enPrompt": "Generate a highly realistic, cinematic, and emotionally charged image. The composition is divided in the center, with the left and right sides representing different eras.\n\nThe left half depicts a Taiwanese street in the 1980s, with traditional Chinese characters on the shop signs. The street scene exudes a strong sense of nostalgia, featuring old-fashioned arcades, iron window bars, mottled walls, hand-painted signs, old motorcycles parked by the roadside, and streetlights emitting a dim, warm glow. The overall aesthetic resembles film photography, with a slight grain and warm color tone, consistent with photos from the 1980s.\n\nOn the left side is a man dressed in 1980s Taiwanese-style clothing: a wide-cut shirt, khaki pants, and retro shoes, with a hairstyle reminiscent of the era. His expression is shocked yet affectionate. The man is running slightly towards the right front, with his left hand reaching towards the center of the frame.\n\nThe right half shows a modern Taiwanese street with towering buildings, glass windows reflecting city lights, clean and sharp streets, and a modern digital photography feel, symbolizing the present era. The shop signs display traditional Chinese characters.\n\nOn the right side is a modern woman dressed in simple yet fashionable contemporary clothing. She is walking forward but stops abruptly, extending her right hand towards the center of the frame.\n\nIn the very center of the image, the man's left hand and the woman's right hand are clasped tightly together, with the hands becoming the focal point of the entire image.\n\nMaintain realism and authenticity in the photograph.",
+  "zhPrompt": "生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代。\n\n畫面左半邊是1980 年代的台灣街道，街道招牌都是繁體中文字, 街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片。\n\n左側是一名男人，穿著 1980 年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出。\n\n畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代，街道招牌都是繁體中文字 。\n\n右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出。\n\n在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心。\n\n照片保持寫實與真實。",
+  "tags": "台灣, 懷舊, 現代, 電影感, 情感"
+}
+-------------------
+
+[2025-12-16T05:39:28.944Z] Raw Gemini Response:
+{
+  "enPrompt": "Generate a hyperrealistic, cinematic, and emotionally charged image divided centrally to represent different eras. The left side depicts a Taiwanese street in the 1980s, filled with nostalgia, featuring old-style arcades, iron window frames, weathered walls, hand-painted signs, vintage scooters parked by the roadside, and streetlights emitting a dim, warm glow. The overall aesthetic is reminiscent of film photography, with slight grain and warm tones characteristic of 1980s photos. On the left, a man dressed in 1980s Taiwanese attire—a wide-collared shirt, khaki pants, and retro shoes—sports a period-appropriate hairstyle. His expression is a mix of shock and deep affection, as he runs slightly towards the right, extending his left hand towards the center of the frame. The right side portrays a modern Taiwanese street scene with towering buildings, glass windows reflecting city lights, and clean, sharp lines, reflecting the quality of contemporary digital photography and symbolizing the present era. On the right, a modern woman dressed in minimalist yet fashionable contemporary clothing is shown pausing in her stride, her right hand reaching towards the center of the frame. In the exact center of the image, the man's left hand and the woman's right hand are clasped tightly together, their hands forming the core focus of the image. The image should maintain realism and authenticity.",
+  "zhPrompt": "生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代。畫面左半邊是1980年代的台灣街道，街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片。左側是一名男人，穿著1980年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出。畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代。右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出。在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心。照片保持寫實與真實。",
+  "tags": "台灣, 懷舊, 現代, 電影感, 寫實"
+}
+-------------------
+
+[2025-12-16T06:01:52.609Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. High-end editorial portrait of a 20-year-old Taiwanese beauty, full body, front view, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以達到敘事效果，並優先考慮紋理以達到絕對的保真度。高端編輯人像，[台灣美女，20歲，正面全身]，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影照明，細緻的皮膚紋理，散景背景。(電影照明:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，安妮·萊博維茨風格。傑作，最佳品質，超細緻，8k解析度，獲獎攝影。",
+  "tags": "台灣美女, 人像攝影, 電影照明, 8K解析度, 安妮·萊博維茨風格"
+}
+-------------------
+
+[2025-12-16T06:03:50.171Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., High-end editorial portrait of [台灣美女，20歲，full body], shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background., (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事衝擊力，並優先考慮紋理以實現絕對的保真度。，[台灣美女，20歲，全身]的高端編輯人像，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影燈光，細緻的皮膚紋理，散景背景，（電影燈光：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，Annie Leibovitz風格，傑作，最佳品質，超細緻，8k解析度，獲獎攝影作品。",
+  "tags": "台灣美女, 人像攝影, 電影燈光, 8K解析度, Annie Leibovitz風格"
+}
+-------------------
+
+[2025-12-16T06:04:37.753Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. Modern minimalist architecture of [Taipei 101], concrete and glass materials, natural lighting, blue hour, wide angle shot, architectural digest style. (Unreal Engine 5 render:1.3), Octane Render, Ray Tracing, Global Illumination, Hard Light, Sharp focus, Extreme Macro, Volumetric Light, Highly reflective surfaces, Vantablack background, Zaha Hadid style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，並優先考慮紋理以實現絕對保真。台北101的現代簡約建築，混凝土和玻璃材料，自然採光，藍色時段，廣角鏡頭，建築文摘風格。（Unreal Engine 5 渲染：1.3），Octane 渲染，光線追蹤，全局照明，硬光，清晰對焦，極端微距，體積光，高反射表面，Vantablack背景，Zaha Hadid風格。傑作，最佳品質，超精細，8k分辨率，獲獎攝影。",
+  "tags": "台北101, 現代建築, 極簡主義, 藍色時段, 8k分辨率"
+}
+-------------------
+
+[2025-12-16T06:04:59.265Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Modern minimalist architecture of Taipei 101, concrete and glass materials, natural lighting, blue hour, wide angle shot, architectural digest style. (Unreal Engine 5 render:1.3), Octane Render, Ray Tracing, Global Illumination, Hard Light, Sharp focus, Extreme Macro, Volumetric Light, Highly reflective surfaces, Vantablack background, Zaha Hadid style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，以及紋理以達到絕對的保真度。台北101的現代簡約主義建築，混凝土和玻璃材料，自然光，藍色時段，廣角鏡頭，建築文摘風格。（Unreal Engine 5渲染：1.3），Octane Render，光線追蹤，全局照明，硬光，清晰對焦，極端微距，體積光，高反射表面，Vantablack背景，Zaha Hadid風格。傑作，最佳質量，超細緻，8k分辨率，獲獎攝影。",
+  "tags": "台北101, 現代建築, 極簡主義, 藍色時段, 建築攝影"
+}
+-------------------
+
+[2025-12-16T06:05:17.367Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Modern minimalist architecture of [Taipei 101], concrete and glass materials, natural lighting, blue hour, wide angle shot, architectural digest style., (Unreal Engine 5 render:1.3), Octane Render, Ray Tracing, Global Illumination, Hard Light, Sharp focus, Extreme Macro, Volumetric Light, Highly reflective surfaces, Vantablack background, Zaha Hadid style., Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事影響，以及紋理以達到絕對的保真度。，[台北101]的現代簡約主義建築，混凝土和玻璃材料，自然光，藍色時刻，廣角鏡頭，建築文摘風格。，（Unreal Engine 5渲染：1.3），Octane渲染，光線追蹤，全局照明，硬光，清晰對焦，極端微距，體積光，高度反射表面，Vantablack背景，Zaha Hadid風格。，傑作，最佳品質，超細緻，8k解析度，獲獎攝影。",
+  "tags": "台北101, 現代建築, 極簡主義, 藍色時刻, 超現實"
+}
+-------------------
+
+[2025-12-16T06:07:13.396Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a beautiful 20-year-old Taiwanese woman, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "一位美麗的20歲台灣女性的高端社論肖像，全身照，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影燈光，細緻的皮膚紋理，散景背景。",
+  "tags": "台灣美女, 人像攝影, 高端時尚, 電影感, 散景"
+}
+-------------------
+
+[2025-12-16T06:07:35.179Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. High-end editorial portrait of [Taiwanese beauty, 20 years old, full body], shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以達到敘事效果，以及紋理以達到絕對的逼真度。高端的編輯人像，[台灣美女，20歲，全身]，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影光線，細緻的皮膚紋理，散景背景。(電影光效：1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，安妮·萊博維茨風格。傑作，最佳品質，超細緻，8k分辨率，獲獎攝影作品。",
+  "tags": "台灣美女, 人像攝影, 電影光效, 8K, 超細緻"
+}
+-------------------
+
+[2025-12-16T06:12:39.791Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese beauty, 20 years old, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "高端人像攝影，台灣美女，20歲，全身照，使用85mm鏡頭拍攝，f/1.8光圈，柔和電影感光線，細緻的皮膚紋理，背景虛化。",
+  "tags": "人像攝影, 台灣美女, 電影感, 85mm鏡頭, 背景虛化"
+}
+-------------------
+
+[2025-12-16T06:13:16.313Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese beauty, 20 years old, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "高端人像攝影，一位20歲的台灣美女，全身，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影感燈光，細緻的皮膚紋理，散景背景。",
+  "tags": "台灣美女, 人像攝影, 電影感, 散景, 85mm鏡頭"
+}
+-------------------
+
+[2025-12-16T06:13:43.047Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. High-end editorial portrait of a 20-year-old Taiwanese beauty, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，並優先考慮紋理以實現絕對的保真度。高端寫真，一位20歲的台灣美女，全身像，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影光線，細緻的皮膚紋理，散景背景。(電影光效:1.3)，柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，使用Arri Alexa Mini拍攝，安妮·萊博維茨風格。傑作，最佳品質，超細緻，8k分辨率，獲獎攝影作品。",
+  "tags": "台灣美女, 人像攝影, 電影光效, 8K, 艾麗卡"
+}
+-------------------
+
+[2025-12-16T06:34:17.587Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of [an elegant and beautiful Taiwanese girl with delicate features and a straight nose. Her hair is black and shiny, styled in a high ponytail. She has a slender figure, graceful posture, and a slender frame. Clothing: She is wearing a gray, fitted, hooded long coat that reaches above her thighs, with the zipper slightly open, revealing a light gray strapless top. Details: The hood's edge and collar of the coat have gray fur trim. She is smiling at the camera. Scene: The interior of a log cabin with a rustic style. Walls: The walls are made of rough, horizontal logs, creating a warm and rustic country style. Windows: There are two large wooden-framed glass windows that provide good lighting and make the interior bright. Interior furnishings: Next to her is a brown wooden chest of drawers with an old-fashioned radio and alarm clock on top, in a minimalist style. Outside view: Through the windows, there is ample outdoor light, a snowy outdoor environment, and stairs and structures of other wooden buildings in the distance.], shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "高端人像寫真，[一位台灣優雅型漂亮女孩，面容清秀，五官精緻。鼻樑挺直。髮色烏黑亮麗，頭髮高馬尾。身材纖細，體態優美，身形修長。服裝： 穿著一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，淺灰色平口內搭。細節： 外套的帽子邊緣領口部分帶有灰色的毛絨裝飾。面對鏡頭微笑。場景：是一個原木結構的小木屋室內。牆壁： 牆面由粗獷的原木橫向堆疊而成，呈現出溫暖而質樸的鄉村風格。窗戶： 有兩扇大面積的木框玻璃窗戶，採光良好，讓室內環境明亮。室內擺設： 旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機，鬧鐘，風格簡約。窗外景色： 透過窗戶，室外光線充足，雪地戶外環境，遠處還其他木造建築的樓梯和結構。]，使用 85mm 鏡頭拍攝，f/1.8 光圈，柔和的電影燈光，細緻的皮膚紋理，散景背景。",
+  "tags": "台灣女孩, 高端寫真, 木屋, 冬季, 肖像"
+}
+-------------------
+
+[2025-12-16T06:34:39.016Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese elegant and beautiful girl with delicate features, a straight nose, and shiny black hair in a high ponytail. She has a slender and graceful figure. She is wearing a gray fitted hooded long coat that reaches above her thighs, with a slightly unzipped zipper and a light gray strapless top underneath. The coat's hood has gray fur trim. She is smiling at the camera in a rustic wooden cabin. The walls are made of rough, horizontally stacked logs, creating a warm and rustic ambiance. There are two large wooden-framed glass windows that provide ample natural light, brightening the interior. Next to her is a brown wooden chest of drawers with an old-fashioned radio and alarm clock on top in a minimalist style. Outside the windows, there is a well-lit snowy outdoor environment with stairs and structures of other wooden buildings in the distance. soft cinematic lighting, detailed skin texture, bokeh background., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一位台灣優雅型漂亮女孩的高端編輯人像，面容清秀，五官精緻，鼻樑挺直，烏黑亮麗的頭髮紮成高馬尾。她身材纖細，體態優美。身穿一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，內搭淺灰色平口上衣。外套的帽子邊緣有灰色毛絨裝飾。她在一個樸實的木屋內，面對鏡頭微笑。牆壁由粗獷的原木橫向堆疊而成，營造出溫暖而質樸的氛圍。有兩扇大面積的木框玻璃窗戶，提供充足的自然光線，照亮室內。旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機和鬧鐘，風格簡約。透過窗戶，可以看到光線充足的雪地戶外環境，遠處還有其他木造建築的樓梯和結構。柔和的電影燈光，細緻的皮膚紋理，散景背景，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k解析度，獲獎攝影。",
+  "tags": "台灣女孩, 木屋, 雪景, 人像攝影, 電影光"
+}
+-------------------
+
+[2025-12-16T06:34:58.392Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese elegant and beautiful girl with delicate and refined features, a straight nose, glossy black hair in a high ponytail, a slender and graceful figure, and a slender frame. She is wearing a fitted gray hooded long coat that reaches above the thighs, with the zipper slightly open, and a light gray strapless top underneath. The hood of the coat is trimmed with gray plush. She is smiling at the camera in a rustic wooden cabin interior with rough-hewn wooden walls, two large wooden-framed glass windows providing ample light, a brown wooden dresser with a vintage radio and alarm clock, and an outdoor snowy scene visible through the windows with other wooden buildings in the distance, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background.",
+  "zhPrompt": "高端時尚人像攝影，[一位台灣優雅型漂亮女孩，面容清秀，五官精緻。鼻樑挺直。髮色烏黑亮麗，頭髮高馬尾。身材纖細，體態優美，身形修長。服裝： 穿著一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，淺灰色平口內搭。細節： 外套的帽子邊緣領口部分帶有灰色的毛絨裝飾。面對鏡頭微笑。場景：是一個原木結構的小木屋室內。牆壁： 牆面由粗獷的原木橫向堆疊而成，呈現出溫暖而質樸的鄉村風格。窗戶： 有兩扇大面積的木框玻璃窗戶，採光良好，讓室內環境明亮。室內擺設： 旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機，鬧鐘，風格簡約。窗外景色： 透過窗戶，室外光線充足，雪地戶外環境，遠處還其他木造建築的樓梯和結構。]，使用85mm鏡頭拍攝，f/1.8光圈，柔和電影感燈光，細緻的皮膚紋理，散景背景。",
+  "tags": "台灣女孩, 時尚人像, 木屋, 冬季雪景, 85mm攝影"
+}
+-------------------
+
+[2025-12-16T06:35:18.620Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of [an elegant Taiwanese beautiful girl with delicate features, a straight nose, shiny black hair in a high ponytail, a slender and graceful figure. She is wearing a fitted gray hooded long coat, zipped slightly open, with a light gray strapless top underneath. The coat's hood and collar are trimmed with gray fur. She is smiling at the camera in a rustic wooden cabin. The walls are made of rough, horizontal logs, creating a warm, rustic atmosphere. There are two large wooden-framed glass windows providing ample natural light. A brown wooden dresser stands beside her, decorated with an old-fashioned radio and alarm clock in a minimalist style. Through the windows, the bright outdoor light reveals a snowy landscape with other wooden buildings in the distance], soft cinematic lighting, detailed skin texture, bokeh background, 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award-winning photography.",
+  "zhPrompt": "高端編輯人像攝影，[一位台灣優雅型漂亮女孩，面容清秀，五官精緻，鼻樑挺直。髮色烏黑亮麗，頭髮高馬尾。身材纖細，體態優美，身形修長。服裝： 穿著一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，淺灰色平口內搭。細節： 外套的帽子邊緣領口部分帶有灰色的毛絨裝飾。面對鏡頭微笑。場景：是一個原木結構的小木屋室內。牆壁： 牆面由粗獷的原木橫向堆疊而成，呈現出溫暖而質樸的鄉村風格。窗戶： 有兩扇大面積的木框玻璃窗戶，採光良好，讓室內環境明亮。室內擺設： 旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機，鬧鐘，風格簡約。窗外景色： 透過窗戶，室外光線充足，雪地戶外環境，遠處還其他木造建築的樓梯和結構。]，柔和電影光線，細緻的皮膚紋理，散景背景，100mm微距鏡頭，f/2.8光圈，柔和漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，獲獎攝影作品。",
+  "tags": "人像攝影, 台灣女孩, 小木屋, 冬季, 柔和光線"
+}
+-------------------
+
+[2025-12-16T06:36:04.503Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. High-end editorial portrait of [Taiwanese beauty, 20 years old, full body, facing forward], soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事效果，並優先考慮紋理以實現絕對保真度。 [台灣美女，20歲，正面全身] 的高端編輯肖像，柔和的電影照明，細緻的皮膚紋理，散景背景。（電影照明：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，Annie Leibovitz風格。100mm微距鏡頭，f/2.8光圈，柔和的漫射照明，光帳，專業產品攝影，奢華細節，傑作，最佳質量，超精細，8k分辨率，獲獎攝影。",
+  "tags": "台灣美女, 肖像攝影, 電影照明, 8K, Annie Leibovitz"
+}
+-------------------
+
+[2025-12-16T06:36:37.882Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一張逼真的照片，一位年輕的日本女性站在日落時分寧靜的傳統日本街道上。她穿著一件黑色的哥德蘿莉塔洋裝和黑色的貓耳耳機。她提著一個黃色的手提袋，袋子裡坐著一隻毛茸茸的白色貓。溫暖的黃金時段光線，傳統的木製房屋，寧靜的氣氛。自然的臉部，逼真的比例，高品質的照片，100毫米微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業的產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，獲獎攝影。",
+  "tags": "日系, 哥德蘿莉塔, 貓, 街景, 日落"
+}
+-------------------
+
+[2025-12-16T06:38:08.482Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "在日落時分，一位年輕的日本女性站在安靜的傳統日本街道上的逼真照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色手提袋，裡面坐著一隻毛茸茸的白色貓。溫暖的金色時光照明、傳統木屋、寧靜的氣氛。自然的面容、逼真的比例、高品質的照片、100mm 微距鏡頭、f/2.8 光圈、柔和的漫射光、柔光箱、專業產品攝影、奢華的細節、傑作、最佳品質、超精細、8k 解析度、獲獎攝影。",
+  "tags": "日系, 蘿莉塔, 貓, 街景, 日落"
+}
+-------------------
+
+[2025-12-16T06:39:51.464Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose. Her hair is black and shiny, styled in a high ponytail. She has a slender figure, graceful posture, and a slender physique. She is wearing a gray fitted hooded long coat that reaches above her thighs, with the zipper slightly open, revealing a light gray strapless top. The hood and collar of the coat are decorated with gray fur. She smiles at the camera in a wooden cabin interior. The walls are made of rough, horizontally stacked logs, creating a warm and rustic country style. There are two large wooden-framed glass windows providing ample light. Next to her is a brown wooden chest of drawers with an old-fashioned radio and alarm clock on top. Through the windows, the outdoor environment is bright and snowy, with other wooden buildings and structures in the distance.",
+  "zhPrompt": "一位台灣優雅型漂亮女孩，面容清秀，五官精緻。鼻樑挺直。髮色烏黑亮麗，頭髮高馬尾。身材纖細，體態優美，身形修長。服裝：穿著一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，淺灰色平口內搭。細節：外套的帽子邊緣領口部分帶有灰色的毛絨裝飾。面對鏡頭微笑。場景：是一個原木結構的小木屋室內。牆壁：牆面由粗獷的原木橫向堆疊而成，呈現出溫暖而質樸的鄉村風格。窗戶：有兩扇大面積的木框玻璃窗戶，採光良好，讓室內環境明亮。室內擺設：旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機，鬧鐘，風格簡約。窗外景色：透過窗戶，室外光線充足，雪地戶外環境，遠處還其他木造建築的樓梯和結構。",
+  "tags": "台灣女孩, 優雅, 木屋, 冬季, 雪景"
+}
+-------------------
+
+[2025-12-16T06:40:23.015Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose. She has black, shiny hair in a high ponytail. She is slender with a graceful and slender figure. She wears a gray, fitted, hooded long jacket that extends to above her thighs, with the zipper slightly open, revealing a light gray strapless top. The hood's edge and collar have gray faux fur trim. She smiles at the camera. The scene is the interior of a log cabin. The walls are made of rough, horizontally stacked logs, creating a warm and rustic style. There are two large wooden-framed glass windows, providing good lighting and brightening the interior. Next to her is a brown wooden chest of drawers, on which are placed an old-fashioned radio and an alarm clock, with a minimalist style. Through the windows, there is ample outdoor light, a snowy outdoor environment, and in the distance, there are stairs and structures of other wooden buildings. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一位台灣優雅型漂亮女孩，面容清秀，五官精緻，鼻樑挺直。髮色烏黑亮麗，頭髮高馬尾。身材纖細，體態優美，身形修長。穿著一件灰色合身連帽長版外套，長度到大腿上方，外套拉鍊微開，淺灰色平口內搭。外套的帽子邊緣領口部分帶有灰色的毛絨裝飾。面對鏡頭微笑。場景是一個原木結構的小木屋室內。牆面由粗獷的原木橫向堆疊而成，呈現出溫暖而質樸的鄉村風格。有兩扇大面積的木框玻璃窗戶，採光良好，讓室內環境明亮。旁邊有一個棕色木質的五斗櫃，上面擺放著老式收音機，鬧鐘，風格簡約。透過窗戶，室外光線充足，雪地戶外環境，遠處還有其他木造建築的樓梯和結構。50mm, f/2.8 光圈, 電影照明, 平衡, 專業攝影, 傑作, 最佳品質, 超細緻, 8k 解析度, 獲獎攝影。",
+  "tags": "台灣女孩, 木屋, 冬季, 人像攝影, 電影感"
+}
+-------------------
+
+[2025-12-16T06:50:51.674Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman in her 20s standing on a quiet traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo.",
+  "zhPrompt": "一張年輕日本女子（20多歲）在日落時分站在寧靜的傳統日本街道上的真實照片。她穿著黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色托特包，裡面坐著一隻蓬鬆的白色貓咪。溫暖的金色時光照明，傳統的木製房屋，寧靜的氣氛。自然的臉部，真實的比例，高品質的照片。",
+  "tags": "日系, 蘿莉塔, 貓咪, 黃昏, 街景"
+}
+-------------------
+
+[2025-12-16T06:51:22.929Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic photo of a young Japanese woman in her 20s standing on a quiet, traditional Japanese street at sunset. She is wearing a black Gothic Lolita dress and black cat-ear headphones. She carries a yellow tote bag with a fluffy white cat sitting inside the bag. Warm golden hour lighting, traditional wooden houses, peaceful atmosphere. Natural face, realistic proportions, high quality photo.",
+  "zhPrompt": "一張真實的照片，一位二十多歲的年輕日本女性站在日落時分寧靜的傳統日本街道上。她穿著一件黑色哥德蘿莉塔洋裝和黑色貓耳耳機。她提著一個黃色托特包，裡面坐著一隻毛茸茸的白色貓。溫暖的黃金時段光線，傳統木屋，寧靜的氣氛。自然的臉部，真實的比例，高品質的照片。",
+  "tags": "日系, 蘿莉塔, 貓, 黃昏, 街景"
+}
+-------------------
+
+[2025-12-16T06:52:26.568Z] Raw Gemini Response:
+{
+  "enPrompt": "Generate a highly realistic, cinematic, and emotionally charged image. The scene is divided in the center, with the left and right sides representing different eras.\n\nThe left side depicts a Taiwanese street in the 1980s, with a strong nostalgic atmosphere. It includes old-fashioned arcades, iron windows, mottled walls, handwritten signs, old scooters parked on the roadside, and streetlights emitting a dim, yellowish glow. The overall quality is reminiscent of film photography, with a slight graininess and warm tones, consistent with 1980s photos.\n\nOn the left, a man is dressed in 1980s Taiwanese-style clothing: a wide-collared shirt, khaki pants, and vintage shoes, with a hairstyle typical of the era. His expression is shocked yet affectionate. The man is running slightly towards the right foreground, with his left hand extended towards the center of the scene.\n\nThe right side depicts a modern Taiwanese street, with towering buildings and glass windows reflecting city lights. The street is clean and sharp, with a modern digital photography feel, symbolizing the present era.\n\nOn the right, a modern woman is dressed in simple yet fashionable contemporary clothing. She is walking forward but stops abruptly, her right hand extended towards the center of the scene.\n\nIn the exact center of the image, the man's left hand and the woman's right hand are clasped tightly together, with their hands becoming the core of the entire scene.\n\nThe photo maintains realism and authenticity, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style.",
+  "zhPrompt": "生成一張高度寫實、充滿電影感與情感張力的影像，畫面以中央為時間的分界線，左右呈現不同年代。\n\n畫面左半邊是1980 年代的台灣街道，街景帶有濃厚懷舊氣息，有老式騎樓、鐵窗、斑駁牆面、手寫招牌、老機車停在路邊，路燈散發昏黃光暈，整體呈現底片攝影質感，略帶顆粒感與溫暖色調，符合1980年代的照片。\n\n左側是一名男人，穿著 1980 年代台灣風格服裝，寬版襯衫、卡其色長褲、復古鞋款，髮型充滿年代感。他的神情震驚又深情，男人身體微微向右前方奔跑，左手向畫面中央伸出。\n\n畫面右半邊是現代的台灣街道。高樓林立，玻璃櫥窗映出城市燈光，街道乾淨俐落，畫面清晰銳利，呈現現代數位攝影的質感，象徵當下的時代。\n\n右側是一名現代女性，穿著簡約而時尚的當代服裝。她正朝前走著，卻在某個瞬間停下腳步，右手向畫面中央伸出。\n\n在畫面正中央，男人的左手與女人的右手緊緊牽在一起，雙手成為整張畫面核心。\n\n照片保持寫實與真實, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style.",
+  "tags": "台灣街景, 懷舊, 電影感, 情感張力, 時代交錯"
+}
+-------------------
+
+[2025-12-16T06:53:26.138Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. High-end editorial portrait of [Taiwanese beauty, 20 years old, full body], soft cinematic lighting, detailed skin texture, bokeh background, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事影響，並優先考慮紋理以實現絕對逼真。 [台灣美女，20歲，全身] 的高端編輯人像，柔和的電影照明，細膩的皮膚紋理，散景背景，（電影照明：1.3），柯達 Portra 400 膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格，100 毫米微距，f/2.8 光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k 解析度，獲獎攝影。",
+  "tags": "台灣美女, 攝影人像, 電影照明, 8k分辨率, 奢華細節"
+}
+-------------------
+
+[2025-12-16T06:54:21.255Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. High-end editorial portrait of [Taiwanese beauty, 20 years old, full body], soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明的敘事影響，以及紋理的絕對保真度。 [台灣美女，20歲，全身] 的高端社論肖像，柔和的電影照明，細緻的皮膚紋理，散景背景。（電影照明：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，Annie Leibovitz風格。 100mm微距，f/2.8光圈，柔和的漫射光，燈箱，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，獲獎攝影。",
+  "tags": "台灣美女, 人像攝影, 電影感光, 細節紋理, 8k解析度"
+}
+-------------------
+
+[2025-12-16T06:55:44.074Z] Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic cinematic portrait photography of a woman in traditional Chinese hanfu attire, captured from a slightly elevated top-down three-quarter angle. Subject is seated on a wooden platform or pavilion floor, body angled slightly sideways, head gently tilted upward toward the camera. Posture is elegant and composed, shoulders relaxed, hands softly clasping a pale pink peony flower near the chest., (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Shot on Arri Alexa Mini, Annie Leibovitz style.",
+  "zhPrompt": "以略微抬高的俯視四分之三角度拍攝一位身穿中國傳統漢服的女性的超現實電影人像攝影。拍攝對象坐於木製平台或亭閣地板上，身體稍微側向，頭部輕輕向上傾斜朝向鏡頭。姿態優雅而沉穩，肩膀放鬆，雙手輕柔地握著一朵淺粉色的牡丹花，靠近胸前。(電影照明:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，黃金時段，斑駁光線，細緻的毛孔，真實的頭髮質感，使用Arri Alexa Mini拍攝，安妮·萊博維茨風格。",
+  "tags": "漢服, 人像攝影, 電影感, 牡丹, 女性"
+}
+-------------------
+
+[2025-12-16T07:06:58.202Z] Raw Gemini Response:
+{
+  "enPrompt": "Extremely realistic, top-tier, stunning Korean girl, around 22 years old, with a delicate and flawless oval face, large, innocent yet alluring eyes, light makeup with red lips, and naturally flowing long, slightly wavy brown hair. She is wearing a luxurious black tulle long-sleeved short dress with a high-neck shirt-style design, featuring large gold three-dimensional floral vine embroidery across the chest and abdomen. The tulle is sheer, revealing a black lace bustier and a perfect cleavage. The cuffs have ruffled edges, and the skirt is short in the front and long in the back, slit to the thigh with the same gold embroidery. The high waistline accentuates her perfect figure. She is standing under a blooming pink cherry blossom tree in spring, with cherry blossom branches extending from the upper left corner of the frame, and petals gently falling. The overall lighting is soft and sidelit, with the background of cherry blossom forest and path beautifully blurred. The overall tone is high-end black, gold, and cool pink, with a top-tier Korean fashion editorial feel. Hyperrealistic tulle translucence, gold embroidery three-dimensionality, and skin radiance. 8K cinematic portrait, an ultimate blend of elegance, luxury, and sensuality, a cherry blossom goddess masterpiece.",
+  "zhPrompt": "極致真實的韓系頂級絕美少女，22歲左右，精緻無瑕瓜子臉，大眼清純帶媚，淡妝紅唇，棕色微捲長直髮自然披散，身著奢華黑色薄紗長袖連身短禮服，高領襯衫式設計，胸前與腰腹大片金色立體花卉藤蔓刺繡，薄紗透視露出內搭黑色蕾絲胸衣與完美事業線，袖口荷葉邊褶皺收緊，裙擺前短後長開叉至大腿，邊緣同款金繡裝飾，腰線極高襯出完美身材比例，站在春季盛開的粉色櫻花樹下，櫻花枝條從畫面左上角探入，花瓣輕輕飄落，整體陽光柔和側打，背景櫻花林與小路唯美虛化，整體色調高級黑金粉冷調，韓系頂級時尚寫真質感，超現實薄紗透光、金繡立體感與皮膚水光，8K電影人像，極致優雅奢華與性感並存的櫻花女神大片",
+  "tags": "韓系, 櫻花, 時尚寫真, 薄紗, 金繡"
+}
+-------------------
+
+[2025-12-16T07:07:14.435Z] Raw Gemini Response:
+{
+  "enPrompt": "An ultra-realistic, top-tier Korean beauty, around 22 years old, with a delicate and flawless oval face, large, innocent yet alluring eyes, light makeup with red lips, and naturally flowing long, slightly wavy brown hair. She is wearing a luxurious black tulle long-sleeved mini dress with a high-necked, shirt-style design. The chest and waist feature extensive gold three-dimensional floral vine embroidery. The sheer tulle reveals a matching black lace bustier and a perfect cleavage. The cuffs are gathered with ruffled edges, and the skirt is short in the front and long in the back, slit up to the thigh, with matching gold embroidery along the edges. The high waistline accentuates her perfect figure. She is standing under a blooming pink cherry blossom tree in spring, with cherry blossom branches extending from the upper left corner of the frame, and petals gently falling. The overall lighting is soft and sunny, sidelight, with a beautifully blurred background of cherry blossom forest and a small path. The overall color scheme is a sophisticated cool blend of black, gold, and pink. The quality is that of a top-tier Korean fashion photoshoot, with a surreal sense of sheer fabric translucence, three-dimensional gold embroidery, and radiant skin. 8K cinematic portrait, an ultra-elegant, luxurious, and sexy cherry blossom goddess masterpiece.",
+  "zhPrompt": "極致真實的韓系頂級絕美少女，22歲左右，精緻無瑕瓜子臉，大眼清純帶媚，淡妝紅唇，棕色微捲長直髮自然披散，身著奢華黑色薄紗長袖連身短禮服，高領襯衫式設計，胸前與腰腹大片金色立體花卉藤蔓刺繡，薄紗透視露出內搭黑色蕾絲胸衣與完美事業線，袖口荷葉邊褶皺收緊，裙擺前短後長開叉至大腿，邊緣同款金繡裝飾，腰線極高襯出完美身材比例，站在春季盛開的粉色櫻花樹下，櫻花枝條從畫面左上角探入，花瓣輕輕飄落，整體陽光柔和側打，背景櫻花林與小路唯美虛化，整體色調高級黑金粉冷調，韓系頂級時尚寫真質感，超現實薄紗透光、金繡立體感與皮膚水光，8K電影人像，極致優雅奢華與性感並存的櫻花女神大片",
+  "tags": "韓系, 櫻花, 時尚寫真, 薄紗, 金繡"
+}
+-------------------
+
+[2025-12-16T07:07:56.701Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. A hyperrealistic Korean top-tier beautiful young woman, around 22 years old, with a delicate and flawless oval face, large, innocent yet charming eyes, light makeup and red lips, naturally scattered brown wavy long straight hair, wearing a luxurious black tulle long-sleeved short dress, high-necked shirt-style design, with large golden three-dimensional floral vine embroidery on the chest and abdomen, tulle see-through revealing the inner black lace bustier and perfect cleavage, ruffled cuffs tightened, the skirt is short in the front and long in the back, with slits up to the thighs, edged with the same gold embroidery, the high waistline accentuates the perfect figure ratio, standing under a blooming pink cherry blossom tree in spring, cherry blossom branches extend from the upper left corner of the screen, petals gently falling, the overall sunlight is soft and sidelight, the background cherry blossom forest and path are beautifully blurred, the overall tone is high-end black, gold, and pink cool tone, Korean top fashion portrait texture, surreal tulle light transmission, gold embroidery three-dimensionality, and skin water gloss, 8K cinematic portrait, the ultimate elegance, luxury, and sexy coexistence of the cherry blossom goddess blockbuster, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。 逐步思考：優先考慮照明以實現敘事效果，並優先考慮紋理以實現絕對保真度。極致真實的韓系頂級絕美少女，22歲左右，精緻無瑕瓜子臉，大眼清純帶媚，淡妝紅唇，棕色微捲長直髮自然披散，身著奢華黑色薄紗長袖連身短禮服，高領襯衫式設計，胸前與腰腹大片金色立體花卉藤蔓刺繡，薄紗透視露出內搭黑色蕾絲胸衣與完美事業線，袖口荷葉邊褶皺收緊，裙擺前短後長開叉至大腿，邊緣同款金繡裝飾，腰線極高襯出完美身材比例，站在春季盛開的粉色櫻花樹下，櫻花枝條從畫面左上角探入，花瓣輕輕飄落，整體陽光柔和側打，背景櫻花林與小路唯美虛化，整體色調高級黑金粉冷調，韓系頂級時尚寫真質感，超現實薄紗透光、金繡立體感與皮膚水光，8K電影人像，極致優雅奢華與性感並存的櫻花女神大片, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "tags": "韓系, 櫻花, 時尚寫真, 奢華禮服, 絕美少女"
+}
+-------------------
+
+[2025-12-16T07:10:56.556Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Photorealistic style, 9:16 portrait aspect ratio, 4K ultra-high definition, full body shot of the subject, shallow depth of field: A slender 18-20 year old East Asian woman, 170 cm tall, with dark brown long hair, 3-4 strands of which are lifted by a cold wind, with a few snowflakes clinging to the ends; her facial skin tone is naturally cool-toned and fair, and her lips are naturally nude with slight chapped texture. She is wearing a light khaki blended wool coat, mid-thigh length, with a fine twill texture, a few loose snowflakes on the shoulder line (no snow piles/stains); a cream-colored high-neck knit sweater; a dark gray wool skirt; legs completely bare, cool-toned and fair; matte black over-the-knee boots (boot shaft fully covering to the thigh root, sole with a thin layer of slush); black thin fleece gloves; a cream-colored open-knit scarf around her neck; a black mini tote bag slung over her left shoulder. She is holding an off-white umbrella handle and a partially opened transparent umbrella, walking in small, quick steps in the outer plaza of Sapporo Station (scene includes: gray curb stones at the edge of the plaza, shallow footprints left by a few pedestrians, blurred architectural outlines in the direction of the station entrance, no tracks/platform elements); the ground is covered with 10 cm of soft snow; fine snowflakes are falling in the air, and a cold wind gently lifts the hem of her coat. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以達到敘事效果，紋理以達到絕對保真度。寫真級寫實風格，9:16豎幅，4K超高清，主體全身完整入鏡，大光圈景深處理：18-20歲東亞女性，身高170公分，深棕長髮被冷風撩起3-4縷，髮尾沾少量細雪粒；面部膚色為自然冷調白皙，嘴唇呈自然裸色帶輕微乾裂紋理。身著淺卡其色混紡毛呢大衣，衣長及大腿中部，毛呢織紋為細密斜紋質感，肩線僅沾少量鬆散雪粒（無雪堆/污漬）；內搭米白色高領針織衫；下身搭配深灰色毛呢短裙；腿部完整裸露呈冷調白皙；腳穿啞光黑色過膝長靴（靴筒完整覆蓋至大腿根部，靴底沾淺層雪泥）；雙手佩戴黑色薄絨手套；頸間圍米白色鏤空針織圍巾；左肩斜挎黑色迷你托特包。雙手握啞白色傘柄撐半開透明傘，以小步快走姿態行進於札幌車站外部廣場（場景包含：廣場邊緣的灰色路緣石、少量行人留下的淺腳印、車站入口方向的模糊建築輪廓，無鐵軌/月台元素）；地面覆蓋10厘米鬆軟積雪；空中飄細密雪粒，冷風輕掀大衣下擺。, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "tags": "寫真, 東亞女性, 雪景, 札幌, 冬季時尚"
+}
+-------------------
+
+[2025-12-16T07:12:49.628Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Photorealistic style, 9:16 vertical, 4K ultra-high definition, full body in frame, shallow depth of field.\n18-20 year old East Asian woman, 170cm tall, dark brown long hair with 3-4 strands lifted by the cold wind, hair ends with a few snowflakes; natural cool-toned fair skin, lips naturally nude with slight chapped texture. Face towards the camera.\nWearing a light khaki blended wool coat, mid-thigh length, fine twill texture, a few loose snowflakes on the shoulder line (no snow piles/stains); cream white turtleneck knit sweater; dark gray wool skirt; legs completely bare and cool-toned fair; matte black over-the-knee boots (boot shaft fully covering to the root of the thigh, boot soles with a shallow layer of slush); black thin velvet gloves; cream white open-knit scarf; black mini tote bag slung over the left shoulder.\nHolding a matte white umbrella handle supporting a half-open transparent umbrella, walking quickly in the outer plaza of Sapporo Station (scene includes: gray curb stones at the edge of the plaza, shallow footprints left by a few pedestrians, blurred architectural outlines towards the station entrance, no rails/platforms); ground covered with 10cm of soft snow; fine snowflakes in the air, cold wind gently lifting the hem of the coat. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮照明以產生敘事衝擊，並優先考慮紋理以達到絕對的逼真度。寫真級寫實風格，9:16豎幅，4K超高清，主體全身完整入鏡，大光圈景深處理：\n18-20歲東亞女性，身高170公分，深棕長髮被冷風撩起3-4縷，髮尾沾少量細雪粒；面部膚色為自然冷調白皙，嘴唇呈自然裸色帶輕微乾裂紋理。人臉向鏡頭。\n身著淺卡其色混紡毛呢大衣，衣長及大腿中部，毛呢織紋為細密斜紋質感，肩線僅沾少量鬆散雪粒（無雪堆/污漬）；內搭米白色高領針織衫；下身搭配深灰色毛呢短裙；腿部完整裸露呈冷調白皙；腳穿啞光黑色過膝長靴（靴筒完整覆蓋至大腿根部，靴底沾淺層雪泥）；雙手佩戴黑色薄絨手套；頸間圍米白色鏤空針織圍巾；左肩斜挎黑色迷你托特包。\n雙手握啞白色傘柄撐半開透明傘，以小步快走姿態行進於札幌車站外部廣場（場景包含：廣場邊緣的灰色路緣石、少量行人留下的淺腳印、車站入口方向的模糊建築輪廓，無鐵軌/月台元素）；地面覆蓋10厘米鬆軟積雪；空中飄細密雪粒，冷風輕掀大衣下擺。, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "tags": "札幌, 雪, 冬季, 時尚, 人像"
+}
+-------------------
+
+[2025-12-16T07:21:19.753Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. Create an infographic image of [Tesla Model X], combining a real photograph with blueprint-style technical annotations and diagrams overlaid. Include the title \"[Tesla Model X]\" in a hand-drawn box in the corner. Add white chalk-style sketches showing key structural data, important measurements, material quantities, internal diagrams, load-flow arrows, cross-sections, and notable features. Style: blueprint aesthetic with white line drawings on the photograph, technical annotation style, educational infographic feel, with the real environment visible behind the annotations. 35mm, f/2.8 aperture, Natural Lighting, Golden Hour, environmental context, high-end fashion editorial, clean composition, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事衝擊力，並優先考慮紋理以實現絕對保真度。創建[Tesla Model X]的資訊圖表圖像，將真實照片與藍圖風格的技術註釋和疊加的圖表相結合。在角落的手繪框中包含標題“[Tesla Model X]”。添加白色粉筆風格的草圖，顯示關鍵結構數據、重要測量值、材料數量、內部圖表、載荷流箭頭、橫截面和顯著特徵。風格：藍圖美學，照片上有白色線條圖、技術註釋風格、教育資訊圖表感覺，真實環境在註釋後面可見。35mm、f/2.8 光圈、自然光、黃金時段、環境背景、高端時尚社論、乾淨的構圖、傑作、最佳品質、超細節、8k 分辨率、清晰對焦、HDR、工作室品質、獲獎攝影。",
+  "tags": "特斯拉, 資訊圖表, 藍圖, 技術圖解, 汽車"
+}
+-------------------
+
+[2025-12-16T07:22:19.501Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. Create an infographic image of [Human Heart], combining a real photograph with blueprint-style technical annotations and diagrams overlaid. Include the title \"[Human Heart]\" in a hand-drawn box in the corner. Add white chalk-style sketches showing key structural data, important measurements, material quantities, internal diagrams, load-flow arrows, cross-sections, and notable features. Style: blueprint aesthetic with white line drawings on the photograph, technical annotation style, educational infographic feel, with the real environment visible behind the annotations. 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事衝擊，以及紋理以實現絕對保真度。創建[人類心臟]的資訊圖，將真實照片與藍圖風格的技術註釋和覆蓋的圖表結合起來。在角落的手繪框中包含標題“[人類心臟]”。添加白色粉筆風格的草圖，顯示關鍵的結構數據、重要測量、材料數量、內部圖表、載荷流箭頭、橫截面和顯著特徵。風格：藍圖美學，照片上有白色線條圖，技術註釋風格，教育資訊圖感覺，真實環境在註釋後面可見。200mm，f/4光圈，自然光，柔和填充，野生動物攝影，親密時刻，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "醫學, 人體, 圖解, 藍圖風格, 細緻"
+}
+-------------------
+
+[2025-12-16T07:22:47.749Z] Raw Gemini Response:
+{
+  "enPrompt": "Infographic image of a Human Heart, combining a real photograph with blueprint-style technical annotations and diagrams overlaid. Title \"Human Heart\" in a hand-drawn box in the corner. White chalk-style sketches showing structural data, measurements, material quantities, internal diagrams, load-flow arrows, cross-sections, and notable features. Blueprint aesthetic with white line drawings, technical annotation style, educational infographic feel, real environment visible behind annotations, 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "以真實照片結合藍圖風格的技術註解和圖表，創建一幅[人類心臟]的資訊圖。在角落的手繪框中包含標題“[人類心臟]”。添加白色粉筆風格的草圖，顯示關鍵結構數據、重要測量值、材料數量、內部圖表、負載流箭頭、橫截面和顯著特徵。風格：藍圖美學，照片上帶有白色線條圖、技術註解風格、教育資訊圖感覺，真實環境在註解後面可見，200mm，f/4光圈，自然光，柔和填充，野生動物攝影，親密時刻，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "醫學, 人體, 圖表, 藍圖, 科學"
+}
+-------------------
+
+[2025-12-16T07:23:27.433Z] Raw Gemini Response:
+{
+  "enPrompt": "Infographic image of a human heart, combining a real photograph with blueprint-style technical annotations and diagrams overlaid. Title \"Human Heart\" in a hand-drawn box in the corner. White chalk-style sketches show key structural data, measurements, material quantities, internal diagrams, load-flow arrows, cross-sections, and notable features. Blueprint aesthetic with white line drawings on the photograph, technical annotation style, educational infographic feel, real environment visible behind annotations.",
+  "zhPrompt": "創建一個[人類心臟]的資訊圖表圖像，將真實照片與藍圖風格的技術註釋和圖表疊加在一起。在角落的手繪框中包含標題“[人類心臟]”。添加白色粉筆風格的草圖，顯示關鍵的結構數據、重要測量、材料數量、內部圖表、載荷流箭頭、橫截面和顯著特徵。風格：藍圖美學，照片上的白色線條繪圖，技術註釋風格，教育資訊圖表的感覺，註釋後面可見真實環境。",
+  "tags": "資訊圖表, 人體構造, 醫學插圖, 技術圖解, 藍圖風格"
+}
+-------------------
+
+[2025-12-16T07:24:26.831Z] Raw Gemini Response:
+{
+  "enPrompt": "Infographic of Taipei 101, combining a real photograph with blueprint-style technical annotations and diagrams overlaid. Title \"Taipei 101\" in a hand-drawn box. White chalk-style sketches showing structural data, measurements, material quantities, internal diagrams, load-flow arrows, cross-sections, and notable features. Blueprint aesthetic with white line drawings on the photograph, technical annotation style, educational infographic feel, real environment visible behind annotations.",
+  "zhPrompt": "臺北101的信息圖，結合真實照片和藍圖風格的技術註釋及圖表覆蓋。標題「臺北101」位於手繪框中。白色粉筆風格的草圖顯示結構數據、測量值、材料數量、內部圖表、載荷流箭頭、橫截面和顯著特徵。藍圖美學，照片上帶有白色線條圖，技術註釋風格，教育信息圖感覺，真實環境在註釋後方可見。",
+  "tags": "臺北101, 信息圖, 藍圖, 技術圖解, 建築"
+}
+-------------------
+
+[2025-12-16T07:27:17.493Z] Raw Gemini Response:
+{
+  "enPrompt": "Mouth-watering food photography of [Wagyu burger], macro shot, steam rising, professional plating, shallow depth of field, 4k, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "令人垂涎的美食攝影作品，[和牛漢堡]，微距鏡頭，蒸汽上升，專業擺盤，淺景深，4k，100mm微距，f/2.8光圈，柔和漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "美食攝影, 和牛漢堡, 微距, 產品攝影, 高品質"
+}
+-------------------
+
+[2025-12-16T07:28:10.451Z] Raw Gemini Response:
+{
+  "enPrompt": "Interior design photography of a living room, scandinavian style, cozy atmosphere, morning sunlight, photorealistic, 8k, architectural digest., 24mm Tilt-Shift, f/8 aperture, Blue Hour, Natural Lighting, balanced exposure, architectural photography, clean geometric lines, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, V-Ray render, Architectural visualization, Realistic materials. Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity.",
+  "zhPrompt": "客廳的室內設計攝影，斯堪地納維亞風格，舒適的氛圍，早晨的陽光，照片寫實主義，8k，建築文摘。24mm移軸鏡頭，f/8光圈，藍色時段，自然光照，均衡曝光，建築攝影，乾淨的幾何線條，傑作，最佳品質，超細緻，8k解析度，銳利焦點，V-Ray渲染，建築視覺化，逼真的材質。分析場景的核心情感和物理屬性。優先考慮照明以產生敘事影響，並優先考慮紋理以實現絕對的保真度。",
+  "tags": "室內設計, 客廳, 斯堪地納維亞, 攝影, 建築"
+}
+-------------------
+
+[2025-12-16T07:29:15.532Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. Aerial drone shot of [大安森林公園], bird's eye view, high altitude, vast landscape, epic scale, geometric composition. 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, national geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以達到敘事效果，並優先考慮紋理以實現絕對的逼真度。大安森林公園的航拍無人機鏡頭，鳥瞰圖，高海拔，廣闊的景色，史詩般的規模，幾何構圖。14mm超廣角，f/11光圈，魔術時刻，戲劇性的雲彩，HDR，國家地理風格，史詩般的電影感，傑作，最佳質量，超詳細，8k分辨率，焦點清晰，HDR，工作室質量，獲獎攝影。",
+  "tags": "大安森林公園, 空拍, 城市景觀, HDR, 自然攝影"
+}
+-------------------
+
+[2025-12-16T07:29:53.363Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Aerial drone shot of [Taipei Daan Forest Park], bird's eye view, high altitude, vast landscape, epic scale, geometric composition., 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, national geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事衝擊，並優先考慮紋理以實現絕對保真。，[台北市大安森林公園]的航拍無人機鏡頭，鳥瞰圖，高海拔，廣闊的景觀，史詩般的規模，幾何構圖。，14mm超廣角，f/11光圈，魔幻時刻，戲劇性的雲彩，HDR，國家地理風格，史詩般的電影感，傑作，最佳品質，超細緻，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "台北, 森林公園, 空拍, 風景, 自然"
+}
+-------------------
+
+[2025-12-16T07:30:26.395Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Aerial drone shot of [Taipei Daan Forest Park], bird's eye view, high altitude, vast landscape, epic scale, geometric composition., 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, national geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事影響，並優先考慮紋理以實現絕對保真度。，[台北市大安森林公園]的航拍無人機拍攝，鳥瞰圖，高海拔，廣闊的景觀，史詩般的規模，幾何構圖。，14mm超廣角，f/11光圈，魔術時刻，戲劇性的雲彩，HDR，國家地理風格，史詩般的電影感，傑作，最佳品質，超細緻，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "航拍, 城市公園, 大安森林公園, HDR攝影, 超廣角"
+}
+-------------------
+
+[2025-12-16T07:30:47.683Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Aerial drone shot of Taipei's Daan Forest Park, bird's eye view, high altitude, vast landscape, epic scale, geometric composition, 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, National Geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award-winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以達到敘事效果，並優先考慮紋理以達到絕對的保真度。臺北市大安森林公園的航拍無人機鏡頭，鳥瞰視角，高海拔，廣闊的景觀，宏大的規模，幾何構圖，14毫米超廣角，f/11光圈，魔幻時刻，戲劇性的雲彩，HDR，國家地理風格，史詩般的電影感，傑作，最佳品質，超細節，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "公園, 台北, 空拍, 自然, 風景"
+}
+-------------------
+
+[2025-12-16T07:35:03.761Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Aerial drone shot of [Taipei Da-an Forest Park], bird's eye view, high altitude, vast landscape, epic scale, geometric composition., 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, national geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事影響，並優先考慮紋理以實現絕對保真度。，[台北市大安森林公園]的航拍無人機鏡頭，鳥瞰圖，高海拔，廣闊的景觀，史詩般的規模，幾何構圖。，14mm 超廣角，f/11 光圈，魔法時刻，戲劇性的雲彩，HDR，國家地理風格，史詩般的電影，傑作，最佳品質，超 деталізований，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "城市公園, 航拍, 自然風光, 台北, HDR攝影"
+}
+-------------------
+
+[2025-12-16T07:35:53.954Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Aerial drone shot of [taipei 101], bird's eye view, high altitude, vast landscape, epic scale, geometric composition., 14mm Ultra Wide, f/11 aperture, Magic Hour, Dramatic Clouds, HDR, national geographic style, epic cinematic, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以實現敘事影響，並優先考慮紋理以實現絕對保真度。, [台北101] 的航拍無人機鏡頭，鳥瞰視角，高海拔，廣闊的景觀，史詩般的規模，幾何構圖。, 14mm 超廣角，f/11 光圈，魔幻時刻，戲劇性的雲彩，HDR，國家地理風格，史詩電影，傑作，最佳品質，超精細，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台北101, 空拍攝影, 城市景觀, 魔幻時刻, HDR攝影"
+}
+-------------------
+
+[2025-12-16T07:45:40.941Z] Raw Gemini Response:
+{
+  "enPrompt": "A mysterious man sits in a dimly lit room, viewed through the silhouette of a giant keyhole. A warm golden spotlight from a modern dome-shaped floor lamp shines directly on him, creating a dramatic cone of light in the dark surroundings. The man is dressed in a stylish black pinstripe suit with an open white shirt, leaning back casually in a vintage armchair, exhaling a subtle cloud of smoke. The atmosphere is moody, noir-inspired, and theatrical—deep shadows, soft haze, and a minimalist set design. High-contrast lighting, warm brown tones, suspense, and elegance. 24mm Tilt-Shift, f/8 aperture, Blue Hour, Natural Lighting, balanced exposure, architectural photography, clean geometric lines, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, V-Ray render, Architectural visualization, Realistic materials.",
+  "zhPrompt": "一個神秘的男人坐在昏暗的房間裡，透過一個巨大的鑰匙孔的輪廓觀看。一盞現代圓頂落地燈發出溫暖的金色聚光燈直接照在他身上，在黑暗的環境中形成一個戲劇性的光錐。該男子身穿時尚的黑色細條紋西裝，搭配敞開的白色襯衫，隨意地靠在古董扶手椅上，吐出一縷淡淡的煙霧。氣氛是喜怒無常的，受黑色電影的啟發，並且具有戲劇性——深沉的陰影、柔和的薄霧和簡約的場景設計。高對比度照明、溫暖的棕色調、懸念和優雅。24mm 移軸鏡頭，f/8 光圈，藍色時刻，自然光，平衡曝光，建築攝影，乾淨的幾何線條，傑作，最佳品質，超細緻，8k 解析度，清晰對焦，V-Ray 渲染，建築視覺化，逼真的材質。",
+  "tags": "神秘, 黑色電影, 戲劇性光線, 室內設計, 高解析度"
+}
+-------------------
+
+[2025-12-16T07:48:47.037Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition. 85mm, f/1.8 aperture, Softbox Lighting, Rembrandt Lighting, creamy bokeh, professional fashion photography, editorial style, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一幅引人注目的黑白電影攝影作品，一位神秘女子冷靜而鎮定地站在密集的狗仔隊人群中，數十名攝影師圍繞著她，都舉著帶閃光燈的復古相機。這位女子戴著黑色太陽鏡，化著淡妝，穿著優雅的深色服裝，她的表情冷漠而充滿力量，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體對象清晰對焦、前景的面孔和相機模糊、經典的膠片顆粒感、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、極致的寫實主義、社論時尚攝影、憂鬱、標誌性、獲獎的構圖。85毫米，f/1.8光圈，柔光箱照明，倫勃朗照明，奶油般的散景，專業時尚攝影，社論風格，傑作，最佳品質，超細節，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "黑白攝影, 時尚攝影, 電影感, 人像, 新聞攝影"
+}
+-------------------
+
+[2025-12-16T07:49:58.378Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition. 85mm, f/1.8 aperture, Softbox Lighting, Rembrandt Lighting, creamy bokeh, professional fashion photography, editorial style, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張引人注目的黑白電影攝影作品，一位神秘女子鎮定自若地站在擁擠的狗仔隊中心，數十名攝影師圍繞著她，都舉著閃光燈對準她們的復古相機。這位女子戴著黑色太陽眼鏡，化著淡妝，身穿優雅的深色服裝，她的表情冷漠而充滿力量，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景面孔和相機模糊、經典膠片顆粒、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、強烈的寫實感、社論時尚攝影、憂鬱、標誌性、獲獎作品。85毫米，f/1.8光圈，柔光箱照明，倫勃朗照明，奶油散景，專業時尚攝影，社論風格，傑作，最佳品質，超細緻，8k解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "黑白攝影, 電影風格, 時尚攝影, 紀實攝影, 人像"
+}
+-------------------
+
+[2025-12-16T07:51:46.600Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition.",
+  "zhPrompt": "一張引人注目的黑白電影照片，一位神秘女子鎮定自若地站在密集的狗仔隊人群中央，數十名攝影師包圍著她，都舉著帶閃光燈的復古相機對準她。該女子戴著黑色太陽眼鏡，化著極簡的妝容，穿著優雅的深色服裝，她的表情冷漠而有力，象徵著在名聲之中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景的面孔和相機模糊、經典膠片顆粒、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、強烈的真實感、社論時尚攝影、情緒化、標誌性、獲獎構圖。",
+  "tags": "黑白攝影, 電影風格, 時尚攝影, 狗仔隊, 神秘女子"
+}
+-------------------
+
+[2025-12-16T07:56:08.575Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition.",
+  "zhPrompt": "一張引人注目的黑白電影照片，一位神秘女子在密集的狗仔隊人群中心保持冷靜和鎮定，數十名攝影師圍繞著她，都舉著閃光燈對準她。這位女子戴著黑色太陽眼鏡，化著淡妝，穿著優雅的深色服裝，她的表情冷漠而充滿力量，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、模糊的前景人臉和相機、經典的膠片顆粒感、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、強烈的真實感、時尚攝影、憂鬱、標誌性、獲獎作品。",
+  "tags": "黑白攝影, 電影感, 女性, 狗仔隊, 好萊塢"
+}
+-------------------
+
+[2025-12-16T07:58:31.486Z] Raw Gemini Response:
+{
+  "enPrompt": "A dog",
+  "zhPrompt": "一隻狗",
+  "tags": "動物, 寵物, 狗, 家畜"
+}
+-------------------
+
+[2025-12-16T08:00:57.379Z] Raw Gemini Response:
+{
+  "enPrompt": "A dog",
+  "zhPrompt": "一隻狗",
+  "tags": "動物, 寵物, 狗, 犬科"
+}
+-------------------
+
+[2025-12-16T08:01:29.000Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition.",
+  "zhPrompt": "一張引人注目的黑白電影風格照片，一位神秘女子平靜而鎮定地站在密集的狗仔隊人群中央，數十名攝影師圍繞著她，都舉著老式相機，閃光燈亮起。該女子戴著深色太陽鏡，化著極簡的妝容，穿著優雅的深色服裝，她的表情冷漠而有力，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景中的臉孔和相機模糊、經典的膠片顆粒感、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、強烈的真實感、時尚社論攝影、憂鬱、標誌性、獲獎的構圖。",
+  "tags": "黑白攝影, 電影風格, 女性肖像, 狗仔隊, 黑色電影"
+}
+-------------------
+
+[2025-12-16T08:02:54.635Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a mysterious woman standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding her, all aiming vintage cameras with flashes raised. The woman wears dark sunglasses, minimal makeup, and an elegant dark outfit, her expression emotionless and powerful, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, intense realism, editorial fashion photography, moody, iconic, award-winning composition.",
+  "zhPrompt": "一張引人注目的黑白電影照片，一位神秘女子冷靜而鎮定地站在擁擠的狗仔隊中心，數十名攝影師圍繞著她，都舉著帶閃光燈的復古相機對準她。 這位女子戴著深色太陽眼鏡，化著極簡的妝容，身穿優雅的深色服裝，她的表情沒有任何情緒，充滿力量，象徵著在名聲中的孤立。 高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景人臉和相機模糊、經典膠片顆粒、35 毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、強烈的真實感、社論時尚攝影、憂鬱、標誌性、獲獎構圖。",
+  "tags": "黑白攝影, 電影感, 時尚攝影, 神秘, 孤立"
+}
+-------------------
+
+[2025-12-16T08:29:45.717Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a figure standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding, all aiming vintage cameras with flashes raised. The figure wears dark sunglasses, minimal makeup, and an elegant dark outfit, with an emotionless and powerful expression, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, editorial fashion photography, iconic.",
+  "zhPrompt": "一張引人注目的黑白電影照片，一個人物站在密集的狗仔隊人群中央，鎮定自若，周圍是數十名攝影師，所有人都舉著閃光燈瞄準老式相機。 這個人物戴著深色太陽眼鏡，化著極簡的妝容，身穿優雅的深色服裝，表情冷漠而充滿力量，象徵著在名聲中的孤立。 高對比度照明，戲劇性的陰影，淺景深，主體清晰對焦，前景中的臉和相機模糊，經典的膠片顆粒感，35毫米模擬攝影風格，黑色電影美學，永恆的好萊塢氛圍，社論時尚攝影，標誌性。",
+  "tags": "黑白攝影, 電影風格, 狗仔隊, 時尚攝影, 經典"
+}
+-------------------
+
+[2025-12-16T08:32:10.224Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a figure standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding, all aiming vintage cameras with flashes raised. The figure wears dark sunglasses, minimal makeup, and an elegant dark outfit, with an emotionless and powerful expression, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, editorial fashion photography, iconic.",
+  "zhPrompt": "一張引人注目的黑白電影攝影作品，一個人物平靜而鎮定地站在密集的狗仔隊人群中央，數十名攝影師環繞四周，所有人都舉著閃光燈對準老式相機。[主體]戴著深色太陽鏡，化著極簡的妝容，穿著優雅的深色服裝，表情冷漠而充滿力量，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景的人臉和相機模糊、經典的膠片顆粒、35毫米模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、編輯時尚攝影、標誌性。",
+  "tags": "黑白攝影, 狗仔隊, 時尚攝影, 電影風格, 孤立"
+}
+-------------------
+
+[2025-12-16T08:34:40.424Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking black-and-white cinematic photograph of a figure standing calm and composed in the center of a dense crowd of paparazzi, dozens of photographers surrounding, all aiming vintage cameras with flashes raised. The figure wears dark sunglasses, minimal makeup, and an elegant dark outfit, with an emotionless and powerful expression, symbolizing isolation amid fame. High contrast lighting, dramatic shadows, shallow depth of field, sharp focus on the central subject, blurred foreground faces and cameras, classic film grain, 35mm analog photography style, noir aesthetic, timeless Hollywood atmosphere, editorial fashion photography, iconic.",
+  "zhPrompt": "一張引人注目的黑白電影照片，[主體]平靜而鎮定地站在密集的狗仔隊人群中央，周圍有數十名攝影師，所有人都舉著閃光燈對準老式相機。[主體]戴著深色太陽鏡，化著極簡的妝容，穿著優雅的深色服裝，面無表情且充滿力量的表情，象徵著在名聲中的孤立。高對比度照明、戲劇性的陰影、淺景深、主體清晰對焦、前景人物和相機模糊、經典膠片顆粒、35mm模擬攝影風格、黑色電影美學、永恆的好萊塢氛圍、社論時尚攝影、標誌性。",
+  "tags": "黑白攝影, 狗仔隊, 孤獨感, 電影感, 時尚攝影"
+}
+-------------------
+
+[2025-12-16T09:20:03.528Z] Raw Gemini Response:
+{
+  "enPrompt": "full shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, sitting on a metal chair with legs crossed, wearing a maroon uniform dress with gold trim, black stockings, and black heels, in an airport terminal, natural lighting, shallow depth of field, photorealistic, 8k, detailed skin, sharp focus",
+  "zhPrompt": "全身照，一位迷人的日本空姐，深色頭髮盤成髮髻，面帶微笑，雙腿交叉坐在金屬椅子上，身穿帶金色滾邊的栗色制服裙，黑色長襪和黑色高跟鞋，在機場航站樓內，自然光，淺景深，照片寫實，8k，細緻的皮膚，清晰的焦點",
+  "tags": "空姐, 日本, 制服, 機場, 寫實"
+}
+-------------------
+
+[2025-12-16T09:20:54.751Z] Raw Gemini Response:
+{
+  "enPrompt": "full shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, sitting on a metal chair with legs crossed, wearing a maroon uniform dress with gold trim, black stockings, and black heels, in an airport terminal, natural lighting, shallow depth of field, photorealistic, 8k, detailed skin, sharp focus",
+  "zhPrompt": "全身照，一位有魅力的日本空姐，深色頭髮盤成髮髻，面帶微笑，坐在金屬椅子上，雙腿交叉，身穿帶有金色滾邊的栗色制服連衣裙，黑色絲襪和黑色高跟鞋，在機場航站樓內，自然光照，淺景深，照片寫實，8k，細緻的皮膚，焦點清晰",
+  "tags": "空姐, 日本, 制服, 機場, 寫實"
+}
+-------------------
+
+[2025-12-16T09:21:14.635Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Full shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, sitting on a metal chair with legs crossed, wearing a maroon uniform dress with gold trim, black stockings, and black heels, in an airport terminal, natural lighting, shallow depth of field, photorealistic, 8k, detailed skin, sharp focus, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，並優先考慮紋理以達到絕對的保真度。全身照，一位有吸引力的日本空姐，深色頭髮盤成髮髻，微笑著，坐在金屬椅子上，雙腿交叉，身穿帶金色飾邊的栗色制服連衣裙，黑色長襪和黑色高跟鞋，在機場航站樓內，自然光線，淺景深，逼真，8k，細緻的皮膚，清晰的焦點，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳品質，超精細，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "空姐, 機場, 制服, 肖像, 專業攝影"
+}
+-------------------
+
+[2025-12-16T09:22:16.429Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Full shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, standing, wearing a maroon uniform dress with gold trim, black stockings, and black heels, in an airport terminal, natural lighting, shallow depth of field, photorealistic, 8k, detailed skin, sharp focus, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊力，以及紋理以實現絕對的逼真度。全身照，一位迷人的日本空姐，深色頭髮盤成髮髻，微笑著，站立著，身穿帶金色飾邊的栗色制服連衣裙，黑色長襪和黑色高跟鞋，在機場航站樓內，自然光線，淺景深，逼真的照片，8k，細緻的皮膚，清晰的焦點，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳品質，超精細，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "空姐, 機場, 制服, 人像攝影, 高畫質"
+}
+-------------------
+
+[2025-12-16T09:23:38.886Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. A full shot of a smiling young Asian woman in a navy blue Japanese school uniform with a red bow, arms crossed, holding a blue school bag, standing in the snow in front of a brick archway, soft natural light, photorealistic, centered composition, medium shot, winter scene, blurry background, 35mm, f/2.8 aperture, Natural Lighting, Golden Hour, environmental context, high-end fashion editorial, clean composition, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮照明以實現敘事效果，並優先考慮紋理以實現絕對逼真度。一個微笑的年輕亞洲女性的全身鏡頭，她身穿海軍藍色日本學生制服，繫著紅色蝴蝶結，雙臂交叉，拿著一個藍色書包，站在磚砌拱門前的雪地裡，柔和的自然光，照片寫實，中心構圖，中景，冬季場景，模糊的背景，35毫米，f/2.8光圈，自然光照，黃金時段，環境背景，高端時尚社論，乾淨的構圖，傑作，最佳質量，超 деталізований, 8k роздільна здатність,  різкий фокус, HDR, Студійна якість, нагородна фотографія.",
+  "tags": "亞洲女性, 日本制服, 雪景, 人像攝影, 高端時尚"
+}
+-------------------
+
+[2025-12-16T09:24:32.451Z] Raw Gemini Response:
+{
+  "enPrompt": "A full shot of a smiling young Japanese girl in a navy blue Japanese school uniform with a red bow, arms crossed, holding a blue school bag, standing in the snow in front of a brick archway, soft natural light, photorealistic, centered composition, medium shot, winter scene, blurry background, 35mm, f/2.8 aperture, Natural Lighting, Golden Hour, environmental context, high-end fashion editorial, clean composition, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, emphasizing emotion and texture for narrative impact and fidelity.",
+  "zhPrompt": "一個年輕的日本女孩，穿著海軍藍色的日本學校制服，繫著紅色蝴蝶結，雙臂交叉，拿著一個藍色的書包，站在雪地裡的磚拱門前。柔和的自然光，逼真的，居中的構圖，中景，冬季場景，模糊的背景，35毫米，f/2.8光圈，自然光，黃金時段，環境背景，高端時尚社論，乾淨的構圖，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影作品，強調情感和紋理，以達到敘事衝擊和保真度。",
+  "tags": "日系, 女學生, 冬季, 制服, 攝影"
+}
+-------------------
+
+[2025-12-16T09:35:34.513Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a beautiful young Asian woman with long, black wavy hair, wearing a delicate sheer dress with floral embroidery, looking over her shoulder with a soft smile, golden hour lighting, shallow depth of field, rooftop setting with blurred city background, warm color palette, close-up shot, natural light, elegant, serene, 8k, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的年輕亞洲女性的逼真肖像，有著長長的黑色波浪髮，穿著精緻的薄紗連衣裙，繡有花卉刺繡，回頭微笑，金色時段的光線，淺景深，屋頂背景，城市背景模糊，暖色調，特寫鏡頭，自然光，優雅，寧靜，8k，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳質量，超細緻，8k分辨率，焦點清晰，HDR，工作室質量，獲獎攝影。",
+  "tags": "人像, 亞洲女性, 攝影, 美麗, 優雅"
+}
+-------------------
+
+[2025-12-16T09:43:29.898Z] Raw Gemini Response:
+{
+  "enPrompt": "photorealistic portrait of a beautiful young Asian woman smiling, long brown hair, wearing a white ruffled top and jeans, standing on a boat railing with hands clasped, city skyline in background, golden hour lighting, warm color palette, medium shot, shallow depth of field",
+  "zhPrompt": "一位美麗的年輕亞洲女性的逼真肖像，笑容滿面，留著棕色長髮，身穿白色褶邊上衣和牛仔褲，站在船的欄杆上，雙手緊握，背景是城市天際線，黃金時段的照明，暖色調，中景，淺景深",
+  "tags": "亞洲女性, 寫實肖像, 船, 城市, 黃金時段"
+}
+-------------------
+
+[2025-12-16T09:45:16.978Z] Raw Gemini Response:
+{
+  "enPrompt": "photorealistic portrait of a beautiful young Asian woman smiling, long brown hair, wearing a white ruffled top and jeans, standing on a boat railing with hands clasped, city skyline in background, golden hour lighting, warm color palette, medium shot, shallow depth of field",
+  "zhPrompt": "一位美麗的年輕亞洲女性的寫實主義肖像，面帶微笑，留著棕色長髮，身穿白色褶邊上衣和牛仔褲，站在船的欄杆上，雙手緊握，背景是城市天際線，黃金時段的照明，暖色調，中景，淺景深",
+  "tags": "亞洲女性, 寫實肖像, 城市風景, 黃金時段, 船上"
+}
+-------------------
+
+[2025-12-16T09:55:26.637Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Person: \"A young woman with long auburn hair, dark eyes, wearing a white ruffled top and blue denim jeans, realistic style\", [stand up at beach], 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線對敘事產生的影響，以及紋理的絕對保真度。人物：「一位有著長長的紅棕色頭髮、深色眼睛的年輕女子，穿著白色褶邊上衣和藍色牛仔褲，寫實風格」，[站在海灘上]，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，攝影棚，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影作品。",
+  "tags": "海灘, 年輕女子, 攝影棚, 高畫質, 細緻"
+}
+-------------------
+
+[2025-12-16T09:56:11.353Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. A young Hong Kong woman with long auburn hair, dark eyes, wearing a white ruffled top and blue denim jeans stands at the beach, 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, studio quality, award-winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，並優先考慮紋理以實現絕對逼真。一位年輕的香港女性，有著赤褐色的長髮、深邃的眼睛，身穿白色褶皺上衣和藍色牛仔褲，站在海灘上，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "香港女性, 海灘, 時尚, 攝影, 超精細"
+}
+-------------------
+
+[2025-12-16T10:18:50.320Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. A young Japanese woman with fair skin, brown eyes, and her hair in a neat bun with bangs, wearing a maroon stewardess uniform with gold trim and black tights. 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, studio quality, award-winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，以及紋理以達到絕對的保真度。一位年輕的日本女性，皮膚白皙，棕色眼睛，頭髮整齊地盤成髮髻並有劉海，身穿帶有金色飾邊的栗色空姐制服和黑色緊身褲。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "日系, 空姐, 微距攝影, 專業攝影, 高清細節"
+}
+-------------------
+
+[2025-12-16T10:39:25.528Z] Raw Gemini Response:
+{
+  "enPrompt": "Steampunk style illustration of [F1], brass gears, copper pipes, victorian fashion, steam engine aesthetic, intricate mechanical details.",
+  "zhPrompt": "蒸汽龐克風格插畫，[F1]，黃銅齒輪，銅管，維多利亞時代的時尚，蒸汽引擎美學，複雜的機械細節。",
+  "tags": "蒸汽龐克, 維多利亞, 機械, 齒輪, 復古"
+}
+-------------------
+
+[2025-12-16T10:39:37.892Z] Raw Gemini Response:
+{
+  "enPrompt": "Steampunk style illustration of [F1], brass gears, copper pipes, victorian fashion, steam engine aesthetic, intricate mechanical details.",
+  "zhPrompt": "蒸汽龐克風格的[F1]插圖，黃銅齒輪，銅管，維多利亞時代的時尚，蒸汽引擎美學，複雜的機械細節。",
+  "tags": "蒸汽龐克, 維多利亞, 機械, 插圖, 齒輪"
+}
+-------------------
+
+[2025-12-16T10:53:03.663Z] Raw Gemini Response:
+{
+  "enPrompt": "Character design reference sheet of [Ferrari F80], showing front view, side view, and back view, T-pose, full body, neutral expression, consistent design across all views, white background, clean linework, professional concept art, highly detailed, anime style.",
+  "zhPrompt": "法拉利F80的角色設計參考圖，包含正面、側面和背面視圖，T姿勢，全身，中性表情，所有視圖設計一致，白色背景，乾淨的線條，專業概念藝術，高度細節，動漫風格。",
+  "tags": "汽車設計, 角色設計, 動漫風格, 概念藝術, 車輛參考"
+}
+-------------------
+
+[2025-12-16T10:54:08.117Z] Raw Gemini Response:
+{
+  "enPrompt": "Car Machine design reference sheet of [Ferrari F80], showing front view, side view, and back view, T-pose, full body, neutral expression, consistent design across all views, white background, clean linework, professional concept art, highly detailed, anime style.",
+  "zhPrompt": "汽車機械設計參考圖，展示[法拉利 F80]的正面視圖、側面視圖和背面視圖，T字姿勢，全身，中性表情，所有視圖的設計一致，白色背景，乾淨的線條，專業的概念藝術，高度細緻，動漫風格。",
+  "tags": "汽車設計, 機械設計, 概念藝術, 動漫風格, 法拉利"
+}
+-------------------
+
+[2025-12-16T11:04:29.854Z] Raw Gemini Response:
+{
+  "enPrompt": "Knolling photography of car parts, organized neatly at 90 degree angles, flat lay, overhead view, clean background.",
+  "zhPrompt": "汽車零件的諾林攝影，以90度角整齊排列，平放，俯視圖，乾淨的背景。",
+  "tags": "汽車, 零件, 諾林攝影, 平面構圖, 俯視"
+}
+-------------------
+
+[2025-12-16T11:10:09.203Z] Raw Gemini Response:
+{
+  "enPrompt": "Exploded view technical diagram of [Ferrari F1], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together.",
+  "zhPrompt": "法拉利 F1 的分解圖技術圖，展示所有主要組件和零件分開並漂浮在 3D 空間中，每個零件之間有清晰的間距。 技術插圖風格，等距視圖，白色背景，專業工程參考圖。 零件應佈置清楚地顯示它們如何連接和組裝在一起。",
+  "tags": "爆炸視圖, 技術圖, 法拉利F1, 等距視圖, 工程圖"
+}
+-------------------
+
+[2025-12-16T11:10:53.811Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Exploded view technical diagram of [Ferrari F1], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊，並優先考慮紋理以實現絕對的保真度。[法拉利F1]的分解視圖技術圖，顯示所有主要組件和零件分離並懸浮在3D空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應排列清楚，以顯示它們如何連接和組裝在一起。100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "法拉利, F1賽車, 技術圖解, 分解視圖, 產品攝影"
+}
+-------------------
+
+[2025-12-16T11:12:29.397Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Exploded view technical diagram of [spacex star ship], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以達到敘事效果，以及質地以達到絕對保真度。，[SpaceX 星艦] 的分解視圖技術圖，顯示所有主要組件和零件分離並漂浮在 3D 空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應排列成清楚顯示它們如何連接和組裝在一起，100 毫米微距鏡頭，f/2.8 光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k 分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "SpaceX, 星艦, 分解圖, 技術圖, 產品攝影"
+}
+-------------------
+
+[2025-12-16T11:12:57.914Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Exploded view technical diagram of [spacex star ship], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事衝擊力，以及紋理以實現絕對保真度。，[SpaceX星艦]的爆炸視圖技術圖，顯示所有主要組件和零件分離並漂浮在3D空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應排列成清楚顯示它們如何連接和組裝在一起。，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "SpaceX, 星艦, 技術圖, 爆炸視圖, 產品攝影"
+}
+-------------------
+
+[2025-12-16T11:13:34.741Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Exploded view technical diagram of [tesla model x], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以達到敘事效果，並優先考慮紋理以達到絕對逼真。, [特斯拉 Model X] 的分解視圖技術圖，顯示所有主要組件和零件分離並漂浮在 3D 空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應安排清楚地顯示它們如何連接和組裝在一起。, 100mm 微距, f/2.8 光圈, 柔和的漫射光, 柔光箱, 專業產品攝影, 奢華細節, 傑作, 最佳品質, 超詳細, 8k 解析度, 焦點清晰, HDR, 工作室品質, 獲獎攝影。",
+  "tags": "特斯拉, Model X, 分解圖, 技術插圖, 產品攝影"
+}
+-------------------
+
+[2025-12-16T11:14:54.831Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Exploded view technical diagram of [咖啡機], showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事衝擊，並優先考慮紋理以實現絕對保真度。，[咖啡機]的分解視圖技術圖，顯示所有主要組件和零件分離並漂浮在 3D 空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應排列清楚，以顯示它們如何連接和組裝在一起。，100 毫米微距，f/2.8 光圈，柔和的漫射光，柔光罩，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "咖啡機, 分解圖, 技術插圖, 產品攝影, 專業"
+}
+-------------------
+
+[2025-12-16T11:17:02.937Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. Exploded view technical diagram of a coffee machine, showing all major components and parts separated and floating in 3D space with clear spacing between each part. Technical illustration style, isometric view, white background, professional engineering reference diagram. Parts should be arranged to clearly show how they connect and assemble together. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以實現敘事效果，以及紋理以實現絕對保真度。咖啡機的分解視圖技術圖，顯示所有主要組件和零件分離並漂浮在3D空間中，每個零件之間有清晰的間距。技術插圖風格，等距視圖，白色背景，專業工程參考圖。零件應排列清楚，以顯示它們如何連接和組裝在一起。100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，豪華細節，傑作，最佳質量，超詳細，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "咖啡機, 分解圖, 技術插圖, 產品攝影, 工程圖"
+}
+-------------------
+
+[2025-12-16T11:17:40.344Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Photorealistic exploded view of [coffee machine], showing all real components and parts floating separately in 3D space against a clean white studio background. Professional product photography style, studio lighting, high resolution 8K, each part clearly visible with realistic materials and textures. Parts arranged to show assembly structure, commercial catalog quality. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮照明以產生敘事衝擊力，以及紋理以實現絕對逼真度。 [咖啡機] 的逼真分解圖，顯示所有真實組件和零件在乾淨的白色工作室背景下於 3D 空間中獨立漂浮。專業產品攝影風格、工作室照明、高分辨率 8K，每個零件都清晰可見，具有逼真的材料和紋理。零件排列以顯示組裝結構，商業目錄品質。 100mm 微距鏡頭，f/2.8 光圈，柔和漫射照明，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k 分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "產品攝影, 分解圖, 咖啡機, 8K, 工作室照明"
+}
+-------------------
+
+[2025-12-16T11:18:19.824Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Photorealistic exploded view of [Ferrari F1], showing all real components and parts floating separately in 3D space against a clean white studio background. Professional product photography style, studio lighting, high resolution 8K, each part clearly visible with realistic materials and textures. Parts arranged to show assembly structure, commercial catalog quality., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事影響，並優先考慮紋理以達到絕對的逼真度。, 法拉利F1的逼真分解圖，展示了所有真實組件和零件在乾淨的白色工作室背景下於3D空間中獨立漂浮。專業產品攝影風格，工作室照明，高分辨率8K，每個零件都清晰可見，具有逼真的材料和紋理。零件排列展示了組裝結構，商業目錄品質。, 100mm微距，f/2.8光圈，柔和的漫射照明，光帳篷，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "法拉利, F1賽車, 分解圖, 產品攝影, 8K"
+}
+-------------------
+
+[2025-12-16T11:25:49.727Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [Sony A7 V] with bilingual text labels pointing to each component. Each part has a clean line connecting to its name written in [Japanese + Traditional Chinese]. Professional infographic style, white background, clear typography, educational reference diagram showing part names and functions. High resolution, clean modern design, 200mm, f/4 aperture, Natural Lighting, soft fill, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "相機[Sony A7 V]的技術分解圖，帶有指向每個組件的雙語文字標籤。每個零件都有一條清晰的線連接到以[日文+繁體中文]書寫的名稱。專業信息圖表風格，白色背景，清晰的排版，教育參考圖，顯示零件名稱和功能。高分辨率，簡潔的現代設計，200毫米，f/4光圈，自然光，柔和填充，傑作，最佳質量，超詳細，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "相機, 分解圖, 雙語標籤, 技術圖解, 專業設計"
+}
+-------------------
+
+[2025-12-16T11:29:13.296Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [Sony A7 V] with bilingual text labels pointing to each component. Each part has a clean line connecting to its name written in labels in clear Japanese kanji and Traditional Chinese characters. Professional infographic style, white background, clear typography, educational reference diagram showing part names and functions. High resolution, clean modern design, 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, emphasizing lighting for narrative impact and texture for absolute fidelity.",
+  "zhPrompt": "索尼A7 V的技術分解圖，附有雙語文字標籤，指向每個組件。每個部件都有一條清晰的線連接到其名稱，名稱以清晰的日文漢字和繁體中文字符書寫在標籤中。專業的信息圖表風格，白色背景，清晰的排版，教育參考圖，顯示零件名稱和功能。高分辨率，簡潔的現代設計，200毫米，f/4光圈，自然光照，柔和補光，野生動物攝影，親密時刻，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影作品，著重強調光照的敘事影響和紋理的絕對保真度。",
+  "tags": "相機, 技術圖解, 產品設計, 雙語標籤, 攝影"
+}
+-------------------
+
+[2025-12-16T11:30:06.736Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [Sony A7 V] with bilingual text labels pointing to each component. Each part has a clean line connecting to its name written in clear English. Professional infographic style, white background, clear typography, educational reference diagram showing part names and functions. High resolution, clean modern design, 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, lighting for narrative impact, texture for absolute fidelity.",
+  "zhPrompt": "索尼 A7 V 的技術分解圖，附有雙語文字標籤指向每個組件。每個部件都有一條清晰的線連接到其名稱，標籤使用清晰的英語書寫。專業信息圖表風格，白色背景，清晰的排版，教育參考圖，顯示零件名稱和功能。高分辨率，簡潔的現代設計，200 毫米，f/4 光圈，自然光照，柔和填充，野生動物攝影，親密時刻，傑作，最佳質量，超 деталізований，8k 分辨率，焦點清晰，HDR，工作室質量，獲獎攝影作品，優先考慮用於敘事衝擊的光照，以及用於絕對逼真的紋理。",
+  "tags": "分解圖, 相機, 產品設計, 信息圖, 技術圖解"
+}
+-------------------
+
+[2025-12-16T11:31:26.638Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [物品名稱] with bilingual text labels pointing to each component. Each part has a clean line connecting to its name written in English. Professional infographic style, white background, clear typography, educational reference diagram showing part names and functions. High resolution, clean modern design, 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography. Prioritize lighting for narrative impact, and texture for absolute fidelity. Analyze the core emotion and physical attributes of the scene.",
+  "zhPrompt": "物品名稱的技術分解圖，帶有指向每個組件的雙語文本標籤。每個部件都有一條清晰的線連接到其英文名稱。專業的信息圖表風格，白色背景，清晰的排版，展示零件名稱和功能的教育參考圖。高分辨率，乾淨的現代設計，200毫米，f/4光圈，自然光，柔和的補光，野生動物攝影，親密時刻，傑作，最佳品質，超詳細，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。優先考慮照明以產生敘事影響，並優先考慮紋理以實現絕對保真度。分析場景的核心情感和物理屬性。",
+  "tags": "分解圖, 雙語標籤, 信息圖表, 高分辨率, 教育圖表"
+}
+-------------------
+
+[2025-12-16T11:32:09.254Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [s] with bilingual text labels pointing to each component. Each part has a clean line connecting to its name written in English + 中文 . Professional infographic style, white background, clear typography, educational reference diagram showing part names and functions. High resolution, clean modern design., 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography. Prioritize lighting for narrative impact, and texture for absolute fidelity. Analyze the core emotion and physical attributes of the scene.",
+  "zhPrompt": "技術分解圖，附有雙語文字標籤指向每個組件。每個部件都有一條清晰的線連接到其英文+中文名稱。專業信息圖表風格，白色背景，清晰的排版，教育參考圖顯示零件名稱和功能。高分辨率，簡潔的現代設計。，200mm，f/4 光圈，自然光，柔和補光，野生動物攝影，親密時刻，傑作，最佳質量，超細緻，8k 分辨率，清晰對焦，HDR，工作室質量，獲獎攝影作品。優先考慮照明以實現敘事效果，並優先考慮紋理以實現絕對保真度。分析場景的核心情感和物理屬性。",
+  "tags": "技術圖解, 雙語標籤, 資訊圖表, 高分辨率, 教育圖"
+}
+-------------------
+
+[2025-12-16T11:34:51.080Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Technical exploded view diagram of [watch] with English text labels pointing to each component. Each part has a clean line connecting to its name in clear English typography. Professional infographic style, white background, sans-serif font, educational reference diagram showing part names and functions. High resolution, clean modern design., 200mm, f/4 aperture, Natural Lighting, soft fill, wildlife photography, intimate moment, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事效果，並優先考慮紋理以獲得絕對的逼真度。帶有英文文字標籤的[手錶]技術分解圖，指向每個組件。每個部件都有一條清晰的線連接到其名稱，並使用清晰的英文字體。專業信息圖表風格，白色背景，無襯線字體，顯示零件名稱和功能的教育參考圖。高分辨率，簡潔的現代設計。200mm，f/4光圈，自然光照，柔和補光，野生動物攝影，親密時刻，傑作，最佳質量，超詳細，8k分辨率，焦點清晰，HDR，工作室質量，獲獎攝影作品。",
+  "tags": "手錶, 技術圖解, 信息圖表, 高分辨率, 現代設計"
+}
+-------------------
+
+[2025-12-16T11:36:36.630Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 3D render of a Scandinavian style living room, beige sofa, wooden floor, cozy rug, soft daylight, neutral color palette, interior design visualization, 24mm Tilt-Shift, f/8 aperture, Blue Hour, Natural Lighting, balanced exposure, architectural photography, clean geometric lines, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, V-Ray render, Architectural visualization, Realistic materials.",
+  "zhPrompt": "北歐風格客廳的逼真3D渲染，米色沙發，木地板，舒適的地毯，柔和的日光，中性色彩搭配，室內設計可視化，24mm移軸鏡頭，f/8光圈，藍色時段，自然光照，平衡曝光，建築攝影，簡潔的幾何線條，傑作，最佳品質，超精細，8k分辨率，清晰的焦點，V-Ray渲染，建築可視化，逼真的材質。",
+  "tags": "北歐風, 室內設計, 3D渲染, 寫實主義, 客廳"
+}
+-------------------
+
+[2025-12-16T11:37:26.871Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., High quality 3D render of [客廳], unreal engine 5, ray tracing, realistic textures, cinematic lighting, 8k., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事衝擊力，並優先考慮紋理以實現絕對逼真度。, [客廳] 的高品質 3D 渲染，Unreal Engine 5，光線追蹤，逼真的紋理，電影燈光，8k。，100mm 微距，f/2.8 光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "3D渲染, 室內設計, 光線追蹤, 超真實, 8K解析度"
+}
+-------------------
+
+[2025-12-16T11:38:17.947Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., Cute 3D blind box toy of [one piece ], chibi style, soft smooth lighting, pastel colors, isometric view, plastic material, octane render., 50mm, f/8 aperture, Studio HDRI, Three-point Lighting, 3D visualization, digital art, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, Unreal Engine 5 render, Octane Render, Ray Tracing, Global Illumination, Ambient Occlusion.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光照以產生敘事衝擊，以及紋理以實現絕對的保真度。，[海賊王]的可愛3D盲盒玩具，Q版風格，柔和的光線，粉彩色，等距視圖，塑料材質，Octane渲染。，50mm，f/8光圈，工作室HDRI，三點照明，3D視覺化，數字藝術，傑作，最佳品質，超細緻，8k分辨率，焦點清晰，Unreal Engine 5渲染，Octane渲染，光線追蹤，全局光照，環境光遮蔽。",
+  "tags": "盲盒玩具, 3D渲染, 海賊王, Q版, 粉彩色"
+}
+-------------------
+
+[2025-12-16T11:39:50.374Z] Raw Gemini Response:
+{
+  "enPrompt": "Cute 3D blind box toy of [one piece ], chibi style, soft smooth lighting, pastel colors, isometric view, plastic material, octane render, 50mm, f/8 aperture, Studio HDRI, Three-point Lighting, 3D visualization, digital art, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, Unreal Engine 5 render, Octane Render, Ray Tracing, Global Illumination, Ambient Occlusion.",
+  "zhPrompt": "可愛的 [航海王] 3D 盲盒玩具，Q版風格，柔和的光線，粉彩色調，等距視角，塑膠材質，Octane渲染，50mm，f/8 光圈，工作室HDRI，三點照明，3D視覺化，數位藝術，傑作，最佳品質，超精細，8k解析度，清晰對焦，Unreal Engine 5 渲染，Octane 渲染，光線追蹤，全域照明，環境光遮蔽。",
+  "tags": "3D玩具, Q版, 盲盒, 航海王, 渲染"
+}
+-------------------
+
+[2025-12-16T12:19:41.112Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a stunning 20-year-old Taiwanese woman. She is smiling gently, looking directly at the camera. Long, flowing dark hair. Natural makeup. Soft, diffused golden hour lighting. Shallow depth of field, bokeh background. Medium close-up shot, upper body. 8K, highly detailed skin texture, sharp focus, photorealistic, volumetric lighting, cinematic composition. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位令人驚豔的20歲台灣女性的逼真肖像。她溫柔地微笑，直視鏡頭。烏黑亮麗的長髮，自然的妝容。柔和、擴散的黃金時段光線。淺景深，背景虛化。中距離特寫，上半身。8K，高度細緻的皮膚紋理，清晰對焦，逼真，體積光，電影構圖。100mm微距鏡頭，f/2.8光圈，柔和漫射光，攝影棚燈箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "人像, 台灣女性, 攝影, 高畫質, 美麗"
+}
+-------------------
+
+[2025-12-16T12:20:16.546Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a breathtakingly beautiful 20-year-old Taiwanese woman with long, flowing raven hair. Warm, gentle smile and direct, engaging eye contact. Natural, understated makeup enhances her features. Soft, diffused golden hour lighting bathes her in a warm glow, creating a shallow depth of field and creamy bokeh background. Medium close-up shot, upper body framed for cinematic composition. 8K, highly detailed skin texture, sharp focus, photorealistic rendering, volumetric lighting, award-winning photography, 100mm Macro, f/2.8 aperture. Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一個令人屏息的美麗的20歲台灣女性的寫實肖像，她有著飄逸的烏黑長髮。她帶著溫暖、溫柔的微笑，並有著直接、吸引人的眼神交流。自然的淡妝突顯了她的五官。柔和、漫射的金色時段光線使她沐浴在溫暖的光芒中，創造出淺景深和奶油般散景的背景。中等特寫鏡頭，上半身構圖具有電影感。8K，高度細緻的皮膚紋理，清晰的焦點，逼真的渲染，體積光照，獲獎攝影，100mm微距鏡頭，f/2.8光圈。柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣女性, 肖像攝影, 8K, 柔和光線, 寫實"
+}
+-------------------
+
+[2025-12-16T12:20:55.638Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a breathtakingly beautiful 20-year-old Taiwanese woman. Long, flowing raven hair cascades over her shoulders. Warm, gentle smile and direct, engaging eye contact. Natural, understated makeup. Soft, diffused golden hour lighting bathes her in a warm glow, creating a shallow depth of field and creamy bokeh background of blurred foliage. Medium close-up shot, upper body framed for cinematic composition. Volumetric lighting enhances skin texture. 8K, highly detailed skin texture, sharp focus, photorealistic rendering, award-winning photography, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一個美得令人屏息的20歲台灣女性的超真實肖像。 烏黑亮麗的長髮如瀑布般傾瀉在她的肩膀上。 溫暖、溫柔的微笑和直接、迷人的眼神接觸。 自然、低調的妝容。 柔和、漫射的黃金時段光線使她沐浴在溫暖的光芒中，創造出淺景深和奶油般散景的模糊樹葉背景。 中景特寫鏡頭，上半身構圖為電影構圖。 體積光增強皮膚紋理。 8K、高度細緻的皮膚紋理、清晰的焦點、超真實的渲染、獲獎攝影作品、100mm 微距、f/2.8 光圈、柔和的漫射光、柔光箱、專業產品攝影、奢華細節、傑作、最佳品質、超詳細、8k 解析度、清晰對焦、HDR、工作室品質、獲獎攝影作品。",
+  "tags": "人像, 台灣女性, 超寫實, 黃金時段, 攝影"
+}
+-------------------
+
+[2025-12-16T12:21:21.718Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of an exceptionally beautiful 20-year-old Taiwanese woman with long, flowing raven hair elegantly draped over her shoulders. She possesses a warm, gentle smile and direct, engaging eye contact. Her makeup is natural and understated. Bathed in soft, diffused golden hour lighting, she radiates a warm glow, creating a shallow depth of field and creamy bokeh background of blurred foliage. Medium close-up shot, upper body framed for cinematic composition. Volumetric lighting enhances skin texture. 8K, hyperdetailed skin texture, sharp focus, photorealistic rendering, award-winning photography, cinematic lighting, professional color grading. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張極其美麗的20歲台灣女性的寫實肖像，她有著長而飄逸的烏黑秀髮，優雅地披在肩上。她帶著溫暖、溫柔的微笑，並有著直接、吸引人的眼神交流。她的妝容自然而低調。沐浴在柔和、擴散的黃金時段光線中，她散發著溫暖的光芒，創造出淺景深和模糊樹葉的奶油散景背景。中景特寫鏡頭，上半身構圖為電影般的構圖。體積光增強了皮膚紋理。8K，超細緻的皮膚紋理，清晰的焦點，逼真的渲染，獲獎攝影，電影照明，專業色彩分級。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k解析度，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣女性, 寫實肖像, 黃金時段光線, 超細緻, 獲獎攝影"
+}
+-------------------
+
+[2025-12-16T12:22:08.037Z] Raw Gemini Response:
+{
+  "enPrompt": "A beautiful Japanese JK (high school girl) with short, dark hair and bright eyes, wearing a crisp, slightly oversized school uniform. She stands smiling gently in a sun-drenched classroom near a window, soft light illuminating her face. Photorealistic style, soft focus background, shallow depth of field. Medium shot, natural pose. 8K, highly detailed skin texture, sharp focus, volumetric lighting, cinematic composition., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的日本女高中生，留著短短的黑髮，明亮的眼睛，穿著整潔、略微寬大的學校制服。她站在陽光明媚的教室窗邊，溫柔地微笑著，柔和的光線照亮了她的臉龐。照片寫實風格，柔焦背景，淺景深。中景，自然姿勢。8K，高度細緻的皮膚紋理，清晰的焦點，體積光，電影構圖。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影作品。",
+  "tags": "日本女高中生, 制服, 教室, 陽光, 攝影"
+}
+-------------------
+
+[2025-12-16T12:29:44.916Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose. Her hair is black and shiny, styled in a high ponytail. She has a slender figure, graceful posture, and a slender physique. She is wearing a gray fitted hooded long coat that reaches above her thighs, with the zipper slightly open, revealing a light gray strapless top. The hood and collar of the coat are decorated with gray fur. She smiles at the camera on a bustling Tokyo street. Neon signs illuminate the scene with vibrant colors, reflected in the wet pavement after a recent rain. Pedestrians with umbrellas fill the sidewalks. In the background, a towering skyscraper looms, partially obscured by a light fog. 8k, detailed.",
+  "zhPrompt": "一位台灣優雅美麗的女孩，五官精緻，鼻樑高挺。她有著烏黑亮麗的頭髮，梳成高馬尾。她身材苗條，姿態優雅，體格纖細。她穿著一件灰色合身連帽長外套，長度在大腿以上，拉鍊微微敞開，露出淺灰色的無肩帶上衣。外套的帽子和領子飾有灰色毛皮。她在熙熙攘攘的東京街頭對著鏡頭微笑。霓虹燈以鮮豔的色彩照亮了街道，雨後潮濕的路面反射著光芒。人行道上擠滿了撐著雨傘的行人。背景中，一棟高聳的摩天大樓隱約可見，部分被薄霧遮蔽。8k，細節豐富。",
+  "tags": "台灣美女, 東京街頭, 霓虹燈, 時尚, 8K"
+}
+-------------------
+
+[2025-12-16T12:30:29.888Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. High-end editorial portrait, close-up of [Taiwanese beauty, 20 years old], soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以產生敘事衝擊力，並優先考慮紋理以達到絕對的保真度。高端編輯人像，[台灣美女，20歲]的特寫，柔和的電影照明，細膩的皮膚紋理，散景背景。(電影照明:1.3)，柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。100mm微距，f/2.8光圈，柔和的漫射光，攝影棚，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 人像攝影, 電影照明, 細節紋理, 專業攝影"
+}
+-------------------
+
+[2025-12-16T12:31:20.353Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose. She has black, shiny hair in a high ponytail. She is slender with a graceful figure. She wears a gray, fitted, hooded long jacket that extends to above her thighs, with the zipper slightly open, revealing a light gray strapless top. The hood's edge and collar have gray faux fur trim. She smiles at the camera. The scene is the interior of a log cabin at sunset. The walls are made of rough, horizontally stacked logs, creating a warm and rustic style. There are two large wooden-framed glass windows. Next to her is a brown wooden chest of drawers, on which are placed an old-fashioned radio and an alarm clock, with a minimalist style. Through the windows, there is the golden light of sunset on a snowy outdoor environment. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一位台灣優雅美麗的女孩，五官精緻，鼻樑挺直。她有著黑色亮麗的頭髮，紮成高馬尾。她身材苗條，體態優美。她穿著一件灰色合身的連帽長外套，長度到大腿以上，拉鍊稍微拉開，露出淺灰色的無肩帶上衣。帽子的邊緣和領子有灰色人造毛皮裝飾。她對著鏡頭微笑。場景是日落時分的木屋內部。牆壁由粗糙的水平堆疊的木頭製成，營造出溫暖而質樸的風格。有兩扇大型木框玻璃窗。她旁邊是一個棕色的木製抽屜櫃，上面放著一台老式收音機和一個鬧鐘，風格簡約。透過窗戶，可以看到戶外白雪皚皚的環境中，夕陽的金光灑落。50mm，f/2.8 光圈，電影照明，平衡，專業攝影，傑作，最佳品質，超細緻，8k 解析度，獲獎攝影。",
+  "tags": "台灣美女, 木屋, 日落, 時尚, 攝影"
+}
+-------------------
+
+[2025-12-16T12:31:59.229Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose. She has black, shiny hair in a high ponytail. She is slender with a graceful figure. She wears a gray, fitted, hooded long jacket with gray faux fur trim, zipper slightly open, revealing a light gray strapless top. She smiles at the camera. The scene is the interior of a log cabin at sunset. Rough log walls, warm rustic style. Wooden-framed glass windows. Next to her is a brown wooden chest of drawers with an old-fashioned radio and alarm clock. Through the windows, a warm sunset glow illuminates a snowy outdoor environment. 50mm, f/2.8, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一位台灣優雅美麗的女孩，五官精緻，鼻樑高挺。她留著黑色亮麗的高馬尾。她身材苗條，體態優美。她穿著一件灰色合身連帽長外套，飾有灰色人造毛皮飾邊，拉鍊稍微打開，露出淺灰色無肩帶上衣。她對著鏡頭微笑。場景是日落時的小木屋內部。粗糙的木牆，溫暖的鄉村風格。木框玻璃窗。她旁邊是一個棕色的木製抽屜櫃，上面放著一台老式收音機和鬧鐘。透過窗戶，溫暖的日落光芒照亮了白雪皚皚的戶外環境。50mm，f/2.8，電影照明，平衡，專業攝影，傑作，最佳質量，超詳細，8k分辨率，獲獎攝影。",
+  "tags": "台灣女孩, 日落, 小木屋, 時尚, 美麗"
+}
+-------------------
+
+[2025-12-16T12:32:35.179Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese elegant and beautiful girl with delicate features and a straight nose, black shiny hair in a high ponytail, slender with a graceful figure. She's unzipping her gray, fitted, hooded long jacket revealing the light gray strapless top. She's reaching for the old-fashioned radio on the brown wooden chest of drawers next to her. The log cabin interior remains warm and rustic with horizontally stacked logs. Light streams through the two large wooden-framed glass windows revealing a snowy outdoor environment. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography.",
+  "zhPrompt": "一位台灣優雅美麗的女孩，五官精緻，鼻樑挺直，黑色亮麗的頭髮紮成高馬尾，身材苗條，姿態優美。她正在拉開灰色合身連帽長外套的拉鍊，露出淺灰色的無肩帶上衣。她正伸手去拿她旁邊棕色木製抽屜櫃上的老式收音機。小木屋內部保持溫暖和質樸，橫向堆疊的原木。光線透過兩個大型木框玻璃窗戶照射進來，展現出白雪皚皚的戶外環境。50mm，f/2.8光圈，電影照明，平衡，專業攝影，傑作，最佳質量，超細緻，8k分辨率，獲獎攝影。",
+  "tags": "台灣美女, 高馬尾, 小木屋, 懷舊收音機, 冬季雪景"
+}
+-------------------
+
+[2025-12-16T12:40:55.902Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a 20-year-old Taiwanese beauty, extreme close-up (face/detail only), soft cinematic lighting, detailed skin texture, bokeh background, (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "20歲台灣美女的高端社論肖像，極端特寫（僅面部/細節），柔和的電影照明，細緻的皮膚紋理，散景背景，(電影照明:1.3)，柯達Portra 400膠片，次表面散射 (SSS)，柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，Annie Leibovitz風格，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "人像攝影, 台灣美女, 電影感光線, 細緻皮膚, 專業攝影"
+}
+-------------------
+
+[2025-12-16T12:45:36.980Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., High-end editorial full body shot of [台灣美女，20歲], soft cinematic lighting, detailed skin texture, bokeh background., (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事影響，並優先考慮紋理以實現絕對逼真。, [台灣美女，20歲] 的高端編輯全身照，柔和的電影照明，細緻的皮膚紋理，散景背景。, (電影照明:1.3), Kodak Portra 400 膠片，次表面散射 (SSS)，柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。, 100mm 微距，f/2.8 光圈，柔和的漫射照明，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 人像攝影, 電影照明, 高端時尚, 8k解析度"
+}
+-------------------
+
+[2025-12-16T12:46:58.665Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. High-end editorial full body shot of [Taiwanese beauty, 20 years old], soft cinematic lighting, detailed skin texture, bokeh background, rain, wet surfaces. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style., HDR, Award winning photography., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮照明的敘事影響，以及紋理的絕對保真度。高端編輯全身鏡頭，[台灣美女，20歲]，柔和的電影照明，細緻的皮膚紋理，散景背景，雨，濕表面。(電影照明:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格，HDR，獲獎攝影，100毫米微距，f/2.8光圈，柔和的漫射照明，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 電影感, 高端攝影, 人像, 細緻紋理"
+}
+-------------------
+
+[2025-12-16T12:51:05.454Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在下著雪的冬夜裡，一個舒適的咖啡館內，[台灣美女，20歲，全身]的廣角鏡頭，柔和的電影燈光，細緻的皮膚紋理，散景背景。(電影燈光：1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的情緒，100毫米微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳質量，超細緻，8k分辨率，清晰的焦點，HDR，工作室質量，獲獎攝影。",
+  "tags": "台灣美女, 電影燈光, 冬夜咖啡館, 細緻皮膚, 專業攝影"
+}
+-------------------
+
+[2025-12-16T12:51:45.800Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在一個下雪的冬夜，寬鏡頭拍攝一位[台灣美女，20歲，全身]，場景設定在舒適的咖啡館內，柔和的電影燈光，細緻的皮膚紋理，背景呈現散景效果。(電影燈光：1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細膩的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的情緒，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 咖啡館, 冬夜, 電影燈光, 攝影"
+}
+-------------------
+
+[2025-12-16T12:52:21.738Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在一個下雪冬夜的舒適咖啡館內，[台灣美女，20歲，全身]的廣角鏡頭，柔和的電影燈光，細緻的皮膚紋理，散景背景。（電影燈光：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的心情，100mm微距，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 冬夜咖啡館, 電影燈光, 細緻紋理, 專業攝影"
+}
+-------------------
+
+[2025-12-16T13:28:57.845Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, HDR, Studio quality, Award winning photography, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "在一個舒適的咖啡館內，一個下雪的冬夜，廣角鏡頭拍攝[台灣美女，20歲，全身]，柔和的電影照明，細緻的皮膚紋理，散景背景。(電影照明:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的心情，HDR，工作室品質，獲獎攝影作品，100mm微距，f/2.8光圈，柔和的漫射照明，光帳，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦。",
+  "tags": "台灣美女, 冬夜咖啡館, 電影照明, 細緻皮膚, 快樂心情"
+}
+-------------------
+
+[2025-12-16T13:29:17.477Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, HDR, Studio quality, Award winning photography, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "在一個下雪的冬夜，寬鏡頭拍攝[台灣美女，20歲，全身]，場景設定在一個舒適的咖啡館內，柔和的電影燈光，細緻的皮膚紋理，背景為散景。(電影燈光:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的情緒，HDR，工作室品質，獲獎攝影作品，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k解析度，焦點清晰。",
+  "tags": "台灣美女, 冬日咖啡館, 電影燈光, 細緻人像, 8k解析度"
+}
+-------------------
+
+[2025-12-16T13:33:30.639Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, HDR, Studio quality, Award winning photography., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在一個下雪冬夜，寬廣的鏡頭捕捉到[台灣美女，20歲，全身]在一個舒適的咖啡館內，柔和的電影燈光，細緻的皮膚紋理，散景背景。(電影燈光:1.3)，柯達Portra 400膠片，次表面散射(SSS)，柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，Annie Leibovitz風格。快樂和喜悅的情緒，HDR，工作室品質，獲獎攝影作品，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影作品。",
+  "tags": "台灣美女, 咖啡館, 冬夜, 電影燈光, 人像攝影"
+}
+-------------------
+
+[2025-12-16T13:38:48.460Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot of [Taiwanese beauty, 20 years old, full body] inside a cozy cafe during a snowy winter night, soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Moonlight and city lights, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. Happy and joyful mood, HDR, Studio quality, Award winning photography, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "在一個下雪的冬夜，寬廣的鏡頭捕捉到一位[台灣美女，20歲，全身]在舒適咖啡館內的場景，柔和的電影照明，細緻的皮膚紋理，散景背景。（電影照明：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，月光和城市燈光，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格。快樂和喜悅的情緒，HDR，工作室品質，獲獎攝影作品，100毫米微距，f/2.8光圈，柔和的漫射照明，柔光箱，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦。",
+  "tags": "台灣美女, 冬夜咖啡館, 電影照明, 細緻皮膚, 8k分辨率"
+}
+-------------------
+
+[2025-12-16T13:39:57.233Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese beauty, 20 years old, full body, shot on 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background. Inside a cozy cafe, nighttime with moonlight streaming through windows, happy and joyful mood. Winter atmosphere, no snow inside, clear indoor air, fireplace, warm lighting, hot drinks, winter decorations, snow visible only through windows.",
+  "zhPrompt": "一位20歲台灣美女的高端編輯人像，全身照，使用85mm鏡頭拍攝，f/1.8光圈，柔和的電影燈光，細緻的皮膚紋理，散景背景。在一個舒適的咖啡館裡，夜晚的月光從窗戶灑進來，心情快樂而喜悅。冬季氛圍，室內沒有雪，室內空氣清新，有壁爐、暖色燈光、熱飲、冬季裝飾，只能從窗戶看到雪。",
+  "tags": "台灣美女, 咖啡館, 冬季, 人像攝影, 氛圍感"
+}
+-------------------
+
+[2025-12-16T13:40:57.143Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of a Taiwanese beauty, 20 years old, full body, wide shot, magical forest path, sunset golden hour, 85mm lens, f/1.8 aperture, soft cinematic lighting, detailed skin texture, bokeh background, cherry blossoms, fresh green leaves, spring flowers, romantic, warm atmosphere.",
+  "zhPrompt": "一位20歲的台灣美女的高端時尚人像，全身，廣角鏡頭，在一個充滿魔力的森林小徑上，日落的黃金時段，85mm鏡頭，f/1.8光圈，柔和的電影感光線，細緻的皮膚紋理，散景背景，櫻花，新鮮的綠葉，春天花朵，浪漫，溫暖的氛圍。",
+  "tags": "人像, 台灣美女, 森林, 浪漫, 櫻花"
+}
+-------------------
+
+[2025-12-16T13:41:51.051Z] Raw Gemini Response:
+{
+  "enPrompt": "Anime/manga style, medium shot portrait of a Taiwanese beauty, 20 years old, upper body, busy city street with buildings, bright sunlight, lush green, 8K, detailed skin texture, summer atmosphere, soft cinematic lighting, bokeh background.",
+  "zhPrompt": "動漫/漫畫風格，一位20歲的台灣美女的中景肖像，上半身，繁忙的城市街道與建築，明亮的陽光，茂盛的綠色，8K，細緻的皮膚紋理，夏季氛圍，柔和的電影照明，散景背景。",
+  "tags": "動漫, 台灣美女, 城市, 夏日, 肖像"
+}
+-------------------
+
+[2025-12-16T13:44:14.457Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of [Taiwanese beauty, 20 years old, full body] in a bustling Tokyo street market, shot on 85mm lens, f/1.8 aperture, neon-lit cyberpunk style, detailed skin texture, vibrant bokeh background. (Cinematic Lighting:1.3), cyberpunk, rain, night. Subsurface Scattering (SSS), backlight, neon signs, Detailed pores, Realistic hair texture. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography. Tense atmosphere.",
+  "zhPrompt": "在熙熙攘攘的東京街頭市場，一位[台灣美女，20歲，全身]的高端社論人像，使用85毫米鏡頭拍攝，f/1.8光圈，霓虹燈網絡朋克風格，細緻的皮膚紋理，充滿活力的散景背景。(電影照明:1.3)，網絡朋克，雨，夜晚。次表面散射（SSS），背光，霓虹燈招牌，細緻的毛孔，逼真的頭髮紋理。傑作，最佳質量，超細緻，8k分辨率，獲獎攝影作品。緊張的氣氛。",
+  "tags": "人像攝影, 台灣美女, 東京街頭, 網絡朋克, 霓虹燈"
+}
+-------------------
+
+[2025-12-16T13:44:43.873Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of [Taiwanese beauty, 20 years old, full body] in a bustling Tokyo street market, shot on 85mm lens, f/1.8 aperture, neon-lit cyberpunk style, detailed skin texture, vibrant bokeh background. (Cinematic Lighting:1.3), cyberpunk, rain, night. Subsurface Scattering (SSS), backlight, neon signs, Detailed pores, Realistic hair texture. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography. Tense atmosphere.",
+  "zhPrompt": "在熙攘的東京街頭市場中，一位[台灣美女，20歲，全身]的高端編輯人像，使用85mm鏡頭拍攝，f/1.8光圈，霓虹燈網絡朋克風格，細緻的皮膚紋理，充滿活力的散景背景。(電影照明:1.3)，網絡朋克，雨，夜晚。次表面散射(SSS)，背光，霓虹燈招牌，細緻的毛孔，逼真的頭髮紋理。傑作，最佳質量，超精細，8k分辨率，獲獎攝影作品。緊張的氣氛。",
+  "tags": "台灣美女, 東京街頭, 網絡朋克, 人像攝影, 高分辨率"
+}
+-------------------
+
+[2025-12-16T13:45:14.089Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial portrait of [Taiwanese beauty, 20 years old, full body] in a bustling Tokyo street market, shot on 85mm lens, f/1.8 aperture, neon-lit cyberpunk style, detailed skin texture, vibrant bokeh background. (Cinematic Lighting:1.3), cyberpunk, rain, night. Subsurface Scattering (SSS), backlight, neon signs, Detailed pores, Realistic hair texture. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography. Tense atmosphere.",
+  "zhPrompt": "在熙熙攘攘的東京街頭市場，一位[台灣美女，20歲，全身]的高端社論肖像，使用85毫米鏡頭拍攝，f/1.8光圈，霓虹燈賽博龐克風格，細緻的皮膚紋理，充滿活力的散景背景。(電影照明:1.3)，賽博龐克，雨，夜晚。次表面散射 (SSS)，背光，霓虹燈招牌，細緻的毛孔，逼真的頭髮紋理。傑作，最佳品質，超細緻，8k分辨率，獲獎攝影作品。緊張的氣氛。",
+  "tags": "人像攝影, 賽博龐克, 街頭攝影, 台灣美女, 東京"
+}
+-------------------
+
+[2025-12-16T13:48:17.990Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end portrait of [Taiwanese beauty, 20 years old, full body] on a windswept Icelandic black sand beach, shot on 35mm lens, f/2.8 aperture, dramatic landscape photography style, detailed skin texture, blurred motion background. (Cinematic Lighting:1.3), ethereal, winter, dusk. Backlight, dramatic clouds, detailed pores, realistic hair texture. Masterpiece, best quality, ultra-detailed, 8k resolution, award winning photography. Mysterious atmosphere.",
+  "zhPrompt": "在冰島黑色沙灘上，一位身穿長裙的[台灣美女，20歲，全身]，以35mm鏡頭和f/2.8光圈拍攝的高端人像。戲劇性的風景攝影風格，細膩的皮膚紋理，模糊的運動背景。(電影照明:1.3)，空靈，冬天，黃昏。逆光，戲劇性的雲彩，細緻的毛孔，逼真的頭髮質感。傑作，最佳品質，超細緻，8k解析度，獲獎攝影作品。神秘的氣氛。",
+  "tags": "台灣美女, 冰島, 風景攝影, 8k, 電影感"
+}
+-------------------
+
+[2025-12-16T13:50:30.431Z] Raw Gemini Response:
+{
+  "enPrompt": "Medium shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, standing, wearing a cyberpunk-inspired uniform with neon accents, amidst the vibrant chaos of a Tokyo street market, night, neon lighting, shallow depth of field, photorealistic, 8k, detailed skin, sharp focus, 50mm lens, f/1.8 aperture, dynamic lighting, street photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, tense.",
+  "zhPrompt": "中景，一位迷人的日本空姐，深色頭髮盤成髮髻，微笑著站立，身穿具有霓虹燈元素的賽博龐克風格制服，在東京街頭市場充滿活力的混亂中，夜晚，霓虹燈照明，淺景深，照片寫實，8k，細緻的皮膚，清晰的焦點，50mm鏡頭，f/1.8光圈，動態照明，街頭攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影，緊張。",
+  "tags": "空姐, 賽博龐克, 東京, 夜市, 街頭攝影"
+}
+-------------------
+
+[2025-12-16T13:50:49.320Z] Raw Gemini Response:
+{
+  "enPrompt": "Close-up, an attractive Japanese flight attendant with dark hair in a bun, wearing a maroon uniform dress with gold trim, rendered in a delicate watercolor style, sitting at a cafe table in Paris, autumn, soft daylight, shallow depth of field, impressionistic, 4k, textured brushstrokes, soft focus, wide aperture, natural lighting, cafe setting, luxurious detail, Masterpiece, best quality, detailed, 4k resolution, sharp focus, HDR, Award winning art, happy.",
+  "zhPrompt": "近距離特寫，一位迷人的日本空姐，深色頭髮盤成髮髻，身穿帶金色滾邊的栗色制服連衣裙，以精緻的水彩風格呈現，坐在巴黎一家咖啡館的桌子旁，秋天，柔和的日光，淺景深，印象派，4k，紋理筆觸，柔焦，大光圈，自然光，咖啡館環境，奢華細節，傑作，最佳品質，細緻，4k解析度，焦點清晰，HDR，獲獎藝術，快樂。",
+  "tags": "空姐, 日本, 水彩, 巴黎, 咖啡館"
+}
+-------------------
+
+[2025-12-16T13:51:06.312Z] Raw Gemini Response:
+{
+  "enPrompt": "Wide shot, an attractive Japanese flight attendant with dark hair in a bun, smiling, wearing a maroon uniform dress with gold trim, standing on a pristine beach in Okinawa, summer, sunrise, natural lighting, deep depth of field, photorealistic, 8k, clear blue water, sharp focus, 24mm lens, f/8 aperture, golden hour lighting, tropical paradise, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, romantic.",
+  "zhPrompt": "廣角鏡頭，一位有吸引力的日本空姐，深色頭髮盤成髮髻，面帶微笑，身穿帶金色飾邊的栗色制服連衣裙，站在沖繩一片原始的海灘上，夏天，日出，自然光，景深，照片寫實主義，8k，清澈的藍色海水，焦點清晰，24毫米鏡頭，f/8 光圈，黃金時段照明，熱帶天堂，奢華細節，傑作，最佳質量，超細緻，8k 解析度，焦點清晰，HDR，工作室質量，獲獎攝影，浪漫。",
+  "tags": "日本空姐, 沖繩海灘, 日出, 熱帶, 8k"
+}
+-------------------
+
+[2025-12-16T14:28:36.028Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtakingly beautiful Asian woman with long, dark hair neatly pulled back, wearing a sophisticated gray strapless dress and an open, elegant gray coat featuring luxurious fur trim around the hood. She stands gracefully in a rustic wooden cabin room with expansive windows revealing a snow-covered landscape. A vintage radio and classic alarm clock rest on a wooden dresser beside her. Photorealistic rendering, soft, diffused lighting, warm color palette emphasizing grays and browns. Medium shot, centered composition, looking slightly off-camera with a serene expression. 8K, highly detailed, sharp focus, cinematic, volumetric lighting, intricate textures.",
+  "zhPrompt": "一位美得令人屏息的亞洲女性，留著整齊向後梳的烏黑長髮，身穿一件精緻的灰色無肩帶洋裝，以及一件敞開的優雅灰色外套，兜帽周圍飾有奢華的毛皮。她優雅地站立在一個古樸的木製小屋房間裡，寬大的窗戶展示著白雪皚皚的景色。一台復古收音機和一個經典的鬧鐘放在她旁邊的木製梳妝台上。照片寫實渲染，柔和、漫射的光線，溫暖的調色盤，強調灰色和棕色。中景鏡頭，居中構圖，表情平靜，略微看向鏡頭外。8K，高度細節，清晰對焦，電影感，體積光，複雜的紋理。",
+  "tags": "亞洲女性, 冬季小屋, 復古風格, 精緻服裝, 8K渲染"
+}
+-------------------
+
+[2025-12-16T14:29:02.680Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtakingly beautiful Asian woman with long, dark hair neatly pulled back, wearing a sophisticated gray strapless dress and an open, elegant gray coat featuring luxurious fur trim around the hood. She stands gracefully in a rustic wooden cabin room with expansive windows revealing a snow-covered landscape. A vintage radio and classic alarm clock rest on a wooden dresser beside her. Photorealistic rendering, soft, diffused lighting, warm color palette emphasizing grays and browns. Medium shot, centered composition, looking slightly off-camera with a serene expression. 8K, highly detailed, sharp focus, cinematic, volumetric lighting, intricate textures.",
+  "zhPrompt": "一位美得令人屏息的亞洲女性，留著整齊向後梳的烏黑長髮，身穿一件精緻的灰色無肩帶洋裝，以及一件敞開的優雅灰色外套，帽兜周圍飾有奢華的毛皮滾邊。她優雅地站立在一個質樸的木製小屋房間裡，寬大的窗戶映襯著白雪皚皚的景色。一個老式收音機和一個經典的鬧鐘安放在她身旁的木製梳妝台上。照片寫實渲染，柔和、漫射的光線，溫暖的色彩，強調灰色和棕色。中景鏡頭，中心構圖，眼神略微偏離鏡頭，表情寧靜。8K，高度細緻，清晰的焦點，電影感，體積光，複雜的紋理。",
+  "tags": "亞洲女性, 冬季小屋, 灰階時尚, 復古風格, 8K寫實"
+}
+-------------------
+
+[2025-12-16T14:29:33.913Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtakingly beautiful Asian woman with long, dark hair neatly pulled back, wearing a sophisticated gray strapless dress and an open, elegant gray coat featuring luxurious fur trim around the hood. She stands gracefully in a rustic wooden cabin room with expansive windows revealing a snow-covered landscape. A vintage radio and classic alarm clock rest on a wooden dresser beside her. Photorealistic rendering, soft, diffused lighting, warm color palette emphasizing grays and browns. Medium shot, centered composition, looking slightly off-camera with a serene expression. 8K, highly detailed, sharp focus, cinematic, volumetric lighting, intricate textures, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美得令人屏息的亞洲女性，烏黑長髮整齊地向後梳，身穿一件精緻的灰色無肩帶洋裝，外搭一件敞開、優雅的灰色外套，兜帽周圍飾有奢華的毛皮。她優雅地站立在一個樸rustic的木製小木屋房間裡，寬大的窗戶外展示著白雪皚皚的景色。一台復古收音機和一個經典鬧鐘放在她旁邊的木製梳妝台上。逼真的渲染，柔和、漫射的照明，溫暖的色彩，強調灰色和棕色。中景鏡頭，居中構圖，表情平靜地稍微看向鏡頭外。8K，高度細節，清晰對焦，電影感，體積光照，複雜的紋理，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "亞洲女性, 冬季小屋, 復古風格, 精緻服裝, 攝影傑作"
+}
+-------------------
+
+[2025-12-16T14:30:47.363Z] Raw Gemini Response:
+{
+  "enPrompt": "A beautiful Eastern woman with a gentle yet regal aura, long wavy hair, and delicate features, lounging on a luxurious, milk tea-colored sofa. She wears a cream-colored oversized knit sweater and light linen pants, cradling a fluffy white long-haired cat. A fluffy red fox snuggles beside her. A sleek black panther lies regally at her feet, while a silver-white arctic wolf sits attentively by the sofa. All four animals gaze softly at the camera. Soft morning light floods the minimalist Scandinavian-style room. A serene, dreamy, and powerful atmosphere. Cinematic lighting, hyperrealistic details, 8K, masterpiece --ar 3:4 --stylize 750, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的東方女性，散發著溫柔而高貴的氣息，有著長長的波浪頭髮和精緻的五官，慵懶地躺在豪華的奶茶色沙發上。她穿著奶油色的寬鬆針織毛衣和淺色亞麻褲，懷裡抱著一隻蓬鬆的白色長毛貓。一隻蓬鬆的紅色狐狸依偎在她身旁。一隻光滑的黑豹威嚴地躺在她的腳邊，而一隻銀白色的北極狼則專注地坐在沙發旁。所有四隻動物都溫柔地看著鏡頭。柔和的晨光灑滿了極簡主義的斯堪的納維亞風格房間。營造出一種寧靜、夢幻而強大的氛圍。電影燈光，超現實細節，8K，傑作 --ar 3:4 --stylize 750, 100mm 微距鏡頭，f/2.8 光圈，柔和漫射光，光罩，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k 解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "東方女性, 動物夥伴, 斯堪的納維亞風格, 夢幻氛圍, 超現實主義"
+}
+-------------------
+
+[2025-12-16T14:31:24.820Z] Raw Gemini Response:
+{
+  "enPrompt": "A beautiful Chinese woman with a gentle yet regal aura, long wavy hair, and delicate features, lounging on a luxurious, milk tea-colored sofa. She wears a cream-colored oversized knit sweater and light linen pants, cradling a fluffy white long-haired cat. A fluffy red fox snuggles beside her. A sleek black panther lies regally at her feet, while a silver-white arctic wolf sits attentively by the sofa. All four animals gaze softly at the camera. Soft morning light floods the minimalist Scandinavian-style room. A serene, dreamy, and powerful atmosphere. Cinematic lighting, hyperrealistic details, 8K, masterpiece --ar 3:4 --stylize 750, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的中國女子，帶著溫柔而高貴的氣息，長長的波浪髮，精緻的五官，慵懶地躺在豪華的奶茶色沙發上。她穿著奶油色的寬鬆針織毛衣和淺色亞麻褲，懷裡抱著一隻蓬鬆的白色長毛貓。一隻蓬鬆的紅色狐狸依偎在她身旁。一隻光滑的黑色豹子以王者般的姿態躺在她的腳邊，而一隻銀白色的北極狼則專注地坐在沙發旁。四隻動物都溫柔地凝視著鏡頭。柔和的晨光灑滿了極簡主義的斯堪地納維亞風格房間。營造出一種寧靜、夢幻而強大的氛圍。電影燈光，超寫實細節，8K，傑作 --ar 3:4 --stylize 750, 100mm Macro, f/2.8 光圈, 柔和漫射光，燈箱，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，銳利對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "中國美女, 斯堪地納維亞風格, 動物夥伴, 夢幻氛圍, 8K攝影"
+}
+-------------------
+
+[2025-12-17T01:00:27.702Z] Raw Gemini Response:
+{
+  "enPrompt": "Present a clear 45° top-down isometric miniature 3D diorama of Taipei Metro. The subject is the main focus, placed on a small raised diorama-style base that reflects its most recognizable environment, with subtle contextual details and tiny stylized figures if appropriate. Use soft refined textures, realistic PBR materials, and gentle cinematic lighting. The subject should feel premium, collectible, and instantly recognizable. Use a clean solid blue background with no gradients. At the top-center, display \"MRT\" in large bold text. Directly beneath it, display \"Mass Rapid Transit\" in medium text. Optionally place an official logo or emblem below the text. All text must automatically match background contrast. Square 1080x1080, ultra-clean high-clarity diorama aesthetic.",
+  "zhPrompt": "呈現一個清晰的45°俯視等距微型3D立體模型，描繪台北捷運。主體是焦點，放置在一個小型凸起的立體模型底座上，反映其最容易辨識的環境，並帶有細微的背景細節和微小的風格化人物（如果合適）。使用柔和精緻的紋理、逼真的PBR材質和柔和的電影照明。主體應感覺優質、具有收藏價值且易於識別。使用乾淨的純藍色背景，沒有漸變。在頂部中心，以粗體大字顯示「MRT」。在其正下方，以中等字體顯示「Mass Rapid Transit」。可選擇在文字下方放置官方標誌或徽章。所有文字必須自動匹配背景對比度。正方形1080x1080，超乾淨高清晰度的立體模型美學。",
+  "tags": "台北捷運, 立體模型, 等距視角, 3D渲染, 交通運輸"
+}
+-------------------
+
+[2025-12-17T01:01:34.933Z] Raw Gemini Response:
+{
+  "enPrompt": "Present a clear 45° top-down isometric miniature 3D diorama of [Taipei Metro]. The subject is the main focus, placed on a small raised diorama-style base that reflects its most recognizable environment, with subtle contextual details and tiny stylized figures if appropriate. Use soft refined textures, realistic PBR materials, and gentle cinematic lighting. The subject should feel premium, collectible, and instantly recognizable. Use a clean solid [blue] background with no gradients. At the top-center, display \"[台北捷運]\" in large bold text. Directly beneath it, display \"[MRT]\" in medium text. Optionally place an official logo or emblem below the text. All text must automatically match background contrast. Square 1080x1080, ultra-clean high-clarity diorama aesthetic.",
+  "zhPrompt": "呈現一個清晰的45°俯視等距微型3D立體透視模型，主題是[台北捷運]。主體是焦點，放置在一個小型的凸起立體模型底座上，底座反映其最容易辨識的環境，並具有微妙的背景細節和微小的風格化人物（如果合適）。使用柔和精細的紋理、逼真的PBR材質和柔和的電影照明。該主題應具有高級感、收藏價值且易於辨識。使用乾淨的純[藍色]背景，沒有漸變。在頂部中央，以粗體大字顯示「[台北捷運]」。在其正下方，以中等字體顯示「[MRT]」。可選擇在文字下方放置官方標誌或徽章。所有文字必須自動匹配背景對比度。正方形1080x1080，超乾淨高清晰度的立體透視美學。",
+  "tags": "台北捷運, MRT, 立體模型, 交通運輸, 台灣"
+}
+-------------------
+
+[2025-12-17T01:38:05.450Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [Ferrari F1] with bilingual text labels (English and Traditional Chinese) pointing to each component. Each part has a clean line connecting to its name showing both English name and Chinese translation (e.g. 'Handle 把手'). Professional infographic style, white background, sans-serif font, educational reference diagram showing part names and functions. High resolution, clean modern design.",
+  "zhPrompt": "法拉利F1的技術分解圖，帶有指向每個組件的雙語文字標籤（英文和繁體中文）。每個部件都有一條清晰的線連接到它的名稱，顯示英文名稱和中文翻譯（例如，'Handle 把手'）。專業信息圖表風格，白色背景，無襯線字體，教育參考圖，顯示零件名稱和功能。高分辨率，簡潔的現代設計。",
+  "tags": "爆炸圖, 技術圖解, 雙語標籤, 法拉利F1, 信息圖表"
+}
+-------------------
+
+[2025-12-17T01:39:11.961Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of [Ferrari F1] with bilingual text labels (English + Chinese) pointing to each component. Each part has a clean line connecting to its name showing both English name and Chinese translation (e.g. 'Handle 把手'). Professional infographic style, white background, sans-serif font, educational reference diagram showing part names and functions. High resolution, clean modern design.",
+  "zhPrompt": "法拉利F1賽車的技術分解圖，帶有指向每個組件的雙語文字標籤（英文+中文）。每個零件都有一條清晰的線連接到其名稱，顯示英文名稱和中文翻譯（例如「Handle 把手」）。專業資訊圖表風格，白色背景，無襯線字體，教育參考圖，顯示零件名稱和功能。高分辨率，乾淨的現代設計。",
+  "tags": "爆炸視圖, 技術圖解, 雙語標籤, 法拉利F1, 教育圖表"
+}
+-------------------
+
+[2025-12-17T01:40:17.760Z] Raw Gemini Response:
+{
+  "enPrompt": "Technical exploded view diagram of a car with bilingual text labels (English + Chinese) pointing to each component. Each part has a clean line connecting to its name showing both English name and Chinese name. Professional infographic style, white background, sans-serif font, educational reference diagram showing part names and functions. High resolution, clean modern design.",
+  "zhPrompt": "汽車的技術分解圖，帶有指向每個組件的雙語文字標籤（英文+中文）。每個零件都有一條清晰的線連接到它的名稱，同時顯示英文名稱和中文名稱。專業信息圖風格，白色背景，無襯線字體，教育參考圖，顯示零件名稱和功能。高分辨率，乾淨的現代設計。",
+  "tags": "汽車, 分解圖, 雙語, 信息圖, 技術圖解"
+}
+-------------------
+
+[2025-12-17T01:54:01.740Z] Raw Gemini Response:
+{
+  "enPrompt": "A young Asian woman with fair skin, dark brown hair pulled back in a ponytail, brown eyes, wearing a white top, realistic style.",
+  "zhPrompt": "一位年輕的亞洲女性，皮膚白皙，深棕色頭髮紮成馬尾，棕色眼睛，身穿白色上衣，寫實風格。",
+  "tags": "亞洲女性, 年輕, 馬尾, 寫實, 白色上衣"
+}
+-------------------
+
+[2025-12-17T03:16:20.112Z] Raw Gemini Response:
+{
+  "enPrompt": "portrait of a beautiful Asian woman, long black flowing hair, wearing a sheer, floral-embroidered dress, looking over her shoulder with a gentle smile, Photorealistic, natural golden hour lighting, warm color palette, rooftop background, shallow depth of field, medium shot, cinematic angle，Increase sharpness and detail in the background buildings while maintaining a soft, bokeh effect. Reduce chromatic aberration. Enhance the golden light reflections.",
+  "zhPrompt": "一位美麗的亞洲女性的肖像，黑色長髮飄逸，身穿透明的繡花連衣裙，回頭露出溫柔的微笑，逼真的照片，自然的黃金時段照明，暖色調，屋頂背景，淺景深，中景拍攝，電影角度，增加背景建築物的清晰度和細節，同時保持柔和的散景效果。 減少色差。 增強金色光線的反射。",
+  "tags": "亞洲女性, 肖像, 黃金時段, 繡花連衣裙, 淺景深"
+}
+-------------------
+
+[2025-12-17T03:16:25.999Z] Raw Gemini Response:
+{
+  "enPrompt": "portrait of a beautiful Asian woman, long black flowing hair, wearing a sheer, floral-embroidered dress, looking over her shoulder with a gentle smile, Photorealistic, natural golden hour lighting, warm color palette, rooftop background, shallow depth of field, medium shot, cinematic angle，Increase sharpness and detail in the background buildings while maintaining a soft, bokeh effect. Reduce chromatic aberration. Enhance the golden light reflections.",
+  "zhPrompt": "一位美麗的亞洲女性的肖像，黑色長髮飄逸，身穿透明的繡花連衣裙，回頭露出溫柔的微笑，照片寫實風格，自然的金色時段光線，暖色調，屋頂背景，淺景深，中景，電影角度，增加背景建築的清晰度和細節，同時保持柔和的散景效果。 減少色差。 增強金色光線的反射。",
+  "tags": "亞洲女性, 寫實肖像, 金色光線, 繡花連衣裙, 屋頂"
+}
+-------------------
+
+[2025-12-17T03:17:06.817Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact, and texture for absolute fidelity. Portrait of a beautiful Asian woman with long black hair, wearing a sheer floral dress, looking over her shoulder, soft diffused sunlight, golden hour, blurred cityscape background, bokeh, shallow depth of field, photorealistic, 8k, detailed skin texture, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線對敘事產生的影響，以及紋理的絕對保真度。一位美麗的亞洲女性的肖像，有著烏黑的長髮，穿著薄紗花卉連衣裙，回頭看，柔和的漫射陽光，黃金時段，模糊的城市景觀背景，散景，淺景深，照片寫實主義，8k，細緻的皮膚紋理，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "亞洲女性, 攝影, 肖像, 細緻, 光線"
+}
+-------------------
+
+[2025-12-17T03:17:44.835Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Prioritize lighting for narrative impact and texture for absolute fidelity. Portrait of a beautiful Asian woman with long black hair, wearing a sheer floral dress, looking over her shoulder. Soft diffused sunlight, golden hour, blurred cityscape background, bokeh, shallow depth of field, photorealistic, 8k, detailed skin texture, HDR, Studio quality, Award-winning photography. Increase sharpness and detail in the background buildings while maintaining a soft, bokeh effect. Reduce chromatic aberration. Enhance golden light reflections. 100mm Macro, f/2.8 aperture. Soft diffused lighting, light tent, professional product photography, luxurious detail. Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award-winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。優先考慮光線以達到敘事效果，並優先考慮紋理以達到絕對逼真。一位美麗的亞洲女性的肖像，有著烏黑的長髮，穿著薄紗花卉洋裝，回頭看著。柔和的漫射陽光，黃金時段，模糊的城市背景，散景，淺景深，照片寫實主義，8k，細緻的皮膚紋理，HDR，工作室品質，獲獎攝影作品。增加背景建築物的清晰度和細節，同時保持柔和的散景效果。減少色差。增強金色光線的反射。100mm微距鏡頭，f/2.8光圈。柔和的漫射光，柔光箱，專業產品攝影，奢華細節。傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影作品。",
+  "tags": "亞洲女性, 攝影, 肖像, HDR, 細緻"
+}
+-------------------
+
+[2025-12-17T03:18:57.183Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end editorial full body shot of [Taiwanese beauty, 20 years old], soft cinematic lighting, detailed skin texture, bokeh background. (Cinematic Lighting:1.3), Kodak Portra 400 film, Subsurface Scattering (SSS), Softbox Lighting, Creamy Bokeh, Golden Hour, Dappled Light, Detailed pores, Realistic hair texture, Annie Leibovitz style. HDR, Studio quality, Award winning photography. bokeh effect, blurred background with subtle light leaks, enhanced depth of field, cinematic lighting, golden hour, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "以敘事衝擊為優先的光線和絕對保真度的紋理，[台灣美女，20歲]的高端編輯全身照，柔和的電影光線，細膩的皮膚紋理，散景背景。（電影光線：1.3），柯達Portra 400膠片，次表面散射（SSS），柔光箱照明，奶油散景，黃金時段，斑駁的光線，細緻的毛孔，逼真的頭髮紋理，安妮·萊博維茨風格，HDR，工作室品質，獲獎攝影。散景效果，模糊的背景帶有微妙的漏光，增強的景深，電影光線，黃金時段，100mm微距，f/2.8光圈，柔和的漫射光，燈箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣美女, 電影光線, 細緻皮膚, 專業攝影, 人像攝影"
+}
+-------------------
+
+[2025-12-17T03:23:03.754Z] Raw Gemini Response:
+{
+  "enPrompt": "photorealistic portrait of a beautiful Asian woman with long, flowing black hair, looking over her shoulder with a gentle smile, wearing a sheer, flowing dress with delicate floral embroidery, warm golden hour lighting, shallow depth of field, soft focus background, cityscape bokeh, medium shot, Canon EOS 5D Mark IV, 85mm lens, f/2.8, ISO 200, detailed background buildings, increased depth of field, improved sharpness",
+  "zhPrompt": "一張美麗的亞洲女性的超真實肖像，有著長長的、飄逸的黑髮，帶著溫柔的微笑回頭看，穿著一件帶有精緻花卉刺繡的薄紗飄逸連衣裙，溫暖的黃金時段光線，淺景深，柔焦背景，城市景觀散景，中景拍攝，佳能 EOS 5D Mark IV，85mm 鏡頭，f/2.8，ISO 200，增加細節的背景建築，增加景深，提高清晰度",
+  "tags": "攝影, 人像, 亞洲女性, 柔和光線, 城市景觀"
+}
+-------------------
+
+[2025-12-17T10:13:51.053Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic medium shot portrait of a beautiful Asian woman with long, flowing black wavy hair. She wears a delicate, sheer dress adorned with intricate floral embroidery. Her pose is over-the-shoulder, with a gentle, inviting gaze. Soft, warm golden hour lighting bathes the scene, creating a cinematic atmosphere. Shallow depth of field, rooftop background blurred. Warm color palette. 8K, highly detailed, sharp focus, professional photography, cinematic lighting, volumetric lighting, realistic skin texture.",
+  "zhPrompt": "一張逼真的中景肖像，一位美麗的亞洲女性擁有長而飄逸的黑色波浪長髮。她穿著一件精緻的薄紗連衣裙，上面裝飾著複雜的 floral 刺繡。她的姿勢是過肩的，帶著溫柔、迷人的目光。柔和、溫暖的黃金時段光線沐浴著整個場景，營造出電影般的氛圍。淺景深，屋頂背景模糊。暖色調。8K，高度細節，清晰對焦，專業攝影，電影照明，體積照明，逼真的皮膚紋理。",
+  "tags": "亞洲女性, 攝影, 肖像, 電影感, 黃金時段"
+}
+-------------------
+
+[2025-12-17T10:14:51.324Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic medium shot portrait of a beautiful Asian woman with long, flowing black wavy hair. She wears a delicate, sheer dress adorned with intricate floral embroidery. Her pose is over-the-shoulder, with a gentle, inviting gaze. Soft, warm golden hour lighting bathes the scene, creating a cinematic atmosphere. Shallow depth of field, rooftop background blurred. Warm color palette. 8K, highly detailed, sharp focus, professional photography, cinematic lighting, volumetric lighting, realistic skin texture. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張逼真的中景人像照片，一位美麗的亞洲女性，有著長長的、飄逸的黑色波浪髮。她穿著一件精緻的、薄紗的連衣裙，上面裝飾著複雜的花卉刺繡。她的姿勢是過肩的，帶著溫柔、誘人的目光。柔和、溫暖的黃金時段光線籠罩著整個場景，營造出一種電影般的氛圍。淺景深，屋頂背景模糊。暖色調。8K，高度細節，清晰對焦，專業攝影，電影照明，體積照明，逼真的皮膚紋理。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "亞洲女性, 攝影肖像, 黃金時段, 精緻服裝, 電影氛圍"
+}
+-------------------
