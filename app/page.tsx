@@ -11,6 +11,7 @@ import MagicCanvas from "@/components/MagicCanvas";
 import StyleTunerModal from "@/components/StyleTunerModal";
 import BatchImportModal from "@/components/BatchImportModal";
 import AutoRefinerModal from "@/components/AutoRefinerModal";
+import ComicStripModal from "@/components/ComicStripModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -24,6 +25,7 @@ export default function Home() {
     const [showStyleTuner, setShowStyleTuner] = useState(false);
     const [showBatchImport, setShowBatchImport] = useState(false);
     const [showAutoRefiner, setShowAutoRefiner] = useState(false);
+    const [showComicStrip, setShowComicStrip] = useState(false);
 
     // Load changelog
     useEffect(() => {
@@ -56,6 +58,7 @@ export default function Home() {
         setShowStyleTuner(false);
         setShowBatchImport(false);
         setShowAutoRefiner(false);
+        setShowComicStrip(false);
     };
 
 
@@ -123,6 +126,13 @@ export default function Home() {
                         className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
                     >
                         🤖 Auto Agent
+                    </button>
+                    {/* Comic Strip Button */}
+                    <button
+                        onClick={() => setShowComicStrip(true)}
+                        className="text-pink-500 hover:text-pink-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        💬 四格漫畫
                     </button>
                 </div>
             </div>
@@ -212,6 +222,9 @@ export default function Home() {
 
             {/* Auto Refiner Modal */}
             <AutoRefinerModal isOpen={showAutoRefiner} onClose={() => setShowAutoRefiner(false)} />
+
+            {/* Comic Strip Modal */}
+            <ComicStripModal isOpen={showComicStrip} onClose={() => setShowComicStrip(false)} />
         </main>
     );
 }

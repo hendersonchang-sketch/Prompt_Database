@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         }
 
         const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-3.0-flash-exp" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
 
         const enhancePrompt = `
 You are an expert AI Art Prompt Engineer. The user has provided a simple description, and your job is to expand it into a detailed, professional prompt for image generation (like Stable Diffusion, Midjourney, or Imagen).

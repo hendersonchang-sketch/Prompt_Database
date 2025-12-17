@@ -130,7 +130,7 @@ export async function POST(request: Request) {
         if (apiKey) {
             try {
                 // Use available model from diagnostic list: gemini-2.0-flash
-                let geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash-exp:generateContent?key=${apiKey}`;
+                let geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 // Optimized System Prompt: Handles Translation AND Tagging in one go
                 const analysisPrompt = `
