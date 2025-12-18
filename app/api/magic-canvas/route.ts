@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -17,10 +17,9 @@ export async function POST(request: Request) {
         console.log("Magic Canvas Request received for prompt:", prompt);
 
         // Initialize Gemini
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey });
 
-        // Prepare Image Parts (Remove regex logic if passed clean, but usually data url has prefix)
+        // Prepare Image Parts
         const imagePart = {
             inlineData: {
                 data: image.split(',')[1],
@@ -43,9 +42,15 @@ export async function POST(request: Request) {
         Apply the changes ONLY to the masked area. Maintain the style, lighting, and perspective of the original image.`;
 
         // Generate
-        const result = await model.generateContent([editingPrompt, imagePart, maskPart]);
-        const response = await result.response;
-        const text = response.text();
+        const response = await client.models.generateContent({
+            model: "gemini-2.0-flash-exp",
+            contents: [
+                { text: editingPrompt },
+                imagePart,
+                maskPart
+            ]
+        });
+        const text = response.text || JSON.stringify(response.candidates?.[0]?.content?.parts?.[0]?.text || "");
 
         // Gemini 2.0 Flash usually returns a description of the edit, BUT we want the unexpected behavior:
         // Actually, pure Gemini 2.0 Flash text-model might NOT return an image directly unless we use specific editing capability or image-gen model.
@@ -79,7 +84,7 @@ export async function POST(request: Request) {
         if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
         for (const part of response.candidates?.[0]?.content?.parts || []) {
-            if (part.inlineData && part.inlineData.mimeType?.startsWith('image/')) {
+            if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
                 const buffer = Buffer.from(part.inlineData.data, 'base64');
                 const filename = `magic-canvas-${Date.now()}-${Math.random().toString(36).substring(7)}.png`;
                 const filepath = path.join(uploadDir, filename);

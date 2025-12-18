@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -14,8 +14,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API Key not configured' }, { status: 500 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey: key });
 
         let instruction = "";
 
@@ -75,39 +74,65 @@ Original prompt: "${prompt}"
 Variation instruction: ${instruction}
 
 Rules:
-- Output ONLY the new prompt, nothing else
-- Keep it under 100 words
 - Maintain quality keywords (8K, detailed, etc.)
 - Do not add NSFW content
-- Do not include explanatory text
-- IMPORTANT: If the scene is indoors (cafe, room, studio, interior, etc.) and involves winter/snow, 
-  make sure snow is ONLY visible through windows. Add "no snow inside, clear indoor air" explicitly.
+- IMPORTANT: If the scene is indoors and involves winter/snow, snow should ONLY be visible through windows.
 
-New variation prompt:`;
+Output JSON format:
+{
+    "variationEN": "New English prompt (professional, optimized for image generation)",
+    "variationZH": "繁體中文版本的變體描述",
+    "changes": ["list of changes made"],
+    "preservedElements": ["list of preserved elements from original"],
+    "suggestedType": "scene|angle|style|time|mood|color"
+}`;
 
-        const result = await model.generateContent(variationPrompt);
-        const response = await result.response;
-        let variation = response.text().trim();
-
-        // Post-processing: Fix indoor snow issue
-        const indoorKeywords = ['cafe', 'room', 'interior', 'inside', 'indoor', 'studio', 'kitchen', 'living room', 'bedroom', 'office', 'restaurant', 'bar', 'shop', 'store'];
-        const winterKeywords = ['snow', 'winter', 'snowy', 'snowing'];
-
-        const isIndoor = indoorKeywords.some(kw => variation.toLowerCase().includes(kw));
-        const hasWinter = winterKeywords.some(kw => variation.toLowerCase().includes(kw));
-
-        if (isIndoor && hasWinter) {
-            // Add protection if not already present
-            if (!variation.toLowerCase().includes('no snow inside') && !variation.toLowerCase().includes('through window')) {
-                variation = variation.replace(/\.$/, '') + ', snow visible only through windows, no snow falling inside, clear indoor air.';
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [{ text: variationPrompt }],
+            config: {
+                responseMimeType: "application/json",
+                temperature: 0.8
             }
-        }
-
-        return NextResponse.json({
-            original: prompt,
-            variation: variation,
-            type: variationType
         });
+
+        const text = response.text || "";
+
+        try {
+            const data = JSON.parse(text);
+            let variation = data.variationEN || "";
+
+            // Post-processing: Fix indoor snow issue
+            const indoorKeywords = ['cafe', 'room', 'interior', 'inside', 'indoor', 'studio', 'kitchen', 'living room', 'bedroom', 'office', 'restaurant', 'bar', 'shop', 'store'];
+            const winterKeywords = ['snow', 'winter', 'snowy', 'snowing'];
+
+            const isIndoor = indoorKeywords.some(kw => variation.toLowerCase().includes(kw));
+            const hasWinter = winterKeywords.some(kw => variation.toLowerCase().includes(kw));
+
+            if (isIndoor && hasWinter) {
+                if (!variation.toLowerCase().includes('no snow inside') && !variation.toLowerCase().includes('through window')) {
+                    variation = variation.replace(/\.$/, '') + ', snow visible only through windows, no snow falling inside, clear indoor air.';
+                }
+            }
+
+            return NextResponse.json({
+                original: prompt,
+                variation: variation,
+                variationZh: data.variationZH || "",
+                type: variationType,
+                changes: data.changes || [],
+                preservedElements: data.preservedElements || [],
+                suggestedNextType: data.suggestedType || ""
+            });
+        } catch {
+            // Fallback
+            const variation = text.trim();
+            return NextResponse.json({
+                original: prompt,
+                variation: variation,
+                type: variationType
+            });
+        }
 
     } catch (error: any) {
         console.error("Variation error:", error);

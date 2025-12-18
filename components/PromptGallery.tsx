@@ -68,6 +68,19 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     const [deepAnalysis, setDeepAnalysis] = useState<any>(null);
     const [deepAnalysisLoading, setDeepAnalysisLoading] = useState(false);
 
+    // AI Art Director & Regional Tagging
+    const [compositionAnalysis, setCompositionAnalysis] = useState<any>(null);
+    const [compositionLoading, setCompositionLoading] = useState(false);
+    const [isDetectiveMode, setIsDetectiveMode] = useState(false);
+    const [detections, setDetections] = useState<any[]>([]);
+    const [detectingLoading, setDetectingLoading] = useState(false);
+    const [hoveredObject, setHoveredObject] = useState<string | null>(null);
+
+    // Smart Crop State
+    const [smartCropData, setSmartCropData] = useState<any>(null);
+    const [smartCropLoading, setSmartCropLoading] = useState(false);
+    const [selectedCrop, setSelectedCrop] = useState<number | null>(null);
+
     // Reverse Prompt Result State
     const [reversePromptResult, setReversePromptResult] = useState<string | null>(null);
 
@@ -956,11 +969,122 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                             className="relative w-full max-w-6xl flex flex-col items-center"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <img
-                                src={selectedImage.imageUrl || ""}
-                                alt={selectedImage.prompt}
-                                className="w-full md:w-auto max-h-[50vh] md:max-h-[75vh] object-contain rounded-lg shadow-2xl mb-4 md:mb-6"
-                            />
+                            <div className="relative w-full md:w-auto max-h-[50vh] md:max-h-[75vh] mb-4 md:mb-6 group/img">
+                                <img
+                                    src={selectedImage.imageUrl || ""}
+                                    alt={selectedImage.prompt}
+                                    className="w-full h-full object-contain rounded-lg shadow-2xl"
+                                />
+
+                                {/* Detective Mode Overlay */}
+                                {isDetectiveMode && detections.length > 0 && (
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        {detections.map((obj, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="absolute border-2 border-cyan-400 bg-cyan-400/10 pointer-events-auto cursor-help transition-all hover:bg-cyan-400/30 group/box"
+                                                style={{
+                                                    top: `${obj.box_2d[0] / 10}%`,
+                                                    left: `${obj.box_2d[1] / 10}%`,
+                                                    height: `${(obj.box_2d[2] - obj.box_2d[0]) / 10}%`,
+                                                    width: `${(obj.box_2d[3] - obj.box_2d[1]) / 10}%`,
+                                                }}
+                                                onMouseEnter={() => setHoveredObject(obj.label_zh || obj.label)}
+                                                onMouseLeave={() => setHoveredObject(null)}
+                                            >
+                                                <div className="absolute top-0 left-0 bg-cyan-500 text-white text-[10px] px-1 py-0.5 -translate-y-full opacity-0 group-hover/box:opacity-100 transition-opacity whitespace-nowrap z-30">
+                                                    {obj.label_zh || obj.label}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Composition Focal Points Overlay */}
+                                {compositionAnalysis && compositionAnalysis.focal_points && (
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        {compositionAnalysis.focal_points.map((fp: any, idx: number) => (
+                                            <div
+                                                key={idx}
+                                                className="absolute w-4 h-4 -ml-2 -mt-2 bg-indigo-500 border-2 border-white rounded-full shadow-lg shadow-indigo-500/50 flex items-center justify-center animate-pulse z-20"
+                                                style={{
+                                                    top: `${fp.coordinates[0] / 10}%`,
+                                                    left: `${fp.coordinates[1] / 10}%`,
+                                                }}
+                                            >
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-indigo-600 text-white text-[9px] px-1.5 py-0.5 rounded whitespace-nowrap">
+                                                    {fp.label}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Smart Crop Overlay */}
+                                {smartCropData && smartCropData.crops && selectedCrop !== null && (
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        {/* Darkened area outside crop */}
+                                        <div className="absolute inset-0 bg-black/50" />
+
+                                        {/* Highlighted crop region */}
+                                        {(() => {
+                                            const crop = smartCropData.crops[selectedCrop];
+                                            if (!crop?.region) return null;
+                                            const [ymin, xmin, ymax, xmax] = crop.region;
+                                            return (
+                                                <div
+                                                    className="absolute border-2 border-emerald-400 bg-transparent shadow-lg"
+                                                    style={{
+                                                        top: `${ymin / 10}%`,
+                                                        left: `${xmin / 10}%`,
+                                                        height: `${(ymax - ymin) / 10}%`,
+                                                        width: `${(xmax - xmin) / 10}%`,
+                                                        boxShadow: '0 0 0 9999px rgba(0,0,0,0.5)'
+                                                    }}
+                                                >
+                                                    {/* Crop label */}
+                                                    <div className="absolute -top-7 left-0 bg-emerald-500 text-white text-xs px-2 py-1 rounded-t font-medium">
+                                                        {crop.name} ({crop.ratio})
+                                                    </div>
+                                                    {/* Rule of thirds grid */}
+                                                    <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
+                                                        {[...Array(9)].map((_, i) => (
+                                                            <div key={i} className="border border-white/20" />
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })()}
+                                    </div>
+                                )}
+
+                                {/* Hover Label for Detective Mode */}
+                                {hoveredObject && (
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-cyan-500/50 text-cyan-400 text-sm font-bold animate-in fade-in zoom-in-95 z-40">
+                                        🔍 偵測到：{hoveredObject}
+                                    </div>
+                                )}
+
+                                {/* Detecting Loading Overlay */}
+                                {detectingLoading && (
+                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center rounded-lg z-50">
+                                        <div className="flex flex-col items-center gap-3">
+                                            <div className="w-8 h-8 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
+                                            <span className="text-cyan-400 font-bold text-sm">偵探模式掃描中...</span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Composition Loading Overlay */}
+                                {compositionLoading && !compositionAnalysis && (
+                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center rounded-lg z-50">
+                                        <div className="flex flex-col items-center gap-3">
+                                            <div className="w-8 h-8 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                                            <span className="text-indigo-400 font-bold text-sm">構圖分析中...</span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
 
                             <div className="w-full bg-black/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 text-white shadow-2xl">
                                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
@@ -1195,11 +1319,15 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                                                                 headers: { 'Content-Type': 'application/json' },
                                                                                                 body: JSON.stringify({
                                                                                                     prompt: deepAnalysis.style.replicatePrompt,
-                                                                                                    promptZh: promptZh
+                                                                                                    promptZh: promptZh,
+                                                                                                    originalPrompt: promptZh
                                                                                                 })
                                                                                             });
                                                                                             if (!res.ok) throw new Error('更新失敗');
-                                                                                            setSelectedImage({ ...selectedImage, prompt: deepAnalysis.style.replicatePrompt, promptZh: promptZh });
+                                                                                            setSelectedImage({
+                                                                                                ...selectedImage, prompt: deepAnalysis.style.replicatePrompt, promptZh: promptZh,
+                                                                                                originalPrompt: promptZh
+                                                                                            });
                                                                                             fetchPrompts();
                                                                                             alert('✅ 已儲存英文+中文 Prompt！');
                                                                                         } catch (err: any) {
@@ -1338,7 +1466,97 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                                 </div>
                                                             )}
 
-                                                            {/* Detailed Tags with Update Button */}
+                                                            {/* AI Art Director Analysis Result */}
+                                                            {compositionAnalysis && (
+                                                                <div className="pt-3 border-t border-white/10 space-y-3">
+                                                                    <div className="flex justify-between items-center">
+                                                                        <p className="text-xs text-indigo-400 font-medium">📐 構圖深度指導</p>
+                                                                        <button
+                                                                            onClick={() => setCompositionAnalysis(null)}
+                                                                            className="text-[10px] text-gray-500 hover:text-red-400 transition-colors"
+                                                                        >
+                                                                            關閉
+                                                                        </button>
+                                                                    </div>
+
+                                                                    <div className="space-y-3 text-xs">
+                                                                        <div className="p-3 bg-indigo-500/10 rounded-lg border border-indigo-500/20">
+                                                                            <p className="text-indigo-300 font-medium mb-1">⚖️ 畫面平衡評價</p>
+                                                                            <p className="text-gray-300 leading-relaxed">{compositionAnalysis.balance_evaluation}</p>
+                                                                        </div>
+
+                                                                        <div className="p-3 bg-amber-500/10 rounded-lg border border-amber-500/20">
+                                                                            <p className="text-amber-300 font-medium mb-1">💡 優化修飾建議</p>
+                                                                            <p className="text-gray-300 leading-relaxed">{compositionAnalysis.prompt_suggestion}</p>
+                                                                            <button
+                                                                                onClick={() => {
+                                                                                    handleCopyPrompt(compositionAnalysis.prompt_suggestion);
+                                                                                    const event = new CustomEvent('loadPromptFromAnalysis', { detail: compositionAnalysis.prompt_suggestion });
+                                                                                    window.dispatchEvent(event);
+                                                                                }}
+                                                                                className="mt-2 w-full py-1.5 bg-amber-600/20 hover:bg-amber-600 text-amber-200 hover:text-white rounded transition-all text-[10px]"
+                                                                            >
+                                                                                📋 複製並套用到實驗室
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            )}
+
+                                                            {/* Smart Crop Panel */}
+                                                            {smartCropData && smartCropData.crops && (
+                                                                <div className="pt-3 border-t border-white/10 space-y-3">
+                                                                    <div className="flex justify-between items-center">
+                                                                        <p className="text-xs text-emerald-400 font-medium">✂️ 智能裁切建議</p>
+                                                                        <button
+                                                                            onClick={() => {
+                                                                                setSmartCropData(null);
+                                                                                setSelectedCrop(null);
+                                                                            }}
+                                                                            className="text-[10px] text-gray-500 hover:text-red-400 transition-colors"
+                                                                        >
+                                                                            關閉
+                                                                        </button>
+                                                                    </div>
+
+                                                                    {smartCropData.mainSubject && (
+                                                                        <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-xs">
+                                                                            <p className="text-emerald-300 font-medium">🎯 主體：{smartCropData.mainSubject.description}</p>
+                                                                        </div>
+                                                                    )}
+
+                                                                    <div className="space-y-2">
+                                                                        {smartCropData.crops.map((crop: any, idx: number) => (
+                                                                            <button
+                                                                                key={idx}
+                                                                                onClick={() => setSelectedCrop(idx)}
+                                                                                className={`w-full p-2 rounded-lg text-left text-xs transition-all ${selectedCrop === idx
+                                                                                        ? 'bg-emerald-500/30 border border-emerald-400'
+                                                                                        : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                                                                                    }`}
+                                                                            >
+                                                                                <div className="flex justify-between items-center mb-1">
+                                                                                    <span className={`font-medium ${selectedCrop === idx ? 'text-emerald-300' : 'text-gray-300'}`}>
+                                                                                        {crop.name}
+                                                                                    </span>
+                                                                                    <span className="text-[10px] text-gray-500 bg-white/10 px-1.5 py-0.5 rounded">
+                                                                                        {crop.ratio}
+                                                                                    </span>
+                                                                                </div>
+                                                                                <p className="text-gray-400 text-[10px] leading-relaxed">{crop.reason}</p>
+                                                                            </button>
+                                                                        ))}
+                                                                    </div>
+
+                                                                    {smartCropData.compositionNotes && (
+                                                                        <div className="p-2 bg-blue-500/10 rounded-lg border border-blue-500/20 text-xs">
+                                                                            <p className="text-blue-300 font-medium mb-1">📝 構圖建議</p>
+                                                                            <p className="text-gray-400 text-[10px]">{smartCropData.compositionNotes}</p>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            )}
+
                                                             {deepAnalysis.detailedTags && (
                                                                 <details className="group">
                                                                     <summary className="p-2 bg-white/5 rounded-lg cursor-pointer list-none">
@@ -1568,11 +1786,15 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                                     headers: { 'Content-Type': 'application/json' },
                                                                     body: JSON.stringify({
                                                                         prompt: reversePromptResult,
-                                                                        promptZh: promptZh
+                                                                        promptZh: promptZh,
+                                                                        originalPrompt: promptZh
                                                                     })
                                                                 });
                                                                 if (!res.ok) throw new Error('更新失敗');
-                                                                setSelectedImage({ ...selectedImage, prompt: reversePromptResult, promptZh: promptZh });
+                                                                setSelectedImage({
+                                                                    ...selectedImage, prompt: reversePromptResult, promptZh: promptZh,
+                                                                    originalPrompt: promptZh
+                                                                });
                                                                 fetchPrompts();
                                                                 setReversePromptResult(null);
                                                                 alert('✅ 已儲存英文+中文 Prompt！');
@@ -2017,6 +2239,135 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                             title="全面性評估（AI檢測、版權、市場價值等）"
                                         >
                                             {comprehensiveLoading ? '評估中...' : '📊 全面評估'}
+                                        </button>
+
+                                        {/* AI Art Director (Analyze Composition) */}
+                                        <button
+                                            onClick={async () => {
+                                                setCompositionLoading(true);
+                                                setCompositionAnalysis(null);
+                                                try {
+                                                    const imgRes = await fetch(selectedImage.imageUrl!);
+                                                    const blob = await imgRes.blob();
+                                                    const base64 = await new Promise<string>((resolve) => {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = () => resolve(reader.result as string);
+                                                        reader.readAsDataURL(blob);
+                                                    });
+
+                                                    const res = await fetch('/api/analyze-composition', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            imageBase64: base64,
+                                                            apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error(await res.text());
+                                                    const data = await res.json();
+                                                    setCompositionAnalysis(data);
+                                                } catch (err: any) {
+                                                    alert('構圖分析失敗：' + err.message);
+                                                } finally {
+                                                    setCompositionLoading(false);
+                                                }
+                                            }}
+                                            disabled={compositionLoading}
+                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white border border-indigo-500/30 rounded-xl text-sm font-medium transition-colors whitespace-nowrap disabled:opacity-50"
+                                            title="AI 藝術指導：分析畫面構圖與焦點"
+                                        >
+                                            {compositionLoading ? '分析中...' : '📐 構圖指導'}
+                                        </button>
+
+                                        {/* Regional Tagging (Detective Mode) */}
+                                        <button
+                                            onClick={async () => {
+                                                if (isDetectiveMode) {
+                                                    setIsDetectiveMode(false);
+                                                    return;
+                                                }
+
+                                                setIsDetectiveMode(true);
+                                                if (detections.length > 0) return; // Already loaded
+
+                                                setDetectingLoading(true);
+                                                try {
+                                                    const imgRes = await fetch(selectedImage.imageUrl!);
+                                                    const blob = await imgRes.blob();
+                                                    const base64 = await new Promise<string>((resolve) => {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = () => resolve(reader.result as string);
+                                                        reader.readAsDataURL(blob);
+                                                    });
+
+                                                    const res = await fetch('/api/detect-objects', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            imageBase64: base64,
+                                                            apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error(await res.text());
+                                                    const data = await res.json();
+                                                    if (data.detections) {
+                                                        setDetections(data.detections);
+                                                    }
+                                                } catch (err: any) {
+                                                    alert('偵探模式啟動失敗：' + err.message);
+                                                    setIsDetectiveMode(false);
+                                                } finally {
+                                                    setDetectingLoading(false);
+                                                }
+                                            }}
+                                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${isDetectiveMode ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/40' : 'bg-cyan-600/20 hover:bg-cyan-600 text-cyan-200 hover:text-white border border-cyan-500/30'}`}
+                                            title="偵探模式：交互式物件辨識與標籤"
+                                        >
+                                            {isDetectiveMode ? '✕ 關閉偵探' : '🔍 偵探模式'}
+                                        </button>
+
+                                        {/* Smart Crop Button */}
+                                        <button
+                                            onClick={async () => {
+                                                if (smartCropData) {
+                                                    setSmartCropData(null);
+                                                    setSelectedCrop(null);
+                                                    return;
+                                                }
+
+                                                setSmartCropLoading(true);
+                                                try {
+                                                    const imgRes = await fetch(selectedImage.imageUrl!);
+                                                    const blob = await imgRes.blob();
+                                                    const base64 = await new Promise<string>((resolve) => {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = () => resolve(reader.result as string);
+                                                        reader.readAsDataURL(blob);
+                                                    });
+
+                                                    const res = await fetch('/api/smart-crop', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({
+                                                            imageBase64: base64,
+                                                            apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                        })
+                                                    });
+                                                    if (!res.ok) throw new Error(await res.text());
+                                                    const data = await res.json();
+                                                    setSmartCropData(data);
+                                                    setSelectedCrop(0);
+                                                } catch (err: any) {
+                                                    alert('智能裁切分析失敗：' + err.message);
+                                                } finally {
+                                                    setSmartCropLoading(false);
+                                                }
+                                            }}
+                                            disabled={smartCropLoading}
+                                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap disabled:opacity-50 ${smartCropData ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/40' : 'bg-emerald-600/20 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30'}`}
+                                            title="智能裁切：AI 建議最佳裁切區域"
+                                        >
+                                            {smartCropLoading ? '分析中...' : smartCropData ? '✕ 關閉裁切' : '✂️ 智能裁切'}
                                         </button>
 
                                         <button

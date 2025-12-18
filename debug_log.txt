@@ -1399,3 +1399,107 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "程式設計, 迷因, 錯誤修復, 無文字, 電影燈光"
 }
 -------------------
+
+[2025-12-18T01:01:46.265Z] Raw Gemini Response:
+{
+  "enPrompt": "A funny coding meme about fixing bugs in production, blank meme template, clean background, no text, no captions, funny context visual only, cinematic lighting",
+  "zhPrompt": "一個關於修復生產環境錯誤的有趣編碼迷因，空白迷因模板，乾淨的背景，沒有文字，沒有標題，僅有趣的上下文視覺效果，電影照明",
+  "tags": "程式, 迷因, 錯誤修復, 生產環境, 空白模板"
+}
+-------------------
+
+[2025-12-18T01:34:04.086Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a stunning young East Asian woman with long wavy dark brown hair, looking back over her shoulder at the camera with a serene expression. She is dressed in a professional taupe brown blazer, white blouse, and matching pleated high-waisted trousers. Soft natural daylight, muted earth-tone color palette. Sharp focus on the subject with a heavily blurred urban architectural background, bokeh effect, cinematic 8k, high quality, professional photography, clean composition, eye-level perspective.",
+  "zhPrompt": "逼真的中景鏡頭，一位迷人的年輕東亞女性，留著長長的波浪深棕色頭髮，回頭看著相機，表情平靜。她身穿專業的灰褐色西裝外套、白色襯衫和相配的褶皺高腰褲。柔和的自然日光，柔和的大地色調。主體清晰對焦，背景是嚴重模糊的城市建築，散景效果，電影 8k，高品質，專業攝影，乾淨的構圖，視線水平視角。",
+  "tags": "寫實風格, 東亞女性, 時尚穿搭, 專業形象, 城市背景"
+}
+-------------------
+
+[2025-12-18T01:48:36.314Z] Raw Gemini Response:
+{
+  "enPrompt": "A hyperrealistic close-up portrait of a beautiful young East Asian woman with long, black, curly hair, wearing a semi-transparent white collared button-down shirt, with a serene and elegant expression, looking directly at the camera. Her skin texture is radiant and has a dewy glow, warm cinematic golden hour lighting, with soft dappled leaf shadows cast on her face and the neutral beige wall behind her. High-end beauty photography, 8k resolution, realistic photography style, sharp focus on the eyes, shallow depth of field, soft bokeh, natural skin tones, warm earthy color palette.",
+  "zhPrompt": "一位美麗年輕東亞女性的極致寫實特寫肖像，留著黑色長捲髮，穿著半透明白色有領鈕扣襯衫，表情寧靜優雅，直視鏡頭。肌膚紋理透亮並帶有水潤光澤，溫暖的電影感黃金時段光線，臉部與中性米色牆面上映照著柔和的斑駁葉影。高端美容攝影，8k 解析度，寫實攝影風格，眼睛對焦清晰，淺景深，柔和散景，自然膚色，溫暖的大地色調。",
+  "tags": "寫實肖像, 東亞女性, 美容攝影, 電影感, 8k"
+}
+-------------------
+
+[2025-12-18T01:48:44.925Z] Raw Gemini Response:
+{
+  "enPrompt": "An ultra-realistic close-up portrait of a beautiful young East Asian woman with long, black, curly hair, wearing a semi-transparent white collared button-up shirt, with a serene and elegant expression, looking directly at the camera. Her skin texture is bright and has a dewy glow, with warm, cinematic golden hour lighting, and soft, dappled leaf shadows reflected on her face and the neutral beige wall behind her. High-end beauty photography, 8k resolution, photorealistic style, sharp focus on the eyes, shallow depth of field, soft bokeh, natural skin tones, warm earthy color palette.",
+  "zhPrompt": "一位美麗年輕東亞女性的極致寫實特寫肖像，留著黑色長捲髮，穿著半透明白色有領鈕扣襯衫，表情寧靜優雅，直視鏡頭。肌膚紋理透亮並帶有水潤光澤，溫暖的電影感黃金時段光線，臉部與中性米色牆面上映照著柔和的斑駁葉影。高端美容攝影，8k 解析度，寫實攝影風格，眼睛對焦清晰，淺景深，柔和散景，自然膚色，溫暖的大地色調。",
+  "tags": "美女, 肖像, 寫實, 東亞, 攝影"
+}
+-------------------
+
+[2025-12-18T01:50:43.407Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile. She is wearing an elegant, sheer cream-colored dress with delicate floral lace embroidery. The scene is set on an urban rooftop during golden hour, with the setting sun creating a warm, soft glow and a subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, highly detailed features, natural skin texture, film grain, masterpiece quality.",
+  "zhPrompt": "一位美麗的年輕東亞女性的逼真特寫肖像，有著長長的、飄逸的波浪黑髮，回頭看著她的肩膀，帶著溫柔的微笑。她穿著一件優雅的、薄紗的奶油色連衣裙，上面有精緻的花卉蕾絲刺繡。場景設置在黃金時段的城市屋頂上，夕陽營造出溫暖、柔和的光芒，並在她的頭髮和肩膀上形成微妙的金色輪廓光。背景是美麗的模糊城市景觀，帶有柔和的散景和屋頂綠化的痕跡。電影照明，8k分辨率，高度詳細的特徵，自然的皮膚紋理，膠片顆粒，傑作品質。",
+  "tags": "寫實肖像, 東亞女性, 屋頂, 黃金時段, 蕾絲禮服"
+}
+-------------------
+
+[2025-12-18T01:51:12.574Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile. She is wearing an elegant, sheer cream-colored dress with delicate floral lace embroidery. The scene is set on an urban rooftop during golden hour, with the setting sun creating a warm, soft glow and a subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, highly detailed features, natural skin texture, film grain, masterpiece quality. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張照片寫實的特寫，一位美麗的年輕東亞女性，有著長而飄逸的波浪黑髮，回頭看著，帶著溫柔的微笑。她穿著一件優雅的、薄紗的奶油色洋裝，帶有精緻的花卉蕾絲刺繡。場景設置在城市屋頂的黃金時段，夕陽創造出溫暖、柔和的光芒，以及在她頭髮和肩膀上的微妙金色輪廓光。背景是美麗模糊的城市景觀，帶有柔和的散景和屋頂綠化的暗示。電影照明，8k分辨率，高度細節的特徵，自然的皮膚紋理，膠片顆粒，傑作品質。100mm微距，f/2.8光圈，柔和的漫射照明，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "人像, 黃金時段, 蕾絲, 屋頂, 攝影"
+}
+-------------------
+
+[2025-12-18T01:52:01.675Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile. She is wearing an elegant, sheer cream-colored dress with delicate floral lace embroidery. The scene is set on an urban rooftop during golden hour, with the setting sun creating a warm, soft glow and a subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, highly detailed features, natural skin texture, film grain, masterpiece quality, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張逼真的特寫肖像，一位美麗的年輕東亞女性有著長長的、飄逸的波浪黑髮，她溫柔地微笑著回頭。她穿著一件優雅的、透明的奶油色連衣裙，上面有精緻的花卉蕾絲刺繡。場景設置在城市屋頂的黃金時段，夕陽營造出溫暖、柔和的光芒，並在她頭髮和肩膀上產生微妙的金色輪廓光。背景是一個美麗的模糊城市景觀，帶有柔和的散景和屋頂綠化的暗示。電影照明，8k分辨率，高度詳細的特徵，自然皮膚紋理，膠片顆粒，傑作質量，100毫米微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超詳細，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "人像, 東亞女性, 黃金時段, 蕾絲洋裝, 屋頂"
+}
+-------------------
+
+[2025-12-18T01:52:06.634Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile. She is wearing an elegant, sheer cream-colored dress with delicate floral lace embroidery. The scene is set on an urban rooftop during golden hour, with the setting sun creating a warm, soft glow and a subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, highly detailed features, natural skin texture, film grain, masterpiece quality, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一張逼真的特寫肖像，一位美麗的年輕東亞女性，有著長而飄逸的黑色波浪髮，回頭露出溫柔的微笑。她穿著一件優雅的、薄紗的奶油色連衣裙，上面有精緻的花卉蕾絲刺繡。場景設置在城市屋頂的黃金時段，夕陽營造出溫暖、柔和的光芒，並在她頭髮和肩膀上形成微妙的金色輪廓光。背景是美麗模糊的城市景觀，帶有柔和的散景和屋頂綠化的暗示。電影燈光，8k分辨率，高度細緻的特徵，自然的皮膚紋理，膠片顆粒，傑作質量，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰的焦點，HDR，工作室質量，獲獎攝影。",
+  "tags": "人像, 東亞女性, 黃金時段, 屋頂, 攝影"
+}
+-------------------
+
+[2025-12-18T01:54:11.545Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile, wearing a sheer cream-colored dress with delicate floral embroidery and lace, standing on a city rooftop during golden hour, warm sunset sunlight creating a soft glow and rim lighting on her hair and skin, blurred urban cityscape background with soft bokeh, cinematic lighting, highly detailed skin texture, professional photography, soft focus, 8k, medium shot, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的年輕東亞女性的逼真肖像，有著長長的、飄逸的黑色波浪頭髮，回頭看著肩膀，帶著溫柔的微笑，穿著一件帶有精緻花卉刺繡和蕾絲的薄紗奶油色連衣裙，站在城市屋頂上的黃金時段，溫暖的日落陽光在她頭髮和皮膚上產生柔和的光芒和輪廓光，模糊的城市景觀背景帶有柔和的散景，電影燈光，高度細緻的皮膚紋理，專業攝影，柔焦，8k，中景，100毫米微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "人像, 東亞女性, 日落, 城市, 攝影"
+}
+-------------------
+
+[2025-12-18T03:35:15.731Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile, wearing a sheer cream-colored dress with delicate floral embroidery and lace, standing on a city rooftop during golden hour, warm sunset sunlight creating a soft glow and rim lighting on her hair and skin, blurred urban cityscape background with soft bokeh, cinematic lighting, highly detailed skin texture, soft focus, 8k, medium shot, HDR, Studio quality, Award winning photography. Subtle architectural details in background bokeh, soft city lights reflecting sunset, increased depth of field, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一位美麗的年輕東亞女性的逼真肖像，有著長而飄逸的黑色波浪頭髮，回頭露出溫柔的微笑，穿著帶有精緻花卉刺繡和蕾絲的薄紗奶油色洋裝，站在城市屋頂上的黃金時段，溫暖的日落陽光在她頭髮和皮膚上營造出柔和的光芒和輪廓光，模糊的城市景觀背景帶有柔和的散景，電影照明，高度細緻的皮膚紋理，柔焦，8k，中景，HDR，工作室品質，獲獎攝影。背景散景中帶有微妙的建築細節，柔和的城市燈光反射日落，景深略微增加，100mm微距鏡頭，f/2.8光圈，柔和的漫射照明，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦。",
+  "tags": "人像攝影, 黃金時段, 城市風光, 柔和光線, 高解析度"
+}
+-------------------
+
+[2025-12-18T05:37:03.372Z] Raw Gemini Response:
+{
+  "enPrompt": "exploded view, technical blueprint style, CAD drawing, precise lines, measurement annotations, blue and white theme",
+  "zhPrompt": "爆炸圖，技術藍圖風格，CAD製圖，精確線條，測量註釋，藍白主題",
+  "tags": "爆炸圖, 技術藍圖, CAD製圖, 藍白主題, 工程圖"
+}
+-------------------
+
+[2025-12-18T05:39:24.678Z] Raw Gemini Response:
+{
+  "enPrompt": "An intricate exploded view diagram of an unmanned aerial vehicle (UAV), presented in a professional technical blueprint style. The CAD drawing features ultra-precise white vector lines against a deep cyanotype blue background. Every gear, piston, and valve is suspended in mid-air with detailed measurement annotations, numerical callouts, and architectural labeling. The composition is a perfectly balanced isometric projection with sharp focus on fine mechanical details. Soft, even studio lighting ensures no shadows, emphasizing structural clarity and engineering precision. 8K resolution, highly detailed, masterwork quality, clean aesthetic, sharp lines, professional engineering schematic, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一架無人機的複雜分解圖，以專業技術藍圖風格呈現。 CAD 圖的特點是超精確的白色向量線，背景為深青色。 每個齒輪、活塞和閥門都懸浮在半空中，並附有詳細的測量註釋、數字標註和結構標籤。 構圖是完美平衡的等距投影，重點放在精細的機械細節上。 柔和、均勻的工作室燈光確保沒有陰影，強調結構清晰度和工程精度。 8K 解析度、高度詳細、傑作品質、乾淨的美學、清晰的線條、專業工程示意圖、100mm 微距、f/2.8 光圈、柔和的漫射光、柔光箱、專業產品攝影、奢華細節、傑作、最佳品質、超詳細、8k 解析度、焦點清晰、HDR、工作室品質、獲獎攝影。",
+  "tags": "無人機, 技術藍圖, CAD圖, 工程圖, 細節"
+}
+-------------------
+
+[2025-12-18T05:40:00.114Z] Raw Gemini Response:
+{
+  "enPrompt": "Intricate exploded view diagram of an unmanned aerial vehicle, presented in a professional technical blueprint style. Ultra-precise white vector lines against a deep cyanotype blue background. Every gear, piston, and valve is suspended in mid-air with detailed measurement annotations, numerical callouts, and architectural labeling. Perfectly balanced isometric projection with sharp focus on fine mechanical details. Soft, even studio lighting, no shadows, emphasizing structural clarity and engineering precision. 8K resolution, highly detailed, masterwork quality, clean aesthetic, sharp lines, professional engineering schematic., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一架無人飛行器的複雜分解圖，以專業技術藍圖風格呈現。在深青色背景上呈現超精確的白色向量線。每個齒輪、活塞和閥門都懸浮在空中，並帶有詳細的測量註釋、數字標註和結構標籤。構圖是完美平衡的等距投影，重點在於精細的機械細節。柔和均勻的攝影棚燈光，沒有陰影，強調結構清晰度和工程精度。8K分辨率，高度詳細，傑作質量，乾淨的美學，清晰的線條，專業的工程示意圖，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，豪華細節，傑作，最佳質量，超詳細，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "無人機, 工程圖, 技術藍圖, 分解圖, 精密細節"
+}
+-------------------

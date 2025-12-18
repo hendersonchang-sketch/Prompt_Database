@@ -15,6 +15,11 @@ import ComicStripModal from "@/components/ComicStripModal";
 import StickerMakerModal from "@/components/StickerMakerModal";
 import MemeGeneratorModal from "@/components/MemeGeneratorModal";
 import ImageEditor from "@/components/ImageEditor";
+import MoodSliderModal from "@/components/MoodSliderModal";
+import DNACompareModal from "@/components/DNACompareModal";
+import ExplodedViewModal from "@/components/ExplodedViewModal";
+import Img2ImgModal from "@/components/Img2ImgModal";
+import SmartTagModal from "@/components/SmartTagModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -31,6 +36,12 @@ export default function Home() {
     const [showComicStrip, setShowComicStrip] = useState(false);
     const [showStickerMaker, setShowStickerMaker] = useState(false);
     const [showMemeGod, setShowMemeGod] = useState(false);
+    const [showMoodSlider, setShowMoodSlider] = useState(false);
+    const [showDNACompare, setShowDNACompare] = useState(false);
+    const [showExplodedView, setShowExplodedView] = useState(false);
+    const [showImg2Img, setShowImg2Img] = useState(false);
+    const [showSmartTag, setShowSmartTag] = useState(false);
+    const [moodSliderPrompt, setMoodSliderPrompt] = useState('');
     const [editorImage, setEditorImage] = useState<string | null>(null);
     const [editorInitialText, setEditorInitialText] = useState<string | undefined>(undefined);
 
@@ -158,6 +169,41 @@ export default function Home() {
                     >
                         🤡 梗圖大師
                     </button>
+                    {/* Mood Slider Button */}
+                    <button
+                        onClick={() => setShowMoodSlider(true)}
+                        className="text-purple-500 hover:text-purple-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🎨 情緒滑桿
+                    </button>
+                    {/* DNA Compare Button */}
+                    <button
+                        onClick={() => setShowDNACompare(true)}
+                        className="text-cyan-500 hover:text-cyan-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🧬 DNA 比較
+                    </button>
+                    {/* Exploded View Button */}
+                    <button
+                        onClick={() => setShowExplodedView(true)}
+                        className="text-amber-500 hover:text-amber-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        📦 零件拆解
+                    </button>
+                    {/* Img2Img Button */}
+                    <button
+                        onClick={() => setShowImg2Img(true)}
+                        className="text-pink-500 hover:text-pink-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🖼️ 圖生圖
+                    </button>
+                    {/* Smart Tag Button */}
+                    <button
+                        onClick={() => setShowSmartTag(true)}
+                        className="text-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🏷️ 智能標籤
+                    </button>
                 </div>
             </div>
 
@@ -272,6 +318,42 @@ export default function Home() {
                     setEditorInitialText(caption);
                     setShowMemeGod(false);
                 }}
+            />
+
+            {/* Mood Slider Modal */}
+            <MoodSliderModal
+                isOpen={showMoodSlider}
+                onClose={() => setShowMoodSlider(false)}
+                initialPrompt={moodSliderPrompt}
+                onApply={(newPrompt) => {
+                    handleUsePrompt(newPrompt);
+                    setShowMoodSlider(false);
+                }}
+            />
+
+            {/* DNA Compare Modal */}
+            <DNACompareModal
+                isOpen={showDNACompare}
+                onClose={() => setShowDNACompare(false)}
+            />
+
+            {/* Exploded View Modal */}
+            <ExplodedViewModal
+                isOpen={showExplodedView}
+                onClose={() => setShowExplodedView(false)}
+                onUsePrompt={handleUsePrompt}
+            />
+
+            {/* Img2Img Modal */}
+            <Img2ImgModal
+                isOpen={showImg2Img}
+                onClose={() => setShowImg2Img(false)}
+            />
+
+            {/* Smart Tag Modal */}
+            <SmartTagModal
+                isOpen={showSmartTag}
+                onClose={() => setShowSmartTag(false)}
             />
         </main>
     );

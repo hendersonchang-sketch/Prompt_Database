@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { prisma } from '@/lib/prisma';
 import fs from 'fs';
 import path from 'path';
@@ -7,7 +7,7 @@ import { writeFile } from 'fs/promises';
 
 export const config = {
     api: {
-        bodyParser: false, // Disallow default body parsing for FormData
+        bodyParser: false,
     },
 };
 
@@ -25,17 +25,13 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "API Key is required" }, { status: 400 });
         }
 
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey });
 
         const results = [];
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
         }
-
-        // Process files sequentially to avoid hitting rate limits too hard? 
-        // Or parallel with limit. Let's do parallel for speed, Gemini 2.0 Flash is fast.
 
         for (const file of files) {
             try {
@@ -48,51 +44,87 @@ export async function POST(request: Request) {
                 await writeFile(filepath, buffer);
                 const imageUrl = `/uploads/${filename}`;
 
-                // 2. Describe with Gemini
-                const prompt = `
-                Describe this image in detail for an AI Art Prompt Database.
-                Includes: Subject, Art Style, Lighting, Color Palette, Mood.
-                Output ONLY the prompt text in English.
-                `;
+                // 2. Structured Analysis with Gemini 3 Flash
+                const analysisPrompt = `
+Analyze this image for an AI Art Prompt Database.
 
-                const result = await model.generateContent([
-                    prompt,
-                    {
-                        inlineData: {
-                            data: buffer.toString('base64'),
-                            mimeType: file.type || "image/png"
+Output JSON format:
+{
+    "promptEN": "Detailed English prompt describing the image (80-120 words, include style, lighting, mood, composition)",
+    "promptZH": "繁體中文描述",
+    "subject": "主體描述",
+    "style": "art style (anime, photorealistic, oil painting, etc.)",
+    "mood": "mood/atmosphere",
+    "lighting": "lighting description",
+    "colors": ["dominant", "color", "palette"],
+    "tags": ["relevant", "search", "tags", "in", "english"],
+    "category": "portrait|landscape|object|abstract|character|scene"
+}`;
+
+                const result = await client.models.generateContent({
+                    model: "gemini-3-flash-preview",
+                    contents: [
+                        { text: analysisPrompt },
+                        {
+                            inlineData: {
+                                data: buffer.toString('base64'),
+                                mimeType: file.type || "image/png"
+                            }
                         }
+                    ],
+                    config: {
+                        responseMimeType: "application/json"
                     }
-                ]);
+                });
 
-                const description = result.response.text().trim();
+                const text = result.text || "";
+                let analysisData: {
+                    promptEN: string;
+                    promptZH: string;
+                    tags: string[];
+                    style?: string;
+                    mood?: string;
+                    category?: string;
+                } = {
+                    promptEN: "",
+                    promptZH: "",
+                    tags: ["Imported", "Auto-Caption"]
+                };
 
-                // 3. Generate Tags (Optional, but useful)
-                // We can do a second pass or ask for both in JSON. 
-                // Let's stick to simple description for now to save tokens/requests, 
-                // or assume description contains keywords.
-                // Simple tag extraction from description?
-                const tags = ["Imported", "Auto-Caption"];
+                try {
+                    analysisData = JSON.parse(text);
+                } catch {
+                    analysisData.promptEN = text.trim();
+                }
 
-                // 4. Save to DB
+                // 3. Save to DB with rich metadata
                 // @ts-ignore
                 const entry = await prisma.promptEntry.create({
                     data: {
-                        prompt: description,
+                        prompt: analysisData.promptEN || text.trim(),
                         originalPrompt: "Batch Import: " + file.name,
-                        promptZh: "", // Could translate if needed, skip for speed
+                        promptZh: analysisData.promptZH || "",
                         imageUrl: imageUrl,
-                        width: 1024, // Unknown really, unless we read metadata. Defaulting.
+                        width: 1024,
                         height: 1024,
                         seed: 0,
                         cfgScale: 7,
                         steps: 20,
-                        tags: tags.join(", "),
+                        tags: (analysisData.tags || ["Imported"]).join(", "),
                         sampler: "Imported"
                     }
                 });
 
-                results.push({ status: 'success', id: entry.id, filename: file.name });
+                results.push({
+                    status: 'success',
+                    id: entry.id,
+                    filename: file.name,
+                    analysis: {
+                        style: analysisData.style || "",
+                        mood: analysisData.mood || "",
+                        category: analysisData.category || ""
+                    }
+                });
 
             } catch (err: any) {
                 console.error(`Failed to process ${file.name}:`, err);
@@ -100,7 +132,14 @@ export async function POST(request: Request) {
             }
         }
 
-        return NextResponse.json({ results });
+        return NextResponse.json({
+            results,
+            summary: {
+                total: files.length,
+                success: results.filter(r => r.status === 'success').length,
+                failed: results.filter(r => r.status === 'error').length
+            }
+        });
 
     } catch (error: any) {
         console.error("Batch Import Error:", error);

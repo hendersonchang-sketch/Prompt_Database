@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -14,17 +14,9 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API Key not configured' }, { status: 500 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
+        const client = new GoogleGenAI({ apiKey: key });
 
         // Use imagen model for image editing
-        const model = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash-exp",
-            generationConfig: {
-                // @ts-ignore - experimental feature
-                responseModalities: ["image", "text"],
-            }
-        });
-
         const imagePart = {
             inlineData: {
                 data: imageBase64,
@@ -32,22 +24,22 @@ export async function POST(request: Request) {
             }
         };
 
-        const result = await model.generateContent([
-            imagePart,
-            "Remove the background from this image completely. Make the background transparent or pure white. Keep only the main subject in the foreground. Output the edited image."
-        ]);
-
-        const response = await result.response;
+        const response = await client.models.generateContent({
+            model: "gemini-2.0-flash-exp",
+            contents: [
+                imagePart,
+                { text: "Remove the background from this image completely. Make the background transparent or pure white. Keep only the main subject in the foreground. Output the edited image." }
+            ],
+            config: {
+                responseModalities: ["IMAGE", "TEXT"],
+            }
+        });
 
         // Check if there's an image in the response
-        const candidates = response.candidates;
-        if (candidates && candidates[0] && candidates[0].content && candidates[0].content.parts) {
-            for (const part of candidates[0].content.parts) {
-                // @ts-ignore
+        if (response.candidates && response.candidates[0] && response.candidates[0].content && response.candidates[0].content.parts) {
+            for (const part of response.candidates[0].content.parts) {
                 if (part.inlineData) {
-                    // @ts-ignore
                     const imageData = part.inlineData.data;
-                    // @ts-ignore
                     const imageMimeType = part.inlineData.mimeType || 'image/png';
 
                     return NextResponse.json({

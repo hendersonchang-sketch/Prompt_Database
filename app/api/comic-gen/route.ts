@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
@@ -11,12 +11,9 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Story and API Key are required" }, { status: 400 });
         }
 
-        const genAI = new GoogleGenerativeAI(apiKey);
+        const client = new GoogleGenAI({ apiKey });
 
-        // Step 1: Scripting with Gemini 2.0 Flash
-        // Using stable flash model for scripting
-        const scriptModel = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
+        // Step 1: Scripting with Gemini 3 Flash
         const scriptPrompt = `
         You are a professional comic book writer and director.
         Task: Break down the following story into exactly 4 distinct comic strip panels.
@@ -39,12 +36,13 @@ export async function POST(request: Request) {
         }
         `;
 
-        const scriptResult = await scriptModel.generateContent({
-            contents: [{ role: "user", parts: [{ text: scriptPrompt }] }],
-            generationConfig: { responseMimeType: "application/json" }
+        const scriptResponse = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [{ text: scriptPrompt }],
+            config: { responseMimeType: "application/json" }
         });
 
-        const scriptData = JSON.parse(scriptResult.response.text());
+        const scriptData = JSON.parse(scriptResponse.text || "{}");
         const panels = scriptData.panels;
         const charDesc = scriptData.mainCharacterVisuals || "";
 
@@ -53,29 +51,20 @@ export async function POST(request: Request) {
         }
 
         // Step 2: Parallel Image Generation
-        // Using Gemini 2.0 Flash Image Generation
-
-        const imageGenModel = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash-exp-image-generation",
-            // @ts-ignore
-            generationConfig: { responseModalities: ["TEXT", "IMAGE"] }
-        });
-
         const generatedPanels = await Promise.all(panels.map(async (panel: any) => {
             try {
-                // Construct a rich prompt with CHARACTER ANCHORING
-                // We prepend the character description to every panel prompt
                 const fullPrompt = `Comic strip panel, ${style} style.
                 Character: ${charDesc}.
                 Scene: ${panel.description}.
                 High quality, consistent character, detailed background, distinct comic book lines.`;
 
-                const result = await imageGenModel.generateContent(fullPrompt);
-                const response = result.response;
+                const result = await client.models.generateContent({
+                    model: "gemini-2.0-flash-exp-image-generation", // Or gemini-2.0-flash-exp if that's what we have
+                    contents: [{ text: fullPrompt }],
+                    config: { responseModalities: ["TEXT", "IMAGE"] }
+                });
 
                 // Extract Image
-                // Note: In a real app we'd save to disk. Here we'll do inline base64 or save.
-                // Let's save to disk to be consistent with other routes.
                 const fs = require('fs');
                 const path = require('path');
                 const uploadDir = path.join(process.cwd(), 'public', 'uploads');
@@ -83,14 +72,16 @@ export async function POST(request: Request) {
 
                 let imageUrl = "";
 
-                for (const part of response.candidates?.[0]?.content?.parts || []) {
-                    if (part.inlineData && part.inlineData.mimeType?.startsWith('image/')) {
-                        const buffer = Buffer.from(part.inlineData.data, 'base64');
-                        const filename = `comic-${Date.now()}-${panel.panelNumber}-${Math.random().toString(36).substring(7)}.png`;
-                        const filepath = path.join(uploadDir, filename);
-                        fs.writeFileSync(filepath, buffer);
-                        imageUrl = `/uploads/${filename}`;
-                        break;
+                if (result.candidates?.[0]?.content?.parts) {
+                    for (const part of result.candidates[0].content.parts) {
+                        if (part.inlineData && part.inlineData.mimeType?.startsWith('image/') && part.inlineData.data) {
+                            const buffer = Buffer.from(part.inlineData.data, 'base64');
+                            const filename = `comic-${Date.now()}-${panel.panelNumber}-${Math.random().toString(36).substring(7)}.png`;
+                            const filepath = path.join(uploadDir, filename);
+                            fs.writeFileSync(filepath, buffer);
+                            imageUrl = `/uploads/${filename}`;
+                            break;
+                        }
                     }
                 }
 

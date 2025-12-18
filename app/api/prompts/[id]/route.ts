@@ -31,6 +31,7 @@ export async function PATCH(
 
         return NextResponse.json(entry);
     } catch (error) {
+        console.error("PATCH Error:", error);
         return NextResponse.json({ error: 'Failed to update prompt' }, { status: 500 });
     }
 }

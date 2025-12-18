@@ -293,7 +293,8 @@ export default function MagicCanvas({ isOpen, onClose }: MagicCanvasProps) {
                                 onMouseMove={draw}
                                 onMouseUp={stopDrawing}
                                 onMouseLeave={stopDrawing}
-                                className="cursor-crosshair touch-none max-w-full max-h-[80vh] object-contain"
+                                className="cursor-crosshair touch-none max-w-full max-h-[80vh] w-auto h-auto"
+                                style={{ aspectRatio: image ? `${image.width} / ${image.height}` : 'auto' }}
                             />
                             {!isDrawing && !isGenerating && (
                                 <div className="absolute top-4 left-4 pointer-events-none bg-black/50 text-white text-xs px-2 py-1 rounded">

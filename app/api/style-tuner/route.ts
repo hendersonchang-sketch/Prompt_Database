@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
@@ -28,8 +28,7 @@ export async function POST(request: Request) {
         const promptTexts = winningPrompts.map((p: any) => p.prompt).join("\n---\n");
 
         // Initialize Gemini
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey });
 
         const analysisPrompt = `
         You are an AI Art Curator.
@@ -51,12 +50,15 @@ export async function POST(request: Request) {
         }
         `;
 
-        const result = await model.generateContent({
-            contents: [{ role: "user", parts: [{ text: analysisPrompt }] }],
-            generationConfig: { responseMimeType: "application/json" }
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [{ text: analysisPrompt }],
+            config: {
+                responseMimeType: "application/json"
+            }
         });
 
-        const responseText = result.response.text();
+        const responseText = response.text ? response.text : "{}";
         const analysisData = JSON.parse(responseText);
 
         return NextResponse.json(analysisData);

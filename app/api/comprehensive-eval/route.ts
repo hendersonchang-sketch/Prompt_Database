@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -8,7 +9,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing imageBase64 or apiKey' }, { status: 400 });
         }
 
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const client = new GoogleGenAI({ apiKey });
 
         const evaluationPrompt = `你是世界級的圖片評估專家，擁有 20 年以上的藝術評論和商業攝影經驗。請對這張圖片進行全面性的專業評估，以 JSON 格式返回以下詳細分析。所有描述請使用繁體中文：
 
@@ -109,37 +110,25 @@ export async function POST(request: Request) {
 
 請只返回 JSON，不要有任何其他文字。確保所有評分在 1-10 之間，百分比在 0-1 之間。`;
 
-        const response = await fetch(geminiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [
-                        { text: evaluationPrompt },
-                        {
-                            inlineData: {
-                                mimeType: 'image/jpeg',
-                                data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, '')
-                            }
-                        }
-                    ]
-                }],
-                generationConfig: {
-                    responseMimeType: "application/json",
-                    temperature: 0.7,
-                    maxOutputTokens: 4096
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [
+                { text: evaluationPrompt },
+                {
+                    inlineData: {
+                        mimeType: 'image/jpeg',
+                        data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, '')
+                    }
                 }
-            })
+            ],
+            config: {
+                responseMimeType: "application/json",
+                temperature: 0.7,
+                maxOutputTokens: 4096
+            }
         });
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('Gemini API Error:', errorText);
-            return NextResponse.json({ error: 'AI 評估失敗' }, { status: 500 });
-        }
-
-        const data = await response.json();
-        const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        const text = response.text || JSON.stringify(response.candidates?.[0]?.content?.parts?.[0]?.text || "");
 
         // Parse JSON from response
         try {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -12,20 +12,13 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API Key is required' }, { status: 401 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
-        // Use Gemini 2.0 Flash Exp for best multimodal performance
-        const model = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash-exp",
-            generationConfig: {
-                responseMimeType: "application/json",
-            }
-        });
+        const client = new GoogleGenAI({ apiKey: key });
 
         let prompt = "";
         let inputParts: any[] = [];
 
         if (imageBase64) {
-            // Vision Mode: Generate captions for an image
+            // Vision Mode
             prompt = `
             You are a legendary Meme God and internet humor expert. 
             Look at this image and generate 5 HILARIOUS, creative, and viral-worthy meme captions.
@@ -41,7 +34,7 @@ export async function POST(request: Request) {
             `;
 
             inputParts = [
-                prompt,
+                { text: prompt },
                 {
                     inlineData: {
                         data: imageBase64,
@@ -50,7 +43,7 @@ export async function POST(request: Request) {
                 },
             ];
         } else {
-            // Text Mode: Generate captions/ideas based on a topic
+            // Text Mode
             prompt = `
             You are a legendary Meme God. 
             Generate 5 HILARIOUS meme caption ideas based on this topic: "${topic || "programming humor"}".
@@ -61,12 +54,17 @@ export async function POST(request: Request) {
             3. Use Traditional Chinese (繁體中文).
             `;
 
-            inputParts = [prompt];
+            inputParts = [{ text: prompt }];
         }
 
-        const result = await model.generateContent(inputParts);
-        const response = await result.response;
-        const text = response.text();
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: inputParts,
+            config: {
+                responseMimeType: "application/json",
+            }
+        });
+        const text = response.text || JSON.stringify(response.candidates?.[0]?.content?.parts?.[0]?.text || "");
 
         // Parse JSON
         let data;

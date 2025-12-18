@@ -36,6 +36,8 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
     ]);
 
     const [isGenerating, setIsGenerating] = useState(false);
+    const [storyAnalysis, setStoryAnalysis] = useState<any>(null);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
 
     // Load characters
     useEffect(() => {
@@ -110,6 +112,52 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
         setIsGenerating(false);
     };
 
+    const handleAnalyzeConsistency = async () => {
+        const imagesWithContent = frames.filter(f => f.imageUrl);
+        if (imagesWithContent.length < 2) {
+            alert("請先生成至少兩張圖片再進行連貫性分析");
+            return;
+        }
+
+        setIsAnalyzing(true);
+        setStoryAnalysis(null);
+
+        try {
+            const imagesBase64 = await Promise.all(imagesWithContent.map(async (f) => {
+                const res = await fetch(f.imageUrl!);
+                const blob = await res.blob();
+                return new Promise<{ base64: string, mimeType: string }>((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        resolve({
+                            base64: reader.result as string,
+                            mimeType: blob.type
+                        });
+                    };
+                    reader.readAsDataURL(blob);
+                });
+            }));
+
+            const res = await fetch("/api/storyboard", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    images: imagesBase64,
+                    apiKey: localStorage.getItem("geminiApiKey") || ""
+                })
+            });
+
+            if (!res.ok) throw new Error("Analysis failed");
+            const data = await res.json();
+            setStoryAnalysis(data);
+        } catch (error: any) {
+            console.error("Story Analysis Error:", error);
+            alert("分析失敗：" + error.message);
+        } finally {
+            setIsAnalyzing(false);
+        }
+    };
+
     const handleDownloadAll = () => {
         // TBD: Could zip them or canvas merge
         alert("功能開發中：將來可以下載拼貼好的大圖！目前請個別下載。");
@@ -182,10 +230,18 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
 
                     <button
                         onClick={handleGenerate}
-                        disabled={isGenerating}
+                        disabled={isGenerating || isAnalyzing}
                         className="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl font-bold transition-all disabled:opacity-50"
                     >
                         {isGenerating ? "生成中..." : "🚀 生成四格漫畫"}
+                    </button>
+
+                    <button
+                        onClick={handleAnalyzeConsistency}
+                        disabled={isGenerating || isAnalyzing || frames.filter(f => f.imageUrl).length < 2}
+                        className="w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold transition-all disabled:opacity-50 border border-white/20"
+                    >
+                        {isAnalyzing ? "分析中..." : "🧠 連貫性深度分析"}
                     </button>
                 </div>
 
@@ -229,6 +285,62 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
                             </div>
                         ))}
                     </div>
+
+                    {/* Story Analysis Results */}
+                    {storyAnalysis && (
+                        <div className="w-full max-w-4xl mt-8 space-y-6 animate-in fade-in slide-in-from-bottom-4">
+                            <div className="bg-indigo-600/20 border border-indigo-500/30 rounded-2xl p-6">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h3 className="text-xl font-bold text-indigo-300 flex items-center gap-2">
+                                        ✨ 故事腳本與連貫性分析
+                                    </h3>
+                                    <div className="flex items-center gap-2 bg-indigo-500/30 px-3 py-1 rounded-full">
+                                        <span className="text-xs text-indigo-200">連貫性評分</span>
+                                        <span className="text-lg font-black text-white">{storyAnalysis.consistency.score}</span>
+                                    </div>
+                                </div>
+
+                                <p className="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                    「{storyAnalysis.summary}」
+                                </p>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-4">
+                                        <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider">分鏡腳本</h4>
+                                        <div className="space-y-3">
+                                            {storyAnalysis.script.map((s: any, idx: number) => (
+                                                <div key={idx} className="bg-black/20 p-3 rounded-lg border border-white/5">
+                                                    <span className="text-[10px] text-indigo-500 font-bold block mb-1">SCENE {s.scene}</span>
+                                                    <p className="text-xs text-gray-300">{s.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">連貫性分析</h4>
+                                            <p className="text-xs text-gray-400 leading-relaxed bg-amber-500/10 p-3 rounded-lg border border-amber-500/20">
+                                                {storyAnalysis.consistency.analysis}
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <h4 className="text-xs font-bold text-green-400 uppercase tracking-wider mb-2">下一幕建議</h4>
+                                            <p className="text-xs text-gray-400 leading-relaxed bg-green-500/10 p-3 rounded-lg border border-green-500/20">
+                                                {storyAnalysis.nextScene}
+                                            </p>
+                                        </div>
+
+                                        <div className="p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
+                                            <p className="text-xs text-indigo-300 font-medium mb-1">💡 優化意見</p>
+                                            <p className="text-[11px] text-gray-400">{storyAnalysis.consistencyAdvice}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
             </div>

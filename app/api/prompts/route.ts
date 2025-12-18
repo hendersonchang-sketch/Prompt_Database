@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 // Helper to calculate cosine similarity
 function cosineSimilarity(vecA: number[], vecB: number[]) {
@@ -232,16 +232,15 @@ export async function POST(request: Request) {
                 // Gemini Native Image Generation (better text rendering)
                 try {
                     console.log("Attempting Gemini Native Image Generation with:", finalPrompt);
-                    const genAI = new GoogleGenerativeAI(apiKey);
-                    const model = genAI.getGenerativeModel({
-                        model: "gemini-2.0-flash-exp-image-generation",
-                        generationConfig: {
-                            responseModalities: ["TEXT", "IMAGE"] as any
-                        } as any
-                    });
+                    const client = new GoogleGenAI({ apiKey });
 
-                    const result = await model.generateContent(finalPrompt);
-                    const response = result.response;
+                    const response = await client.models.generateContent({
+                        model: "gemini-2.0-flash-exp-image-generation",
+                        contents: [{ text: finalPrompt }],
+                        config: {
+                            responseModalities: ["TEXT", "IMAGE"]
+                        }
+                    });
 
                     const fs = require('fs');
                     const path = require('path');
@@ -252,7 +251,7 @@ export async function POST(request: Request) {
 
                     // Extract images from response
                     for (const part of response.candidates?.[0]?.content?.parts || []) {
-                        if (part.inlineData && part.inlineData.mimeType?.startsWith('image/')) {
+                        if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
                             const buffer = Buffer.from(part.inlineData.data, 'base64');
                             const filename = `gemini-native-${Date.now()}-${Math.random().toString(36).substring(7)}.png`;
                             const filepath = path.join(uploadDir, filename);

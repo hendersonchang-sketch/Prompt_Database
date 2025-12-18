@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        // critique represents the 'improvementRoadmap' or a summary string
         const { originalPrompt, critique, score, apiKey } = body;
 
         if (!apiKey) {
@@ -15,15 +14,13 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Original prompt is required" }, { status: 400 });
         }
 
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey });
 
         // Construct Critique Context
         let critiqueText = "";
         if (typeof critique === 'string') {
             critiqueText = critique;
         } else if (Array.isArray(critique)) {
-            // Assuming critique is the improvementRoadmap array
             critiqueText = critique.map((item: any) =>
                 `- Priority ${item.priority}: Improve ${item.area} (${item.target}). Suggestion: ${item.action}`
             ).join("\n");
@@ -32,28 +29,52 @@ export async function POST(request: Request) {
         }
 
         const refinementPrompt = `
-        You are an Expert AI Art Prompt Engineer.
-        
-        Current Prompt: "${originalPrompt}"
-        Current Score: ${score}/100
-        
-        Critique / Areas for Improvement:
-        ${critiqueText}
-        
-        TASK:
-        Rewrite the prompt to address the critique and improve the image quality. 
-        - Enhance descriptive details.
-        - Add artistic style keywords if missing.
-        - Fix any conflicting terms.
-        - Keep the core subject intact.
-        
-        OUTPUT ONLY THE NEW PROMPT TEXT. NO EXPLANATION.
-        `;
+You are an Expert AI Art Prompt Engineer. Refine a prompt based on critique.
 
-        const result = await model.generateContent(refinementPrompt);
-        const newPrompt = result.response.text().trim();
+Current Prompt: "${originalPrompt}"
+Current Score: ${score}/100
 
-        return NextResponse.json({ newPrompt });
+Critique / Areas for Improvement:
+${critiqueText}
+
+TASK: Rewrite the prompt addressing the critique while keeping the core subject.
+
+Output JSON format:
+{
+    "newPrompt": "Refined English prompt (address all critique points)",
+    "newPromptZH": "繁體中文版本",
+    "changes": [
+        {"area": "issue area", "before": "original text", "after": "new text", "reason": "why changed"}
+    ],
+    "estimatedNewScore": 0,
+    "improvements": ["list of improvements made"],
+    "suggestions": ["additional suggestions for further refinement"]
+}`;
+
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [{ text: refinementPrompt }],
+            config: {
+                responseMimeType: "application/json",
+                temperature: 0.5
+            }
+        });
+
+        const text = response.text || "";
+
+        try {
+            const data = JSON.parse(text);
+            return NextResponse.json({
+                newPrompt: data.newPrompt || "",
+                newPromptZH: data.newPromptZH || "",
+                changes: data.changes || [],
+                estimatedNewScore: data.estimatedNewScore || 0,
+                improvements: data.improvements || [],
+                suggestions: data.suggestions || []
+            });
+        } catch {
+            return NextResponse.json({ newPrompt: text.trim() });
+        }
 
     } catch (error: any) {
         console.error("Refine Prompt API Error:", error);

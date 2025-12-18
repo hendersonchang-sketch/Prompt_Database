@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -14,38 +14,66 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API Key not configured' }, { status: 500 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey: key });
 
         const enhancePrompt = `
-You are an expert AI Art Prompt Engineer. The user has provided a simple description, and your job is to expand it into a detailed, professional prompt for image generation (like Stable Diffusion, Midjourney, or Imagen).
+You are an expert AI Art Prompt Engineer. Transform a simple user description into a professional, detailed prompt optimized for AI image generation (Stable Diffusion, Midjourney, Imagen).
 
 User's simple description: "${prompt}"
 
-Please enhance this into a detailed prompt by adding:
-1. Subject details (appearance, pose, expression if applicable)
+Analyze and enhance by adding:
+1. Subject details (appearance, pose, expression)
 2. Art style (photorealistic, anime, oil painting, 3D render, etc.)
-3. Lighting and atmosphere
+3. Lighting and atmosphere  
 4. Camera angle and composition
-5. Quality keywords (8K, highly detailed, sharp focus, etc.)
+5. Quality keywords (8K, highly detailed, sharp focus)
+6. Mood and color palette
 
-Rules:
-- Output ONLY the enhanced English prompt, nothing else
-- Keep it concise but comprehensive (under 100 words)
-- Maintain the user's original intent
-- Do not add NSFW content
-- Do not include "prompt:" or explanatory text
+Output JSON format:
+{
+    "enhanced": "Complete enhanced English prompt (80-120 words)",
+    "enhancedZH": "繁體中文版本的增強描述",
+    "additions": {
+        "style": "detected/added art style",
+        "lighting": "added lighting description",
+        "camera": "added camera/composition details",
+        "quality": "added quality keywords"
+    },
+    "promptScore": {
+        "before": 0,
+        "after": 0,
+        "improvement": "explanation of improvements"
+    },
+    "tags": ["key", "descriptor", "tags"]
+}`;
 
-Enhanced prompt:`;
-
-        const result = await model.generateContent(enhancePrompt);
-        const response = await result.response;
-        const enhancedPrompt = response.text().trim();
-
-        return NextResponse.json({
-            original: prompt,
-            enhanced: enhancedPrompt
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [{ text: enhancePrompt }],
+            config: {
+                responseMimeType: "application/json",
+                temperature: 0.6
+            }
         });
+
+        const text = response.text || "";
+
+        try {
+            const data = JSON.parse(text);
+            return NextResponse.json({
+                original: prompt,
+                enhanced: data.enhanced || "",
+                enhancedZH: data.enhancedZH || "",
+                additions: data.additions || {},
+                promptScore: data.promptScore || {},
+                tags: data.tags || []
+            });
+        } catch {
+            return NextResponse.json({
+                original: prompt,
+                enhanced: text.trim()
+            });
+        }
 
     } catch (error: any) {
         console.error("Enhance error:", error);

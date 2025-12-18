@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -15,8 +15,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "API Key is required" }, { status: 400 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const client = new GoogleGenAI({ apiKey: key });
 
         const systemPrompt = `You are an expert prompt analyst. Analyze the given image generation prompt and break it down into a structured JSON format with BOTH English and Chinese (繁體中文) descriptions.
 
@@ -59,12 +58,15 @@ Return ONLY valid JSON (no markdown, no code blocks, just raw JSON) with this ex
 
 If a field is not present in the prompt, use null or an empty array. Be concise but accurate. The Chinese translations should be natural Traditional Chinese.`;
 
-        const result = await model.generateContent([
-            { text: systemPrompt },
-            { text: `Analyze this prompt:\n\n${prompt}` }
-        ]);
+        const response = await client.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: [
+                { text: systemPrompt },
+                { text: `Analyze this prompt:\n\n${prompt}` }
+            ]
+        });
 
-        const responseText = result.response.text();
+        const responseText = response.text ? response.text : "{}";
 
         // Try to parse as JSON
         let structured;

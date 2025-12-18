@@ -302,6 +302,10 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     // Prompt Queue State (for batch variations)
     const [promptQueue, setPromptQueue] = useState<string[]>([]);
 
+    // Flash Suggest State
+    const [suggestion, setSuggestion] = useState("");
+    const suggestionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
     // Template Usage Statistics
     const [templateStats, setTemplateStats] = useState<Record<string, number>>({});
 
@@ -646,6 +650,30 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                     ? Number(value)
                     : value,
         }));
+
+        // Flash Suggest Logic
+        if (name === "prompt") {
+            setSuggestion(""); // Clear old suggestion immediately
+            if (suggestionTimeoutRef.current) clearTimeout(suggestionTimeoutRef.current);
+
+            if (value.length >= 5) {
+                suggestionTimeoutRef.current = setTimeout(async () => {
+                    try {
+                        const res = await fetch("/api/suggest", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ prompt: value, apiKey: formData.apiKey })
+                        });
+                        const data = await res.json();
+                        if (data.suggestion) {
+                            setSuggestion(data.suggestion);
+                        }
+                    } catch (e) {
+                        console.error("Flash Suggest Error:", e);
+                    }
+                }, 800); // 800ms debounce
+            }
+        }
     };
 
     const handleRatioSelect = (width: number, height: number) => {
@@ -1009,15 +1037,33 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 </div>
 
                 {/* Magic Reverse Prompt Area */}
-                <div className="relative">
+                <div className="relative group">
+                    {/* Shadow suggestion layer */}
+                    {suggestion && (
+                        <div
+                            className="absolute inset-0 p-4 pt-[17px] pointer-events-none text-white/20 whitespace-pre-wrap break-words text-sm overflow-hidden"
+                            aria-hidden="true"
+                        >
+                            <span className="invisible">{formData.prompt}</span>
+                            <span>{suggestion}</span>
+                            <span className="ml-2 inline-flex items-center text-[10px] bg-white/10 px-1 rounded animate-pulse">Tab to accept</span>
+                        </div>
+                    )}
                     <textarea
                         name="prompt"
                         required
                         rows={4}
                         value={formData.prompt}
                         onChange={handleChange}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Tab' && suggestion) {
+                                e.preventDefault();
+                                setFormData(prev => ({ ...prev, prompt: prev.prompt + suggestion }));
+                                setSuggestion("");
+                            }
+                        }}
                         placeholder="描述您想生成的畫面..."
-                        className="w-full bg-black/40 border-white/10 rounded-xl p-4 pb-14 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none"
+                        className="w-full bg-black/40 border-white/10 rounded-xl p-4 pb-14 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none relative z-10"
                     />
                     {/* Magic Upload Buttons - bottom right */}
                     <div className="absolute bottom-2 right-2 flex gap-1">

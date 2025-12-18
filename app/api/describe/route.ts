@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
@@ -9,76 +9,143 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Image is required' }, { status: 400 });
         }
 
-        // Use provided API key or fallback to env var (though frontend usually passes it if custom)
-        // For security, usually env is better, but this app seems to allow user-provided keys.
-        // We'll prioritize the passed key if it exists, else env.
         const key = apiKey || process.env.GEMINI_API_KEY;
 
         if (!key) {
             return NextResponse.json({ error: 'API Key is required' }, { status: 401 });
         }
 
-        const genAI = new GoogleGenerativeAI(key);
-        // Use Gemini 2.0 Flash Experimental for vision capabilities  
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
-
-        // Remove header if present (data:image/png;base64,)
+        const client = new GoogleGenAI({ apiKey: key });
         const base64Data = image.replace(/^data:image\/\w+;base64,/, "");
 
-        // Different prompts based on mode
-        const prompt = characterOnly
-            ? `
-            As an expert AI Art Prompt Engineer, analyze this image and extract ONLY the MAIN SUBJECT description.
-            
-            First, identify what type of subject this is:
-            - Person/Character → describe ethnicity/skin tone, appearance, hair, eyes, clothing, art style
-            - Animal/Creature → describe species, colors, markings, fur/feathers, size
-            - Product/Object → describe shape, materials, colors, textures, brand elements
-            - Mascot/Character Design → describe design elements, colors, expressions, accessories
-            - Vehicle → describe type, color, style, distinctive features
-            - Architecture → describe style, materials, key features
-            
-            Focus ONLY on the subject's inherent characteristics.
-            
-            DO NOT include:
-            - Background or environment
-            - Lighting or atmosphere  
-            - Camera angle or composition
-            - Actions or poses (describe neutral state)
-            
-            Output ONLY a concise English description of the subject, ready to be combined with different scenes.
-            Example formats:
-            - Person: "A young woman with long silver twin-tail hair, bright blue eyes, wearing a black gothic lolita dress, anime style"
-            - Animal: "A fluffy orange tabby cat with green eyes, white paws, cute round face, realistic style"
-            - Product: "A sleek matte black wireless headphone with rose gold accents, over-ear design, premium materials"
-            - Mascot: "A cheerful blue blob mascot with large googly eyes, small arms, wearing a red bow tie, cartoon style"
-            `
-            : `
-            As an expert AI Art Prompt Engineer, describe this image in detail.
-            Focus on:
-            1. Subject (appearance, pose, clothing)
-            2. Art Style (e.g., oil painting, cyberpunk, photorealistic, 3D render)
-            3. Lighting & Color Palette
-            4. Composition & Camera Angle
+        if (characterOnly) {
+            // ===== 強化版角色提取（結構化 JSON 輸出）=====
+            const characterPrompt = `
+You are an expert AI Art Prompt Engineer specializing in character extraction for consistent AI image generation.
 
-            Output ONLY the raw English prompt string, ready to be pasted into Stable Diffusion or Midjourney. 
-            Do not add introductory text like "Here is the prompt:".
-            `;
+Analyze this image and extract a DETAILED character description that can be used to recreate this exact character in different scenes.
 
-        const result = await model.generateContent([
-            prompt,
-            {
-                inlineData: {
-                    data: base64Data,
-                    mimeType: "image/png", // Generic mime type usually works, or extract from input
-                },
-            },
-        ]);
+**Instructions:**
+1. First, identify the SUBJECT TYPE (person, animal, mascot, robot, creature, etc.)
+2. Extract ONLY the subject's intrinsic features - NOT the background, lighting, or scene
+3. Be extremely specific about distinctive features that maintain character consistency
+4. Use professional AI prompt engineering terminology
 
-        const response = await result.response;
-        const text = response.text();
+**Output JSON format:**
+{
+    "subjectType": "person | animal | mascot | robot | creature | object | vehicle",
+    "coreIdentity": "One-sentence summary of who/what this is",
+    "appearance": {
+        "face": "facial features, expression type, face shape",
+        "hair": "style, color, length, texture (if applicable)",
+        "eyes": "color, shape, distinctive features",
+        "skin": "tone, texture, any markings",
+        "bodyType": "build, height impression, posture style",
+        "distinguishingMarks": "scars, tattoos, birthmarks, unique features"
+    },
+    "attire": {
+        "mainOutfit": "primary clothing description",
+        "accessories": "jewelry, glasses, bags, etc.",
+        "colors": "main color palette of outfit",
+        "style": "fashion style category"
+    },
+    "artisticStyle": {
+        "renderStyle": "anime, realistic, 3D, cartoon, etc.",
+        "artMovement": "specific art style references",
+        "colorPalette": "overall color treatment"
+    },
+    "consistencyTags": ["list", "of", "key", "tags", "for", "recreating", "this", "character"],
+    "promptEN": "Complete English prompt optimized for Stable Diffusion / Midjourney",
+    "promptZH": "繁體中文版本的角色描述"
+}
 
-        return NextResponse.json({ prompt: text.trim() });
+CRITICAL: Focus on TIMELESS features. Exclude pose, action, camera angle, lighting, and background.
+`;
+
+            const response = await client.models.generateContent({
+                model: "gemini-3-flash-preview",
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            { text: characterPrompt },
+                            {
+                                inlineData: {
+                                    data: base64Data,
+                                    mimeType: "image/png",
+                                },
+                            },
+                        ]
+                    }
+                ],
+                config: {
+                    responseMimeType: "application/json"
+                }
+            });
+
+            const text = response.text || (response.candidates?.[0]?.content?.parts?.[0]?.text || "");
+
+            try {
+                const characterData = JSON.parse(text);
+
+                // 建構最佳化的角色 Prompt
+                const optimizedPrompt = characterData.promptEN ||
+                    [
+                        characterData.coreIdentity,
+                        characterData.appearance?.hair,
+                        characterData.appearance?.eyes,
+                        characterData.attire?.mainOutfit,
+                        characterData.artisticStyle?.renderStyle,
+                        ...(characterData.consistencyTags || [])
+                    ].filter(Boolean).join(", ");
+
+                return NextResponse.json({
+                    prompt: optimizedPrompt,
+                    promptZh: characterData.promptZH || "",
+                    structured: characterData,
+                    consistencyTags: characterData.consistencyTags || []
+                });
+            } catch (parseErr) {
+                // 如果 JSON 解析失敗，回退到純文字
+                console.error("Character extraction parse error:", parseErr);
+                return NextResponse.json({ prompt: text.trim() });
+            }
+
+        } else {
+            // ===== 標準圖片描述模式 =====
+            const promptText = `
+As an expert AI Art Prompt Engineer, describe this image in detail.
+Focus on:
+1. Subject (appearance, pose, clothing)
+2. Art Style (e.g., oil painting, cyberpunk, photorealistic, 3D render)
+3. Lighting & Color Palette
+4. Composition & Camera Angle
+
+Output ONLY the raw English prompt string, ready to be pasted into Stable Diffusion or Midjourney. 
+Do not add introductory text like "Here is the prompt:".
+`;
+
+            const response = await client.models.generateContent({
+                model: "gemini-3-flash-preview",
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            { text: promptText },
+                            {
+                                inlineData: {
+                                    data: base64Data,
+                                    mimeType: "image/png",
+                                },
+                            },
+                        ]
+                    }
+                ]
+            });
+
+            const text = response.text || (response.candidates?.[0]?.content?.parts?.[0]?.text || "");
+            return NextResponse.json({ prompt: text.trim() });
+        }
 
     } catch (error: any) {
         console.error('Describe error:', error);
