@@ -108,32 +108,24 @@ export async function GET(request: Request) {
 
         // 2. Keyword Search
         else if (search) {
+            const where = {
+                OR: [
+                    { prompt: { contains: search } },
+                    { promptZh: { contains: search } },
+                    { tags: { contains: search } },
+                    { originalPrompt: { contains: search } }
+                ]
+            };
             // @ts-ignore
             const prompts = await prisma.promptEntry.findMany({
-                where: {
-                    OR: [
-                        { prompt: { contains: search } },
-                        { promptZh: { contains: search } },
-                        { tags: { contains: search } },
-                        { originalPrompt: { contains: search } }
-                    ]
-                },
+                where,
                 orderBy: { createdAt: 'desc' },
                 skip: skip,
                 take: limit,
                 select: selectFields
             });
             // @ts-ignore
-            const total = await prisma.promptEntry.count({
-                where: {
-                    OR: [
-                        { prompt: { contains: search } },
-                        { promptZh: { contains: search } },
-                        { tags: { contains: search } },
-                        { originalPrompt: { contains: search } }
-                    ]
-                }
-            });
+            const total = await prisma.promptEntry.count({ where });
             return NextResponse.json({
                 prompts,
                 pagination: {

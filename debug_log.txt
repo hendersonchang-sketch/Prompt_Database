@@ -1503,3 +1503,27 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "無人機, 工程圖, 技術藍圖, 分解圖, 精密細節"
 }
 -------------------
+
+[2025-12-18T17:31:14.232Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with long, flowing wavy black hair, looking back over her shoulder with a gentle smile. She is wearing an elegant, sheer cream-colored dress with delicate floral lace embroidery. The scene is set on an urban rooftop during golden hour, with the setting sun creating a warm, soft glow and a subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, highly detailed features, natural skin texture, film grain, masterpiece quality, HDR, studio quality, award-winning photography, 100mm macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一張逼真的特寫肖像，一位美麗的年輕東亞女性，留著長長的、飄逸的黑色波浪髮，回頭看著，帶著溫柔的微笑。她穿著一件優雅的、薄紗奶油色的連衣裙，上面有精緻的花卉蕾絲刺繡。場景設置在城市屋頂的黃金時段，夕陽營造出溫暖、柔和的光芒，並在她的頭髮和肩膀上形成微妙的金色輪廓光。背景是美麗的模糊城市景觀，帶有柔和的散景和屋頂綠化的暗示。電影燈光，8k分辨率，高度詳細的特徵，自然皮膚紋理，膠片顆粒，傑作質量，HDR，工作室質量，獲獎攝影作品，100毫米微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超詳細，8k分辨率，清晰對焦。",
+  "tags": "人像, 東亞女性, 屋頂, 黃金時段, 蕾絲連衣裙"
+}
+-------------------
+
+[2025-12-18T17:38:55.974Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic close-up portrait of a beautiful young East Asian woman with flowing, long black curly hair, gently smiling and looking back. She is wearing an elegant and ethereal off-white dress with delicate floral lace embroidery. The scene is set on a city rooftop during the golden hour, with the sunset casting a warm, soft glow and highlighting subtle golden rim light on her hair and shoulders. The background features a beautifully blurred cityscape with soft bokeh and subtle rooftop greenery. Cinematic lighting, 8k resolution, extreme detail, natural skin texture, film grain, masterpiece quality.",
+  "zhPrompt": "一張寫實的近距肖像，主角是一位美麗的年輕東亞女性，留著一頭飄逸的黑色長捲髮，帶著溫柔的微笑回眸。她穿著一件優雅且透亮的米白色連身裙，上面有著精緻的花卉蕾絲刺繡。場景設定在黃金時刻的城市屋頂，夕陽營造出溫暖柔和的光芒，並在她的頭髮和肩膀上勾勒出微妙的金邊輪廓光。背景是優美模糊的城市景觀，帶有柔和的散景與些許屋頂綠植。電影級光效，8k 解析度，極致細節，自然皮膚紋理，底片顆粒感，大師級品質。",
+  "tags": "寫實肖像, 東亞女性, 黃金時刻, 屋頂場景, 電影級光效"
+}
+-------------------
+
+[2025-12-18T17:39:24.232Z] Raw Gemini Response:
+{
+  "enPrompt": "A realistic close-up portrait of a beautiful young East Asian woman with flowing long black curly hair, gently smiling and looking back. She is wearing an elegant and sheer off-white dress with delicate floral lace embroidery. The scene is set on a city rooftop during golden hour, with the sunset creating a warm and soft glow, outlining subtle golden rim light on her hair and shoulders. The background is a beautifully blurred cityscape with soft bokeh and hints of rooftop greenery. Cinematic lighting, 8k resolution, ultra-detailed, natural skin texture, film grain, masterpiece quality, professional photography, best quality, ultra-detailed, sharp focus.",
+  "zhPrompt": "一張寫實的近距肖像，主角是一位美麗的年輕東亞女性，留著一頭飄逸的黑色長捲髮，帶著溫柔的微笑回眸。她穿著一件優雅且透亮的米白色連身裙，上面有著精緻的花卉蕾絲刺繡。場景設定在黃金時刻的城市屋頂，夕陽營造出溫暖柔和的光芒，並在她的頭髮和肩膀上勾勒出微妙的金邊輪廓光。背景是優美模糊的城市景觀，帶有柔和的散景與些許屋頂綠植。電影級光效，8k 解析度，極致細節，自然皮膚紋理，底片顆粒感，大師級品質，專業攝影，最佳品質，超精細，焦點清晰。",
+  "tags": "寫實肖像, 東亞女性, 黃金時刻, 屋頂, 蕾絲洋裝"
+}
+-------------------
