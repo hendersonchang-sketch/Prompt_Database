@@ -12,6 +12,9 @@ import StyleTunerModal from "@/components/StyleTunerModal";
 import BatchImportModal from "@/components/BatchImportModal";
 import AutoRefinerModal from "@/components/AutoRefinerModal";
 import ComicStripModal from "@/components/ComicStripModal";
+import StickerMakerModal from "@/components/StickerMakerModal";
+import MemeGeneratorModal from "@/components/MemeGeneratorModal";
+import ImageEditor from "@/components/ImageEditor";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -26,6 +29,10 @@ export default function Home() {
     const [showBatchImport, setShowBatchImport] = useState(false);
     const [showAutoRefiner, setShowAutoRefiner] = useState(false);
     const [showComicStrip, setShowComicStrip] = useState(false);
+    const [showStickerMaker, setShowStickerMaker] = useState(false);
+    const [showMemeGod, setShowMemeGod] = useState(false);
+    const [editorImage, setEditorImage] = useState<string | null>(null);
+    const [editorInitialText, setEditorInitialText] = useState<string | undefined>(undefined);
 
     // Load changelog
     useEffect(() => {
@@ -59,6 +66,9 @@ export default function Home() {
         setShowBatchImport(false);
         setShowAutoRefiner(false);
         setShowComicStrip(false);
+        setShowStickerMaker(false);
+        setShowMemeGod(false);
+        setEditorImage(null);
     };
 
 
@@ -133,6 +143,20 @@ export default function Home() {
                         className="text-pink-500 hover:text-pink-400 transition-colors flex items-center gap-1 font-bold"
                     >
                         💬 四格漫畫
+                    </button>
+                    {/* Sticker Maker Button */}
+                    <button
+                        onClick={() => setShowStickerMaker(true)}
+                        className="text-green-500 hover:text-green-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🏷️ 貼圖製造機
+                    </button>
+                    {/* Meme God Button */}
+                    <button
+                        onClick={() => setShowMemeGod(true)}
+                        className="text-orange-500 hover:text-orange-400 transition-colors flex items-center gap-1 font-bold"
+                    >
+                        🤡 梗圖大師
                     </button>
                 </div>
             </div>
@@ -225,6 +249,30 @@ export default function Home() {
 
             {/* Comic Strip Modal */}
             <ComicStripModal isOpen={showComicStrip} onClose={() => setShowComicStrip(false)} />
+
+            {/* Sticker Maker Modal */}
+            <StickerMakerModal isOpen={showStickerMaker} onClose={() => setShowStickerMaker(false)} />
+
+            {/* Image Editor */}
+            <ImageEditor
+                isOpen={!!editorImage}
+                onClose={() => {
+                    setEditorImage(null);
+                    setEditorInitialText(undefined); // Clear initial text
+                }}
+                initialImageUrl={editorImage}
+                initialText={editorInitialText}
+            />
+            {/* Meme God Modal */}
+            <MemeGeneratorModal
+                isOpen={showMemeGod}
+                onClose={() => setShowMemeGod(false)}
+                onEdit={(url, caption) => {
+                    setEditorImage(url);
+                    setEditorInitialText(caption);
+                    setShowMemeGod(false);
+                }}
+            />
         </main>
     );
 }

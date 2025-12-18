@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
 import SocialPreview from "./SocialPreview";
+
 import InspirationMap from "./InspirationMap";
+import ImageEditor from "./ImageEditor";
 
 interface PromptEntry {
     id: string;
@@ -74,6 +76,7 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     const [comprehensiveLoading, setComprehensiveLoading] = useState(false);
     const [showEvalModal, setShowEvalModal] = useState(false);
     const [showSocialPreview, setShowSocialPreview] = useState(false);
+    const [editorImage, setEditorImage] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'gallery' | 'map'>('gallery');
 
     const [useSemanticSearch, setUseSemanticSearch] = useState(false);
@@ -1459,6 +1462,17 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                             重練
                                         </button>
 
+                                        {/* Edit Button */}
+                                        <button
+                                            onClick={() => setEditorImage(selectedImage.imageUrl)}
+                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-medium transition-colors shadow-lg shadow-blue-900/20 whitespace-nowrap"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                            加字/編輯
+                                        </button>
+
                                         {/* Reverse Prompt Button */}
                                         <button
                                             onClick={async () => {
@@ -2451,7 +2465,16 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     </div>
                 </div>
             )}
+            {/* Image Editor */}
+            {editorImage && (
+                <ImageEditor
+                    isOpen={!!editorImage}
+                    onClose={() => setEditorImage(null)}
+                    initialImageUrl={editorImage}
+                />
+            )}
         </div>
 
     );
 }
+
