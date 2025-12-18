@@ -1,12 +1,13 @@
-"use client";
+﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
 import SocialPreview from "./SocialPreview";
 
 import InspirationMap from "./InspirationMap";
 import ImageEditor from "./ImageEditor";
+import GalleryToolbar from "./GalleryToolbar";
 
 interface PromptEntry {
     id: string;
@@ -93,6 +94,16 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
     const [viewMode, setViewMode] = useState<'gallery' | 'map'>('gallery');
 
     const [useSemanticSearch, setUseSemanticSearch] = useState(false);
+
+    // Infinite Scroll Pagination State
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
+    const observerTarget = useRef<HTMLDivElement>(null);
+
+    // Scroll state for sticky header
+    const [isScrolled, setIsScrolled] = useState(false);
+
     // Extract Unique Tags
     const allTags = Array.from(new Set(
         prompts.flatMap(p => p.tags ? p.tags.split(',').map(t => t.trim()) : [])
@@ -102,32 +113,99 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
         fetchPrompts();
     }, [refreshTrigger]);
 
-    const fetchPrompts = async (overrideSearch?: string, useSemantic?: boolean) => {
+    // Scroll listener for sticky header effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const fetchPrompts = async (overrideSearch?: string, useSemantic?: boolean, pageNum: number = 1, append: boolean = false) => {
         try {
-            setLoading(true);
+            if (append) {
+                setIsLoadingMore(true);
+            } else {
+                setLoading(true);
+            }
+
             const isSemantic = useSemantic !== undefined ? useSemantic : useSemanticSearch;
             const query = overrideSearch !== undefined ? overrideSearch : searchQuery;
 
             let url = "/api/prompts";
             const params = new URLSearchParams();
 
+            // Add pagination parameters
+            params.append("page", pageNum.toString());
+            params.append("limit", "20");
+
             if (isSemantic && query) {
                 params.append("search", query);
                 params.append("semantic", "true");
                 const key = localStorage.getItem("geminiApiKey");
                 if (key) params.append("apiKey", key);
-                url += "?" + params.toString();
             }
+
+            url += "?" + params.toString();
 
             const res = await fetch(url);
             const data = await res.json();
-            setPrompts(data);
+
+            // Handle new API response format with pagination metadata
+            const newPrompts = data.prompts || data; // Support both old and new format
+            const pagination = data.pagination;
+
+            if (append) {
+                setPrompts(prev => [...prev, ...newPrompts]);
+            } else {
+                setPrompts(newPrompts);
+            }
+
+            // Update pagination state
+            if (pagination) {
+                setHasMore(pagination.hasMore);
+            } else {
+                // Fallback: assume no more data if less than 20 items
+                setHasMore(newPrompts.length >= 20);
+            }
         } catch (error) {
             console.error(error);
         } finally {
             setLoading(false);
+            setIsLoadingMore(false);
         }
     };
+
+    // Load more function for infinite scroll
+    const loadMore = () => {
+        if (!hasMore || isLoadingMore || loading) return;
+        const nextPage = page + 1;
+        setPage(nextPage);
+        fetchPrompts(undefined, undefined, nextPage, true);
+    };
+
+    // IntersectionObserver for infinite scroll
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting && hasMore && !isLoadingMore && !loading) {
+                    loadMore();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (observerTarget.current) {
+            observer.observe(observerTarget.current);
+        }
+
+        return () => {
+            if (observerTarget.current) {
+                observer.unobserve(observerTarget.current);
+            }
+        };
+    }, [hasMore, isLoadingMore, loading, page]);
 
     const handleReindex = async () => {
         const apiKey = localStorage.getItem('geminiApiKey');
@@ -498,312 +576,107 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
             )}
 
             {/* Toolbar */}
-            <div className="grid grid-cols-1 md:flex md:flex-row md:justify-between items-center gap-4 w-full">
-
-                {/* View Toggle */}
-                <div className="flex bg-white/5 p-1 rounded-lg self-start md:self-auto">
-                    <button
-                        onClick={() => setViewMode('gallery')}
-                        className={`px-3 py-1.5 rounded-md text-sm transition-all ${viewMode === 'gallery' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
-                    >
-                        🖼️
-                    </button>
-                    <button
-                        onClick={() => setViewMode('map')}
-                        className={`px-3 py-1.5 rounded-md text-sm transition-all ${viewMode === 'map' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
-                    >
-                        🕸️
-                    </button>
-                </div>
-
-                <div className="flex items-center gap-2 md:gap-4 flex-wrap md:flex-nowrap justify-end">
-                    {/* Selection Mode Toggle */}
-                    <button
-                        onClick={() => {
-                            setIsSelectionMode(!isSelectionMode);
-                            if (isSelectionMode) setSelectedIds(new Set());
-                        }}
-                        className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${isSelectionMode
-                            ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
-                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                            }`}
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                        </svg>
-                        <span className="hidden sm:inline">{isSelectionMode ? "退出選擇" : "批次"}</span>
-                    </button>
-
-                    <button
-                        onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-                        className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${showFavoritesOnly
-                            ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
-                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                            }`}
-                    >
-                        <svg className={`w-4 h-4 ${showFavoritesOnly ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                        <span className="hidden sm:inline">最愛</span>
-                    </button>
-
-                    {/* Import Button */}
-                    <div className="relative">
-                        <input
-                            type="file"
-                            accept=".json"
-                            className="hidden"
-                            id="import-file"
-                            onChange={async (e) => {
-                                const file = e.target.files?.[0];
-                                if (!file) return;
-
-                                try {
-                                    const text = await file.text();
-                                    const data = JSON.parse(text);
-
-                                    const res = await fetch('/api/import', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: text,
-                                    });
-
-                                    if (!res.ok) throw new Error(await res.text());
-                                    const result = await res.json();
-
-                                    alert(`匯入完成！\n成功: ${result.imported}\n跳過: ${result.skipped}\n總計: ${result.total}`);
-
-                                    // Refresh the gallery
-                                    window.location.reload();
-                                } catch (err: any) {
-                                    alert('匯入失敗: ' + (err.message || '未知錯誤'));
-                                }
-
-                                // Reset input
-                                e.target.value = '';
-                            }}
-                        />
-                        <label
-                            htmlFor="import-file"
-                            className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                            </svg>
-                            <span className="hidden sm:inline">匯入</span>
-                        </label>
-                    </div>
-
-                    {/* Backup/Export All Button (JSON) */}
-                    <button
-                        onClick={async () => {
+            <GalleryToolbar
+                viewMode={viewMode}
+                setViewMode={setViewMode}
+                filteredCount={filteredPrompts.length}
+                totalCount={prompts.length}
+                selectedTagsCount={selectedTags.length}
+                isSelectionMode={isSelectionMode}
+                setIsSelectionMode={setIsSelectionMode}
+                onClearSelection={() => setSelectedIds(new Set())}
+                showFavoritesOnly={showFavoritesOnly}
+                setShowFavoritesOnly={setShowFavoritesOnly}
+                isTagMenuOpen={isTagMenuOpen}
+                setIsTagMenuOpen={setIsTagMenuOpen}
+                selectedTags={selectedTags}
+                setSelectedTags={setSelectedTags}
+                allTags={allTags}
+                onToggleTag={toggleTag}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                useSemanticSearch={useSemanticSearch}
+                setUseSemanticSearch={setUseSemanticSearch}
+                onSearch={fetchPrompts}
+                onReindex={handleReindex}
+                onImport={async (file) => {
+                    try {
+                        const text = await file.text();
+                        const res = await fetch('/api/import', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: text,
+                        });
+                        if (!res.ok) throw new Error(await res.text());
+                        const result = await res.json();
+                        alert(`匯入完成！\n成功: ${result.imported}\n跳過: ${result.skipped}\n總計: ${result.total}`);
+                        window.location.reload();
+                    } catch (err: any) {
+                        alert('匯入失敗: ' + (err.message || '未知錯誤'));
+                    }
+                }}
+                onExportJSON={async () => {
+                    try {
+                        const res = await fetch('/api/backup');
+                        if (!res.ok) throw new Error('備份失敗');
+                        const blob = await res.blob();
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `prompt-database-backup-${Date.now()}.json`;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                    } catch (err) {
+                        alert('備份失敗');
+                    }
+                }}
+                onExportZIP={async () => {
+                    const btn = document.getElementById('zip-export-btn-toolbar') as HTMLButtonElement;
+                    if (btn) btn.disabled = true;
+                    try {
+                        const res = await fetch('/api/backup-zip');
+                        if (!res.ok) throw new Error('ZIP 匯出失敗');
+                        const blob = await res.blob();
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `prompt-database-full-backup-${Date.now()}.zip`;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                        alert('ZIP 匯出完成！');
+                    } catch (err) {
+                        alert('ZIP 匯出失敗');
+                    } finally {
+                        if (btn) btn.disabled = false;
+                    }
+                }}
+                onUploadImages={async (files) => {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const reader = new FileReader();
+                        reader.onloadend = async () => {
                             try {
-                                const res = await fetch('/api/backup');
-                                if (!res.ok) throw new Error('備份失敗');
-
-                                const blob = await res.blob();
-                                const url = URL.createObjectURL(blob);
-                                const a = document.createElement('a');
-                                a.href = url;
-                                a.download = `prompt-database-backup-${Date.now()}.json`;
-                                a.click();
-                                URL.revokeObjectURL(url);
-                            } catch (err) {
-                                alert('備份失敗');
+                                const base64 = reader.result as string;
+                                const res = await fetch('/api/upload-image', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        imageBase64: base64,
+                                        filename: file.name,
+                                        tags: '上傳'
+                                    })
+                                });
+                                if (!res.ok) throw new Error('上傳失敗');
+                                fetchPrompts();
+                            } catch (err: any) {
+                                alert(err.message || '上傳失敗');
                             }
-                        }}
-                        className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                        title="備份 JSON 資料"
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                        </svg>
-                        <span className="hidden sm:inline">JSON</span>
-                    </button>
-
-                    {/* ZIP Export Button (Images + JSON) */}
-                    <button
-                        onClick={async () => {
-                            const btn = document.getElementById('zip-export-btn') as HTMLButtonElement;
-                            if (btn) btn.disabled = true;
-
-                            try {
-                                const res = await fetch('/api/backup-zip');
-                                if (!res.ok) throw new Error('ZIP 匯出失敗');
-
-                                const blob = await res.blob();
-                                const url = URL.createObjectURL(blob);
-                                const a = document.createElement('a');
-                                a.href = url;
-                                a.download = `prompt-database-full-backup-${Date.now()}.zip`;
-                                a.click();
-                                URL.revokeObjectURL(url);
-                                alert('ZIP 匯出完成！包含所有圖片與資料。');
-                            } catch (err) {
-                                alert('ZIP 匯出失敗');
-                            } finally {
-                                if (btn) btn.disabled = false;
-                            }
-                        }}
-                        id="zip-export-btn"
-                        className="flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all bg-gradient-to-r from-emerald-600/20 to-cyan-600/20 text-emerald-300 hover:from-emerald-600 hover:to-cyan-600 hover:text-white border border-emerald-500/30 disabled:opacity-50 disabled:cursor-wait"
-                        title="匯出 ZIP（包含所有圖片 + JSON）"
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                        </svg>
-                        <span className="hidden sm:inline">ZIP 完整備份</span>
-                    </button>
-
-                    {/* Tag Filter Dropdown */}
-                    <div className="relative">
-                        <button
-                            onClick={() => setIsTagMenuOpen(!isTagMenuOpen)}
-                            className={`flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${selectedTags.length > 0 || isTagMenuOpen
-                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
-                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-                                }`}
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                            </svg>
-                            標籤篩選
-                            {selectedTags.length > 0 && (
-                                <span className="bg-white text-purple-600 text-[10px] font-bold px-1.5 rounded-full min-w-[1.2rem] h-[1.2rem] flex items-center justify-center">
-                                    {selectedTags.length}
-                                </span>
-                            )}
-                        </button>
-
-                        {/* Dropdown Menu */}
-                        {isTagMenuOpen && (
-                            <div className="absolute top-12 right-0 z-30 w-72 max-h-96 overflow-y-auto bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-4 animate-in fade-in slide-in-from-top-2">
-                                <div className="flex justify-between items-center mb-3 pb-2 border-b border-white/10">
-                                    <span className="text-xs text-gray-400">選擇標籤 (多選)</span>
-                                    {selectedTags.length > 0 && (
-                                        <button
-                                            onClick={() => setSelectedTags([])}
-                                            className="text-xs text-red-400 hover:text-red-300 transition-colors"
-                                        >
-                                            清除全部
-                                        </button>
-                                    )}
-                                </div>
-
-                                <div className="flex flex-wrap gap-2">
-                                    {allTags.length > 0 ? (
-                                        allTags.map(tag => (
-                                            <button
-                                                key={tag}
-                                                onClick={() => toggleTag(tag)}
-                                                className={`px-3 py-1.5 rounded-lg text-xs transition-colors border ${selectedTags.includes(tag)
-                                                    ? "bg-purple-600 border-purple-500 text-white shadow-md shadow-purple-500/20"
-                                                    : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
-                                                    }`}
-                                            >
-                                                {tag}
-                                            </button>
-                                        ))
-                                    ) : (
-                                        <div className="text-gray-500 text-xs text-center w-full py-4">
-                                            暫無可用標籤
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Backdrop to close */}
-                        {isTagMenuOpen && (
-                            <div className="fixed inset-0 z-20" onClick={() => setIsTagMenuOpen(false)} />
-                        )}
-                    </div>
-
-                    <div className="flex items-center gap-2 w-full md:w-auto">
-                        <button
-                            onClick={() => setUseSemanticSearch(!useSemanticSearch)}
-                            className={`p-2 rounded-full transition-colors ${useSemanticSearch
-                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
-                                : "bg-white/5 text-gray-500 hover:text-white"}`}
-                            title={useSemanticSearch ? "語義搜尋已啟用 (按 Enter 搜尋)" : "啟用語義搜尋 (自然語言)"}
-                        >
-                            🧠
-                        </button>
-
-                        <input
-                            type="text"
-                            placeholder={useSemanticSearch ? "輸入描述 (如: 憂鬱的藍色調畫面)..." : "搜尋提示詞或標籤..."}
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter' && useSemanticSearch) {
-                                    fetchPrompts(searchQuery, true);
-                                }
-                            }}
-                            className={`bg-white/5 border rounded-full px-4 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 transition-all w-full md:w-64 focus:w-80 ${useSemanticSearch ? "border-purple-500/50 focus:ring-purple-500" : "border-white/10 focus:ring-gray-500"}`}
-                        />
-
-                        {useSemanticSearch && (
-                            <button
-                                onClick={handleReindex}
-                                className="p-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-full transition-colors"
-                                title="重建語義索引 (Re-index)"
-                            >
-                                ⚙️
-                            </button>
-                        )}
-                    </div>
-
-                    {/* Upload Image Button */}
-                    <input
-                        type="file"
-                        id="uploadImageInput"
-                        accept="image/*"
-                        multiple
-                        className="hidden"
-                        onChange={async (e) => {
-                            const files = e.target.files;
-                            if (!files || files.length === 0) return;
-
-                            for (let i = 0; i < files.length; i++) {
-                                const file = files[i];
-                                const reader = new FileReader();
-                                reader.onloadend = async () => {
-                                    try {
-                                        const base64 = reader.result as string;
-                                        const res = await fetch('/api/upload-image', {
-                                            method: 'POST',
-                                            headers: { 'Content-Type': 'application/json' },
-                                            body: JSON.stringify({
-                                                imageBase64: base64,
-                                                filename: file.name,
-                                                tags: '上傳'
-                                            })
-                                        });
-                                        if (!res.ok) throw new Error('上傳失敗');
-                                        fetchPrompts(); // Refresh gallery
-                                    } catch (err: any) {
-                                        alert(err.message || '上傳失敗');
-                                    }
-                                };
-                                reader.readAsDataURL(file);
-                            }
-                            e.target.value = ''; // Reset input
-                        }}
-                    />
-                    <button
-                        onClick={() => document.getElementById('uploadImageInput')?.click()}
-                        className="flex items-center gap-1.5 px-3 py-2 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
-                        title="上傳圖片到圖庫（可多選）"
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                        </svg>
-                        上傳圖片
-                    </button>
-                </div>
-            </div>
-
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }}
+                isScrolled={isScrolled}
+            />
             {/* Masonry Grid */}
             {/* Content Area */}
             {viewMode === 'map' ? (
@@ -936,8 +809,22 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                 </div>
                             )}
                         </div>
-                    ))}
+                    ))
+                    }
                 </div>
+            )}
+
+            {/* Infinite Scroll Loading Indicator */}
+            {viewMode !== 'map' && isLoadingMore && (
+                <div className="flex justify-center items-center py-8">
+                    <div className="w-8 h-8 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin"></div>
+                    <span className="ml-3 text-gray-400 text-sm">載入更多圖片...</span>
+                </div>
+            )}
+
+            {/* IntersectionObserver Target */}
+            {viewMode !== 'map' && hasMore && !loading && (
+                <div ref={observerTarget} className="h-4" />
             )}
 
             {filteredPrompts.length === 0 && viewMode !== 'map' && (
@@ -1531,8 +1418,8 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                                                 key={idx}
                                                                                 onClick={() => setSelectedCrop(idx)}
                                                                                 className={`w-full p-2 rounded-lg text-left text-xs transition-all ${selectedCrop === idx
-                                                                                        ? 'bg-emerald-500/30 border border-emerald-400'
-                                                                                        : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                                                                                    ? 'bg-emerald-500/30 border border-emerald-400'
+                                                                                    : 'bg-white/5 border border-white/10 hover:bg-white/10'
                                                                                     }`}
                                                                             >
                                                                                 <div className="flex justify-between items-center mb-1">

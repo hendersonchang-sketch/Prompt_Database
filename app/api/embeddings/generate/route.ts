@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 // Helper to calculate cosine similarity
-export function cosineSimilarity(vecA: number[], vecB: number[]) {
+function cosineSimilarity(vecA: number[], vecB: number[]) {
     let dotProduct = 0;
     let normA = 0;
     let normB = 0;

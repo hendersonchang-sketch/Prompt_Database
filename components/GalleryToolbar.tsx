@@ -1,0 +1,327 @@
+"use client";
+
+import { Dispatch, SetStateAction } from "react";
+
+interface GalleryToolbarProps {
+    // View Mode
+    viewMode: 'gallery' | 'map';
+    setViewMode: Dispatch<SetStateAction<'gallery' | 'map'>>;
+
+    // Stats
+    filteredCount: number;
+    totalCount: number;
+    selectedTagsCount: number;
+
+    // Selection Mode
+    isSelectionMode: boolean;
+    setIsSelectionMode: Dispatch<SetStateAction<boolean>>;
+    onClearSelection: () => void;
+
+    // Favorites
+    showFavoritesOnly: boolean;
+    setShowFavoritesOnly: Dispatch<SetStateAction<boolean>>;
+
+    // Tag Filter
+    isTagMenuOpen: boolean;
+    setIsTagMenuOpen: Dispatch<SetStateAction<boolean>>;
+    selectedTags: string[];
+    setSelectedTags: Dispatch<SetStateAction<string[]>>;
+    allTags: string[];
+    onToggleTag: (tag: string) => void;
+
+    // Search
+    searchQuery: string;
+    setSearchQuery: Dispatch<SetStateAction<string>>;
+    useSemanticSearch: boolean;
+    setUseSemanticSearch: Dispatch<SetStateAction<boolean>>;
+    onSearch: (query: string, semantic: boolean) => void;
+    onReindex: () => void;
+
+    // Actions
+    onImport: (file: File) => void;
+    onExportJSON: () => void;
+    onExportZIP: () => void;
+    onUploadImages: (files: FileList) => void;
+
+    // Scroll State
+    isScrolled: boolean;
+}
+
+export default function GalleryToolbar({
+    viewMode,
+    setViewMode,
+    filteredCount,
+    totalCount,
+    selectedTagsCount,
+    isSelectionMode,
+    setIsSelectionMode,
+    onClearSelection,
+    showFavoritesOnly,
+    setShowFavoritesOnly,
+    isTagMenuOpen,
+    setIsTagMenuOpen,
+    selectedTags,
+    setSelectedTags,
+    allTags,
+    onToggleTag,
+    searchQuery,
+    setSearchQuery,
+    useSemanticSearch,
+    setUseSemanticSearch,
+    onSearch,
+    onReindex,
+    onImport,
+    onExportJSON,
+    onExportZIP,
+    onUploadImages,
+    isScrolled
+}: GalleryToolbarProps) {
+    return (
+        <div className={`sticky top-4 z-50 max-w-fit mx-auto transition-all duration-300 ${isScrolled
+                ? 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/30'
+                : 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/10'
+            } rounded-full h-12 px-3`}>
+
+            <div className="flex items-center gap-2 h-full">
+                {/* Left: View Toggle + Stats */}
+                <div className="flex items-center gap-2">
+                    {/* View Toggle */}
+                    <div className="flex bg-white/5 p-0.5 rounded-full h-9">
+                        <button
+                            onClick={() => setViewMode('gallery')}
+                            className={`w-9 h-8 flex items-center justify-center rounded-full text-[11px] transition-all ${viewMode === 'gallery' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white hover:bg-white/10'
+                                }`}
+                            title="畫廊視圖"
+                        >
+                            🖼️
+                        </button>
+                        <button
+                            onClick={() => setViewMode('map')}
+                            className={`w-9 h-8 flex items-center justify-center rounded-full text-[11px] transition-all ${viewMode === 'map' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white hover:bg-white/10'
+                                }`}
+                            title="關係圖"
+                        >
+                            🕸️
+                        </button>
+                    </div>
+
+                    {/* Compact Stats Badge */}
+                    <div className="flex items-center gap-1 bg-white/5 px-2 h-8 rounded-full">
+                        <span className="text-[11px] text-gray-300 font-medium whitespace-nowrap">
+                            {filteredCount}/{totalCount}
+                        </span>
+                        {selectedTagsCount > 0 && (
+                            <span className="text-[9px] text-purple-400 bg-purple-500/20 px-1.5 py-0.5 rounded-full">
+                                {selectedTagsCount}
+                            </span>
+                        )}
+                    </div>
+                </div>
+
+                {/* Right: Action Buttons */}
+                <div className="flex items-center gap-1">
+                    {/* Selection Mode */}
+                    <button
+                        onClick={() => {
+                            setIsSelectionMode(!isSelectionMode);
+                            if (isSelectionMode) onClearSelection();
+                        }}
+                        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all group relative ${isSelectionMode
+                                ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
+                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            }`}
+                        title="批次選擇"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                    </button>
+
+                    {/* Favorites */}
+                    <button
+                        onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${showFavoritesOnly
+                                ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
+                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            }`}
+                        title="最愛"
+                    >
+                        <svg className={`w-4 h-4 ${showFavoritesOnly ? "fill-current" : "stroke-current fill-none"}`} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </button>
+
+                    {/* Import */}
+                    <div className="relative">
+                        <input
+                            type="file"
+                            accept=".json"
+                            className="hidden"
+                            id="import-file-toolbar"
+                            onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                    onImport(file);
+                                    e.target.value = '';
+                                }
+                            }}
+                        />
+                        <label
+                            htmlFor="import-file-toolbar"
+                            className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer transition-all"
+                            title="匯入"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                        </label>
+                    </div>
+
+                    {/* Export JSON */}
+                    <button
+                        onClick={onExportJSON}
+                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                        title="匯出 JSON"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                        </svg>
+                    </button>
+
+                    {/* Export ZIP */}
+                    <button
+                        onClick={onExportZIP}
+                        id="zip-export-btn-toolbar"
+                        className="w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white border border-emerald-500/30 transition-all disabled:opacity-50"
+                        title="匯出 ZIP"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        </svg>
+                    </button>
+
+                    {/* Tag Filter */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsTagMenuOpen(!isTagMenuOpen)}
+                            className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${selectedTags.length > 0 || isTagMenuOpen
+                                    ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                                    : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                                }`}
+                            title="標籤篩選"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
+                            {selectedTags.length > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-white text-purple-600 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                                    {selectedTags.length}
+                                </span>
+                            )}
+                        </button>
+
+                        {isTagMenuOpen && (
+                            <>
+                                <div className="absolute top-12 right-0 z-30 w-72 max-h-96 overflow-y-auto bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-4">
+                                    <div className="flex justify-between items-center mb-3 pb-2 border-b border-white/10">
+                                        <span className="text-xs text-gray-400">選擇標籤</span>
+                                        {selectedTags.length > 0 && (
+                                            <button
+                                                onClick={() => setSelectedTags([])}
+                                                className="text-xs text-red-400 hover:text-red-300"
+                                            >
+                                                清除
+                                            </button>
+                                        )}
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {allTags.length > 0 ? (
+                                            allTags.map(tag => (
+                                                <button
+                                                    key={tag}
+                                                    onClick={() => onToggleTag(tag)}
+                                                    className={`px-3 py-1.5 rounded-lg text-xs transition-colors border ${selectedTags.includes(tag)
+                                                            ? "bg-purple-600 border-purple-500 text-white"
+                                                            : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10"
+                                                        }`}
+                                                >
+                                                    {tag}
+                                                </button>
+                                            ))
+                                        ) : (
+                                            <div className="text-gray-500 text-xs text-center w-full py-4">暫無標籤</div>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="fixed inset-0 z-20" onClick={() => setIsTagMenuOpen(false)} />
+                            </>
+                        )}
+                    </div>
+
+                    {/* Semantic Search Toggle */}
+                    <button
+                        onClick={() => setUseSemanticSearch(!useSemanticSearch)}
+                        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${useSemanticSearch
+                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            }`}
+                        title={useSemanticSearch ? "語義搜尋已啟用" : "啟用語義搜尋"}
+                    >
+                        🧠
+                    </button>
+
+                    {/* Search Input */}
+                    <input
+                        type="text"
+                        placeholder={useSemanticSearch ? "語義搜尋..." : "搜尋..."}
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && useSemanticSearch) {
+                                onSearch(searchQuery, true);
+                            }
+                        }}
+                        className={`h-8 w-48 bg-white/5 border rounded-full px-3 text-[12px] text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${useSemanticSearch ? "border-purple-500/50 focus:ring-purple-500" : "border-white/10 focus:ring-gray-500"
+                            }`}
+                    />
+
+                    {/* Reindex Button */}
+                    {useSemanticSearch && (
+                        <button
+                            onClick={onReindex}
+                            className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                            title="重建索引"
+                        >
+                            ⚙️
+                        </button>
+                    )}
+
+                    {/* Upload Image */}
+                    <input
+                        type="file"
+                        id="uploadImageInput-toolbar"
+                        accept="image/*"
+                        multiple
+                        className="hidden"
+                        onChange={(e) => {
+                            const files = e.target.files;
+                            if (files && files.length > 0) {
+                                onUploadImages(files);
+                                e.target.value = '';
+                            }
+                        }}
+                    />
+                    <button
+                        onClick={() => document.getElementById('uploadImageInput-toolbar')?.click()}
+                        className="w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white border border-emerald-500/30 transition-all"
+                        title="上傳圖片"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}

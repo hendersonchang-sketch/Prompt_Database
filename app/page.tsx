@@ -20,6 +20,7 @@ import DNACompareModal from "@/components/DNACompareModal";
 import ExplodedViewModal from "@/components/ExplodedViewModal";
 import Img2ImgModal from "@/components/Img2ImgModal";
 import SmartTagModal from "@/components/SmartTagModal";
+import FaceSwapModal from "@/components/FaceSwapModal";
 
 export default function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -41,6 +42,7 @@ export default function Home() {
     const [showExplodedView, setShowExplodedView] = useState(false);
     const [showImg2Img, setShowImg2Img] = useState(false);
     const [showSmartTag, setShowSmartTag] = useState(false);
+    const [showFaceSwap, setShowFaceSwap] = useState(false);
     const [moodSliderPrompt, setMoodSliderPrompt] = useState('');
     const [editorImage, setEditorImage] = useState<string | null>(null);
     const [editorInitialText, setEditorInitialText] = useState<string | undefined>(undefined);
@@ -82,130 +84,128 @@ export default function Home() {
         setEditorImage(null);
     };
 
+    // Helper Component for Navigation Cards
+    const NavCard = ({ label, emoji, onClick, active = false, accent = "gray", small = false }: any) => {
+        const accentMap: any = {
+            purple: {
+                active: 'bg-purple-500/20 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]',
+                indicator: 'bg-purple-500'
+            },
+            blue: {
+                active: 'bg-blue-500/20 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.2)]',
+                indicator: 'bg-blue-500'
+            },
+            violet: {
+                active: 'bg-violet-500/20 border-violet-500/50 shadow-[0_0_20px_rgba(139,92,246,0.2)]',
+                indicator: 'bg-violet-500'
+            },
+            cyan: {
+                active: 'bg-cyan-500/20 border-cyan-500/50 shadow-[0_0_20px_rgba(6,182,212,0.2)]',
+                indicator: 'bg-cyan-500'
+            },
+            gray: {
+                active: 'bg-white/20 border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.1)]',
+                indicator: 'bg-gray-400'
+            }
+        };
+
+        const currentAccent = accentMap[accent] || accentMap.gray;
+
+        return (
+            <button
+                onClick={onClick}
+                className={`
+                    flex flex-col items-center justify-center transition-all relative overflow-hidden
+                    ${small ? 'p-2 rounded-xl text-[10px]' : 'p-4 rounded-2xl text-xs'}
+                    ${active
+                        ? `${currentAccent.active} text-white`
+                        : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:border-white/20'}
+                    border group
+                `}
+            >
+                <span className={`${small ? 'text-lg' : 'text-2xl'} mb-1 group-hover:scale-110 transition-transform`}>
+                    {emoji}
+                </span>
+                <span className="font-medium truncate w-full text-center">{label}</span>
+                {active && <div className={`absolute bottom-0 inset-x-0 h-1 ${currentAccent.indicator}`} />}
+            </button>
+        );
+    };
+
 
     return (
-        <main className="min-h-screen flex flex-col items-center py-8 md:py-20 gap-8 md:gap-16 px-4">
-            <div className="text-center space-y-2 md:space-y-4">
-                <h1 className="text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+        <main className="min-h-screen flex flex-col items-center py-6 md:py-12 gap-8 md:gap-12 px-4">
+            <div className="text-center space-y-1 md:space-y-2 mb-2">
+                <h1 className="text-3xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-600 tracking-tight">
                     Prompt Database
                 </h1>
-                <p className="text-gray-400 text-sm md:text-lg">打造您的專屬提示詞庫</p>
+                <p className="text-gray-400 text-xs md:text-base font-medium">打造您的專屬提示詞庫</p>
+            </div>
 
-                <div className="flex justify-center gap-4 text-xs font-semibold">
-                    {/* Changelog Button */}
-                    <button
-                        onClick={() => setShowChangelog(true)}
-                        className="text-gray-500 hover:text-cyan-400 transition-colors underline underline-offset-2"
-                    >
-                        📋 查看更新日誌
-                    </button>
-                    {/* Prompt Lab Button */}
-                    <button
-                        onClick={() => setShowPromptLab(true)}
-                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
-                    >
-                        🧪 Prompt 實驗室
-                    </button>
-                    {/* Inspiration Map Button */}
-                    <button
-                        onClick={() => setShowInspirationMap(true)}
-                        className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1"
-                    >
-                        🕸️ 靈感地圖
-                    </button>
-                    {/* Storyboard Button */}
-                    <button
-                        onClick={() => setShowStoryboard(true)}
-                        className="text-yellow-400 hover:text-yellow-300 transition-colors flex items-center gap-1"
-                    >
-                        🎬 故事板
-                    </button>
-                    {/* Magic Canvas Button */}
-                    <button
-                        onClick={() => setShowMagicCanvas(true)}
-                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
-                    >
-                        🖌️ Magic Canvas
-                    </button>
-                    {/* Style Tuner Button */}
-                    <button
-                        onClick={() => setShowStyleTuner(true)}
-                        className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
-                    >
-                        ⚖️ 風格調校
-                    </button>
-                    {/* Batch Import Button */}
-                    <button
-                        onClick={() => setShowBatchImport(true)}
-                        className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-1"
-                    >
-                        📥 批量匯入
-                    </button>
-                    {/* Auto Refiner Button */}
-                    <button
-                        onClick={() => setShowAutoRefiner(true)}
-                        className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
-                    >
-                        🤖 Auto Agent
-                    </button>
-                    {/* Comic Strip Button */}
-                    <button
-                        onClick={() => setShowComicStrip(true)}
-                        className="text-pink-500 hover:text-pink-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        💬 四格漫畫
-                    </button>
-                    {/* Sticker Maker Button */}
-                    <button
-                        onClick={() => setShowStickerMaker(true)}
-                        className="text-green-500 hover:text-green-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🏷️ 貼圖製造機
-                    </button>
-                    {/* Meme God Button */}
-                    <button
-                        onClick={() => setShowMemeGod(true)}
-                        className="text-orange-500 hover:text-orange-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🤡 梗圖大師
-                    </button>
-                    {/* Mood Slider Button */}
-                    <button
-                        onClick={() => setShowMoodSlider(true)}
-                        className="text-purple-500 hover:text-purple-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🎨 情緒滑桿
-                    </button>
-                    {/* DNA Compare Button */}
-                    <button
-                        onClick={() => setShowDNACompare(true)}
-                        className="text-cyan-500 hover:text-cyan-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🧬 DNA 比較
-                    </button>
-                    {/* Exploded View Button */}
-                    <button
-                        onClick={() => setShowExplodedView(true)}
-                        className="text-amber-500 hover:text-amber-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        📦 零件拆解
-                    </button>
-                    {/* Img2Img Button */}
-                    <button
-                        onClick={() => setShowImg2Img(true)}
-                        className="text-pink-500 hover:text-pink-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🖼️ 圖生圖
-                    </button>
-                    {/* Smart Tag Button */}
-                    <button
-                        onClick={() => setShowSmartTag(true)}
-                        className="text-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-1 font-bold"
-                    >
-                        🏷️ 智能標籤
-                    </button>
+            {/* --- 功能導覽區開始 --- */}
+            <div className="w-full max-w-5xl space-y-10 px-4 mb-12">
+
+                {/* 1. 核心創作 - 較大、有漸層感 */}
+                <div>
+                    <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 px-2">✨ 核心創作</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <NavCard
+                            label="Prompt 實驗室" emoji="🧪"
+                            active={showPromptLab}
+                            onClick={() => setShowPromptLab(true)}
+                            accent="purple"
+                        />
+                        <NavCard
+                            label="Magic Canvas" emoji="🖌️"
+                            active={showMagicCanvas}
+                            onClick={() => setShowMagicCanvas(true)}
+                            accent="blue"
+                        />
+                        <NavCard
+                            label="AI 換臉" emoji="🎭"
+                            active={showFaceSwap}
+                            onClick={() => setShowFaceSwap(!showFaceSwap)}
+                            accent="violet"
+                        />
+                        <NavCard
+                            label="風格調校" emoji="⚖️"
+                            active={showStyleTuner}
+                            onClick={() => setShowStyleTuner(true)}
+                            accent="cyan"
+                        />
+                    </div>
+                </div>
+
+                {/* 2. 進階工具 - 標準網格 */}
+                <div>
+                    <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 px-2">🚀 進階工具</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                        <NavCard label="靈感地圖" emoji="🕸️" active={showInspirationMap} onClick={() => setShowInspirationMap(true)} accent="pink" />
+                        <NavCard label="故事板" emoji="🎬" active={showStoryboard} onClick={() => setShowStoryboard(true)} accent="yellow" />
+                        <NavCard label="四格漫畫" emoji="💬" active={showComicStrip} onClick={() => setShowComicStrip(true)} accent="pink" />
+                        <NavCard label="圖生圖" emoji="🖼️" active={showImg2Img} onClick={() => setShowImg2Img(true)} accent="pink" />
+                        <NavCard label="梗圖大師" emoji="🤡" active={showMemeGod} onClick={() => setShowMemeGod(true)} accent="orange" />
+                        {/* 加入缺失的功能 */}
+                        <NavCard label="Auto Agent" emoji="🤖" active={showAutoRefiner} onClick={() => setShowAutoRefiner(true)} accent="blue" />
+                    </div>
+                </div>
+
+                {/* 3. 實用輔助 - 較小、簡約 */}
+                <div>
+                    <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 px-2">🛠️ 實用輔助</h2>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+                        <NavCard small label="批量匯入" emoji="📥" active={showBatchImport} onClick={() => setShowBatchImport(true)} accent="green" />
+                        <NavCard small label="智能標籤" emoji="🏷️" active={showSmartTag} onClick={() => setShowSmartTag(true)} accent="emerald" />
+                        <NavCard small label="DNA 比較" emoji="🧬" active={showDNACompare} onClick={() => setShowDNACompare(true)} accent="cyan" />
+                        <NavCard small label="零件拆解" emoji="📦" active={showExplodedView} onClick={() => setShowExplodedView(true)} accent="amber" />
+                        <NavCard small label="情緒滑桿" emoji="🎨" active={showMoodSlider} onClick={() => setShowMoodSlider(true)} accent="purple" />
+                        <NavCard small label="更新日誌" emoji="📋" active={showChangelog} onClick={() => setShowChangelog(true)} accent="gray" />
+                        {/* 加入缺失的功能 */}
+                        <NavCard small label="貼圖製造" emoji="🏷️" active={showStickerMaker} onClick={() => setShowStickerMaker(true)} accent="green" />
+                    </div>
                 </div>
             </div>
+            {/* --- 功能導覽區結束 --- */}
 
             <PromptLabModal
                 isOpen={showPromptLab}
@@ -217,7 +217,10 @@ export default function Home() {
 
             <div className="w-full border-t border-white/10" />
 
-            <PromptGallery refreshTrigger={refreshTrigger} onReuse={setReuseData} />
+            <PromptGallery
+                refreshTrigger={refreshTrigger}
+                onReuse={setReuseData}
+            />
 
             {/* Server Status Indicator */}
             <ServerStatus />
@@ -354,6 +357,12 @@ export default function Home() {
             <SmartTagModal
                 isOpen={showSmartTag}
                 onClose={() => setShowSmartTag(false)}
+            />
+
+            {/* Face Swap Modal */}
+            <FaceSwapModal
+                isOpen={showFaceSwap}
+                onClose={() => setShowFaceSwap(false)}
             />
         </main>
     );

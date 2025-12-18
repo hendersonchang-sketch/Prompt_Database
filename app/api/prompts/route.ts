@@ -22,9 +22,34 @@ export async function GET(request: Request) {
         const semantic = searchParams.get('semantic') === 'true';
         const apiKey = request.headers.get('x-api-key') || searchParams.get('apiKey');
 
-        console.log(`GET /api/prompts hit. Search: ${search}, Semantic: ${semantic}`);
+        // Paging Parameters
+        const page = parseInt(searchParams.get('page') || '1');
+        const limit = parseInt(searchParams.get('limit') || '20');
+        const skip = (page - 1) * limit;
 
-        // 1. Semantic Search
+        console.log(`GET /api/prompts hit. Search: ${search}, Semantic: ${semantic}, Page: ${page}, Limit: ${limit}`);
+
+        // Field selection to reduce data size (exclude heavy embedding)
+        const selectFields = {
+            id: true,
+            prompt: true,
+            negativePrompt: true,
+            imageUrl: true,
+            width: true,
+            height: true,
+            sampler: true,
+            seed: true,
+            cfgScale: true,
+            steps: true,
+            tags: true,
+            promptZh: true,
+            originalPrompt: true,
+            isFavorite: true,
+            createdAt: true,
+            // embedding: false // Excluded
+        };
+
+        // 1. Semantic Search (Semantic search usually requires all or a large set of embeddings, but we'll still slice/paginate the results)
         if (semantic && search && apiKey) {
             console.log("Performing Semantic Search...");
             // Get query embedding
@@ -48,12 +73,14 @@ export async function GET(request: Request) {
 
             if (!queryVector) throw new Error("No embedding returned");
 
-            // Fetch all prompts with embeddings
+            // Fetch prompts with embeddings for matching
             // @ts-ignore
-            const prompts = await prisma.promptEntry.findMany();
+            const allWithEmbeds = await prisma.promptEntry.findMany({
+                select: { ...selectFields, embedding: true }
+            });
 
-            const scoredPrompts = prompts
-                .filter((p: any) => p.embedding) // Must have embedding
+            const scoredPrompts = allWithEmbeds
+                .filter((p: any) => p.embedding)
                 .map((p: any) => {
                     try {
                         const vec = JSON.parse(p.embedding);
@@ -62,11 +89,21 @@ export async function GET(request: Request) {
                         return { ...p, score: -1 };
                     }
                 })
-                .filter((p: any) => p.score > 0.3) // Filter low relevance
-                .sort((a: any, b: any) => b.score - a.score)
-                .slice(0, 50); // Top 50
+                .filter((p: any) => p.score > 0.3)
+                .sort((a: any, b: any) => b.score - a.score);
 
-            return NextResponse.json(scoredPrompts);
+            // Manual pagination for semantic results
+            const paginatedResults = scoredPrompts.slice(skip, skip + limit).map(({ embedding, ...rest }: any) => rest);
+            const total = scoredPrompts.length;
+            return NextResponse.json({
+                prompts: paginatedResults,
+                pagination: {
+                    page,
+                    limit,
+                    total,
+                    hasMore: skip + paginatedResults.length < total
+                }
+            });
         }
 
         // 2. Keyword Search
@@ -75,15 +112,37 @@ export async function GET(request: Request) {
             const prompts = await prisma.promptEntry.findMany({
                 where: {
                     OR: [
-                        { prompt: { contains: search } }, // SQLite is case-insensitive by default roughly, usually
+                        { prompt: { contains: search } },
                         { promptZh: { contains: search } },
                         { tags: { contains: search } },
                         { originalPrompt: { contains: search } }
                     ]
                 },
                 orderBy: { createdAt: 'desc' },
+                skip: skip,
+                take: limit,
+                select: selectFields
             });
-            return NextResponse.json(prompts);
+            // @ts-ignore
+            const total = await prisma.promptEntry.count({
+                where: {
+                    OR: [
+                        { prompt: { contains: search } },
+                        { promptZh: { contains: search } },
+                        { tags: { contains: search } },
+                        { originalPrompt: { contains: search } }
+                    ]
+                }
+            });
+            return NextResponse.json({
+                prompts,
+                pagination: {
+                    page,
+                    limit,
+                    total,
+                    hasMore: skip + prompts.length < total
+                }
+            });
         }
 
         // 3. Default List
@@ -91,8 +150,21 @@ export async function GET(request: Request) {
             // @ts-ignore
             const prompts = await prisma.promptEntry.findMany({
                 orderBy: { createdAt: 'desc' },
+                skip: skip,
+                take: limit,
+                select: selectFields
             });
-            return NextResponse.json(prompts);
+            // @ts-ignore
+            const total = await prisma.promptEntry.count();
+            return NextResponse.json({
+                prompts,
+                pagination: {
+                    page,
+                    limit,
+                    total,
+                    hasMore: skip + prompts.length < total
+                }
+            });
         }
     } catch (error) {
         console.error('Failed to fetch prompts:', error);
@@ -380,6 +452,10 @@ export async function POST(request: Request) {
             finalImageUrl = `https://picsum.photos/seed/${finalSeed}/${width}/${height}`;
         }
 
+        // Prepend Engine information to tags for frontend display
+        const imageEngine = body.imageEngine || (provider === "gemini" ? "imagen" : provider);
+        const finalTags = `Engine:${imageEngine}${tagsResult ? `, ${tagsResult}` : ""}`;
+
         const entry = await prisma.promptEntry.create({
             data: {
                 prompt: finalPrompt, // English / Optimized
@@ -393,7 +469,7 @@ export async function POST(request: Request) {
                 seed: finalSeed,
                 cfgScale,
                 steps,
-                tags: tagsResult,
+                tags: finalTags,
             }
         });
 
@@ -439,7 +515,7 @@ export async function PUT(request: Request) {
                 seed: seed || 0,
                 cfgScale: cfgScale || 7.0,
                 steps: steps || 25,
-                tags: tags || "",
+                tags: body.imageEngine ? `Engine:${body.imageEngine}${tags ? `, ${tags}` : ""}` : (tags || ""),
             }
         });
 

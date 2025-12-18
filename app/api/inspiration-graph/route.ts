@@ -54,7 +54,9 @@ export async function GET(request: Request) {
             });
 
             try {
-                parsedEmbeddings[p.id] = JSON.parse(p.embedding);
+                if (p.embedding) {
+                    parsedEmbeddings[p.id] = JSON.parse(p.embedding);
+                }
             } catch (e) {
                 console.error(`Failed to parse embedding for ${p.id}`);
             }

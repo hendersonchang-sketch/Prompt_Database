@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     description: "Generate, Store, and Manage AI Prompts",
 };
 
+import ErrorBoundary from "@/components/ErrorBoundary";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -22,7 +24,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.className} ${notoSansTC.variable}`}>{children}</body>
+            <body className={`${inter.className} ${notoSansTC.variable}`}>
+                <ErrorBoundary>
+                    {children}
+                </ErrorBoundary>
+            </body>
         </html>
     );
 }
