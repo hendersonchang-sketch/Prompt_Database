@@ -2,6 +2,23 @@
 
 ## 2025-12-17
 
+## 2025-12-18
+
+### 🤡 創意圖片工具全套件（NEW）
+- **新增** 「🏷️ 貼圖製造機」 (AI Sticker Maker)
+  - 支援文字生成與圖片上傳
+  - 整合去背功能 (/api/remove-bg)
+  - 產生透明背景向量貼圖
+- **新增** 「🤡 梗圖大師」 (AI Meme God)
+  - AI 生成空白梗圖模板 (強制留白)
+  - 支援 AI 自動發想好笑標題
+  - 整合 ImageEditor 進行文字編輯
+- **增強** 圖片編輯器 (ImageEditor)
+  - **新增** 字型選擇功能 (含思源黑體 Noto Sans TC)
+  - **優化** 文字拖曳體驗 (游標提示)
+  - **修復** 介面排版與側邊欄捲動問題
+- **新增** `app/api/meme-gen/route.ts` - 梗圖與標題生成 API
+
 ### 📊 全面性評估功能（NEW）
 - **新增** `/api/comprehensive-eval/route.ts` - 多維度圖片評估 API
 - **新增** `/api/export-report/route.ts` - Markdown 報告匯出 API
