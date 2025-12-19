@@ -1527,3 +1527,11 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "寫實肖像, 東亞女性, 黃金時刻, 屋頂, 蕾絲洋裝"
 }
 -------------------
+
+[2025-12-19T06:34:21.453Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtaking full-body wide shot of a radiant 20-year-old Taiwanese woman with delicate features, wearing a stylish cream-colored knit sweater and a soft wool scarf, laughing joyfully inside a warm, rustic cafe. Outside the frosted windows, a serene snowy winter night unfolds with glowing city lights. The scene features professional Annie Leibovitz style photography with Kodak Portra 400 film aesthetics. Exquisite cinematic lighting blends warm interior softbox glows with cool blue moonlight and dappled shadows. Detailed skin textures with visible pores, subsurface scattering, and realistic flowing hair. Creamy bokeh background, 8K resolution, ultra-high definition, masterpiece quality., professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一張令人屏息的全身廣角鏡頭，一位容光煥發、擁有精緻五官的20歲台灣女性，身穿時尚的米色針織毛衣和柔軟的羊毛圍巾，在溫暖的鄉村咖啡館內歡快地笑著。磨砂窗外，寧靜的雪夜展開，城市燈光閃耀。場景採用專業的安妮·萊博維茨風格攝影，具有柯達Portra 400膠片美學。精緻的電影照明融合了溫暖的室內柔光箱光芒與涼爽的藍色月光和斑駁的陰影。詳細的皮膚紋理，可見毛孔、次表面散射和逼真的飄逸頭髮。奶油散景背景，8K分辨率，超高清晰度，傑作品質，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，清晰對焦。",
+  "tags": "台灣女性, 咖啡館, 冬季雪景, 柯達膠片, 人像攝影"
+}
+-------------------

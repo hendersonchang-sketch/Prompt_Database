@@ -37,10 +37,7 @@ interface GalleryToolbarProps {
     onSearch: (query: string, semantic: boolean) => void;
     onReindex: () => void;
 
-    // Actions
-    onImport: (file: File) => void;
-    onExportJSON: () => void;
-    onExportZIP: () => void;
+    // Upload Images
     onUploadImages: (files: FileList) => void;
 
     // Scroll State
@@ -70,16 +67,13 @@ export default function GalleryToolbar({
     setUseSemanticSearch,
     onSearch,
     onReindex,
-    onImport,
-    onExportJSON,
-    onExportZIP,
     onUploadImages,
     isScrolled
 }: GalleryToolbarProps) {
     return (
         <div className={`sticky top-4 z-50 max-w-fit mx-auto transition-all duration-300 ${isScrolled
-                ? 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/30'
-                : 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/10'
+            ? 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/30'
+            : 'bg-white/10 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/10'
             } rounded-full h-12 px-3`}>
 
             <div className="flex items-center gap-2 h-full">
@@ -127,8 +121,8 @@ export default function GalleryToolbar({
                             if (isSelectionMode) onClearSelection();
                         }}
                         className={`w-9 h-9 flex items-center justify-center rounded-full transition-all group relative ${isSelectionMode
-                                ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
-                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
+                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                         title="批次選擇"
                     >
@@ -141,8 +135,8 @@ export default function GalleryToolbar({
                     <button
                         onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
                         className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${showFavoritesOnly
-                                ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
-                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            ? "bg-pink-500 text-white shadow-lg shadow-pink-500/20"
+                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                         title="最愛"
                     >
@@ -151,62 +145,13 @@ export default function GalleryToolbar({
                         </svg>
                     </button>
 
-                    {/* Import */}
-                    <div className="relative">
-                        <input
-                            type="file"
-                            accept=".json"
-                            className="hidden"
-                            id="import-file-toolbar"
-                            onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                if (file) {
-                                    onImport(file);
-                                    e.target.value = '';
-                                }
-                            }}
-                        />
-                        <label
-                            htmlFor="import-file-toolbar"
-                            className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer transition-all"
-                            title="匯入"
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                            </svg>
-                        </label>
-                    </div>
-
-                    {/* Export JSON */}
-                    <button
-                        onClick={onExportJSON}
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all"
-                        title="匯出 JSON"
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                        </svg>
-                    </button>
-
-                    {/* Export ZIP */}
-                    <button
-                        onClick={onExportZIP}
-                        id="zip-export-btn-toolbar"
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white border border-emerald-500/30 transition-all disabled:opacity-50"
-                        title="匯出 ZIP"
-                    >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                        </svg>
-                    </button>
-
                     {/* Tag Filter */}
                     <div className="relative">
                         <button
                             onClick={() => setIsTagMenuOpen(!isTagMenuOpen)}
                             className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${selectedTags.length > 0 || isTagMenuOpen
-                                    ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
-                                    : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                                 }`}
                             title="標籤篩選"
                         >
@@ -241,8 +186,8 @@ export default function GalleryToolbar({
                                                     key={tag}
                                                     onClick={() => onToggleTag(tag)}
                                                     className={`px-3 py-1.5 rounded-lg text-xs transition-colors border ${selectedTags.includes(tag)
-                                                            ? "bg-purple-600 border-purple-500 text-white"
-                                                            : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10"
+                                                        ? "bg-purple-600 border-purple-500 text-white"
+                                                        : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10"
                                                         }`}
                                                 >
                                                     {tag}
@@ -262,8 +207,8 @@ export default function GalleryToolbar({
                     <button
                         onClick={() => setUseSemanticSearch(!useSemanticSearch)}
                         className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${useSemanticSearch
-                                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
-                                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
+                            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                            : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                         title={useSemanticSearch ? "語義搜尋已啟用" : "啟用語義搜尋"}
                     >

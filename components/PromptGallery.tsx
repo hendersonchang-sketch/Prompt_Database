@@ -590,57 +590,6 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 setUseSemanticSearch={setUseSemanticSearch}
                 onSearch={fetchPrompts}
                 onReindex={handleReindex}
-                onImport={async (file) => {
-                    try {
-                        const text = await file.text();
-                        const res = await fetch('/api/import', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: text,
-                        });
-                        if (!res.ok) throw new Error(await res.text());
-                        const result = await res.json();
-                        alert(`匯入完成！\n成功: ${result.imported}\n跳過: ${result.skipped}\n總計: ${result.total}`);
-                        window.location.reload();
-                    } catch (err: any) {
-                        alert('匯入失敗: ' + (err.message || '未知錯誤'));
-                    }
-                }}
-                onExportJSON={async () => {
-                    try {
-                        const res = await fetch('/api/backup');
-                        if (!res.ok) throw new Error('備份失敗');
-                        const blob = await res.blob();
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `prompt-database-backup-${Date.now()}.json`;
-                        a.click();
-                        URL.revokeObjectURL(url);
-                    } catch (err) {
-                        alert('備份失敗');
-                    }
-                }}
-                onExportZIP={async () => {
-                    const btn = document.getElementById('zip-export-btn-toolbar') as HTMLButtonElement;
-                    if (btn) btn.disabled = true;
-                    try {
-                        const res = await fetch('/api/backup-zip');
-                        if (!res.ok) throw new Error('ZIP 匯出失敗');
-                        const blob = await res.blob();
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `prompt-database-full-backup-${Date.now()}.zip`;
-                        a.click();
-                        URL.revokeObjectURL(url);
-                        alert('ZIP 匯出完成！');
-                    } catch (err) {
-                        alert('ZIP 匯出失敗');
-                    } finally {
-                        if (btn) btn.disabled = false;
-                    }
-                }}
                 onUploadImages={async (files) => {
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
@@ -715,9 +664,6 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     onSelect={setSelectedImage}
                                     onToggleFavorite={toggleFavorite}
                                     onDelete={handleDelete}
-                                    onVariation={(item) => {
-                                        setSelectedImage(item);
-                                    }}
                                 />
                             ))}
                         </div>

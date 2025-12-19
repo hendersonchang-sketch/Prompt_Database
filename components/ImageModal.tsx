@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Crosshair, Layout, Target, Download, Save, User, Users
+    Scissors, Download, Save, Paintbrush, Sparkles
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
-import CharacterManager from "./CharacterManager";
 
 interface ImageModalProps {
     selectedImage: PromptEntry;
@@ -31,19 +30,6 @@ export function ImageModal({
     copyFeedback
 }: ImageModalProps) {
     const [selectedImage, setSelectedImage] = useState(initialImage);
-
-    // AI States
-    const [isDetectiveMode, setIsDetectiveMode] = useState(false);
-    const [detections, setDetections] = useState<any[]>([]);
-    const [detectingLoading, setDetectingLoading] = useState(false);
-    const [hoveredObject, setHoveredObject] = useState<string | null>(null);
-
-    const [smartCropData, setSmartCropData] = useState<any>(null);
-    const [smartCropLoading, setSmartCropLoading] = useState(false);
-    const [selectedCrop, setSelectedCrop] = useState<number | null>(null);
-
-    const [compositionAnalysis, setCompositionAnalysis] = useState<any>(null);
-    const [compositionLoading, setCompositionLoading] = useState(false);
 
     const [comprehensiveEval, setComprehensiveEval] = useState<any>(null);
     const [comprehensiveLoading, setComprehensiveLoading] = useState(false);
@@ -72,16 +58,9 @@ export function ImageModal({
     const [tagInput, setTagInput] = useState("");
     const [isTagUpdating, setIsTagUpdating] = useState(false);
 
-    // Prompt Edit States
-    const [localPromptEn, setLocalPromptEn] = useState(initialImage.prompt || "");
-    const [localPromptZh, setLocalPromptZh] = useState(initialImage.promptZh || "");
-    const [showCharManager, setShowCharManager] = useState(false);
-
     // Sync selectedImage if initialImage changes
     useEffect(() => {
         setSelectedImage(initialImage);
-        setLocalPromptEn(initialImage.prompt || "");
-        setLocalPromptZh(initialImage.promptZh || "");
     }, [initialImage]);
 
     // Tag Handlers
@@ -143,27 +122,27 @@ export function ImageModal({
         setTimeout(() => setToastMessage(null), duration);
     };
 
-    // 存入圖庫 (更新 Prompt 或 去背後圖片)
+    // 存入圖庫 (僅用於去背後圖片更新)
     const handleSaveToLibrary = async () => {
+        if (!removedBgPreview) return;
+
         setIsRemovingBg(true);
         try {
             const res = await fetch(`/api/prompts/${selectedImage.id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    imageUrl: removedBgPreview || selectedImage.imageUrl,
-                    prompt: localPromptEn,
-                    promptZh: localPromptZh,
+                    imageUrl: removedBgPreview,
+                    prompt: selectedImage.prompt,
+                    promptZh: selectedImage.promptZh,
                 })
             });
             if (res.ok) {
-                showToast('✅ 已成功更新圖庫');
-                if (removedBgPreview) setRemovedBgPreview(null);
+                showToast('✅ 已成功將去背圖片存入圖庫');
+                setRemovedBgPreview(null);
                 setSelectedImage(prev => ({
                     ...prev,
-                    prompt: localPromptEn,
-                    promptZh: localPromptZh,
-                    imageUrl: removedBgPreview || prev.imageUrl
+                    imageUrl: removedBgPreview
                 }));
             } else {
                 throw new Error('儲存失敗');
@@ -257,84 +236,6 @@ export function ImageModal({
                         )}
                     </div>
 
-                    {/* Overlays */}
-                    <div className="absolute inset-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300">
-                        {isDetectiveMode && detections.length > 0 && (
-                            <div className="absolute inset-0 p-6">
-                                <div className="relative w-full h-full flex items-center justify-center">
-                                    {detections.map((obj, idx) => (
-                                        <div
-                                            key={idx}
-                                            className="absolute border-2 border-cyan-400 bg-cyan-400/10 pointer-events-auto cursor-help transition-all hover:bg-cyan-400/30"
-                                            style={{
-                                                top: `${obj.box_2d[0] / 10}%`,
-                                                left: `${obj.box_2d[1] / 10}%`,
-                                                height: `${(obj.box_2d[2] - obj.box_2d[0]) / 10}%`,
-                                                width: `${(obj.box_2d[3] - obj.box_2d[1]) / 10}%`,
-                                            }}
-                                            onMouseEnter={() => setHoveredObject(obj.label_zh || obj.label)}
-                                            onMouseLeave={() => setHoveredObject(null)}
-                                        >
-                                            {hoveredObject === (obj.label_zh || obj.label) && (
-                                                <div className="absolute -top-8 left-0 bg-cyan-500 text-white px-2 py-1 rounded text-[10px] whitespace-nowrap z-10">
-                                                    {obj.label_zh || obj.label}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        {smartCropData && (
-                            <div className="absolute inset-0 p-6">
-                                <div className="relative w-full h-full">
-                                    {smartCropData.crops && smartCropData.crops.map((crop: any, idx: number) => (
-                                        <div
-                                            key={idx}
-                                            className={`absolute border-2 transition-all ${selectedCrop === idx ? 'border-emerald-400 bg-emerald-400/20 z-20' : 'border-white/20 bg-white/5 opacity-40'}`}
-                                            style={{
-                                                top: `${crop.box_2d[0] / 10}%`,
-                                                left: `${crop.box_2d[1] / 10}%`,
-                                                height: `${(crop.box_2d[2] - crop.box_2d[0]) / 10}%`,
-                                                width: `${(crop.box_2d[3] - crop.box_2d[1]) / 10}%`,
-                                            }}
-                                        >
-                                            {selectedCrop === idx && (
-                                                <div className="absolute -top-6 left-0 bg-emerald-500 text-white px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
-                                                    {crop.aspect_ratio} 建議
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {compositionAnalysis?.focalPoints && (
-                            <div className="absolute inset-0 p-6">
-                                <div className="relative w-full h-full">
-                                    {compositionAnalysis.focalPoints.map((point: any, idx: number) => (
-                                        <div
-                                            key={idx}
-                                            className="absolute w-8 h-8 -translate-x-1/2 -translate-y-1/2"
-                                            style={{
-                                                top: `${point.y / 10}%`,
-                                                left: `${point.x / 10}%`,
-                                            }}
-                                        >
-                                            <div className="absolute inset-0 rounded-full border-2 border-amber-400 animate-ping opacity-75"></div>
-                                            <div className="absolute inset-0 rounded-full border-2 border-amber-400 flex items-center justify-center">
-                                                <div className="w-1 h-1 bg-amber-400 rounded-full"></div>
-                                            </div>
-                                            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-amber-500 text-white text-[8px] px-1 rounded whitespace-nowrap">
-                                                {point.label}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                    </div>
 
                     {/* Info Badges on Image */}
                     <div className="absolute bottom-8 left-8 flex gap-2">
@@ -354,82 +255,45 @@ export function ImageModal({
                     <div className="flex-1 space-y-8">
                         {/* Section: Header/Title with Copy */}
                         <div ref={promptSectionRef} className="space-y-4">
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                    <div className="w-1 h-5 bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
-                                    提示詞
-                                </h3>
-                                <button
-                                    onClick={() => handleCopyPrompt(selectedImage.prompt)}
-                                    className="p-2 bg-white/5 hover:bg-white/10 rounded-lg text-gray-400 hover:text-white transition-all active:scale-95"
-                                    title="複製提示詞"
-                                >
-                                    <Copy className="w-4 h-4" />
-                                </button>
-                            </div>
+                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                <div className="w-1 h-5 bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
+                                提示詞
+                            </h3>
                             <div className="space-y-4">
-                                <div className="bg-black/30 rounded-2xl p-4 border border-white/5 relative group transition-all duration-300">
-                                    <div className="flex flex-col gap-3">
-                                        <div className="relative">
-                                            <textarea
-                                                value={localPromptEn}
-                                                onChange={(e) => setLocalPromptEn(e.target.value)}
-                                                className="w-full bg-transparent text-gray-300 leading-relaxed text-sm font-light outline-none resize-none min-h-[80px]"
-                                                placeholder="English Prompt..."
-                                            />
+                                <div className="bg-black/30 rounded-2xl p-4 border border-white/5 transition-all duration-300">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="space-y-1 group/item">
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">English</span>
+                                                <button
+                                                    onClick={() => handleCopyPrompt(selectedImage.prompt)}
+                                                    className="p-1.5 hover:bg-white/10 rounded-md text-gray-600 hover:text-white transition-all opacity-0 group-hover/item:opacity-100"
+                                                    title="複製英文提示詞"
+                                                >
+                                                    <Copy className="w-3 h-3" />
+                                                </button>
+                                            </div>
+                                            <p className="text-gray-300 leading-relaxed text-sm font-light select-text">
+                                                {selectedImage.prompt}
+                                            </p>
                                         </div>
                                         <div className="h-px bg-white/5" />
-                                        <div className="relative">
-                                            <textarea
-                                                value={localPromptZh}
-                                                onChange={(e) => setLocalPromptZh(e.target.value)}
-                                                className="w-full bg-transparent text-white/90 leading-relaxed text-[13px] font-medium outline-none resize-none min-h-[60px]"
-                                                placeholder="中文描述..."
-                                            />
+                                        <div className="space-y-1 group/item">
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">中文描述</span>
+                                                <button
+                                                    onClick={() => handleCopyPrompt(selectedImage.promptZh || "")}
+                                                    className="p-1.5 hover:bg-white/10 rounded-md text-gray-600 hover:text-white transition-all opacity-0 group-hover/item:opacity-100"
+                                                    title="複製中文描述"
+                                                >
+                                                    <Copy className="w-3 h-3" />
+                                                </button>
+                                            </div>
+                                            <p className="text-white/90 leading-relaxed text-[13px] font-medium select-text">
+                                                {selectedImage.promptZh || "（無中文描述）"}
+                                            </p>
                                         </div>
                                     </div>
-                                </div>
-                                {/* 工具列遷移至外部右下角，確保按鈕獨立且佈局清晰 */}
-                                <div className="flex justify-end items-center gap-1.5 px-1 py-1">
-                                    <button
-                                        onClick={() => { setLocalPromptEn(''); setLocalPromptZh(''); }}
-                                        className="p-2 bg-white/5 hover:bg-red-500/20 text-gray-500 hover:text-red-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
-                                        title="清除內容"
-                                    >
-                                        <X className="w-4 h-4" />
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            handleCopyPrompt(`${localPromptEn}\n${localPromptZh}`);
-                                        }}
-                                        className="p-2 bg-white/5 hover:bg-indigo-500/20 text-gray-500 hover:text-indigo-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
-                                        title="複製全部"
-                                    >
-                                        <Copy className="w-4 h-4" />
-                                    </button>
-                                    <button
-                                        onClick={handleSaveToLibrary}
-                                        disabled={isRemovingBg}
-                                        className="p-2 bg-white/5 hover:bg-emerald-500/20 text-gray-500 hover:text-emerald-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
-                                        title="存入圖庫"
-                                    >
-                                        {isRemovingBg ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                                    </button>
-                                    <button
-                                        onClick={() => setShowCharManager(true)}
-                                        className="p-2 bg-white/5 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
-                                        title="個人角色"
-                                    >
-                                        <User className="w-4 h-4" />
-                                    </button>
-                                    <button
-                                        onClick={() => setShowCharManager(true)}
-                                        className="ml-1 p-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-500/30 flex items-center gap-2 px-3 text-[10px] font-bold"
-                                        title="角色庫"
-                                    >
-                                        <Users className="w-3.5 h-3.5" />
-                                        角色庫
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -546,18 +410,16 @@ export function ImageModal({
                                     <Play className="w-3.5 h-3.5" />
                                     重用提示
                                 </button>
-                                <button
-                                    onClick={() => {
-                                        if (confirm("確定要刪除嗎？")) {
-                                            handleDelete(selectedImage.id);
-                                            onClose();
-                                        }
-                                    }}
-                                    className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-red-500/20 hover:text-red-400 transition-all active:scale-95"
+                                <a
+                                    href={selectedImage.imageUrl || ""}
+                                    download={`prompt-db-${selectedImage.id}.png`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
                                 >
-                                    <Trash2 className="w-3.5 h-3.5" />
-                                    刪除圖片
-                                </button>
+                                    <Download className="w-3.5 h-3.5" />
+                                    下載圖片
+                                </a>
                             </div>
 
                             {/* Action Subgroup: Analysis Tools */}
@@ -659,107 +521,187 @@ export function ImageModal({
                                         {isRemovingBg ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Scissors className="w-3.5 h-3.5" />}
                                         一鍵去背
                                     </button>
-                                    <button
-                                        onClick={async () => {
-                                            if (isDetectiveMode) {
-                                                setIsDetectiveMode(false);
-                                                return;
-                                            }
-                                            setIsDetectiveMode(true);
-                                            if (detections.length > 0) return;
-                                            setDetectingLoading(true);
-                                            try {
-                                                const base64 = await getBase64(selectedImage.imageUrl!);
-                                                const res = await fetch('/api/detect-objects', {
-                                                    method: 'POST',
-                                                    headers: { 'Content-Type': 'application/json' },
-                                                    body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
-                                                });
-                                                if (!res.ok) throw new Error(await res.text());
-                                                const data = await res.json();
-                                                if (data.detections) setDetections(data.detections);
-                                            } catch (err: any) { alert('偵探模式失敗'); setIsDetectiveMode(false); } finally { setDetectingLoading(false); }
-                                        }}
-                                        disabled={detectingLoading}
-                                        className={`flex items-center justify-center gap-2 py-3 border rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 ${isDetectiveMode ? 'bg-purple-500/20 border-purple-500/50 text-purple-300' : 'bg-white/5 border-white/10 text-gray-300'}`}
-                                    >
-                                        {detectingLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Crosshair className="w-3.5 h-3.5" />}
-                                        偵探模式
-                                    </button>
-                                    <button
-                                        onClick={async () => {
-                                            if (smartCropData) {
-                                                setSmartCropData(null);
-                                                setSelectedCrop(null);
-                                                return;
-                                            }
-                                            setSmartCropLoading(true);
-                                            try {
-                                                const base64 = await getBase64(selectedImage.imageUrl!);
-                                                const res = await fetch('/api/smart-crop', {
-                                                    method: 'POST',
-                                                    headers: { 'Content-Type': 'application/json' },
-                                                    body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
-                                                });
-                                                if (!res.ok) throw new Error(await res.text());
-                                                const data = await res.json();
-                                                setSmartCropData(data);
-                                                setSelectedCrop(0);
-                                            } catch (err: any) { alert('視覺重組失敗'); } finally { setSmartCropLoading(false); }
-                                        }}
-                                        disabled={smartCropLoading}
-                                        className={`flex items-center justify-center gap-2 py-3 border rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 ${smartCropData ? 'bg-purple-500/20 border-purple-500/50 text-purple-300' : 'bg-white/5 border-white/10 text-gray-300'}`}
-                                    >
-                                        {smartCropLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Layout className="w-3.5 h-3.5" />}
-                                        視覺重組
-                                    </button>
-                                    <button
-                                        onClick={async () => {
-                                            setCompositionLoading(true);
-                                            setCompositionAnalysis(null);
-                                            try {
-                                                const base64 = await getBase64(selectedImage.imageUrl!);
-                                                const res = await fetch('/api/analyze-composition', {
-                                                    method: 'POST',
-                                                    headers: { 'Content-Type': 'application/json' },
-                                                    body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
-                                                });
-                                                if (!res.ok) throw new Error(await res.text());
-                                                const data = await res.json();
-                                                setCompositionAnalysis(data);
-                                            } catch (err: any) { alert('構圖分析失敗'); } finally { setCompositionLoading(false); }
-                                        }}
-                                        disabled={compositionLoading}
-                                        className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
-                                    >
-                                        {compositionLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Target className="w-3.5 h-3.5" />}
-                                        構圖指導
-                                    </button>
                                 </div>
                             </div>
 
-                            {/* Action Subgroup: Primary Actions */}
-                            <div className="pt-6 border-t border-white/5 space-y-3">
-                                <div className="grid grid-cols-2 gap-3">
-                                    <a
-                                        href={selectedImage.imageUrl || ""}
-                                        download={`prompt-db-${selectedImage.id}.png`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
-                                    >
-                                        <Download className="w-4 h-4 text-purple-400" />
-                                        下載圖片
-                                    </a>
-                                    <button
-                                        onClick={onClose}
-                                        className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
-                                    >
-                                        <X className="w-4 h-4 text-gray-400" />
-                                        關閉視窗
-                                    </button>
+                        </div>
+                    </div>
+
+                    {/* Deep Analysis Result Section */}
+                    {deepAnalysis && (
+                        <div className="pt-6 border-t border-white/5 space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-1 h-3 bg-cyan-500 rounded-full" />
+                                    <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">深度分析報告</h4>
+                                </div>
+                                <button
+                                    onClick={() => setDeepAnalysis(null)}
+                                    className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors"
+                                >清除結果</button>
+                            </div>
+
+                            {/* Composition Details */}
+                            {deepAnalysis.composition && (
+                                <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <BarChart3 className="w-3.5 h-3.5 text-cyan-400" />
+                                        <span className="text-xs font-bold text-gray-300">構圖分析</span>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                                            <span className="text-gray-500">類型：</span>{deepAnalysis.composition.type}
+                                        </p>
+                                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                                            <span className="text-gray-500">焦點：</span>{deepAnalysis.composition.focusPoint}
+                                        </p>
+                                        <div className="flex flex-wrap gap-1 mt-2">
+                                            {deepAnalysis.composition.elements?.map((el: string, i: number) => (
+                                                <span key={i} className="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 rounded-full text-[9px]">{el}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Style & Mood */}
+                            {deepAnalysis.style && (
+                                <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <Paintbrush className="w-3.5 h-3.5 text-purple-400" />
+                                        <span className="text-xs font-bold text-gray-300">風格特徵</span>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                                            <span className="text-gray-500">藝術風格：</span>{deepAnalysis.style.artStyle}
+                                        </p>
+                                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                                            <span className="text-gray-500">氛圍：</span>{deepAnalysis.style.mood}
+                                        </p>
+                                        <div className="flex gap-1 mt-2">
+                                            {deepAnalysis.style.colorPalette?.map((color: string, i: number) => (
+                                                <div
+                                                    key={i}
+                                                    className="w-4 h-4 rounded-full border border-white/10"
+                                                    style={{ backgroundColor: color }}
+                                                    title={color}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Modifications / Improvements */}
+                            {deepAnalysis.modifications?.length > 0 && (
+                                <div className="bg-amber-500/5 rounded-2xl p-4 border border-amber-500/10">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                                        <span className="text-xs font-bold text-amber-300">AI 改進建議</span>
+                                    </div>
+                                    <div className="space-y-4">
+                                        {deepAnalysis.modifications.map((mod: any, i: number) => (
+                                            <div key={i} className="space-y-2">
+                                                <div className="text-[10px] p-2 bg-black/30 rounded-lg text-amber-200/70 border-l-2 border-amber-400/50">
+                                                    <span className="font-bold">區域：{mod.area}</span>
+                                                    <p className="mt-1">{mod.issue}</p>
+                                                </div>
+                                                <div className="relative group/copy">
+                                                    <p className="text-[9px] font-mono text-gray-500 italic bg-black/20 p-2 rounded border border-white/5">
+                                                        {mod.prompt}
+                                                    </p>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(mod.prompt);
+                                                            showToast('已複製建議 Prompt');
+                                                        }}
+                                                        className="absolute top-1 right-1 p-1 bg-white/5 hover:bg-white/10 rounded opacity-0 group-hover/copy:opacity-100 transition-all"
+                                                    >
+                                                        <Copy className="w-2.5 h-2.5 text-gray-400" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Structured Analysis Result Section */}
+                    {structuredJson && (
+                        <div className="pt-6 border-t border-white/5 space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-1 h-3 bg-indigo-500 rounded-full" />
+                                    <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">結構化 Prompt 解析</h4>
+                                </div>
+                                <button
+                                    onClick={() => setStructuredJson(null)}
+                                    className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors"
+                                >清除結果</button>
+                            </div>
+
+                            <div className="bg-indigo-500/5 rounded-2xl border border-indigo-500/10 overflow-hidden divide-y divide-white/5">
+                                {/* Subject */}
+                                <div className="p-4">
+                                    <div className="text-[10px] text-indigo-400 font-bold mb-2 uppercase tracking-tighter">主體主體 {structuredJson.subject?.main_element}</div>
+                                    <p className="text-xs text-white leading-relaxed">{structuredJson.subject?.main_element_zh}</p>
+                                    {structuredJson.subject?.details_zh?.length > 0 && (
+                                        <div className="mt-2 flex flex-wrap gap-1">
+                                            {structuredJson.subject.details_zh.map((d: string, i: number) => (
+                                                <span key={i} className="text-[9px] text-gray-400 bg-white/5 px-2 py-0.5 rounded">{d}</span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Environment */}
+                                <div className="p-4">
+                                    <div className="text-[10px] text-emerald-400 font-bold mb-2 uppercase tracking-tighter">環境環境 {structuredJson.environment?.setting}</div>
+                                    <p className="text-xs text-white leading-relaxed">{structuredJson.environment?.setting_zh}</p>
+                                </div>
+
+                                {/* Style & Technique */}
+                                <div className="p-4">
+                                    <div className="text-[10px] text-purple-400 font-bold mb-2 uppercase tracking-tighter">風格技術 STYLE & TECHNIQUE</div>
+                                    <div className="grid grid-cols-2 gap-3 mt-2">
+                                        <div>
+                                            <span className="text-[9px] text-gray-500 block">構圖角度</span>
+                                            <span className="text-[10px] text-gray-300">{structuredJson.style?.camera_view_zh || '預設'}</span>
+                                        </div>
+                                        <div>
+                                            <span className="text-[9px] text-gray-500 block">光線氛圍</span>
+                                            <span className="text-[10px] text-gray-300">{structuredJson.style?.lighting_zh || '預設'}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    )}
+
+                    {/* Action Subgroup: Primary Actions */}
+                    <div className="pt-6 border-t border-white/5 space-y-3">
+                        <div className="grid grid-cols-2 gap-3">
+                            <button
+                                onClick={() => {
+                                    if (confirm("確定要刪除嗎？")) {
+                                        handleDelete(selectedImage.id);
+                                        onClose();
+                                    }
+                                }}
+                                className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-red-500/20 hover:text-red-400 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
+                            >
+                                <Trash2 className="w-4 h-4" />
+                                刪除圖片
+                            </button>
+                            <button
+                                onClick={onClose}
+                                className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
+                            >
+                                <X className="w-4 h-4 text-gray-400" />
+                                關閉視窗
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1117,15 +1059,6 @@ export function ImageModal({
                     </div>
                 </div>
             )}
-
-            <CharacterManager
-                isOpen={showCharManager}
-                onClose={() => setShowCharManager(false)}
-                onSelect={(char) => {
-                    setLocalPromptEn(prev => char.basePrompt + (prev ? ", " + prev : ""));
-                    setShowCharManager(false);
-                }}
-            />
         </div>
     );
 }
