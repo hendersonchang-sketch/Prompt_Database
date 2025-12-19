@@ -1535,3 +1535,67 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "台灣女性, 咖啡館, 冬季雪景, 柯達膠片, 人像攝影"
 }
 -------------------
+
+[2025-12-19T09:23:31.779Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional portrait of a beautiful East Asian woman with long wavy dark hair, wearing a white floral lace sheer dress, looking over her shoulder at the camera. Cinematic golden hour lighting with warm sunset glow and rim light highlighting hair texture. Soft focus urban city background with creamy bokeh. High-end fashion photography, natural skin textures, 8k, photorealistic, elegant atmosphere.",
+  "zhPrompt": "一位美麗的東亞女性的專業肖像，留著長長的波浪狀黑髮，身穿白色花卉蕾絲薄紗連衣裙，越過肩膀看著鏡頭。電影般的黃金時段光線，帶有溫暖的日落光芒和勾勒頭髮紋理的輪廓光。柔焦城市背景，帶有奶油般的散景。高端時尚攝影，自然皮膚紋理，8k，照片寫實，優雅的氛圍。",
+  "tags": "人像, 東亞女性, 時尚攝影, 蕾絲洋裝, 黃金時段"
+}
+-------------------
+
+[2025-12-19T09:23:53.095Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional portrait of a beautiful East Asian woman with long wavy dark hair, wearing a white floral lace sheer dress, looking over her shoulder at the camera. Cinematic golden hour lighting with warm sunset glow and rim light highlighting hair texture. Soft focus urban city background with creamy bokeh. High-end fashion photography, natural skin textures, 8k, photorealistic, elegant atmosphere. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的東亞女性的專業肖像，留著長長的波浪狀黑髮，穿著白色花卉蕾絲薄紗連衣裙，看著她的肩膀看向鏡頭。電影般的黃金時段照明，帶有溫暖的日落光芒和突顯頭髮紋理的輪廓光。柔焦城市背景，帶有奶油散景。高端時尚攝影，自然的皮膚紋理，8k，照片寫實，優雅的氛圍。100mm微距，f/2.8光圈，柔和的漫射光，燈箱，專業產品攝影，奢華的細節，傑作，最佳品質，超詳細，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "人像, 時尚, 東亞女性, 黃金時段, 8k"
+}
+-------------------
+
+[2025-12-19T09:25:35.560Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional portrait of a beautiful East Asian woman with long wavy dark hair, wearing a white floral lace sheer dress, looking over her shoulder at the camera. Cinematic golden hour lighting with warm sunset glow and rim light highlighting hair texture. Soft focus urban city background with creamy bokeh. High-end fashion photography, natural skin textures, 8k, photorealistic, elegant atmosphere. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail. Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位美麗的東亞女性的專業肖像，留著長長的波浪狀黑髮，穿著白色花卉蕾絲薄紗連衣裙，越過肩膀看著鏡頭。電影般的黃金時段照明，帶有溫暖的日落光芒和輪廓光突出顯示頭髮紋理。柔焦城市背景，帶有奶油散景。高端時尚攝影，自然皮膚紋理，8k，照片寫實，優雅的氣氛。100mm微距，f/2.8光圈，柔和的漫射照明，光帳，專業產品攝影，奢華的細節。傑作，最佳品質，超細緻，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "人像攝影, 時尚, 東亞女性, 8K, 唯美"
+}
+-------------------
+
+[2025-12-19T09:26:02.404Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional portrait of a beautiful East Asian woman with long wavy dark hair, wearing a white floral lace sheer dress, looking over her shoulder at the camera. Cinematic golden hour lighting with warm sunset glow and rim light highlighting hair texture. Soft focus urban city background with creamy bokeh. High-end fashion photography, natural skin textures, 8k, photorealistic, elegant atmosphere, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一位美麗的東亞女性的專業肖像，留著長長的波浪黑髮，穿著白色花卉蕾絲薄紗連衣裙，轉頭看向相機。電影般的黃金時段光線，溫暖的日落光芒和輪廓光突顯頭髮紋理。柔焦的城市背景，帶有奶油般的散景。高端時尚攝影，自然的皮膚紋理，8k，照片寫實，優雅的氛圍，專業的產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點。",
+  "tags": "人像攝影, 時尚, 東亞女性, 蕾絲, 8K"
+}
+-------------------
+
+[2025-12-19T09:26:59.051Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtaking high-end fashion portrait of a stunning East Asian woman with flowing, wavy raven hair, glancing gracefully over her shoulder with a serene expression. She wears an intricate, floor-length white floral lace sheer gown that catches the light. Captured during the golden hour, the scene features a warm sunset glow with brilliant rim lighting accentuating her hair's texture. The background is a soft-focus urban cityscape with creamy, photorealistic rendering, 8k resolution, extreme detail, natural skin pores, cinematic color grading, elegant and sophisticated atmosphere. 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, sharp focus, HDR, studio quality, award winning photography.",
+  "zhPrompt": "一幅令人驚嘆的高端時尚肖像，一位美麗的東亞女性，有著飄逸的波浪形烏黑頭髮，優雅地從肩後回眸，帶著寧靜的表情。她穿著一件精緻的、及地的白色花卉蕾絲薄紗禮服，捕捉著光線。在黃金時段捕捉到的場景，以溫暖的日落光芒為特色，並以耀眼的輪廓光突顯她頭髮的紋理。背景是一個柔焦的城市景觀，具有奶油般的照片寫實渲染，8k分辨率，極度細節，自然的皮膚毛孔，電影色彩分級，優雅而精緻的氛圍。100毫米微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳品質，超細緻，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "時尚攝影, 東亞女性, 蕾絲禮服, 黃金時段, 城市景觀"
+}
+-------------------
+
+[2025-12-19T09:27:46.125Z] Raw Gemini Response:
+{
+  "enPrompt": "A breathtaking high-end fashion portrait of a stunning East Asian woman with flowing, wavy raven hair, glancing gracefully over her shoulder with a serene, ethereal expression. She wears an intricate, floor-length white floral lace sheer gown featuring delicate embroidery and subsurface scattering that catches the warm light. Captured during the golden hour, the scene features a brilliant sunset glow with intense golden rim lighting accentuating individual hair strands and fabric textures. The background is a soft-focus urban cityscape with creamy bokeh. Photorealistic skin textures, natural pores, and cinematic color grading. 8k resolution, masterpiece, highly detailed, elegant and sophisticated atmosphere. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一幅令人驚嘆的高端時尚肖像，一位迷人的東亞女性，一頭飄逸、波浪般的烏黑秀髮，優雅地從肩上回眸一瞥，神情寧靜而超凡脫俗。她身穿一件精緻的落地白色花卉蕾絲薄紗禮服，飾有精美的刺繡和次表面散射，捕捉著溫暖的光線。在黃金時段拍攝，場景呈現出燦爛的日落光芒，強烈的金色輪廓光突出了每一根髮絲和織物紋理。背景是一個柔焦的城市景觀，奶油般的散景。逼真的皮膚紋理，自然的毛孔和電影色彩分級。8k分辨率，傑作，高度細節，優雅而精緻的氛圍。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華的細節，傑作，最佳質量，超細節，8k分辨率，清晰的焦點，HDR，工作室質量，獲獎攝影作品。",
+  "tags": "時尚攝影, 東亞女性, 蕾絲禮服, 黃金時段, 8K分辨率"
+}
+-------------------
+
+[2025-12-19T09:28:54.162Z] Raw Gemini Response:
+{
+  "enPrompt": "A cinematic masterpiece of a stunning 20-year-old Taiwanese woman with exquisite features and a high ponytail of glossy black hair. She stands gracefully on a rain-slicked Tokyo street, a warm smile directed at the lens. She wears a chic, thigh-length gray tailored hooded coat with plush fur trim, partially unzipped to reveal a minimalist light gray strapless top. The scene is captured in 8k resolution with sharp focus on the subject. Vibrant neon signage casts colorful, ray-traced reflections across the wet asphalt. In the background, blurred pedestrians with umbrellas and a fog-shrouded skyscraper create a sense of scale and depth. Photorealistic, soft bokeh, volumetric lighting, urban cyberpunk aesthetic, ultra-detailed skin texture.",
+  "zhPrompt": "一部電影傑作，描繪一位令人驚豔的20歲台灣女性，擁有精緻的五官和高高的亮黑色馬尾。她優雅地站在雨水濕滑的東京街道上，向鏡頭露出溫暖的笑容。她穿著一件別緻的、長度及大腿的灰色訂製連帽外套，帶有毛絨飾邊，部分拉開拉鍊，露出極簡主義的淺灰色無肩帶上衣。場景以8k分辨率捕捉，主體對焦清晰。充滿活力的霓虹燈標誌在濕瀝青上投射出色彩繽紛的光線追蹤反射。在背景中，模糊的行人撐著雨傘，以及籠罩在霧中的摩天大樓，營造出一種規模感和深度感。照片寫實主義，柔和的散景，體積光照，都市賽博龐克美學，超精細的皮膚紋理。",
+  "tags": "台灣女性, 東京街景, 賽博龐克, 霓虹燈, 8k分辨率"
+}
+-------------------
+
+[2025-12-19T09:29:28.641Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., A hyper-realistic cinematic portrait of a breathtaking 20-year-old Taiwanese woman with a radiant smile, standing on a rain-drenched Tokyo boulevard. She features a sleek high ponytail of jet-black hair and flawless skin texture with visible pores. She is elegantly dressed in a premium gray tailored hooded coat with luxurious faux-fur trim, capturing sharp focus on her expressive eyes while the background dissolves into a soft bokeh of blurred umbrellas and a towering, fog-veiled skyscraper. Volumetric lighting, mist effects, 8k resolution, urban cyberpunk atmosphere., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事效果，並優先考慮紋理以達到絕對的逼真度。一幅超現實的電影肖像，描繪一位令人驚嘆的20歲台灣女性，帶著燦爛的笑容，站在雨水浸濕的東京大道上。她留著一條光滑的高馬尾，烏黑亮麗的頭髮，以及完美的皮膚紋理，可見毛孔。她優雅地穿著一件高級灰色定制連帽外套，飾有奢華的人造毛皮邊飾，捕捉到她富有表現力的眼睛的清晰焦點，而背景則溶解成模糊的雨傘和籠罩在霧中的高聳摩天大樓的柔和散景。體積光照、霧效、8k分辨率、都市賽博龐克氛圍。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "台灣女性, 東京, 賽博龐克, 人像攝影, 濕街景"
+}
+-------------------

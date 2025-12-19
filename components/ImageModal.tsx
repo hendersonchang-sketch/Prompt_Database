@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import {
-    X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
+    X, Copy, Heart, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
     Scissors, Download, Save, Paintbrush, Sparkles
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
@@ -10,10 +10,10 @@ interface ImageModalProps {
     selectedImage: PromptEntry;
     onClose: () => void;
     toggleFavorite: (e: React.MouseEvent, id: string, current: boolean) => void;
-    setEditorImage: (img: string | null) => void;
     handleReuse: (image: PromptEntry) => void;
     handleDelete: (id: string) => void;
     onTagUpdate?: (id: string, newTags: string) => void;
+    onPromptUpdate?: (id: string, prompt: string, promptZh: string) => void;
     handleCopyPrompt: (text: string) => void;
     copyFeedback: string | null;
 }
@@ -22,10 +22,10 @@ export function ImageModal({
     selectedImage: initialImage,
     onClose,
     toggleFavorite,
-    setEditorImage,
     handleReuse,
     handleDelete,
     onTagUpdate,
+    onPromptUpdate,
     handleCopyPrompt,
     copyFeedback
 }: ImageModalProps) {
@@ -57,6 +57,11 @@ export function ImageModal({
     // Tagging State
     const [tagInput, setTagInput] = useState("");
     const [isTagUpdating, setIsTagUpdating] = useState(false);
+
+    // Reuse Confirmation Modal State
+    const [isReuseConfirmOpen, setIsReuseConfirmOpen] = useState(false);
+    const [reversePromptResult, setReversePromptResult] = useState<{ en: string; zh: string } | null>(null);
+    const [reversePromptLoading, setReversePromptLoading] = useState(false);
 
     // Sync selectedImage if initialImage changes
     useEffect(() => {
@@ -152,6 +157,113 @@ export function ImageModal({
             console.error('Save to library error:', err);
         } finally {
             setIsRemovingBg(false);
+        }
+    };
+
+    // Handle Reverse Prompt (AI-powered)
+    const handleReversePrompt = async () => {
+        setReversePromptLoading(true);
+        setIsReuseConfirmOpen(true);
+        setReversePromptResult(null);
+
+        try {
+            const apiKey = localStorage.getItem('geminiApiKey');
+            if (!apiKey) {
+                alert('請先在設定中輸入 Gemini API Key');
+                setIsReuseConfirmOpen(false);
+                return;
+            }
+
+            // Client-side image fetching and conversion to base64
+            // This prevents issues with server-side fetching of relative URLs
+            let base64Image = "";
+            try {
+                if (!selectedImage.imageUrl) throw new Error("圖片網址為空");
+                const imgRes = await fetch(selectedImage.imageUrl);
+                const blob = await imgRes.blob();
+
+                // Convert blob to base64
+                base64Image = await new Promise<string>((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result as string);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                });
+            } catch (fetchErr) {
+                console.error("Failed to fetch image client-side:", fetchErr);
+                throw new Error("無法讀取圖片資料");
+            }
+
+            const res = await fetch('/api/describe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    image: base64Image, // Send base64 data directly
+                    apiKey: apiKey
+                })
+            });
+
+            if (!res.ok) {
+                const errText = await res.text();
+                throw new Error(errText || '反推請求失敗');
+            }
+
+            const data = await res.json();
+
+            setReversePromptResult({
+                en: data.prompt || '',
+                zh: data.promptZh || ''
+            });
+        } catch (error: any) {
+            console.error('Reverse prompt error:', error);
+            alert(`AI 反推失敗: ${error.message || '請稍後再試'}`);
+            setIsReuseConfirmOpen(false);
+        } finally {
+            setReversePromptLoading(false);
+        }
+    };
+
+    // Handle Save and Reuse (Database Update + Form Reuse)
+    const handleSaveAndReuse = async () => {
+        if (!reversePromptResult) return;
+
+        try {
+            // 1. Update Database
+            const res = await fetch(`/api/prompts/${selectedImage.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    prompt: reversePromptResult.en,
+                    promptZh: reversePromptResult.zh
+                })
+            });
+
+            if (!res.ok) throw new Error("儲存失敗");
+
+            // 2. Update Parent State (for Gallery view)
+            if (onPromptUpdate) {
+                onPromptUpdate(selectedImage.id, reversePromptResult.en, reversePromptResult.zh);
+            }
+
+            // 3. Update Local State & Reuse
+            const updatedEntry = {
+                ...selectedImage,
+                prompt: reversePromptResult.en,
+                promptZh: reversePromptResult.zh,
+                // Crucial: Clear originalPrompt so PromptGallery uses the new prompt
+                originalPrompt: undefined
+            };
+
+            setIsReuseConfirmOpen(false);
+            setReversePromptResult(null);
+
+            // 重要：這會關閉 ImageModal 並填入 Main Input
+            handleReuse(updatedEntry);
+            onClose();
+
+        } catch (error) {
+            console.error("Save error:", error);
+            alert("更新資料庫失敗，請確認網路連線");
         }
     };
 
@@ -394,11 +506,15 @@ export function ImageModal({
                                     {selectedImage.isFavorite ? "已收藏" : "加入收藏"}
                                 </button>
                                 <button
-                                    onClick={() => setEditorImage(selectedImage.imageUrl)}
-                                    className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        handleReversePrompt();
+                                    }}
+                                    className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-600 to-pink-600 border border-purple-500/50 rounded-xl text-[11px] font-bold text-white hover:from-purple-500 hover:to-pink-500 transition-all active:scale-95 shadow-lg shadow-purple-500/20"
                                 >
-                                    <Edit3 className="w-3.5 h-3.5" />
-                                    編輯圖片
+                                    <Sparkles className="w-3.5 h-3.5" />
+                                    圖片反推
                                 </button>
                                 <button
                                     onClick={(e) => {
@@ -1055,6 +1171,104 @@ export function ImageModal({
                                     </>
                                 )
                             )}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Reuse Confirmation Modal */}
+            {isReuseConfirmOpen && (
+                <div
+                    className="fixed inset-0 z-[90] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+                    onClick={() => setIsReuseConfirmOpen(false)}
+                >
+                    <div
+                        className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {/* Header */}
+                        <div className="flex justify-between items-center p-4 border-b border-white/10 shrink-0">
+                            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                                <Sparkles className="w-5 h-5 text-purple-400" />
+                                圖片反推確認
+                            </h2>
+                            <button
+                                onClick={() => setIsReuseConfirmOpen(false)}
+                                className="text-gray-500 hover:text-white text-2xl transition-colors"
+                            >×</button>
+                        </div>
+
+                        {/* Content */}
+                        <div className="overflow-y-auto p-6 space-y-4">
+                            {reversePromptLoading ? (
+                                <div className="flex flex-col items-center justify-center py-12 space-y-4">
+                                    <Loader2 className="w-12 h-12 text-purple-500 animate-spin" />
+                                    <p className="text-gray-400 text-sm">🧠 AI 正在分析圖片中...</p>
+                                </div>
+                            ) : reversePromptResult ? (
+                                <>
+                                    <p className="text-gray-400 text-sm mb-4">
+                                        確認要將以下 AI 反推的提示詞填入主輸入框嗎？
+                                    </p>
+
+                                    {/* English Prompt */}
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">English Prompt</span>
+                                            <div className="flex-1 h-px bg-white/10"></div>
+                                        </div>
+                                        <div className="bg-black/40 border border-white/10 rounded-xl p-4">
+                                            <p className="text-gray-300 text-sm leading-relaxed">
+                                                {reversePromptResult.en}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Chinese Prompt */}
+                                    {reversePromptResult.zh && (
+                                        <div className="space-y-2">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">中文描述</span>
+                                                <div className="flex-1 h-px bg-white/10"></div>
+                                            </div>
+                                            <div className="bg-black/40 border border-white/10 rounded-xl p-4">
+                                                <p className="text-white/90 text-sm leading-relaxed">
+                                                    {reversePromptResult.zh}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                <div className="flex items-center justify-center py-12">
+                                    <p className="text-gray-500 text-sm">載入中...</p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Footer Buttons */}
+                        <div className="p-4 border-t border-white/10 flex gap-3 shrink-0">
+                            <button
+                                onClick={() => {
+                                    setIsReuseConfirmOpen(false);
+                                    setReversePromptResult(null);
+                                }}
+                                className="flex-1 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-400 hover:text-white rounded-xl text-sm font-bold transition-all"
+                                disabled={reversePromptLoading}
+                            >
+                                ❌ 取消
+                            </button>
+                            <button
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    handleSaveAndReuse();
+                                }}
+                                className="flex-1 py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-xl text-sm font-bold transition-all shadow-lg shadow-purple-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={reversePromptLoading || !reversePromptResult}
+                            >
+                                ✅ 存入置換
+                            </button>
                         </div>
                     </div>
                 </div>

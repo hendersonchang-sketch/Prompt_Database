@@ -692,10 +692,12 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     selectedImage={selectedImage}
                     onClose={() => setSelectedImage(null)}
                     toggleFavorite={toggleFavorite}
-                    setEditorImage={setEditorImage}
                     handleReuse={handleReuse}
                     handleDelete={handleDelete}
                     onTagUpdate={handleTagSync}
+                    onPromptUpdate={(id, prompt, promptZh) => {
+                        setPrompts(prev => prev.map(p => p.id === id ? { ...p, prompt, promptZh } : p));
+                    }}
                     handleCopyPrompt={handleCopyPrompt}
                     copyFeedback={copyFeedback}
                 />

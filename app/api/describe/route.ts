@@ -3,10 +3,25 @@ import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
     try {
-        const { image, apiKey, characterOnly = false } = await request.json();
+        const { image, imageUrl, apiKey, characterOnly = false } = await request.json();
 
-        if (!image) {
-            return NextResponse.json({ error: 'Image is required' }, { status: 400 });
+        let base64Data = '';
+
+        // Handle imageUrl by fetching and converting to base64
+        if (imageUrl && !image) {
+            try {
+                const imageResponse = await fetch(imageUrl);
+                const arrayBuffer = await imageResponse.arrayBuffer();
+                const buffer = Buffer.from(arrayBuffer);
+                base64Data = buffer.toString('base64');
+            } catch (fetchError) {
+                console.error('Failed to fetch image from URL:', fetchError);
+                return NextResponse.json({ error: 'Failed to fetch image from URL' }, { status: 400 });
+            }
+        } else if (image) {
+            base64Data = image.replace(/^data:image\/\w+;base64,/, "");
+        } else {
+            return NextResponse.json({ error: 'Image or imageUrl is required' }, { status: 400 });
         }
 
         const key = apiKey || process.env.GEMINI_API_KEY;
@@ -16,7 +31,6 @@ export async function POST(request: Request) {
         }
 
         const client = new GoogleGenAI({ apiKey: key });
-        const base64Data = image.replace(/^data:image\/\w+;base64,/, "");
 
         if (characterOnly) {
             // ===== 強化版角色提取（結構化 JSON 輸出）=====
@@ -112,17 +126,27 @@ CRITICAL: Focus on TIMELESS features. Exclude pose, action, camera angle, lighti
             }
 
         } else {
-            // ===== 標準圖片描述模式 =====
+            // ===== 標準圖片描述模式（中英文雙語）=====
             const promptText = `
-As an expert AI Art Prompt Engineer, describe this image in detail.
-Focus on:
-1. Subject (appearance, pose, clothing)
-2. Art Style (e.g., oil painting, cyberpunk, photorealistic, 3D render)
-3. Lighting & Color Palette
-4. Composition & Camera Angle
+As an expert AI Art Prompt Engineer, analyze this image and generate TWO versions of the prompt:
 
-Output ONLY the raw English prompt string, ready to be pasted into Stable Diffusion or Midjourney. 
-Do not add introductory text like "Here is the prompt:".
+1. **English Prompt**: A detailed, professional prompt optimized for Stable Diffusion/Midjourney
+   - Include: Subject, Art Style, Lighting, Color Palette, Composition, Camera Angle
+   - Use professional AI art terminology
+   - Make it concise but comprehensive
+
+2. **Traditional Chinese Prompt (繁體中文)**: A natural, descriptive version in Traditional Chinese
+   - Translate and adapt the English prompt naturally
+   - Keep the same level of detail
+   - Use proper Traditional Chinese terminology
+
+**Output as JSON:**
+{
+    "prompt": "English prompt here",
+    "promptZh": "繁體中文提示詞"
+}
+
+IMPORTANT: Output ONLY valid JSON, no additional text.
 `;
 
             const response = await client.models.generateContent({
@@ -140,11 +164,27 @@ Do not add introductory text like "Here is the prompt:".
                             },
                         ]
                     }
-                ]
+                ],
+                config: {
+                    responseMimeType: "application/json"
+                }
             });
 
             const text = response.text || (response.candidates?.[0]?.content?.parts?.[0]?.text || "");
-            return NextResponse.json({ prompt: text.trim() });
+
+            try {
+                const result = JSON.parse(text);
+                return NextResponse.json({
+                    prompt: result.prompt || text.trim(),
+                    promptZh: result.promptZh || ""
+                });
+            } catch (parseErr) {
+                console.error("JSON parse error, returning raw text:", parseErr);
+                return NextResponse.json({
+                    prompt: text.trim(),
+                    promptZh: ""
+                });
+            }
         }
 
     } catch (error: any) {
