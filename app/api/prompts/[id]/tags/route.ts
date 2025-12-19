@@ -15,7 +15,7 @@ export async function PATCH(
             return NextResponse.json({ error: 'Invalid tags format' }, { status: 400 });
         }
 
-        const updatedPrompt = await prisma.prompt.update({
+        const updatedPrompt = await prisma.promptEntry.update({
             where: { id },
             data: { tags },
         });
