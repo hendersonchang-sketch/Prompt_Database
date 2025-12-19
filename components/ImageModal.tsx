@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Crosshair, Layout, Target, Sparkles, Download,
-    Camera, Palette, Clock, BookOpen, Smile, Rainbow, Snowflake, Telescope, FlipHorizontal, Mountain
+    Scissors, Crosshair, Layout, Target, Download, Save
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
@@ -56,8 +55,17 @@ export function ImageModal({
     const [structuredJson, setStructuredJson] = useState<any>(null);
     const [structuredLoading, setStructuredLoading] = useState(false);
 
-    const [variationLoading, setVariationLoading] = useState(false);
-    const [isVariationMenuOpen, setIsVariationMenuOpen] = useState(false);
+    const [isRemovingBg, setIsRemovingBg] = useState(false);
+
+    // 去背預覽狀態
+    const [removedBgPreview, setRemovedBgPreview] = useState<string | null>(null);
+
+    // Toast State
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+    // Scroll Management Refs
+    const sidebarRef = useRef<HTMLDivElement>(null);
+    const promptSectionRef = useRef<HTMLDivElement>(null);
 
     // Tagging State
     const [tagInput, setTagInput] = useState("");
@@ -120,7 +128,52 @@ export function ImageModal({
             reader.readAsDataURL(blob);
         });
     };
+
+    // Helper: Show Toast
+    const showToast = (message: string, duration = 3000) => {
+        setToastMessage(message);
+        setTimeout(() => setToastMessage(null), duration);
+    };
+
+    // 存入圖庫 (去背後)
+    const handleSaveToLibrary = async () => {
+        if (!removedBgPreview) return;
+        setIsRemovingBg(true);
+        try {
+            const res = await fetch('/api/prompts', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    imageUrl: removedBgPreview,
+                    prompt: selectedImage.prompt,
+                    originalPrompt: selectedImage.originalPrompt || selectedImage.prompt,
+                    promptZh: selectedImage.promptZh || "",
+                    negativePrompt: selectedImage.negativePrompt || "",
+                    width: selectedImage.width || 1024,
+                    height: selectedImage.height || 1024,
+                    seed: selectedImage.seed || 0,
+                    cfgScale: selectedImage.cfgScale || 7.0,
+                    steps: selectedImage.steps || 25,
+                    tags: selectedImage.tags || "",
+                    imageEngine: selectedImage.engine || "imagen"
+                })
+            });
+            if (res.ok) {
+                showToast('✅ 已成功存入圖庫');
+                setRemovedBgPreview(null);
+            } else {
+                throw new Error('儲存失敗');
+            }
+        } catch (err) {
+            showToast('❌ 儲存失敗，請稍後再試');
+            console.error('Save to library error:', err);
+        } finally {
+            setIsRemovingBg(false);
+        }
+    };
+
     return (
+
         <div
             className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-300"
             onClick={onClose}
@@ -132,6 +185,13 @@ export function ImageModal({
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="font-bold">{copyFeedback}</span>
+                </div>
+            )}
+
+            {/* Toast Message */}
+            {toastMessage && (
+                <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] bg-indigo-600 text-white px-6 py-3 rounded-full shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 flex items-center gap-2">
+                    <span className="font-bold">{toastMessage}</span>
                 </div>
             )}
 
@@ -151,10 +211,46 @@ export function ImageModal({
                 <div className="w-full md:w-2/3 h-[50vh] md:h-full relative bg-black/60 group overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center p-6">
                         <img
-                            src={selectedImage.imageUrl || ""}
+                            src={removedBgPreview || selectedImage.imageUrl || ""}
                             alt={selectedImage.prompt}
                             className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.01]"
                         />
+
+                        {/* 去背預覽控制按鈕列 */}
+                        {removedBgPreview && (
+                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-[80] animate-in zoom-in duration-300">
+                                <button
+                                    onClick={() => {
+                                        const a = document.createElement('a');
+                                        a.href = removedBgPreview;
+                                        a.download = `bg-removed-${selectedImage.id || 'image'}.png`;
+                                        a.click();
+                                        showToast('📥 已開始下載');
+                                    }}
+                                    className="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    下載圖片
+                                </button>
+
+                                <button
+                                    onClick={handleSaveToLibrary}
+                                    disabled={isRemovingBg}
+                                    className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                                >
+                                    {isRemovingBg ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                                    存入圖庫
+                                </button>
+
+                                <button
+                                    onClick={() => setRemovedBgPreview(null)}
+                                    className="px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                                >
+                                    <X className="w-4 h-4" />
+                                    取消
+                                </button>
+                            </div>
+                        )}
                     </div>
 
                     {/* Overlays */}
@@ -250,10 +346,10 @@ export function ImageModal({
                 </div>
 
                 {/* Right Partition: Professional Sidebar */}
-                <div className="w-full md:w-1/3 h-full overflow-y-auto bg-neutral-900/50 backdrop-blur-3xl border-l border-white/5 custom-scrollbar p-8 pt-16 flex flex-col">
+                <div ref={sidebarRef} className="w-full md:w-1/3 h-full overflow-y-auto bg-neutral-900/50 backdrop-blur-3xl border-l border-white/5 custom-scrollbar p-8 pt-16 flex flex-col">
                     <div className="flex-1 space-y-8">
                         {/* Section: Header/Title with Copy */}
-                        <div className="space-y-4">
+                        <div ref={promptSectionRef} className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                                     <div className="w-1 h-5 bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
@@ -267,15 +363,37 @@ export function ImageModal({
                                     <Copy className="w-4 h-4" />
                                 </button>
                             </div>
-                            <div className="bg-black/30 rounded-2xl p-5 border border-white/5 space-y-3 relative group">
-                                <p className="text-gray-300 leading-relaxed text-sm font-light select-text selection:bg-purple-500/30">
-                                    {selectedImage.prompt}
-                                </p>
+                            <div className="bg-black/30 rounded-2xl p-5 border border-white/5 space-y-3 relative group transition-all duration-300">
+                                {/* 英文 Prompt */}
+                                <div className="relative">
+                                    <p className="text-gray-300 leading-relaxed text-sm font-light select-text selection:bg-purple-500/30">
+                                        {selectedImage.prompt}
+                                    </p>
+                                    <button
+                                        onClick={() => handleCopyPrompt(selectedImage.prompt)}
+                                        className="absolute top-0 right-0 p-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-gray-400 hover:text-white transition-all active:scale-95 opacity-0 group-hover:opacity-100"
+                                        title="複製英文提示詞"
+                                    >
+                                        <Copy className="w-3 h-3" />
+                                    </button>
+                                </div>
+
                                 {selectedImage.promptZh && (
-                                    <div className="pt-3 border-t border-white/5">
-                                        <p className="text-white/60 leading-relaxed text-[13px] font-medium italic">
+                                    <div className="mt-4 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl relative group/zh">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
+                                            <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-tighter">中文描述</span>
+                                        </div>
+                                        <p className="text-white/90 leading-relaxed text-[13px] font-medium">
                                             {selectedImage.promptZh}
                                         </p>
+                                        <button
+                                            onClick={() => handleCopyPrompt(selectedImage.promptZh || "")}
+                                            className="absolute top-3 right-3 p-1.5 bg-white/5 hover:bg-indigo-500/20 rounded-lg text-gray-400 hover:text-indigo-300 transition-all opacity-0 group-hover/zh:opacity-100"
+                                            title="複製中文描述"
+                                        >
+                                            <Copy className="w-3 h-3" />
+                                        </button>
                                     </div>
                                 )}
                             </div>
@@ -474,7 +592,7 @@ export function ImageModal({
                                     <button
                                         onClick={async () => {
                                             if (!selectedImage.imageUrl) return;
-                                            setVariationLoading(true);
+                                            setIsRemovingBg(true);
                                             try {
                                                 const base64 = await getBase64(selectedImage.imageUrl);
                                                 const blob = await (await fetch(selectedImage.imageUrl)).blob();
@@ -490,17 +608,17 @@ export function ImageModal({
                                                 if (!res.ok) throw new Error('去背失敗');
                                                 const data = await res.json();
                                                 if (data.imageBase64) {
-                                                    const a = document.createElement('a');
-                                                    a.href = `data:${data.mimeType};base64,${data.imageBase64}`;
-                                                    a.download = `bg-removed-${selectedImage.id}.png`;
-                                                    a.click();
+                                                    // 設置預覽,禁止自動下載
+                                                    const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
+                                                    setRemovedBgPreview(resultUrl);
+                                                    showToast('✨ 去背完成,請確認預覽');
                                                 }
-                                            } catch (err: any) { alert('去背失敗'); } finally { setVariationLoading(false); }
+                                            } catch (err: any) { alert('去背失敗'); } finally { setIsRemovingBg(false); }
                                         }}
-                                        disabled={variationLoading}
+                                        disabled={isRemovingBg}
                                         className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
                                     >
-                                        {variationLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Scissors className="w-3.5 h-3.5" />}
+                                        {isRemovingBg ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Scissors className="w-3.5 h-3.5" />}
                                         一鍵去背
                                     </button>
                                     <button
@@ -585,59 +703,6 @@ export function ImageModal({
                             {/* Action Subgroup: Primary Actions */}
                             <div className="pt-6 border-t border-white/5 space-y-3">
                                 <div className="grid grid-cols-2 gap-3">
-                                    {/* Variation Menu Button with Popover */}
-                                    <div className="relative">
-                                        <button
-                                            onClick={() => setIsVariationMenuOpen(!isVariationMenuOpen)}
-                                            disabled={variationLoading}
-                                            className={`w-full flex items-center justify-center gap-2 py-3 px-4 border rounded-xl text-xs font-bold transition-all active:scale-95 ${isVariationMenuOpen
-                                                    ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-300'
-                                                    : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'
-                                                }`}
-                                        >
-                                            {variationLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4 text-purple-400" />}
-                                            創意接龍
-                                        </button>
-
-                                        {/* Variation Menu Popover */}
-                                        {isVariationMenuOpen && (
-                                            <div className="absolute bottom-full left-0 right-0 mb-2 bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-3 z-[70] animate-in slide-in-from-bottom-2 duration-200">
-                                                <div className="grid grid-cols-2 gap-2">
-                                                    {[
-                                                        { id: 'scene', label: '場景變換', icon: Mountain },
-                                                        { id: 'angle', label: '攝影角度', icon: Camera },
-                                                        { id: 'style', label: '藝術風格', icon: Palette },
-                                                        { id: 'time', label: '時間天候', icon: Clock },
-                                                        { id: 'series', label: '故事接龍', icon: BookOpen },
-                                                        { id: 'mood', label: '情緒氛圍', icon: Smile },
-                                                        { id: 'color', label: '色彩計畫', icon: Rainbow },
-                                                        { id: 'season', label: '季節更換', icon: Snowflake },
-                                                        { id: 'distance', label: '鏡頭距離', icon: Telescope },
-                                                        { id: 'mirror', label: '鏡像構圖', icon: FlipHorizontal }
-                                                    ].map(opt => {
-                                                        const IconComponent = opt.icon;
-                                                        return (
-                                                            <button
-                                                                key={opt.id}
-                                                                onClick={() => {
-                                                                    // TODO: Call variation API
-                                                                    console.log('Variation type:', opt.id);
-                                                                    setIsVariationMenuOpen(false);
-                                                                }}
-                                                                className="flex items-center gap-2 px-3 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-left transition-all border border-white/5 hover:border-white/20 group"
-                                                            >
-                                                                <IconComponent className="w-3.5 h-3.5 text-gray-400 group-hover:text-indigo-400 transition-colors shrink-0" />
-                                                                <span className="text-[10px] text-gray-300 group-hover:text-white transition-colors font-medium">
-                                                                    {opt.label}
-                                                                </span>
-                                                            </button>
-                                                        );
-                                                    })}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-
                                     <a
                                         href={selectedImage.imageUrl || ""}
                                         download={`prompt-db-${selectedImage.id}.png`}
@@ -646,16 +711,14 @@ export function ImageModal({
                                         className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
                                     >
                                         <Download className="w-4 h-4 text-purple-400" />
-                                        下載
+                                        下載圖片
                                     </a>
-                                </div>
-
-                                <div className="flex justify-center pt-4 pb-2">
                                     <button
                                         onClick={onClose}
-                                        className="text-[11px] text-gray-500 hover:text-gray-300 transition-all hover:underline underline-offset-4"
+                                        className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
                                     >
-                                        暫時不，返回
+                                        <X className="w-4 h-4 text-gray-400" />
+                                        關閉視窗
                                     </button>
                                 </div>
                             </div>
