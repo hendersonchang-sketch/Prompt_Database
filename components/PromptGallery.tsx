@@ -1152,10 +1152,17 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                             <Copy className="w-4 h-4" />
                                         </button>
                                     </div>
-                                    <div className="bg-black/30 rounded-2xl p-5 border border-white/5 relative group">
+                                    <div className="bg-black/30 rounded-2xl p-5 border border-white/5 space-y-3 relative group">
                                         <p className="text-gray-300 leading-relaxed text-sm font-light select-text selection:bg-purple-500/30">
                                             {selectedImage.prompt}
                                         </p>
+                                        {selectedImage.promptZh && (
+                                            <div className="pt-3 border-t border-white/5">
+                                                <p className="text-white/60 leading-relaxed text-[13px] font-medium italic">
+                                                    {selectedImage.promptZh}
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 
@@ -1205,20 +1212,22 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     </div>
                                     <div className="bg-black/20 rounded-2xl p-4 border border-white/5 space-y-4">
                                         <div className="flex flex-wrap gap-1.5">
-                                            {selectedImage.tags ? selectedImage.tags.split(',').map((tag, idx) => (
-                                                <span
-                                                    key={idx}
-                                                    className="group flex items-center gap-1.5 px-2.5 py-1 bg-white/5 text-gray-400 rounded-lg border border-white/5 text-[10px] hover:bg-white/10 hover:text-white transition-all"
-                                                >
-                                                    {tag.trim()}
-                                                    <button
-                                                        onClick={() => handleRemoveTag(tag.trim())}
-                                                        className="w-3.5 h-3.5 rounded-full hover:bg-red-500 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100"
+                                            {selectedImage.tags ? selectedImage.tags.split(',').map((tag, idx) => {
+                                                return (
+                                                    <span
+                                                        key={idx}
+                                                        className="group flex items-center gap-1.5 px-3 py-1 bg-white/5 text-gray-400 rounded-lg border border-white/5 text-[10px] font-medium transition-all cursor-default hover:bg-white/10 hover:text-white"
                                                     >
-                                                        <X className="w-2 h-2" />
-                                                    </button>
-                                                </span>
-                                            )) : (
+                                                        {tag.trim()}
+                                                        <button
+                                                            onClick={() => handleRemoveTag(tag.trim())}
+                                                            className="w-3.5 h-3.5 rounded-full hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100"
+                                                        >
+                                                            <X className="w-2 h-2" />
+                                                        </button>
+                                                    </span>
+                                                );
+                                            }) : (
                                                 <p className="text-[10px] text-gray-600 italic">尚未添加標籤</p>
                                             )}
                                         </div>
@@ -1229,7 +1238,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                 onChange={(e) => setTagInput(e.target.value)}
                                                 onKeyDown={handleAddTag}
                                                 placeholder="新增標籤..."
-                                                className="w-full bg-white/[0.03] border border-white/5 rounded-lg pl-3 pr-10 py-2 text-xs text-white placeholder:text-gray-700 focus:outline-none focus:border-purple-500/50 transition-all"
+                                                className="w-full bg-black/40 border border-white/10 rounded-xl pl-4 pr-10 py-2.5 text-xs text-white placeholder:text-gray-700 focus:outline-none focus:border-purple-500/50 transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]"
                                             />
                                             {isTagUpdating && (
                                                 <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-purple-500 animate-spin" />
@@ -1244,9 +1253,9 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     <div className="grid grid-cols-2 gap-2">
                                         <button
                                             onClick={(e) => toggleFavorite(e, selectedImage.id, selectedImage.isFavorite)}
-                                            className={`flex items-center justify-center gap-2 py-2.5 rounded-xl border text-[11px] font-bold transition-all ${selectedImage.isFavorite
-                                                ? "bg-pink-500 border-pink-500 text-white shadow-lg shadow-pink-500/20"
-                                                : "bg-white/5 border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                                            className={`flex items-center justify-center gap-2 py-3 rounded-xl border text-[11px] font-bold transition-all active:scale-95 ${selectedImage.isFavorite
+                                                ? "bg-purple-600/20 border-purple-500/50 text-purple-300"
+                                                : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
                                                 }`}
                                         >
                                             <Heart className={`w-3.5 h-3.5 ${selectedImage.isFavorite ? 'fill-current' : ''}`} />
@@ -1254,14 +1263,14 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                         </button>
                                         <button
                                             onClick={() => setEditorImage(selectedImage.imageUrl)}
-                                            className="flex items-center justify-center gap-2 py-2.5 bg-white/5 border border-white/5 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                                            className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
                                         >
                                             <Edit3 className="w-3.5 h-3.5" />
                                             編輯圖片
                                         </button>
                                         <button
                                             onClick={handleReuse}
-                                            className="flex items-center justify-center gap-2 py-2.5 bg-white/5 border border-white/5 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                                            className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
                                         >
                                             <Play className="w-3.5 h-3.5" />
                                             重用提示
@@ -1273,7 +1282,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                     setSelectedImage(null);
                                                 }
                                             }}
-                                            className="flex items-center justify-center gap-2 py-2.5 bg-red-500/5 border border-red-500/10 rounded-xl text-[11px] font-bold text-red-400/60 hover:bg-red-500 hover:text-white transition-all"
+                                            className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-red-500/20 hover:text-red-400 transition-all active:scale-95"
                                         >
                                             <Trash2 className="w-3.5 h-3.5" />
                                             刪除圖片
@@ -1281,10 +1290,10 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     </div>
 
                                     {/* Action Subgroup: Analysis Tools */}
-                                    <div className="space-y-3">
+                                    <div className="space-y-4">
                                         <div className="flex items-center gap-2">
-                                            <div className="w-1 h-3 bg-neutral-600 rounded-full" />
-                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">AI 分析與增強</h4>
+                                            <div className="w-1 h-3 bg-purple-600 rounded-full" />
+                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">AI 專業工具</h4>
                                         </div>
                                         <div className="grid grid-cols-2 gap-2">
                                             <button
@@ -1309,55 +1318,52 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                     } catch (err: any) { alert('全面評估失敗'); } finally { setComprehensiveLoading(false); }
                                                 }}
                                                 disabled={comprehensiveLoading}
-                                                className="flex items-center justify-center gap-2 py-2.5 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all group"
-                                                title="全面性評估（AI檢測、版權、市場價值等）"
+                                                className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
                                             >
                                                 {comprehensiveLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <BarChart3 className="w-3.5 h-3.5" />}
                                                 全面評估
                                             </button>
                                             <button
-                                                onClick={async () => {
-                                                    setDeepAnalysisLoading(true);
-                                                    try {
-                                                        const imgRes = await fetch(selectedImage.imageUrl!);
-                                                        const blob = await imgRes.blob();
-                                                        const reader = new FileReader();
-                                                        const base64 = await new Promise<string>((resolve) => {
-                                                            reader.onloadend = () => resolve(reader.result as string);
-                                                            reader.readAsDataURL(blob);
-                                                        });
-                                                        const res = await fetch('/api/analyze-image', {
-                                                            method: 'POST',
-                                                            headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
-                                                        });
-                                                        const data = await res.json();
-                                                        setDeepAnalysis(data);
-                                                    } catch (err: any) { alert('深度分析失敗'); } finally { setDeepAnalysisLoading(false); }
-                                                }}
-                                                disabled={deepAnalysisLoading}
-                                                className="flex items-center justify-center gap-2 py-2.5 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all"
-                                                title="深度分析圖片（構圖、風格、標籤等）"
-                                            >
-                                                {deepAnalysisLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Microscope className="w-3.5 h-3.5" />}
-                                                深度分析
-                                            </button>
-                                            <button
-                                                onClick={async () => {
-                                                    setStructuredLoading(true);
-                                                    try {
-                                                        const res = await fetch('/api/parse-prompt', {
-                                                            method: 'POST',
-                                                            headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({ prompt: selectedImage.prompt, apiKey: localStorage.getItem('geminiApiKey') || '' })
-                                                        });
-                                                        const data = await res.json();
-                                                        setStructuredJson(data.structured || { raw: data.raw, error: data.error });
-                                                    } catch (err: any) { alert('結構分析失敗'); } finally { setStructuredLoading(false); }
-                                                }}
-                                                disabled={structuredLoading}
-                                                className="flex items-center justify-center gap-2 py-2.5 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all"
-                                                title="AI 分析 Prompt 結構"
+                                                 onClick={async () => {
+                                                     setDeepAnalysisLoading(true);
+                                                     try {
+                                                         const imgRes = await fetch(selectedImage.imageUrl!);
+                                                         const blob = await imgRes.blob();
+                                                         const reader = new FileReader();
+                                                         const base64 = await new Promise<string>((resolve) => {
+                                                             reader.onloadend = () => resolve(reader.result as string);
+                                                             reader.readAsDataURL(blob);
+                                                         });
+                                                         const res = await fetch('/api/analyze-image', {
+                                                             method: 'POST',
+                                                             headers: { 'Content-Type': 'application/json' },
+                                                             body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
+                                                         });
+                                                         const data = await res.json();
+                                                         setDeepAnalysis(data);
+                                                     } catch (err: any) { alert('深度分析失敗'); } finally { setDeepAnalysisLoading(false); }
+                                                 }}
+                                                 disabled={deepAnalysisLoading}
+                                                 className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
+                                             >
+                                                 {deepAnalysisLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Microscope className="w-3.5 h-3.5" />}
+                                                 深度分析
+                                             </button>
+                                             <button
+                                                 onClick={async () => {
+                                                     setStructuredLoading(true);
+                                                     try {
+                                                         const res = await fetch('/api/parse-prompt', {
+                                                             method: 'POST',
+                                                             headers: { 'Content-Type': 'application/json' },
+                                                             body: JSON.stringify({ prompt: selectedImage.prompt, apiKey: localStorage.getItem('geminiApiKey') || '' })
+                                                         });
+                                                         const data = await res.json();
+                                                         setStructuredJson(data.structured || { raw: data.raw, error: data.error });
+                                                     } catch (err: any) { alert('結構分析失敗'); } finally { setStructuredLoading(false); }
+                                                 }}
+                                                 disabled={structuredLoading}
+                                                 className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
                                             >
                                                 {structuredLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Brain className="w-3.5 h-3.5" />}
                                                 結構分析
@@ -1394,8 +1400,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                     } catch (err: any) { alert('去背失敗'); } finally { setVariationLoading(false); }
                                                 }}
                                                 disabled={variationLoading}
-                                                className="flex items-center justify-center gap-2 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-gray-300 rounded-xl text-[11px] font-medium transition-all"
-                                                title="移除圖片背景"
+                                                className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
                                             >
                                                 {variationLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Scissors className="w-3.5 h-3.5" />}
                                                 一鍵去背
@@ -1406,10 +1411,8 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                         setIsDetectiveMode(false);
                                                         return;
                                                     }
-
                                                     setIsDetectiveMode(true);
-                                                    if (detections.length > 0) return; // Already loaded
-
+                                                    if (detections.length > 0) return;
                                                     setDetectingLoading(true);
                                                     try {
                                                         const imgRes = await fetch(selectedImage.imageUrl!);
@@ -1419,30 +1422,18 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                             reader.onloadend = () => resolve(reader.result as string);
                                                             reader.readAsDataURL(blob);
                                                         });
-
                                                         const res = await fetch('/api/detect-objects', {
                                                             method: 'POST',
                                                             headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({
-                                                                imageBase64: base64,
-                                                                apiKey: localStorage.getItem('geminiApiKey') || ''
-                                                            })
+                                                            body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
                                                         });
                                                         if (!res.ok) throw new Error(await res.text());
                                                         const data = await res.json();
-                                                        if (data.detections) {
-                                                            setDetections(data.detections);
-                                                        }
-                                                    } catch (err: any) {
-                                                        alert('偵探模式啟動失敗：' + err.message);
-                                                        setIsDetectiveMode(false);
-                                                    } finally {
-                                                        setDetectingLoading(false);
-                                                    }
+                                                        if (data.detections) setDetections(data.detections);
+                                                    } catch (err: any) { alert('偵探模式失敗'); setIsDetectiveMode(false); } finally { setDetectingLoading(false); }
                                                 }}
                                                 disabled={detectingLoading}
-                                                className={`flex items-center justify-center gap-2 py-2.5 border rounded-xl text-[11px] font-medium transition-all ${isDetectiveMode ? 'bg-cyan-500/20 border-cyan-500/50 text-cyan-300' : 'bg-neutral-800 border-transparent text-gray-300 hover:bg-neutral-700'}`}
-                                                title="偵探模式：交互式物件辨識與標籤"
+                                                className={`flex items-center justify-center gap-2 py-3 border rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 ${isDetectiveMode ? 'bg-purple-500/20 border-purple-500/50 text-purple-300' : 'bg-white/5 border-white/10 text-gray-300'}`}
                                             >
                                                 {detectingLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Crosshair className="w-3.5 h-3.5" />}
                                                 偵探模式
@@ -1454,7 +1445,6 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                         setSelectedCrop(null);
                                                         return;
                                                     }
-
                                                     setSmartCropLoading(true);
                                                     try {
                                                         const imgRes = await fetch(selectedImage.imageUrl!);
@@ -1464,28 +1454,19 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                             reader.onloadend = () => resolve(reader.result as string);
                                                             reader.readAsDataURL(blob);
                                                         });
-
                                                         const res = await fetch('/api/smart-crop', {
                                                             method: 'POST',
                                                             headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({
-                                                                imageBase64: base64,
-                                                                apiKey: localStorage.getItem('geminiApiKey') || ''
-                                                            })
+                                                            body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
                                                         });
                                                         if (!res.ok) throw new Error(await res.text());
                                                         const data = await res.json();
                                                         setSmartCropData(data);
                                                         setSelectedCrop(0);
-                                                    } catch (err: any) {
-                                                        alert('智能裁切分析失敗：' + err.message);
-                                                    } finally {
-                                                        setSmartCropLoading(false);
-                                                    }
+                                                    } catch (err: any) { alert('視覺重組失敗'); } finally { setSmartCropLoading(false); }
                                                 }}
                                                 disabled={smartCropLoading}
-                                                className={`flex items-center justify-center gap-2 py-2.5 border rounded-xl text-[11px] font-medium transition-all ${smartCropData ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300' : 'bg-neutral-800 border-transparent text-gray-300 hover:bg-neutral-700'}`}
-                                                title="智能裁切：AI 建議最佳裁切區域"
+                                                className={`flex items-center justify-center gap-2 py-3 border rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 ${smartCropData ? 'bg-purple-500/20 border-purple-500/50 text-purple-300' : 'bg-white/5 border-white/10 text-gray-300'}`}
                                             >
                                                 {smartCropLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Layout className="w-3.5 h-3.5" />}
                                                 視覺重組
@@ -1502,27 +1483,18 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                                             reader.onloadend = () => resolve(reader.result as string);
                                                             reader.readAsDataURL(blob);
                                                         });
-
                                                         const res = await fetch('/api/analyze-composition', {
                                                             method: 'POST',
                                                             headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({
-                                                                imageBase64: base64,
-                                                                apiKey: localStorage.getItem('geminiApiKey') || ''
-                                                            })
+                                                            body: JSON.stringify({ imageBase64: base64, apiKey: localStorage.getItem('geminiApiKey') || '' })
                                                         });
                                                         if (!res.ok) throw new Error(await res.text());
                                                         const data = await res.json();
                                                         setCompositionAnalysis(data);
-                                                    } catch (err: any) {
-                                                        alert('構圖分析失敗：' + err.message);
-                                                    } finally {
-                                                        setCompositionLoading(false);
-                                                    }
+                                                    } catch (err: any) { alert('構圖分析失敗'); } finally { setCompositionLoading(false); }
                                                 }}
                                                 disabled={compositionLoading}
-                                                className="flex items-center justify-center gap-2 py-2.5 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all"
-                                                title="AI 藝術指導：分析畫面構圖與焦點"
+                                                className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 disabled:opacity-50 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
                                             >
                                                 {compositionLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Microscope className="w-3.5 h-3.5" />}
                                                 構圖指導
@@ -1530,39 +1502,36 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                         </div>
                                     </div>
 
-                                    {/* Action Subgroup: Variations */}
-                                    <div className="space-y-3">
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-1 h-3 bg-indigo-600 rounded-full" />
-                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">創作延展</h4>
+                                    {/* Action Subgroup: Primary Actions */}
+                                    <div className="pt-6 border-t border-white/5 space-y-3">
+                                        <div className="grid grid-cols-2 gap-3">
+                                            <button
+                                                onClick={() => setIsVariationMenuOpen(!isVariationMenuOpen)}
+                                                className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
+                                            >
+                                                <Sparkles className="w-4 h-4 text-purple-400" />
+                                                接龍
+                                            </button>
+                                            <a
+                                                href={selectedImage.imageUrl || ""}
+                                                download={`prompt-db-${selectedImage.id}.png`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
+                                            >
+                                                <Download className="w-4 h-4 text-purple-400" />
+                                                下載
+                                            </a>
                                         </div>
-                                        <button
-                                            onClick={() => setIsVariationMenuOpen(!isVariationMenuOpen)}
-                                            className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/20 transition-all active:scale-[0.98]"
-                                        >
-                                            <Sparkles className="w-4 h-4" />
-                                            啟動提示詞接龍
-                                        </button>
-                                    </div>
-
-                                    {/* Action Subgroup: Download (The prominent one) */}
-                                    <div className="pt-4 border-t border-white/5 space-y-3">
-                                        <a
-                                            href={selectedImage.imageUrl || ""}
-                                            download={`prompt-db-${selectedImage.id}.png`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-full flex items-center justify-center gap-3 py-4 bg-white/10 hover:bg-white/15 text-white rounded-2xl text-sm font-bold border border-white/5 backdrop-blur-md transition-all active:scale-[0.98]"
-                                        >
-                                            <Download className="w-5 h-5" />
-                                            下載圖片
-                                        </a>
-                                        <button
-                                            onClick={() => setSelectedImage(null)}
-                                            className="w-full py-3 text-gray-500 hover:text-white text-xs font-medium transition-colors"
-                                        >
-                                            暫時不，返回
-                                        </button>
+                                        
+                                        <div className="flex justify-center pt-4 pb-2">
+                                            <button
+                                                onClick={() => setSelectedImage(null)}
+                                                className="text-[11px] text-gray-500 hover:text-gray-300 transition-all hover:underline underline-offset-4"
+                                            >
+                                                暫時不，返回
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
