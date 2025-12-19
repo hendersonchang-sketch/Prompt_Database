@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain, Scissors, Crosshair, Layout, Target, Sparkles, Download } from "lucide-react";
+import {
+    X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
+    Scissors, Crosshair, Layout, Target, Sparkles, Download,
+    Camera, Palette, Clock, BookOpen, Smile, Rainbow, Snowflake, Telescope, FlipHorizontal, Mountain
+} from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
 
@@ -581,13 +585,59 @@ export function ImageModal({
                             {/* Action Subgroup: Primary Actions */}
                             <div className="pt-6 border-t border-white/5 space-y-3">
                                 <div className="grid grid-cols-2 gap-3">
-                                    <button
-                                        onClick={() => setIsVariationMenuOpen(!isVariationMenuOpen)}
-                                        className="flex items-center justify-center gap-2 py-3 px-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all active:scale-95"
-                                    >
-                                        <Sparkles className="w-4 h-4 text-purple-400" />
-                                        接龍
-                                    </button>
+                                    {/* Variation Menu Button with Popover */}
+                                    <div className="relative">
+                                        <button
+                                            onClick={() => setIsVariationMenuOpen(!isVariationMenuOpen)}
+                                            disabled={variationLoading}
+                                            className={`w-full flex items-center justify-center gap-2 py-3 px-4 border rounded-xl text-xs font-bold transition-all active:scale-95 ${isVariationMenuOpen
+                                                    ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-300'
+                                                    : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'
+                                                }`}
+                                        >
+                                            {variationLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4 text-purple-400" />}
+                                            創意接龍
+                                        </button>
+
+                                        {/* Variation Menu Popover */}
+                                        {isVariationMenuOpen && (
+                                            <div className="absolute bottom-full left-0 right-0 mb-2 bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-3 z-[70] animate-in slide-in-from-bottom-2 duration-200">
+                                                <div className="grid grid-cols-2 gap-2">
+                                                    {[
+                                                        { id: 'scene', label: '場景變換', icon: Mountain },
+                                                        { id: 'angle', label: '攝影角度', icon: Camera },
+                                                        { id: 'style', label: '藝術風格', icon: Palette },
+                                                        { id: 'time', label: '時間天候', icon: Clock },
+                                                        { id: 'series', label: '故事接龍', icon: BookOpen },
+                                                        { id: 'mood', label: '情緒氛圍', icon: Smile },
+                                                        { id: 'color', label: '色彩計畫', icon: Rainbow },
+                                                        { id: 'season', label: '季節更換', icon: Snowflake },
+                                                        { id: 'distance', label: '鏡頭距離', icon: Telescope },
+                                                        { id: 'mirror', label: '鏡像構圖', icon: FlipHorizontal }
+                                                    ].map(opt => {
+                                                        const IconComponent = opt.icon;
+                                                        return (
+                                                            <button
+                                                                key={opt.id}
+                                                                onClick={() => {
+                                                                    // TODO: Call variation API
+                                                                    console.log('Variation type:', opt.id);
+                                                                    setIsVariationMenuOpen(false);
+                                                                }}
+                                                                className="flex items-center gap-2 px-3 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-left transition-all border border-white/5 hover:border-white/20 group"
+                                                            >
+                                                                <IconComponent className="w-3.5 h-3.5 text-gray-400 group-hover:text-indigo-400 transition-colors shrink-0" />
+                                                                <span className="text-[10px] text-gray-300 group-hover:text-white transition-colors font-medium">
+                                                                    {opt.label}
+                                                                </span>
+                                                            </button>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
                                     <a
                                         href={selectedImage.imageUrl || ""}
                                         download={`prompt-db-${selectedImage.id}.png`}
