@@ -1047,36 +1047,39 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 </div>
 
                 {/* Magic Reverse Prompt Area */}
-                <div className="relative group">
-                    {/* Shadow suggestion layer */}
-                    {suggestion && (
-                        <div
-                            className="absolute inset-0 p-4 pt-[17px] pointer-events-none text-white/20 whitespace-pre-wrap break-words text-sm overflow-hidden"
-                            aria-hidden="true"
-                        >
-                            <span className="invisible">{formData.prompt}</span>
-                            <span>{suggestion}</span>
-                            <span className="ml-2 inline-flex items-center text-[10px] bg-white/10 px-1 rounded animate-pulse">Tab to accept</span>
-                        </div>
-                    )}
-                    <textarea
-                        name="prompt"
-                        required
-                        rows={4}
-                        value={formData.prompt}
-                        onChange={handleChange}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Tab' && suggestion) {
-                                e.preventDefault();
-                                setFormData(prev => ({ ...prev, prompt: prev.prompt + suggestion }));
-                                setSuggestion("");
-                            }
-                        }}
-                        placeholder="描述您想生成的畫面..."
-                        className="w-full bg-black/40 border-white/10 rounded-xl p-4 pb-14 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none relative z-10"
-                    />
-                    {/* Magic Upload Buttons - bottom right */}
-                    <div className="absolute bottom-2 right-2 flex gap-1">
+                <div className="space-y-3">
+                    <div className="relative group">
+                        {/* Shadow suggestion layer */}
+                        {suggestion && (
+                            <div
+                                className="absolute inset-0 p-4 pt-[17px] pointer-events-none text-white/20 whitespace-pre-wrap break-words text-sm overflow-hidden"
+                                aria-hidden="true"
+                            >
+                                <span className="invisible">{formData.prompt}</span>
+                                <span>{suggestion}</span>
+                                <span className="ml-2 inline-flex items-center text-[10px] bg-white/10 px-1 rounded animate-pulse">Tab to accept</span>
+                            </div>
+                        )}
+                        <textarea
+                            name="prompt"
+                            required
+                            rows={4}
+                            value={formData.prompt}
+                            onChange={handleChange}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Tab' && suggestion) {
+                                    e.preventDefault();
+                                    setFormData(prev => ({ ...prev, prompt: prev.prompt + suggestion }));
+                                    setSuggestion("");
+                                }
+                            }}
+                            placeholder="描述您想生成的畫面..."
+                            className="w-full bg-black/40 border-white/10 rounded-xl p-4 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none relative z-10"
+                        />
+                    </div>
+
+                    {/* 工具列遷移至外部右下角，確保按鈕獨立且佈局清晰 */}
+                    <div className="flex justify-end items-center gap-1.5 px-1 py-1">
                         <input
                             type="file"
                             id="magic-upload"
@@ -1085,33 +1088,26 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             onChange={async (e) => {
                                 const file = e.target.files?.[0];
                                 if (!file) return;
-
                                 if (file.size > 5 * 1024 * 1024) {
                                     alert("圖片太大，請小於 5MB");
                                     return;
                                 }
-
-                                const originalText = e.target.value; // Store to clear if needed, actually we just upload
-                                e.target.value = ""; // Clear input to allow re-upload same file
-
+                                e.target.value = "";
                                 setLoading(true);
                                 try {
                                     const reader = new FileReader();
                                     reader.onloadend = async () => {
                                         const base64 = reader.result as string;
-
                                         const res = await fetch("/api/describe", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({
                                                 image: base64,
-                                                apiKey: formData.apiKey // Optional pass-through if custom key used
+                                                apiKey: formData.apiKey
                                             }),
                                         });
-
                                         if (!res.ok) throw new Error(await res.text());
                                         const data = await res.json();
-
                                         if (data.prompt) {
                                             setFormData(prev => ({ ...prev, prompt: data.prompt }));
                                         }
@@ -1124,19 +1120,69 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                 }
                             }}
                         />
+                        <input
+                            type="file"
+                            id="character-upload"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={async (e) => {
+                                const file = e.target.files?.[0];
+                                if (!file) return;
+                                if (file.size > 5 * 1024 * 1024) {
+                                    alert("圖片太大，請小於 5MB");
+                                    return;
+                                }
+                                e.target.value = "";
+                                setLoading(true);
+                                try {
+                                    const reader = new FileReader();
+                                    reader.onloadend = async () => {
+                                        const base64 = reader.result as string;
+                                        const res = await fetch("/api/describe", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/json" },
+                                            body: JSON.stringify({
+                                                image: base64,
+                                                apiKey: formData.apiKey,
+                                                characterOnly: true
+                                            }),
+                                        });
+                                        if (!res.ok) throw new Error(await res.text());
+                                        const data = await res.json();
+                                        if (data.prompt) {
+                                            const name = prompt('給這個角色取個名字:');
+                                            if (name) {
+                                                const newCharacters = [...savedCharacters, { name, prompt: data.prompt }];
+                                                setSavedCharacters(newCharacters);
+                                                localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
+                                                setFormData(prev => ({ ...prev, prompt: data.prompt + ', [場景描述]' }));
+                                                alert(`角色「${name}」已儲存到角色庫！`);
+                                            } else {
+                                                setFormData(prev => ({ ...prev, prompt: data.prompt }));
+                                            }
+                                        }
+                                    };
+                                    reader.readAsDataURL(file);
+                                } catch (err: any) {
+                                    setErrorMsg(err.message || "角色提取失敗");
+                                } finally {
+                                    setLoading(false);
+                                }
+                            }}
+                        />
+
                         {/* Clear Button */}
                         {formData.prompt && (
                             <button
                                 type="button"
                                 onClick={() => setFormData(prev => ({ ...prev, prompt: '' }))}
-                                className="p-2 bg-gray-600/20 hover:bg-gray-600 text-gray-300 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-gray-500/30"
+                                className="p-2 bg-white/5 hover:bg-red-500/20 text-gray-400 hover:text-red-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
                                 title="清空提示詞"
                             >
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
+                                <X className="w-4 h-4" />
                             </button>
                         )}
+
                         {/* Copy Prompt Button */}
                         {formData.prompt && (
                             <button
@@ -1160,116 +1206,47 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                         alert("複製失敗，請手動選取複製");
                                     }
                                 }}
-                                className="p-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-indigo-500/30"
+                                className="p-2 bg-white/5 hover:bg-indigo-500/20 text-gray-400 hover:text-indigo-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
                                 title="複製 Prompt"
                             >
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                                </svg>
+                                <Copy className="w-4 h-4" />
                             </button>
                         )}
+
                         <button
                             type="button"
                             onClick={() => document.getElementById('magic-upload')?.click()}
-                            className="p-2 bg-purple-600/20 hover:bg-purple-600 text-purple-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-purple-500/30 group"
-                            title="上傳圖片反推 Prompt (Image to Prompt)"
+                            className="p-2 bg-white/5 hover:bg-purple-500/20 text-gray-400 hover:text-purple-400 rounded-xl transition-all backdrop-blur-md border border-white/5 group relative"
+                            title="上傳圖片反推 Prompt"
                         >
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <span className="sr-only">反推</span>
-                            {/* Tooltip */}
-                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                上傳圖片反推完整 Prompt ✨
+                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-[10px] text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+                                📤 上傳反推
                             </span>
                         </button>
 
-                        {/* Character DNA Extraction Button */}
-                        <input
-                            type="file"
-                            id="character-upload"
-                            accept="image/*"
-                            className="hidden"
-                            onChange={async (e) => {
-                                const file = e.target.files?.[0];
-                                if (!file) return;
-
-                                if (file.size > 5 * 1024 * 1024) {
-                                    alert("圖片太大，請小於 5MB");
-                                    return;
-                                }
-
-                                e.target.value = "";
-                                setLoading(true);
-                                try {
-                                    const reader = new FileReader();
-                                    reader.onloadend = async () => {
-                                        const base64 = reader.result as string;
-
-                                        const res = await fetch("/api/describe", {
-                                            method: "POST",
-                                            headers: { "Content-Type": "application/json" },
-                                            body: JSON.stringify({
-                                                image: base64,
-                                                apiKey: formData.apiKey,
-                                                characterOnly: true  // Extract only character description
-                                            }),
-                                        });
-
-                                        if (!res.ok) throw new Error(await res.text());
-                                        const data = await res.json();
-
-                                        if (data.prompt) {
-                                            // Ask user to name and save the character
-                                            const name = prompt('給這個角色取個名字:');
-                                            if (name) {
-                                                const newCharacters = [...savedCharacters, { name, prompt: data.prompt }];
-                                                setSavedCharacters(newCharacters);
-                                                localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
-                                                setFormData(prev => ({ ...prev, prompt: data.prompt + ', [場景描述]' }));
-                                                alert(`角色「${name}」已儲存到角色庫！`);
-                                            } else {
-                                                setFormData(prev => ({ ...prev, prompt: data.prompt }));
-                                            }
-                                        }
-                                    };
-                                    reader.readAsDataURL(file);
-                                } catch (err: any) {
-                                    setErrorMsg(err.message || "角色提取失敗");
-                                } finally {
-                                    setLoading(false);
-                                }
-                            }}
-                        />
                         <button
                             type="button"
                             onClick={() => document.getElementById('character-upload')?.click()}
-                            className="p-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-cyan-500/30 group"
-                            title="提取角色 DNA（只擷取人物特徵）"
+                            className="p-2 bg-white/5 hover:bg-cyan-500/20 text-gray-400 hover:text-cyan-400 rounded-xl transition-all backdrop-blur-md border border-white/5 group relative"
+                            title="提取角色 DNA"
                         >
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            <span className="sr-only">提取角色</span>
-                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                🧑 提取角色 DNA（不含場景）
+                            <User className="w-4 h-4" />
+                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-[10px] text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+                                🧑 提取角色
                             </span>
                         </button>
 
-                        {/* Character Vault Button */}
                         <button
                             type="button"
                             onClick={() => setShowCharManager(true)}
-                            className="p-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white rounded-lg transition-all backdrop-blur-sm border border-indigo-500/30 group"
-                            title="打開角色庫"
+                            className="ml-1 p-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-500/30 flex items-center gap-2 px-3 text-[10px] font-bold"
+                            title="角色庫"
                         >
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            <span className="sr-only">角色庫</span>
-                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                👤 管理角色 DNA
-                            </span>
+                            <Users className="w-3.5 h-3.5" />
+                            角色庫
                         </button>
                     </div>
                 </div>
