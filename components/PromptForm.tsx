@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { X, Copy, User, Users, Loader2 } from "lucide-react";
 import CharacterManager from "./CharacterManager";
 
 interface PromptFormProps {
