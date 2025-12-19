@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Edit3, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Crosshair, Layout, Target, Download, Save
+    Scissors, Crosshair, Layout, Target, Download, Save, User, Users
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
+import CharacterManager from "./CharacterManager";
 
 interface ImageModalProps {
     selectedImage: PromptEntry;
@@ -71,9 +72,16 @@ export function ImageModal({
     const [tagInput, setTagInput] = useState("");
     const [isTagUpdating, setIsTagUpdating] = useState(false);
 
-    // Sync selectedImage if initialImage changes (though unlikely while open)
+    // Prompt Edit States
+    const [localPromptEn, setLocalPromptEn] = useState(initialImage.prompt || "");
+    const [localPromptZh, setLocalPromptZh] = useState(initialImage.promptZh || "");
+    const [showCharManager, setShowCharManager] = useState(false);
+
+    // Sync selectedImage if initialImage changes
     useEffect(() => {
         setSelectedImage(initialImage);
+        setLocalPromptEn(initialImage.prompt || "");
+        setLocalPromptZh(initialImage.promptZh || "");
     }, [initialImage]);
 
     // Tag Handlers
@@ -135,32 +143,28 @@ export function ImageModal({
         setTimeout(() => setToastMessage(null), duration);
     };
 
-    // 存入圖庫 (去背後)
+    // 存入圖庫 (更新 Prompt 或 去背後圖片)
     const handleSaveToLibrary = async () => {
-        if (!removedBgPreview) return;
         setIsRemovingBg(true);
         try {
-            const res = await fetch('/api/prompts', {
-                method: 'PUT',
+            const res = await fetch(`/api/prompts/${selectedImage.id}`, {
+                method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    imageUrl: removedBgPreview,
-                    prompt: selectedImage.prompt,
-                    originalPrompt: selectedImage.originalPrompt || selectedImage.prompt,
-                    promptZh: selectedImage.promptZh || "",
-                    negativePrompt: selectedImage.negativePrompt || "",
-                    width: selectedImage.width || 1024,
-                    height: selectedImage.height || 1024,
-                    seed: selectedImage.seed || 0,
-                    cfgScale: selectedImage.cfgScale || 7.0,
-                    steps: selectedImage.steps || 25,
-                    tags: selectedImage.tags || "",
-                    imageEngine: selectedImage.engine || "imagen"
+                    imageUrl: removedBgPreview || selectedImage.imageUrl,
+                    prompt: localPromptEn,
+                    promptZh: localPromptZh,
                 })
             });
             if (res.ok) {
-                showToast('✅ 已成功存入圖庫');
-                setRemovedBgPreview(null);
+                showToast('✅ 已成功更新圖庫');
+                if (removedBgPreview) setRemovedBgPreview(null);
+                setSelectedImage(prev => ({
+                    ...prev,
+                    prompt: localPromptEn,
+                    promptZh: localPromptZh,
+                    imageUrl: removedBgPreview || prev.imageUrl
+                }));
             } else {
                 throw new Error('儲存失敗');
             }
@@ -363,39 +367,70 @@ export function ImageModal({
                                     <Copy className="w-4 h-4" />
                                 </button>
                             </div>
-                            <div className="bg-black/30 rounded-2xl p-5 border border-white/5 space-y-3 relative group transition-all duration-300">
-                                {/* 英文 Prompt */}
-                                <div className="relative">
-                                    <p className="text-gray-300 leading-relaxed text-sm font-light select-text selection:bg-purple-500/30">
-                                        {selectedImage.prompt}
-                                    </p>
+                            <div className="space-y-4">
+                                <div className="bg-black/30 rounded-2xl p-4 border border-white/5 relative group transition-all duration-300">
+                                    <div className="flex flex-col gap-3">
+                                        <div className="relative">
+                                            <textarea
+                                                value={localPromptEn}
+                                                onChange={(e) => setLocalPromptEn(e.target.value)}
+                                                className="w-full bg-transparent text-gray-300 leading-relaxed text-sm font-light outline-none resize-none min-h-[80px]"
+                                                placeholder="English Prompt..."
+                                            />
+                                        </div>
+                                        <div className="h-px bg-white/5" />
+                                        <div className="relative">
+                                            <textarea
+                                                value={localPromptZh}
+                                                onChange={(e) => setLocalPromptZh(e.target.value)}
+                                                className="w-full bg-transparent text-white/90 leading-relaxed text-[13px] font-medium outline-none resize-none min-h-[60px]"
+                                                placeholder="中文描述..."
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* 工具列遷移至外部右下角，確保按鈕獨立且佈局清晰 */}
+                                <div className="flex justify-end items-center gap-1.5 px-1 py-1">
                                     <button
-                                        onClick={() => handleCopyPrompt(selectedImage.prompt)}
-                                        className="absolute top-0 right-0 p-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-gray-400 hover:text-white transition-all active:scale-95 opacity-0 group-hover:opacity-100"
-                                        title="複製英文提示詞"
+                                        onClick={() => { setLocalPromptEn(''); setLocalPromptZh(''); }}
+                                        className="p-2 bg-white/5 hover:bg-red-500/20 text-gray-500 hover:text-red-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
+                                        title="清除內容"
                                     >
-                                        <Copy className="w-3 h-3" />
+                                        <X className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            handleCopyPrompt(`${localPromptEn}\n${localPromptZh}`);
+                                        }}
+                                        className="p-2 bg-white/5 hover:bg-indigo-500/20 text-gray-500 hover:text-indigo-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
+                                        title="複製全部"
+                                    >
+                                        <Copy className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={handleSaveToLibrary}
+                                        disabled={isRemovingBg}
+                                        className="p-2 bg-white/5 hover:bg-emerald-500/20 text-gray-500 hover:text-emerald-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
+                                        title="存入圖庫"
+                                    >
+                                        {isRemovingBg ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                                    </button>
+                                    <button
+                                        onClick={() => setShowCharManager(true)}
+                                        className="p-2 bg-white/5 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 rounded-xl transition-all backdrop-blur-md border border-white/5"
+                                        title="個人角色"
+                                    >
+                                        <User className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={() => setShowCharManager(true)}
+                                        className="ml-1 p-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-500/30 flex items-center gap-2 px-3 text-[10px] font-bold"
+                                        title="角色庫"
+                                    >
+                                        <Users className="w-3.5 h-3.5" />
+                                        角色庫
                                     </button>
                                 </div>
-
-                                {selectedImage.promptZh && (
-                                    <div className="mt-4 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl relative group/zh">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
-                                            <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-tighter">中文描述</span>
-                                        </div>
-                                        <p className="text-white/90 leading-relaxed text-[13px] font-medium">
-                                            {selectedImage.promptZh}
-                                        </p>
-                                        <button
-                                            onClick={() => handleCopyPrompt(selectedImage.promptZh || "")}
-                                            className="absolute top-3 right-3 p-1.5 bg-white/5 hover:bg-indigo-500/20 rounded-lg text-gray-400 hover:text-indigo-300 transition-all opacity-0 group-hover/zh:opacity-100"
-                                            title="複製中文描述"
-                                        >
-                                            <Copy className="w-3 h-3" />
-                                        </button>
-                                    </div>
-                                )}
                             </div>
                         </div>
 
@@ -1079,6 +1114,15 @@ export function ImageModal({
                     </div>
                 </div>
             )}
+
+            <CharacterManager
+                isOpen={showCharManager}
+                onClose={() => setShowCharManager(false)}
+                onSelect={(char) => {
+                    setLocalPromptEn(prev => char.basePrompt + (prev ? ", " + prev : ""));
+                    setShowCharManager(false);
+                }}
+            />
         </div>
     );
 }
