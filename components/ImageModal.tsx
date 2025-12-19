@@ -537,7 +537,10 @@ export function ImageModal({
                                     編輯圖片
                                 </button>
                                 <button
-                                    onClick={() => handleReuse(selectedImage)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleReuse(selectedImage);
+                                    }}
                                     className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
                                 >
                                     <Play className="w-3.5 h-3.5" />

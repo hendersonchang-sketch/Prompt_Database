@@ -693,6 +693,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
 
     return (
         <form
+            id="prompt-form-section"
             onSubmit={handleSubmit}
             className="w-full max-w-4xl bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 shadow-xl space-y-6"
         >

@@ -294,9 +294,23 @@ export default function PromptGallery({ refreshTrigger, onReuse }: PromptGallery
 
     const handleReuse = (image: PromptEntry) => {
         if (onReuse) {
+            // 記錄當前滾動位置，防止頁面因 Modal 關閉而出現劇烈跳轉
+            const currentScrollY = window.scrollY;
+
             const reuseText = image.originalPrompt || image.prompt;
             onReuse({ ...image, prompt: reuseText });
             setSelectedImage(null);
+
+            // 確保狀態更新與 DOM 渲染完成後再執行滾動
+            setTimeout(() => {
+                const promptSection = document.getElementById('prompt-form-section');
+                if (promptSection) {
+                    promptSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // 如果找不到錨點，則恢復原位，避免自動跳到頂部
+                    window.scrollTo({ top: currentScrollY, behavior: 'smooth' });
+                }
+            }, 100);
         }
     };
 
@@ -403,7 +417,9 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
             const data = await res.json();
             if (data.variation && onReuse) {
                 onReuse({ prompt: data.variation });
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                    document.getElementById('prompt-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
                 setIsSelectionMode(false);
                 setSelectedIds(new Set());
             }
