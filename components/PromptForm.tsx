@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Copy, User, Users, Loader2 } from "lucide-react";
+import { X, Copy, User, Users, Loader2, Sparkles } from "lucide-react";
 import CharacterManager from "./CharacterManager";
 
 interface PromptFormProps {
@@ -313,6 +313,10 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     // Prompt Queue State (for batch variations)
     const [promptQueue, setPromptQueue] = useState<string[]>([]);
 
+    // Reference Image State (for Img2Img)
+    const [referenceImage, setReferenceImage] = useState<string | null>(null);
+    const [referenceMode, setReferenceMode] = useState<'preserve' | 'subject'>('subject'); // 'preserve' = Lock Composition, 'subject' = Only Subject
+
     // Flash Suggest State
     const [suggestion, setSuggestion] = useState("");
     const suggestionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -480,6 +484,18 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
         }
     }, []);
 
+    // Helper to fetch and convert image to base64
+    const getBase64 = async (url: string): Promise<string> => {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result as string);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    };
+
     // Effect to populate form when initialData changes (Redraw action)
     useEffect(() => {
         if (initialData) {
@@ -487,13 +503,23 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 ...prev,
                 prompt: initialData.prompt,
                 negativePrompt: initialData.negativePrompt || "",
-                width: initialData.width,
-                height: initialData.height,
+                width: initialData.width || 1024,
+                height: initialData.height || 1024,
                 steps: initialData.steps || 25,
                 cfgScale: initialData.cfgScale || 7.0,
                 seed: initialData.seed || -1,
                 // Keep provider settings as is
             }));
+
+            // Handle reference image if provided
+            if (initialData.imageUrl) {
+                getBase64(initialData.imageUrl)
+                    .then(base64 => {
+                        setReferenceImage(base64);
+                        setReferenceMode('subject'); // Default to subject mode for reuse
+                    })
+                    .catch(err => console.error('Failed to load initial reference image', err));
+            }
 
             // Smart Magic Detection (Updated for Ultimate Logic v2)
             if (initialData.prompt.includes(LOGIC_PREFIX.trim()) || initialData.prompt.includes("Analyze the core emotion")) {
@@ -608,7 +634,11 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                     : formData.prompt,
                 imageCount: imageEngine === "imagen" ? imageCount : 1,
                 imageEngine,
-                previewMode: imageEngine === "imagen" && imageCount > 1
+                previewMode: imageEngine === "imagen" && imageCount > 1,
+                // Add reference image if exists
+                imageBase64: referenceImage,
+                strength: referenceMode === 'preserve' ? 30 : 50,
+                style: referenceMode === 'preserve' ? 'preserve' : 'transform'
             };
 
             const res = await fetch("/api/prompts", {
@@ -629,8 +659,10 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 setPreviewData(data);
                 setIsPreviewMode(true);
             } else {
-                // Single image, directly saved
+                // Success: entry was created or returned
                 onSuccess();
+                // Clear reference image after success
+                setReferenceImage(null);
             }
         } catch (error: any) {
             console.error(error);
@@ -1078,6 +1110,47 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             placeholder="描述您想生成的畫面..."
                             className="w-full bg-black/40 border-white/10 rounded-xl p-4 text-white placeholder:text-white/30 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none relative z-10"
                         />
+
+                        {/* Reference Image Preview Area */}
+                        {referenceImage && (
+                            <div className="absolute bottom-4 left-4 z-20 flex gap-3 animate-in zoom-in-95 fade-in duration-200">
+                                <div className="relative group/ref">
+                                    <div className="absolute -top-2 -right-2 z-30 opacity-0 group-hover/ref:opacity-100 transition-opacity">
+                                        <button
+                                            type="button"
+                                            onClick={() => setReferenceImage(null)}
+                                            className="p-1 bg-red-500 text-white rounded-full shadow-lg hover:bg-red-600 transition-colors"
+                                        >
+                                            <X className="w-3 h-3" />
+                                        </button>
+                                    </div>
+                                    <div className="w-16 h-16 rounded-lg border-2 border-purple-500/50 overflow-hidden shadow-xl bg-black">
+                                        <img
+                                            src={referenceImage}
+                                            alt="Reference"
+                                            className="w-full h-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-purple-500/10 mix-blend-overlay" />
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col justify-center gap-1">
+                                    <button
+                                        type="button"
+                                        onClick={() => setReferenceMode(referenceMode === 'preserve' ? 'subject' : 'preserve')}
+                                        className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider transition-all border ${referenceMode === 'preserve'
+                                            ? "bg-amber-500 text-black border-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
+                                            : "bg-purple-600/50 text-white border-purple-400/50"
+                                            }`}
+                                    >
+                                        {referenceMode === 'preserve' ? "🔒 鎖定構圖" : "🎨 僅參考主體"}
+                                    </button>
+                                    <div className="text-[8px] text-gray-400 px-1">
+                                        {referenceMode === 'preserve' ? "適合局部更換" : "適合矩陣/換背景"}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* 工具列遷移至外部右下角，確保按鈕獨立且佈局清晰 */}
@@ -1113,6 +1186,8 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                         if (data.prompt) {
                                             setFormData(prev => ({ ...prev, prompt: data.prompt }));
                                         }
+                                        // 關鍵變動：同時保留為參考圖
+                                        setReferenceImage(base64);
                                     };
                                     reader.readAsDataURL(file);
                                 } catch (err: any) {
@@ -1218,14 +1293,18 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         <button
                             type="button"
                             onClick={() => document.getElementById('magic-upload')?.click()}
-                            className="p-2 bg-white/5 hover:bg-purple-500/20 text-gray-400 hover:text-purple-400 rounded-xl transition-all backdrop-blur-md border border-white/5 group relative"
-                            title="上傳圖片反推 Prompt"
+                            className={`p-2 rounded-xl transition-all backdrop-blur-md border border-white/5 group relative ${referenceImage ? 'bg-purple-600/50 text-white border-purple-500/50' : 'bg-white/5 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400'}`}
+                            title="上傳圖片作為參考 (同時反推 Prompt)"
                         >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
+                            {referenceImage ? (
+                                <Sparkles className="w-4 h-4 animate-pulse" />
+                            ) : (
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            )}
                             <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-[10px] text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                                📤 上傳反推
+                                {referenceImage ? "🖼️ 已設為參考圖" : "🖼️ 上傳參考圖"}
                             </span>
                         </button>
 

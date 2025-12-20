@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Download, Save, Paintbrush, Sparkles
+    Scissors, Download, Save, Paintbrush, Sparkles, ZoomIn, ZoomOut, RotateCcw, Zap, ImageIcon
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
@@ -13,9 +13,10 @@ interface ImageModalProps {
     handleReuse: (image: PromptEntry) => void;
     handleDelete: (id: string) => void;
     onTagUpdate?: (id: string, newTags: string) => void;
-    onPromptUpdate?: (id: string, prompt: string, promptZh: string) => void;
+    onPromptUpdate?: (id: string, prompt: string, promptZh?: string) => void;
     handleCopyPrompt: (text: string) => void;
     copyFeedback: string | null;
+    handleSetAsReference?: (image: PromptEntry) => void;
 }
 
 export function ImageModal({
@@ -27,7 +28,8 @@ export function ImageModal({
     onTagUpdate,
     onPromptUpdate,
     handleCopyPrompt,
-    copyFeedback
+    copyFeedback,
+    handleSetAsReference
 }: ImageModalProps) {
     const [selectedImage, setSelectedImage] = useState(initialImage);
 
@@ -57,6 +59,27 @@ export function ImageModal({
     // Tagging State
     const [tagInput, setTagInput] = useState("");
     const [isTagUpdating, setIsTagUpdating] = useState(false);
+    const [zoomScale, setZoomScale] = useState(1);
+    const [panOrigin, setPanOrigin] = useState({ x: 50, y: 50 });
+
+    const handleZoomIn = () => setZoomScale(prev => Math.min(prev + 0.25, 5));
+    const handleZoomOut = () => {
+        const newScale = Math.max(zoomScale - 0.25, 0.5);
+        setZoomScale(newScale);
+        if (newScale <= 1) setPanOrigin({ x: 50, y: 50 });
+    };
+    const handleResetZoom = () => {
+        setZoomScale(1);
+        setPanOrigin({ x: 50, y: 50 });
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (zoomScale <= 1) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setPanOrigin({ x, y });
+    };
 
     // Reuse Confirmation Modal State
     const [isReuseConfirmOpen, setIsReuseConfirmOpen] = useState(false);
@@ -66,13 +89,15 @@ export function ImageModal({
     // Sync selectedImage if initialImage changes
     useEffect(() => {
         setSelectedImage(initialImage);
+        setZoomScale(1); // Reset zoom on image change
+        setPanOrigin({ x: 50, y: 50 });
     }, [initialImage]);
 
     // Tag Handlers
     const handleTagUpdateInternal = async (id: string, newTags: string) => {
         setIsTagUpdating(true);
         try {
-            const res = await fetch(`/api/prompts/${id}/tags`, {
+            const res = await fetch(`/ api / prompts / ${id}/tags`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ tags: newTags }),
@@ -302,13 +327,47 @@ export function ImageModal({
                     <X className="w-5 h-5" />
                 </button>
 
+                {/* Zoom Controls Overlay */}
+                <div className="absolute top-6 left-6 z-[70] flex items-center gap-2">
+                    <button
+                        onClick={handleZoomIn}
+                        className="p-2 bg-black/20 hover:bg-black/40 text-white/70 hover:text-white rounded-full transition-all border border-white/5 hover:border-white/10 backdrop-blur-md"
+                        title="放大"
+                    >
+                        <ZoomIn className="w-5 h-5" />
+                    </button>
+                    <button
+                        onClick={handleZoomOut}
+                        className="p-2 bg-black/20 hover:bg-black/40 text-white/70 hover:text-white rounded-full transition-all border border-white/5 hover:border-white/10 backdrop-blur-md"
+                        title="縮小"
+                    >
+                        <ZoomOut className="w-5 h-5" />
+                    </button>
+                    {zoomScale !== 1 && (
+                        <button
+                            onClick={handleResetZoom}
+                            className="p-2 bg-indigo-500/20 hover:bg-indigo-500/40 text-indigo-300 hover:text-white rounded-full transition-all border border-indigo-500/10 hover:border-indigo-500/20 backdrop-blur-md flex items-center gap-1 px-3"
+                        >
+                            <RotateCcw className="w-4 h-4" />
+                            <span className="text-[10px] font-bold">1:1</span>
+                        </button>
+                    )}
+                </div>
+
                 {/* Left Partition: Big Image */}
-                <div className="w-full md:w-2/3 h-[50vh] md:h-full relative bg-black/60 group overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                <div
+                    className="w-full md:w-2/3 h-[50vh] md:h-full relative bg-black/60 group overflow-hidden cursor-crosshair"
+                    onMouseMove={handleMouseMove}
+                >
+                    <div className="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
                         <img
                             src={removedBgPreview || selectedImage.imageUrl || ""}
                             alt={selectedImage.prompt}
-                            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.01]"
+                            style={{
+                                transform: `scale(${zoomScale})`,
+                                transformOrigin: `${panOrigin.x}% ${panOrigin.y}%`
+                            }}
+                            className={`max-w-full max-h-full object-contain rounded-2xl shadow-2xl ${zoomScale > 1 ? 'transition-none' : 'transition-transform duration-300'}`}
                         />
 
                         {/* 去背預覽控制按鈕列 */}
@@ -525,6 +584,16 @@ export function ImageModal({
                                 >
                                     <Play className="w-3.5 h-3.5" />
                                     重用提示
+                                </button>
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleSetAsReference?.(selectedImage);
+                                    }}
+                                    className="flex items-center justify-center gap-2 py-3 bg-cyan-600/10 border border-cyan-500/30 rounded-xl text-[11px] font-bold text-cyan-400 hover:bg-cyan-500/20 hover:text-cyan-300 transition-all active:scale-95"
+                                >
+                                    <ImageIcon className="w-3.5 h-3.5" />
+                                    設為參考
                                 </button>
                                 <a
                                     href={selectedImage.imageUrl || ""}

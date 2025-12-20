@@ -1599,3 +1599,819 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "台灣女性, 東京, 賽博龐克, 人像攝影, 濕街景"
 }
 -------------------
+
+[2025-12-20T01:29:38.634Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a highly detailed 3D infographic, cutaway illustration of Doraemon, showing his internal robotic and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, with glowing blue elements, wires, gears, and various mechanical parts labeled with descriptions. The image has a clean, diagrammatic style with a light, textured background. The lighting highlights both the smooth, stylized exterior and the complex, glowing interior. The overall aesthetic is a blend of scientific illustration and character design, presenting Doraemon as a sophisticated piece of advanced robotics.",
+  "zhPrompt": "創建一個高度詳細的3D信息圖，哆啦A夢的剖面圖，展示他身體右側內部的機器人和機械組件，而左側保留他經典的藍白色卡通外觀。內部組件複雜而具有未來感，具有發光的藍色元素、電線、齒輪和標有描述的各種機械零件。圖像具有乾淨、圖解風格，帶有淺色紋理背景。燈光突出了光滑、風格化的外觀和複雜、發光的內部。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一個先進的機器人。",
+  "tags": "3D圖解, 剖面圖, 機器人, 哆啦A夢, 機械"
+}
+-------------------
+
+[2025-12-20T01:29:59.327Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a highly detailed 3D infographic, cutaway illustration of Doraemon, showing his internal robotic and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, with glowing blue elements, wires, gears, and various mechanical parts labeled with descriptions. The image has a clean, diagrammatic style with a light, textured background. The lighting highlights both the smooth, stylized exterior and the complex, glowing interior. The overall aesthetic is a blend of scientific illustration and character design, presenting Doraemon as a sophisticated piece of advanced robotics.",
+  "zhPrompt": "創建一個高度詳細的3D信息圖，哆啦A夢的剖視圖，顯示他身體右側的內部機器人和機械組件，而左側則保留他經典的藍白色卡通外觀。內部組件複雜且具有未來感，帶有發光的藍色元素、電線、齒輪和各種帶有描述標籤的機械部件。圖像具有乾淨、圖解風格，背景為淺色紋理。光線突出了光滑、風格化的外部和複雜、發光的內部。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一個複雜的先進機器人。",
+  "tags": "哆啦A夢, 機器人, 剖面圖, 科學插圖, 3D模型"
+}
+-------------------
+
+[2025-12-20T01:30:39.825Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a highly detailed 3D infographic, cutaway illustration of Doraemon, showing his internal robotic and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, with glowing blue elements, wires, gears, and various mechanical parts labeled with descriptions. The image has a clean, diagrammatic style with a light, textured background. The lighting highlights both the smooth, stylized exterior and the complex, glowing interior. The overall aesthetic is a blend of scientific illustration and character design, presenting Doraemon as a sophisticated piece of advanced robotics.",
+  "zhPrompt": "創建一個高度細緻的3D信息圖，哆啦A夢的剖面插圖，顯示他身體右側的內部機器人和機械組件，而左側保留他經典的藍白色卡通外觀。內部組件複雜而具有未來感，帶有發光的藍色元素、電線、齒輪和各種帶有描述標籤的機械零件。圖像具有乾淨、圖解風格，背景淺色且有紋理。燈光突出了光滑、風格化的外部和複雜、發光的內部。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一個複雜的先進機器人。",
+  "tags": "哆啦A夢, 3D圖解, 剖面圖, 機器人, 科學插圖"
+}
+-------------------
+
+[2025-12-20T01:31:13.803Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. Create a highly detailed 3D infographic, cutaway illustration of Doraemon, showing his internal robotic and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, with glowing blue elements, wires, gears, and various mechanical parts labeled with descriptions. The image has a clean, diagrammatic style with a light, textured background. The lighting highlights both the smooth, stylized exterior and the complex, glowing interior. The overall aesthetic is a blend of scientific illustration and character design, presenting Doraemon as a sophisticated piece of advanced robotics. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以產生敘事衝擊，以及紋理以達到絕對的保真度。創建一個高度詳細的3D信息圖，哆啦A夢的剖面圖，顯示他身體右側的內部機器人和機械組件，而左側保留他經典的藍色和白色卡通外觀。內部組件複雜且具有未來感，帶有發光的藍色元素、電線、齒輪和各種帶有描述標籤的機械零件。圖像具有乾淨、圖解風格，背景為淺色紋理。照明突出了光滑、風格化的外觀和複雜、發光的內部結構。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一件精密的先進機器人。100毫米微距，f/2.8光圈，柔和漫射照明，光帳，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "哆啦A夢, 機器人, 剖面圖, 3D圖解, 未來科技"
+}
+-------------------
+
+[2025-12-20T01:32:09.507Z] Raw Gemini Response:
+{
+  "enPrompt": "A masterpiece 3D isometric cutaway illustration of Doraemon, presented as a high-tech robotic infographic. The left side features his iconic smooth blue and white cartoon aesthetic with a friendly, static expression. The right side reveals a complex, hyper-detailed mechanical interior: intricate brass gears, pulsating fiber-optic wiring, a glowing cyan energy core, and micro-circuitry. Tiny holographic digital labels point to internal components. Cinematic studio lighting with soft shadows and bioluminescent accents highlights the textures. Set against a clean, minimalist off-white textured background. 8K resolution, ray-traced reflections, Unreal Engine 5 render style, sharp focus, scientific anatomy aesthetic.",
+  "zhPrompt": "一個哆啦A夢的傑作3D等距剖面圖，呈現為高科技機器人信息圖。左側具有他標誌性的光滑藍色和白色卡通美學，帶有友好的靜態表情。右側揭示了複雜、超細緻的機械內部結構：錯綜複雜的黃銅齒輪、脈動的光纖線路、發光的青色能量核心和微型電路。微小的全息數字標籤指向內部組件。電影工作室的燈光，帶有柔和的陰影和生物發光，突出了紋理。以簡潔、極簡的灰白色紋理背景為襯托。8K分辨率，光線追踪反射，Unreal Engine 5渲染風格，焦點清晰，科學解剖美學。",
+  "tags": "哆啦A夢, 剖面圖, 機器人, 高科技, 3D"
+}
+-------------------
+
+[2025-12-20T01:33:22.131Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a highly detailed 3D infographic, a cutaway illustration of Doraemon showcasing the internal robotics and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, with glowing blue elements, wires, gears, and various mechanical parts with descriptive labels. The image has a clean, diagrammatic style with a light, textured background. Lighting highlights the sleek, stylized exterior and the complex, luminous interior. The overall aesthetic blends scientific illustration and character design, portraying Doraemon as a sophisticated, advanced robot.",
+  "zhPrompt": "創建一個高度細緻的3D信息圖，哆啦A夢的剖面插圖，顯示他身體右側的內部機器人和機械組件，而左側保留他經典的藍白色卡通外觀。內部組件複雜而具有未來感，帶有發光的藍色元素、電線、齒輪和各種帶有描述標籤的機械零件。圖像具有乾淨、圖解風格，背景淺色且有紋理。燈光突出了光滑、風格化的外部和複雜、發光的內部。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一個複雜的先進機器人。",
+  "tags": "哆啦A夢, 3D信息圖, 機器人, 科學插圖, 卡通人物"
+}
+-------------------
+
+[2025-12-20T01:33:43.934Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a highly detailed 3D infographic, a cutaway illustration of Doraemon, showcasing the internal robotic and mechanical components on the right side of his body, while the left side retains his classic blue and white cartoon appearance. The internal components are intricate and futuristic, featuring glowing blue elements, wires, gears, and various mechanical parts with descriptive labels. The image has a clean, diagrammatic style, with a light and textured background. The lighting highlights both the smooth, stylized exterior and the complex, luminous interior. The overall aesthetic blends scientific illustration and character design, portraying Doraemon as a complex, advanced robot.",
+  "zhPrompt": "創建一個高度細緻的3D信息圖，哆啦A夢的剖面插圖，顯示他身體右側的內部機器人和機械組件，而左側保留他經典的藍白色卡通外觀。內部組件複雜而具有未來感，帶有發光的藍色元素、電線、齒輪和各種帶有描述標籤的機械零件。圖像具有乾淨、圖解風格，背景淺色且有紋理。燈光突出了光滑、風格化的外部和複雜、發光的內部。整體美學融合了科學插圖和角色設計，將哆啦A夢呈現為一個複雜的先進機器人。",
+  "tags": "哆啦A夢, 3D信息圖, 機械剖面, 卡通機器人, 科學插圖"
+}
+-------------------
+
+[2025-12-20T01:34:44.922Z] Raw Gemini Response:
+{
+  "enPrompt": "A hyper-detailed 3D infographic cutaway of Doraemon standing in a neutral pose. The left side features his iconic smooth, matte blue and white cartoon aesthetic with a friendly expression. The right side reveals a complex, futuristic internal mechanical structure filled with intricate brass gears, hydraulic pistons, glowing cyan fiber-optic cables, and micro-circuitry. Tiny, legible digital callout labels point to various robotic components. The lighting is crisp studio-grade, emphasizing the contrast between the soft stylized exterior and the polished, glowing metallic interior. Set against a minimalist light-grey textured paper background. High-angle cinematic composition, 8K resolution, sharp focus, blending scientific blueprint precision with high-end Pixar-style character design.",
+  "zhPrompt": "一個超細緻的3D資訊圖解，哆啦A夢以中性姿勢站立的剖面圖。左側是他標誌性的光滑、啞光藍白卡通美學，帶有友好的表情。右側揭示了一個複雜的、未來主義的內部機械結構，充滿了精細的黃銅齒輪、液壓活塞、發光的青色光纖電纜和微型電路。微小的、清晰可讀的數位標註標籤指向各種機器人組件。照明是清晰的工作室級別，強調了柔軟的風格化外觀和拋光的、發光金屬內部的對比。背景是簡約的淺灰色紋理紙。高角度電影構圖，8K解析度，焦點銳利，融合了科學藍圖的精確性和高端皮克斯風格的角色設計。",
+  "tags": "哆啦A夢, 剖面圖, 機械結構, 3D渲染, 高解析度"
+}
+-------------------
+
+[2025-12-20T01:35:19.005Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity. A hyper-detailed 3D infographic cutaway of Doraemon standing in a neutral pose. The left side features his iconic smooth, matte blue and white cartoon aesthetic with a friendly expression. The right side reveals a complex, futuristic internal mechanical structure filled with intricate brass gears, hydraulic pistons, glowing cyan fiber-optic cables, and micro-circuitry. Tiny, legible digital callout labels point to various robotic components. The lighting is crisp studio-grade, emphasizing the contrast between the soft stylized exterior and the polished, glowing metallic interior. Set against a minimalist light-grey textured paper background. High-angle cinematic composition, 8K resolution, sharp focus, blending scientific blueprint precision with high-end Pixar-style character design, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以達到敘事效果，以及質地以達到絕對保真度。一個極其細緻的3D資訊圖解剖視圖，描繪了哆啦A夢以中性姿勢站立。左側以其標誌性的光滑、啞光藍白卡通美學為特色，帶有友善的表情。右側揭示了一個複雜的、未來主義的內部機械結構，充滿了精密的黃銅齒輪、液壓活塞、發光的青色光纖電纜和微型電路。微小的、清晰可辨的數位標註標籤指向各種機器人組件。光線是清晰的工作室級別，強調了柔和風格化的外部和拋光、發光的金屬內部的對比。背景設置為簡約的淺灰色紋理紙。高角度電影構圖，8K解析度，清晰對焦，融合了科學藍圖的精確度和高端皮克斯風格的角色設計，100mm微距，f/2.8光圈，柔和漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "哆啦A夢, 剖視圖, 機械結構, 3D渲染, 高解析度"
+}
+-------------------
+
+[2025-12-20T01:36:38.987Z] Raw Gemini Response:
+{
+  "enPrompt": "A 20-year-old East Asian woman with short black hair, fair skin, and a slightly plump figure stands in a Tang Dynasty palace courtyard at night. She wears a traditional Tang Dynasty ruqun dress with a loosely draped shawl, her neckline naturally open. She holds drumsticks, ready to strike a large drum. The scene is a lively palace lantern festival with dancers and musicians, capturing a sense of grandeur and celebration. Focus is on the woman's expression, which should be both charming and confident. The lighting emphasizes the warm glow of lanterns against the cool night, creating a dramatic and textured visual. Photorealistic, ultra-high resolution, 9:16 aspect ratio, shallow depth of field, bokeh, medium-high contrast, cinematic lighting, 50mm lens, f/2.8 aperture, balanced, professional photography, masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, studio quality, award-winning photography.",
+  "zhPrompt": "一位20歲的東亞女性，黑色短直髮，皮膚白皙，身材略豐滿，站在唐朝夜晚的宮殿庭院中。她身穿傳統的唐代襦裙，外披輕薄披帛，**領口寬鬆自然垂下**。她手持鼓槌，準備敲擊一面大鼓。場景是一個熱鬧的宮殿燈會，有舞者和音樂家，捕捉到一種宏偉和慶祝的感覺。焦點集中在女性的表情上，應該既迷人又自信。光線強調燈籠的溫暖光芒與涼爽的夜晚形成對比，創造出戲劇性和紋理豐富的視覺效果。超高解析度，9:16，淺景深，散景，中高對比度，電影感光線，50mm鏡頭，f/2.8光圈，平衡，專業攝影，傑作，最佳品質，超精細，8k解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "唐朝, 宮廷, 燈會, 鼓樂, 美女"
+}
+-------------------
+
+[2025-12-20T01:36:57.520Z] Raw Gemini Response:
+{
+  "enPrompt": "High-resolution image, 9:16 aspect ratio. Studio lighting, slightly low angle. Realistic lighting and shadows, master-level photography, cinematic feel. Full body shot, capturing dynamic movement. Extreme close-up, focus on the chest. Set in a Tang Dynasty palace courtyard at night, high palace walls, eaves, lanterns hanging, brightly lit. A crowd gathers in the courtyard, with drums and music playing, dancers gracefully moving, creating a lively and solemn atmosphere. The main subject is a cute, beautiful, slim 20-year-old East Asian woman with a heavy bust, short black straight hair, clean and natural makeup, and a pretty expression. She is wearing a Tang Dynasty Ruqun dress, with a thin shawl, a naturally loose neckline, and the skirt swaying with the drumbeats, showcasing a classical and elegant atmosphere. She stands full-body in front of the drum, holding drumsticks in both hands, her body moving to the rhythm, chest facing the camera, eyes looking at the camera, a slight smile on her lips, and a charming and confident expression. Around her, other companions wearing Tang Dynasty costumes play the drums together, the drum sounds intertwining, creating a spectacular scene. The drum surface shines under the light, the drum sounds interweaving with the palace lantern festival's music and dance, forming a mix of cold and warm light and shadows. The Tang Dynasty night palace lantern festival and group drumming performance create a detailed visual tension. The picture is full of dynamic movement, a sense of air flow, and hyper-realistic texture. Shallow depth of field, bokeh, medium-high contrast, the atmosphere is classical and beautiful, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "重新生成超高解析度圖片，9:16比例。棚拍光控鏡頭，略低角度。真實光影，大師級攝影，電影感。全身照，捕捉動感。超近距離拍攝，聚焦胸口。場景設定在唐朝夜晚的宮殿庭院，宮牆高聳，屋簷飛檐，燈籠高掛，燈火輝煌。庭院中人群聚集，鼓樂齊鳴，舞者翩翩起舞，氛圍熱鬧而莊嚴。主角是一位可愛美麗、身材纖細、上圍豐滿顯得沉重的20歲東亞女性，黑色短直髮，妝容乾淨自然，神情漂亮。她身穿唐代襦裙，外披輕薄披帛，**領口寬鬆自然垂下**，裙擺隨著鼓聲舞動，展現古典優雅的氛圍。她正全身站立於鼓前，雙手持鼓槌，身體隨節奏揮動，胸口朝向鏡頭，眼神看著鏡頭，嘴角微翹，神情嫵媚而自信。周圍還有其他同伴身穿唐代服飾，一同擊鼓，鼓聲交織，場面壯觀。鼓面在燈火映照下閃耀光澤，鼓聲與宮殿燈會的樂舞交織，形成冷暖交錯的光影。唐朝夜晚的宮殿燈會與群體鼓樂表演交織出細緻的視覺張力。畫面充滿動感、空氣流動感與超寫實質感。極淺景深，散景，中高對比度，氛圍古典而唯美, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus。",
+  "tags": "唐朝, 宮廷, 鼓樂, 美女, 燈會"
+}
+-------------------
+
+[2025-12-20T01:37:29.390Z] Raw Gemini Response:
+{
+  "enPrompt": "A stunning, hyper-realistic, ultra-high-resolution (8k), 9:16 photograph capturing a 20-year-old East Asian woman in a Tang Dynasty palace courtyard at night. She is petite yet voluptuous, with short, straight black hair and natural makeup, radiating beauty and confidence. The scene is lit with professional studio lighting, emphasizing realistic shadows and a cinematic feel, achieved through masterful photography. She stands close to the camera, almost at chest level, wearing a traditional Tang Dynasty ruqun with a loosely draped pibo, her neckline naturally open. She holds drumsticks, poised to strike a drum as part of an ensemble performance. The courtyard is filled with other drummers in Tang Dynasty attire, surrounded by high palace walls, ornate eaves, and brightly lit lanterns. The drums gleam under the lamplight. The shallow depth of field creates a beautiful bokeh, enhancing the overall atmosphere with balanced, medium-high contrast and ultra-detailed textures. 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography, Dynamic pose, feeling of movement.",
+  "zhPrompt": "重新生成超高解析度，9:16。棚拍光控鏡頭，略低角度。真實光影，大師級攝影，電影感。全身照，捕捉動感。超近距離拍攝，聚焦胸口。\n場景設定在唐朝夜晚的宮殿庭院，宮牆高聳，屋簷飛檐，燈籠高掛，燈火輝煌。庭院中人群聚集，鼓樂齊鳴，舞者翩翩起舞，氛圍熱鬧而莊嚴。\n主角是一位可愛美麗、身材纖細、上圍豐滿顯得沉重的20歲東亞女性，黑色短直髮，妝容乾淨自然，神情漂亮。  \n她身穿唐代襦裙，外披輕薄披帛，**領口寬鬆自然垂下**，裙擺隨著鼓聲舞動，展現古典優雅的氛圍。  \n她正全身站立於鼓前，雙手持鼓槌，身體隨節奏揮動，胸口朝向鏡頭，眼神看著鏡頭，嘴角微翹，神情嫵媚而自信。  \n周圍還有其他同伴身穿唐代服飾，一同擊鼓，鼓聲交織，場面壯觀。  \n鼓面在燈火映照下閃耀光澤，鼓聲與宮殿燈會的樂舞交織，形成冷暖交錯的光影。  \n唐朝夜晚的宮殿燈會與群體鼓樂表演交織出細緻的視覺張力。  \n畫面充滿動感、空氣流動感與超寫實質感。極淺景深，散景，中高對比度，氛圍古典而唯美。, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "tags": "唐朝, 宮廷, 鼓樂, 美女, 燈籠"
+}
+-------------------
+
+[2025-12-20T01:40:03.815Z] Raw Gemini Response:
+{
+  "enPrompt": "A full body shot of an elegant and refined oriental woman, wearing a simple off-white knitted autumn outfit paired with a dark camel-colored long skirt, standing under golden ginkgo trees. Natural light falls from the upper right, creating a warm autumn afternoon atmosphere. The character's pose is relaxed and natural, with soft eyes gazing forward. The background is a blurred classical garden autumn scene, preserving rich layers and depth of field. The texture of light and shadow is delicate and realistic, with warm gold and off-white as the main tones.",
+  "zhPrompt": "呈現一位氣質清雅的東方女性全身照，身著簡約米白色針織秋裝搭配深駝色長裙，站在金黃色的銀杏樹下，自然光線從右上方灑落，形成溫暖的秋日午後氛圍，人物姿勢放鬆自然，眼神柔和注視前方，背景為虛化的古典園林秋景，保留豐富層次與景深，光影質感細膩逼真，色調以暖金與米白為主",
+  "tags": "東方女性, 秋日, 銀杏, 針織服裝, 園林"
+}
+-------------------
+
+[2025-12-20T01:40:45.433Z] Raw Gemini Response:
+{
+  "enPrompt": "Full body portrait of an elegant and refined Asian woman, wearing a simple beige knit autumn outfit with a dark camel long skirt, standing under golden ginkgo trees, natural light shining from the upper right, creating a warm autumn afternoon atmosphere, relaxed and natural pose, gentle eyes looking forward, blurred classical garden autumn scenery in the background, retaining rich layers and depth of field, delicate and realistic light and shadow texture, warm gold and beige as the main color.",
+  "zhPrompt": "呈現一位氣質清雅的東方女性全身照，身著簡約米白色針織秋裝搭配深駝色長裙，站在金黃色的銀杏樹下，自然光線從右上方灑落，形成溫暖的秋日午後氛圍，人物姿勢放鬆自然，眼神柔和注視前方，背景為虛化的古典園林秋景，保留豐富層次與景深，光影質感細膩逼真，色調以暖金與米白為主",
+  "tags": "東方女性, 秋季穿搭, 銀杏, 園林, 寫實風格"
+}
+-------------------
+
+[2025-12-20T01:41:02.777Z] Raw Gemini Response:
+{
+  "enPrompt": "A full-body shot of an elegant and refined oriental woman, dressed in a simple cream-white knitted autumn outfit paired with a dark camel-colored long skirt, standing under golden ginkgo trees. Natural light spills from the upper right, creating a warm autumn afternoon atmosphere. The woman's posture is relaxed and natural, her gaze softly fixed forward. The background is a blurred classical garden autumn scene, retaining rich layers and depth of field. The texture of light and shadow is delicate and realistic, with a color palette dominated by warm gold and cream-white.",
+  "zhPrompt": "呈現一位氣質清雅的東方女性全身照，身著簡約米白色針織秋裝搭配深駝色長裙，站在金黃色的銀杏樹下，自然光線從右上方灑落，形成溫暖的秋日午後氛圍，人物姿勢放鬆自然，眼神柔和注視前方，背景為虛化的古典園林秋景，保留豐富層次與景深，光影質感細膩逼真，色調以暖金與米白為主",
+  "tags": "東方女性, 秋季時尚, 銀杏, 園林, 暖色調"
+}
+-------------------
+
+[2025-12-20T01:41:26.855Z] Raw Gemini Response:
+{
+  "enPrompt": "A full-body shot of an elegant and refined Eastern woman, wearing a minimalist off-white knitted autumn outfit paired with a deep camel-colored long skirt, standing beneath golden ginkgo trees. Natural light cascades from the upper right, creating a warm autumnal afternoon atmosphere. The figure's posture is relaxed and natural, with a gentle gaze directed forward. The background features a blurred classical garden autumn scene, preserving rich layers and depth of field. The texture of light and shadow is delicate and realistic, with a color palette dominated by warm gold and off-white tones, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "呈現一位氣質清雅的東方女性全身照，身著簡約米白色針織秋裝搭配深駝色長裙，站在金黃色的銀杏樹下，自然光線從右上方灑落，形成溫暖的秋日午後氛圍，人物姿勢放鬆自然，眼神柔和注視前方，背景為虛化的古典園林秋景，保留豐富層次與景深，光影質感細膩逼真，色調以暖金與米白為主, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "tags": "東方女性, 秋季時尚, 銀杏, 園林, 暖色調"
+}
+-------------------
+
+[2025-12-20T01:41:57.739Z] Raw Gemini Response:
+{
+  "enPrompt": "A full-body portrait of an elegant Eastern woman in simple beige knit autumn wear with a deep camel-colored long skirt, standing under golden ginkgo trees, with natural light falling from the upper right, creating a warm autumn afternoon atmosphere. The figure is relaxed and natural, with soft eyes looking forward. The background is a blurred classical garden autumn scenery, retaining rich layers and depth of field, with delicate and realistic light and shadow textures. The color tone is mainly warm gold and beige, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award-winning photography. Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity.",
+  "zhPrompt": "呈現一位氣質清雅的東方女性全身照，身著簡約米白色針織秋裝搭配深駝色長裙，站在金黃色的銀杏樹下，自然光線從右上方灑落，形成溫暖的秋日午後氛圍，人物姿勢放鬆自然，眼神柔和注視前方，背景為虛化的古典園林秋景，保留豐富層次與景深，光影質感細膩逼真，色調以暖金與米白為主, 50mm, f/2.8 aperture, Cinematic Lighting, balanced, professional photography, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography。分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事影響，並優先考慮紋理以獲得絕對的逼真度。",
+  "tags": "東方女性, 秋日氛圍, 銀杏樹, 攝影, 園林"
+}
+-------------------
+
+[2025-12-20T11:10:54.102Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking Asian business woman in her late 20s is elegantly seated in a sunlit, upscale modern cafe, captured in a photorealistic, hyperrealistic, cinematic lighting portrait. Intense volumetric sunlight and golden ray tracing stream dramatically through the large floor-to-ceiling window on the left, casting long, realistic shadows across the parquet wooden floor and providing strong, golden rim lighting that highlights her dark, voluminous wavy hair and the curves of her body. Global illumination softly illuminates her face, maintaining deep detail despite the strong backlighting. She wears a figure-hugging, white long-sleeved ribbed knit top, a short black fitted skirt, and sheer black stockings that emphasize her long legs, culminating in metallic gold, high-heeled peep-toe shoes. Her expression is engaging, poised, and subtly smiling, with one hand delicately resting near her chin. She is seated at a small round wooden table holding a white coffee cup and saucer, with a glass of water nearby. Medium full shot composition utilizes a shallow depth of field, placing razor-sharp focus on the subject while the busy city street outside and the sophisticated dark wood bookshelf in the interior background are softly blurred. Masterpiece, best quality, ultra detailed, photographic quality, 8k resolution, natural colors, sharp focus.",
+  "zhPrompt": "一位引人注目的亞洲商業女性，年近三十，優雅地坐在一間陽光充足、高檔的現代咖啡館裡，以逼真的攝影、超現實主義和電影光線肖像捕捉。強烈的體積陽光和金色光線追蹤，戲劇性地穿過左側的大落地窗，在鑲木地板上投下長長的真實陰影，並提供強烈、金色的輪廓光，突顯了她深色、蓬鬆的波浪髮和身體曲線。全局照明柔和地照亮她的臉部，儘管有強烈的背光，仍保持了深層細節。她穿著一件貼身的白色長袖羅紋針織上衣、一條黑色短裙和黑色薄絲襪，突顯了她修長的雙腿，腳踩金屬金色高跟魚口鞋。她的表情迷人、鎮定，帶著微妙的微笑，一隻手輕輕地放在下巴附近。她坐在一張小型圓形木桌旁，手拿著一個白色咖啡杯和茶碟，旁邊放著一杯水。中等全身鏡頭採用淺景深，將銳利的焦點放在主體上，而外面的繁忙城市街道和室內背景中精緻的深色木製書架則被柔化模糊。傑作，最佳品質，超詳細，攝影品質，8k分辨率，自然色彩，焦點清晰。",
+  "tags": "亞洲女性, 現代咖啡館, 電影光線, 時尚穿搭, 8k分辨率"
+}
+-------------------
+
+[2025-12-20T11:12:03.272Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking Asian business woman in her late 20s is elegantly seated in a sunlit, upscale modern cafe, captured in a photorealistic, hyperrealistic, cinematic lighting portrait. Intense volumetric sunlight and golden ray tracing stream dramatically through the large floor-to-ceiling window on the left, casting long, realistic shadows across the parquet wooden floor and providing strong, golden rim lighting that highlights her dark, voluminous wavy hair and the curves of her body. Global illumination softly illuminates her face, maintaining deep detail despite the strong backlighting. She wears a figure-hugging, white long-sleeved ribbed knit top, a short black fitted skirt, and sheer black stockings that emphasize her long legs, culminating in metallic gold, high-heeled peep-toe shoes. Her expression is engaging, poised, and subtly smiling, with one hand delicately resting near her chin. She is seated at a small round wooden table holding a white coffee cup and saucer, with a glass of water nearby. Medium full shot composition utilizes a shallow depth of field, placing razor-sharp focus on the subject while the busy city street outside and the sophisticated dark wood bookshelf in the interior background are softly blurred. Masterpiece, best quality, ultra detailed, photographic quality, 8k resolution, natural colors, sharp focus.",
+  "zhPrompt": "一位引人注目的亞裔商業女性，年近三十，優雅地坐在一間陽光明媚的高級現代咖啡館裡，以逼真的、超逼真的電影燈光肖像捕捉。強烈的體積光和金色光線追蹤戲劇性地穿過左側巨大的落地窗，在鑲木地板上投下長長的真實陰影，並提供強烈的金色輪廓光，突顯她深色、蓬鬆的波浪髮和身體的曲線。全局照明柔和地照亮她的臉，儘管有強烈的背光，仍保持了深層細節。她穿著一件緊身的白色長袖羅紋針織上衣、一條黑色短款合身裙子和透明的黑色長襪，突顯了她修長的雙腿，最後是一雙金屬金色高跟露趾鞋。她的表情迷人、沉著、微笑含蓄，一隻手輕輕地放在下巴附近。她坐在一張小圓木桌旁，拿著一個白色咖啡杯和茶碟，旁邊放著一杯水。中等全身鏡頭構圖採用淺景深，將極其清晰的焦點放在主體上，而外面繁忙的城市街道和內部背景中精緻的深色木製書架則被柔和地模糊處理。傑作，最佳質量，超詳細，攝影質量，8k分辨率，自然色彩，清晰對焦。",
+  "tags": "亞洲女性, 咖啡館, 肖像, 時尚, 陽光"
+}
+-------------------
+
+[2025-12-20T11:12:42.201Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking Asian business woman in her late 20s is elegantly seated in a sunlit, upscale modern cafe, captured in a photorealistic, hyperrealistic, cinematic lighting portrait. Intense volumetric sunlight and golden ray tracing stream dramatically through the large floor-to-ceiling window, casting long, realistic shadows and providing strong, golden rim lighting. She wears a figure-hugging, white long-sleeved ribbed knit top, a short black fitted skirt, sheer black stockings, and metallic gold high-heeled peep-toe shoes. Her expression is engaging, poised, and subtly smiling. She is seated at a small round wooden table holding a white coffee cup and saucer, with a glass of water nearby. Medium full shot, shallow depth of field, razor-sharp focus, busy city street and dark wood bookshelf blurred. Masterpiece, best quality, ultra detailed, photographic quality, 8k resolution, natural colors, sharp focus.",
+  "zhPrompt": "一位引人注目的亞洲商業女性，年近三十，優雅地坐在陽光明媚、高檔的現代咖啡館裡，以逼真的、超現實主義的電影燈光肖像捕捉。強烈的體積陽光和金色光線追蹤戲劇性地穿過巨大的落地窗，投下長長的、逼真的陰影，並提供強烈的金色輪廓光。她穿著一件緊身的白色長袖羅紋針織上衣、一件黑色短裙、透明的黑色長襪和金屬金色高跟露趾鞋。她的表情迷人、沉著、帶著微妙的微笑。她坐在一張小圓木桌旁，拿著一個白色咖啡杯和茶碟，旁邊放著一杯水。中等全身照，淺景深，焦點銳利，繁華的城市街道和深色木質書架背景模糊。傑作，最佳品質，超細緻，攝影品質，8k解析度，自然色彩，焦點銳利。",
+  "tags": "亞洲女性, 商業風格, 咖啡館, 陽光, 高畫質"
+}
+-------------------
+
+[2025-12-20T11:13:19.978Z] Raw Gemini Response:
+{
+  "enPrompt": "A striking Asian business woman in her late 20s is elegantly seated in a sunlit, upscale modern cafe, captured in a photorealistic, hyperrealistic, cinematic lighting portrait. Intense volumetric sunlight and golden ray tracing stream dramatically through the large floor-to-ceiling window, casting long, realistic shadows and providing strong, golden rim lighting. She wears a white ribbed knit top, a short black skirt, sheer black stockings, and gold high-heeled shoes. Her expression is engaging and subtly smiling, with one hand delicately resting near her chin. She is seated at a round wooden table holding a white coffee cup and saucer, with a glass of water nearby. Medium full shot with shallow depth of field focuses on the subject, blurring the city street and dark wood bookshelf in the background. Masterpiece, best quality, ultra detailed, photographic quality, 8k resolution, natural colors, sharp focus, 100mm Macro, f/2.8 aperture, Soft diffused lighting, professional product photography, luxurious detail, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一位引人注目的亞裔女商人，年近三十，優雅地坐在一間陽光明媚的高級現代咖啡館裡，以逼真的、超現實的電影燈光肖像捕捉。強烈的體積光和金色光線追蹤戲劇性地穿過落地窗，投下長長的真實陰影，並提供強烈的金色輪廓光，突顯她濃密波浪狀的黑髮和身體曲線。全局照明柔和地照亮她的臉，即使在強烈的逆光下也能保持深厚的細節。她穿著一件緊身的白色長袖羅紋針織上衣、一件黑色短裙、黑色薄紗長襪，突顯她修長的雙腿，搭配金屬金色高跟露趾鞋。她的表情迷人、鎮定，帶著微妙的微笑，一隻手輕輕地放在下巴附近。她坐在一張小圓木桌旁，手裡拿著一個白色咖啡杯和碟子，旁邊放著一杯水。中等全身鏡頭構圖採用淺景深，將主體置於極其清晰的焦點上，而外面的繁忙城市街道和室內背景中精緻的深色木製書架則柔和模糊。傑作，最佳品質，超細緻，攝影品質，8k分辨率，自然色彩，焦點清晰，100mm微距，f/2.8光圈，柔和的漫射光，專業產品攝影，奢華細節，HDR，工作室品質，獲獎攝影。",
+  "tags": "亞裔女性, 咖啡館, 肖像, 電影燈光, 時尚"
+}
+-------------------
+
+[2025-12-20T11:13:54.701Z] Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic medium-full shot of a sophisticated 28-year-old Asian businesswoman with a poised, subtle smile, seated elegantly in a sun-drenched upscale cafe. She wears a form-fitting white ribbed knit long-sleeve top, a tailored black mini skirt, sheer black denier stockings, and shimmering metallic gold peep-toe stilettos. Cinematic volumetric lighting streams through floor-to-ceiling windows, razor-sharp focus on subject, 8k UHD, masterfully detailed textures, rich color grading, professional fashion photography. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一個超現實的中景全身鏡頭，一位精緻的28歲亞洲女商人，帶著自信、微妙的微笑，優雅地坐在陽光普照的高級咖啡館裡。她身穿一件合身的白色羅紋針織長袖上衣，一件剪裁合身的黑色迷你裙，透明的黑色薄絲襪，和閃閃發光的金屬金色魚嘴高跟鞋。電影般的體積光線透過落地窗照射進來，主體有著極其清晰的焦點，8k UHD，具有精湛細節的紋理，豐富的色彩分級，專業的時尚攝影。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業的產品攝影，奢華的細節，傑作，最佳品質，超精細，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "時尚攝影, 亞洲女性, 商業形象, 高級咖啡館, 精緻服裝"
+}
+-------------------
+
+[2025-12-20T11:17:53.220Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, shot on 85mm lens, f/1.8.",
+  "zhPrompt": "一位優雅的東亞女性坐在精緻咖啡館的寫實全身照。她有著長長的波浪黑髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄絲襪和金屬金色高跟鞋。她坐在圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，她優雅地將手放在下巴上，雙腿交叉擺出姿勢。大型落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高解析度，8k，使用85mm鏡頭拍攝，f/1.8。",
+  "tags": "寫實, 東亞女性, 咖啡館, 時尚, 優雅"
+}
+-------------------
+
+[2025-12-20T11:18:17.089Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在一個精緻的咖啡廳裡，一位優雅的東亞女性的逼真全身照。她有著長長的波浪黑髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄透絲襪和金色金屬高跟鞋。她坐在一張圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，她優雅地擺著姿勢，手托著下巴，雙腿交叉。背景是落地窗，有柔和的自然晨光、電影散景、溫暖的室內色調，高分辨率，8k，100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光箱，專業產品攝影，奢華細節，傑作，最佳品質，超精細，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影作品。",
+  "tags": "咖啡廳, 東亞女性, 時尚, 攝影, 優雅"
+}
+-------------------
+
+[2025-12-20T11:19:41.609Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "在一個精緻的咖啡館裡，一位優雅的東亞女性的逼真全身照。她有著長長的波浪黑髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色透明褲襪和金屬金色高跟鞋。她坐在圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，她優雅地將手放在下巴上，雙腿交叉擺出姿勢。大型落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高分辨率，8k，100mm微距，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超精細，8k分辨率，焦點清晰，HDR，工作室質量，獲獎攝影作品。",
+  "tags": "咖啡館, 東亞女性, 時尚, 寫實, 優雅"
+}
+-------------------
+
+[2025-12-20T11:20:59.952Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一位優雅的東亞女性坐在精緻的咖啡館裡，逼真的全身照。她有著長長的波浪黑髮，穿著白色羅紋高領毛衣、黑色迷你裙、黑色薄絲襪和金屬金色高跟鞋。她坐在圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，優雅地擺姿勢，手托著下巴，雙腿交叉。大型落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高分辨率，8k，專業產品攝影，奢華的細節，傑作，最佳質量，超細緻，8k分辨率，清晰的焦點。",
+  "tags": "咖啡館, 東亞女性, 時尚, 優雅, 人像攝影"
+}
+-------------------
+
+[2025-12-20T11:30:07.850Z] Raw Gemini Response:
+{
+  "enPrompt": "A Taiwanese, elegant and beautiful girl. Face shape: exquisite small face with soft jawline. Eyes: bright, large eyes with obvious eye bags, pure and friendly. Eyebrows and lips: naturally trimmed flat eyebrows, pink lips. Body type: very slender and slim, presenting a bony beauty. Shoulders and neck: beautiful right-angled shoulders and slender necklines, with clear collarbone lines. Proportion: balanced proportions, showing a light and high-class feel. Top design: Two-piece layered style: the inner layer is a simple white tube top, and the outer layer is covered with a thin, see-through, ruched off-the-shoulder top. Design: The see-through material vaguely reveals the skin; the off-the-shoulder cut perfectly showcases the shoulder and neck lines, and the sleeves are slightly longer than the palm of the hand. Bottom design: Paired with a white ruched long skirt, the skirt surface has horizontal three-dimensional ruched lines, creating a visual layering of the all-white look. Hairstyle: Long, straight black hair falls naturally behind the back, with a few strands of broken hair in the front to modify the face shape. Scene: Neuschwanstein Castle (Germany)",
+  "zhPrompt": "一位台灣氣質型漂亮女孩。\n臉型： 精緻的小臉，下巴線條柔和。\n眼睛： 一雙明亮的大眼睛，帶有明顯的臥蠶，眼神顯清純且具親和力。\n眉唇： 自然修飾的平眉，粉潤的唇色。\n體型： 身材非常纖細、苗條，呈現出骨感美。\n肩頸： 擁有優美的直角肩與修長的頸部線條，鎖骨線條清晰可見。\n比例： 比例勻稱，展現出一種輕盈的高級感。\n上衣設計： 兩件式層次： 內層是簡約的白色平口小可愛，外層罩上一件薄透的抓皺一字領透膚衫。\n設計： 透膚材質隱約露出肌膚；一字領剪裁完美展現肩頸線條，袖子長度略過手掌的視覺效果。\n下著設計： 搭配一條白色抓皺設計長裙，裙面帶有水平的立體抓皺紋路，全白造型的視覺層次。\n髮型： 長黑直髮自然垂墜在背後，前方保留幾絲碎髮修飾臉型。\n場景：新天鵝堡 (德國)",
+  "tags": "台灣女孩, 氣質美女, 新天鵝堡, 時尚穿搭, 骨感美"
+}
+-------------------
+
+[2025-12-20T11:32:02.106Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [cyberpunk 2077], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth.",
+  "zhPrompt": "一個[電馭叛客2077]標誌性地圖的微型桌面版本，包含微小的角色、車輛、地形和看起來可互動的細節。風格化的寫實主義，柔和的光線，移軸景深。",
+  "tags": "賽博龐克, 桌面遊戲, 微縮模型, 電馭叛客2077, 移軸攝影"
+}
+-------------------
+
+[2025-12-20T11:32:51.043Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [GTA5], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth.",
+  "zhPrompt": "一個來自[GTA5]的標誌性地圖的微型桌面版本，包含微小的人物、車輛、地形和看起來可互動的細節。風格化的現實主義，柔和的光線，移軸景深。",
+  "tags": "GTA5, 迷你模型, 桌面遊戲, 移軸攝影, 風格化寫實"
+}
+-------------------
+
+[2025-12-20T11:33:46.371Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [world war Z], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "一個《末日之戰》中標誌性地圖的微型桌面版本，帶有微小的角色、車輛、地形和看起來可互動的細節。風格化的現實主義，柔和的光線，移軸景深",
+  "tags": "微縮模型, 末日之戰, 地圖, 桌面遊戲, 風格化寫實"
+}
+-------------------
+
+[2025-12-20T11:34:22.342Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from World War Z, with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth.",
+  "zhPrompt": "《末日之戰》中標誌性地圖的微型桌面版本，包含微型角色、車輛、地形和看起來可互動的細節。風格化的真實感，柔和的光線，傾斜移軸景深。",
+  "tags": "微縮模型, 末日之戰, 地圖, 桌面遊戲, 風格化寫實"
+}
+-------------------
+
+[2025-12-20T11:35:12.547Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [Terraria], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "一個來自[Terraria]的標誌性地圖的微型桌面版本，包含微小的角色、載具、地形和看起來可互動的細節。風格化的寫實主義，柔和的光線，傾斜偏移的景深",
+  "tags": "Terraria, 桌面遊戲, 微型, 傾斜偏移, 遊戲地圖"
+}
+-------------------
+
+[2025-12-20T11:36:20.466Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [Dont starve], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "《饥荒》标志性地图的微型桌面版本，带有微型角色、车辆、地形和互动细节。风格化的现实主义，柔和的灯光，移轴景深",
+  "tags": "微縮模型, 桌面遊戲, 饑荒, 地圖, 移軸攝影"
+}
+-------------------
+
+[2025-12-20T11:36:53.126Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [Dont starve], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "《饥荒》标志性地图的迷你桌面版本，带有微型角色、车辆、地形和互动式细节。风格化的现实主义，柔和的光线，倾斜移位的景深",
+  "tags": "迷你模型, 饥荒, 桌面游戏, 倾斜移位, 风格化"
+}
+-------------------
+
+[2025-12-20T11:37:36.569Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [Dont starve], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "《饑荒》標誌性地圖的微型桌面版本，帶有微型角色、車輛、地形和互動細節。風格化的寫實主義，柔和的燈光，傾斜移位景深",
+  "tags": "微縮模型, 桌面遊戲, 饑荒, 地圖, 傾斜移位"
+}
+-------------------
+
+[2025-12-20T11:38:23.627Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [inscryption], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "《Inscryption》標誌性地圖的微型桌面版本，帶有微型角色、車輛、地形和互動外觀的細節。風格化的現實主義，柔和的燈光，傾斜移位景深",
+  "tags": "微縮模型, 桌遊, Inscryption, 地圖, 傾斜移位"
+}
+-------------------
+
+[2025-12-20T11:38:55.755Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from [inscryption], with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth",
+  "zhPrompt": "一個[銘刻]標誌性地圖的微型桌面版本，帶有微小的角色、車輛、地形和看起來具有互動性的細節。風格化的現實主義，柔和的燈光，傾斜移位景深",
+  "tags": "微縮模型, 桌遊, 銘刻, 遊戲地圖, 傾斜移位"
+}
+-------------------
+
+[2025-12-20T11:41:10.902Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature tabletop version of the iconic map from Escape from Tarkov, with tiny characters, vehicles, terrain, and interactive-looking details. Stylized realism, soft lighting, tilt-shift depth.",
+  "zhPrompt": "一個微縮桌面版本的《逃離塔科夫》標誌性地圖，包含微小的角色、車輛、地形和看起來可互動的細節。風格化的寫實主義，柔和的光線，傾斜移軸景深。",
+  "tags": "微縮模型, 逃離塔科夫, 桌面遊戲, 傾斜移軸, 風格化寫實主義"
+}
+-------------------
+
+[2025-12-20T12:57:09.210Z] Raw Gemini Response:
+{
+  "enPrompt": "A cozy miniature diorama of a nostalgic \"back home\" scene, featuring tiny figures, meticulously detailed props, warm and inviting lighting, and capturing a slice-of-life atmosphere. Evokes the charm and intricate detail of a model train world.",
+  "zhPrompt": "一個舒適的微型場景模型，描繪一個懷舊的「家」的場景，以微小的人物、精心製作的道具、溫暖而誘人的燈光為特色，並捕捉生活的一面。喚起模型火車世界的魅力和複雜細節。",
+  "tags": "微縮模型, 懷舊場景, 溫馨, 模型火車, 生活感"
+}
+-------------------
+
+[2025-12-20T12:57:42.055Z] Raw Gemini Response:
+{
+  "enPrompt": "A cozy miniature diorama of a coffee shop, with tiny figures, detailed props, warm lighting, and a slice-of-life feel. Feels like a scene from a model train world.",
+  "zhPrompt": "一個舒適的咖啡店微型場景模型，帶有小人物、精緻道具、溫暖的燈光，以及生活片段的感覺。感覺就像是模型火車世界中的一個場景。",
+  "tags": "咖啡店, 微型場景, 模型, 溫馨, 人偶"
+}
+-------------------
+
+[2025-12-20T12:58:10.065Z] Raw Gemini Response:
+{
+  "enPrompt": "A cozy miniature diorama of a coffee shop, with tiny figures, detailed props, warm lighting, and a slice-of-life feel. Feels like a scene from a model train world.",
+  "zhPrompt": "一個舒適的咖啡店微型場景模型，有迷你人物、細緻的道具、溫暖的燈光，以及生活片段的感覺。感覺像是模型火車世界中的一個場景。",
+  "tags": "咖啡店, 微型場景, 模型, 溫馨, 生活感"
+}
+-------------------
+
+[2025-12-20T13:02:06.253Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept while maintaining perfect product consistency across all nine images. Grid Concepts: 1. Iconic hero still life with bold composition, 2. Extreme macro detail highlighting material/texture, 3. Dynamic liquid/particle interaction, 4. Minimal sculptural arrangement with abstract forms, 5. Floating elements suggesting lightness, 6. Sensory close-up emphasizing tactility, 7. Color-driven scene inspired by product palette, 8. Ingredient/component abstraction, 9. Surreal fusion scene combining realism and imagination. Visual Rules: Product must remain 100% accurate in shape, proportions, label, typography, color, and branding. No distortion. Clean separation. Lighting & Style: Soft studio lighting, subtle highlights/shadows, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic, premium sensory marketing look. Overall Feel: Modern, refined, visually cohesive, high-end commercial campaign, hyperreal, cinematic, polished, aspirational.",
+  "zhPrompt": "創建一個 3x3 網格，縱橫比為 3:4，用於高端商業營銷活動，並使用產品作為中心主題。每個畫面都呈現出獨特的視覺概念，同時保持所有九張圖像中產品的一致性。網格概念：1. 具有大膽構圖的標誌性英雄靜物，2. 突顯材質/紋理的極端微距細節，3. 動態液體/粒子互動，4. 具有抽象形式的簡約雕塑佈置，5. 漂浮元素暗示輕盈，6. 強調觸覺的感官特寫，7. 受產品調色盤啟發的色彩驅動場景，8. 成分/組件抽象化，9. 結合現實主義和想像力的超現實融合場景。視覺規則：產品在形狀、比例、標籤、排版、顏色和品牌方面必須保持 100% 準確。沒有變形。清晰的分離。照明與風格：柔和的影樓照明，微妙的亮點/陰影，高動態範圍，超清晰的焦點，社論奢華廣告美學，優質感官營銷外觀。整體感覺：現代、精緻、視覺連貫、高端商業活動、超真實、電影化、精美、鼓舞人心。",
+  "tags": "商業攝影, 產品展示, 廣告, 高端, 網格構圖"
+}
+-------------------
+
+[2025-12-20T13:03:00.164Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the uploaded product as the central subject. Each frame must present a distinct visual concept while maintaining perfect product consistency across all nine images. Grid Concepts: 1. Iconic hero still life with bold composition. 2. Extreme macro detail highlighting material, surface, or texture. 3. Dynamic liquid or particle interaction surrounding the product. 4. Minimal sculptural arrangement with abstract forms. 5. Floating elements composition suggesting lightness and innovation. 6. Sensory close-up emphasizing tactility and realism. 7. Color-driven conceptual scene inspired by the product palette. 8. Ingredient or component abstraction (non-literal, symbolic). 9. Surreal yet elegant fusion scene combining realism and imagination. Visual Rules: Product must remain 100% accurate in shape, proportions, label, typography, color, and branding. No distortion, deformation, or redesign of the product. Clean separation between product and background. Lighting & Style: Soft, controlled studio lighting. Subtle highlights, realistic shadows. High dynamic range, ultra-sharp focus. Editorial luxury advertising aesthetic. Premium sensory marketing look. Overall Feel: Modern, refined, visually cohesive. High-end commercial campaign. Designed for brand websites, social grids, and digital billboards. Hyperreal, cinematic, polished, and aspirational.",
+  "zhPrompt": "創建一個 3x3 的網格，長寬比為 3:4，用於高端商業行銷活動，以上傳的產品作為中心主題。每個畫面必須呈現不同的視覺概念，同時在所有九張圖像中保持完美的產品一致性。網格概念：1. 具有鮮明構圖的標誌性英雄靜物。2. 極端微距細節，突出材料、表面或紋理。3. 環繞產品的動態液體或粒子交互。4. 具有抽象形式的簡約雕塑排列。5. 漂浮元素組合成，暗示輕盈和創新。6. 強調觸覺和真實感的感官特寫。7. 受產品調色板啟發的色彩驅動概念場景。8. 成分或組件的抽象化（非字面，符號化）。9. 結合現實主義和想像力的超現實而優雅的融合場景。視覺規則：產品必須在形狀、比例、標籤、排版、顏色和品牌方面保持 100% 準確。不得扭曲、變形或重新設計產品。產品和背景之間乾淨地分離。照明與風格：柔和、受控的攝影棚照明。微妙的高光，逼真的陰影。高動態範圍，超清晰對焦。編輯奢華廣告美學。高級感官營銷外觀。整體感覺：現代、精緻、視覺上具有凝聚力。高端商業活動。專為品牌網站、社交網格和數位廣告牌而設計。超現實、電影化、精緻和鼓舞人心。",
+  "tags": "商業廣告, 產品攝影, 網格佈局, 奢華風格, 高解析度"
+}
+-------------------
+
+[2025-12-20T13:44:33.066Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional commercial product photography of a sleek silver smartwatch with a starlight white silicone sport band. The black screen displays a luminous digital clock face featuring glowing neon green organic bubble shapes. Minimalist aesthetic, high-key studio lighting, bright white background, crisp reflections on the curved glass and metallic casing. Isometric 3/4 view, centered composition, sharp focus, 8k resolution, Apple-style tech marketing render. Create a 3×3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the uploaded product as the central subject. Each frame must present a distinct visual concept while maintaining perfect product consistency across all nine images. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion. Product must remain 100% accurate. Soft, controlled studio lighting. Editorial luxury advertising aesthetic. Modern, refined, visually cohesive. Hyperreal, cinematic, polished.",
+  "zhPrompt": "一款時尚銀色智能手錶的專業商業產品攝影，配有星光白色矽膠運動錶帶。黑色屏幕顯示一個發光的數字鐘面，具有發光的霓虹綠色有機泡泡形狀。簡約美學，高調工作室照明，亮白色背景，彎曲玻璃和金屬外殼上的清晰反射。等距四分之三視圖，居中構圖，清晰對焦，8k分辨率，Apple風格的科技營銷渲染。創建一個3×3網格，縱橫比為3:4，用於以產品為中心主題的高端商業營銷活動。每個框架必須呈現一個獨特的視覺概念，同時在所有九個圖像中保持完美的產品一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體/粒子互動。4. 最小雕塑排列。5. 漂浮元素。6. 感官特寫。7. 顏色驅動的場景。8. 成分抽象。9. 超現實融合。產品必須保持100%準確。柔和、受控的工作室照明。社論奢侈品廣告美學。現代、精緻、視覺連貫。超現實、電影化、拋光。",
+  "tags": "智能手錶, 產品攝影, 商業廣告, 科技, 簡約"
+}
+-------------------
+
+[2025-12-20T13:45:42.488Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept while maintaining product consistency. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion scene. Visual Rules: Product accuracy (shape, proportions, label, color, branding). No distortion. Clean separation. Lighting & Style: Soft studio lighting, subtle highlights, high dynamic range, ultra-sharp focus, editorial luxury advertising. Overall Feel: Modern, refined, cohesive, high-end, hyperreal, cinematic, polished, aspirational.",
+  "zhPrompt": "以產品為中心主題，創建一個 3x3 網格，比例為 3:4，用於高端商業行銷活動。每個框架呈現不同的視覺概念，同時保持產品一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體/粒子互動。4. 極簡雕塑佈置。5. 漂浮元素。6. 感官特寫。7. 色彩驅動場景。8. 成分抽象。9. 超現實融合場景。視覺規則：產品準確性（形狀、比例、標籤、顏色、品牌）。沒有扭曲。乾淨的分離。照明和風格：柔和的攝影棚燈光，微妙的高光，高動態範圍，超清晰的焦點，社論奢華廣告。整體感覺：現代，精緻，有凝聚力，高端，超現實，電影化，精美，有抱負。",
+  "tags": "商業廣告, 產品展示, 網格佈局, 高端風格, 超現實主義"
+}
+-------------------
+
+[2025-12-20T13:52:32.317Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3×3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept while maintaining perfect product consistency. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion. Visual Rules: Product must remain 100% accurate. No distortion. Clean separation. Lighting & Style: Soft studio lighting. Subtle highlights. High dynamic range. Editorial luxury aesthetic. Overall Feel: Modern, refined, cohesive. High-end campaign. Hyperreal, cinematic, polished.",
+  "zhPrompt": "創建一個 3×3 網格，縱橫比為 3:4，用於高端商業營銷活動，以產品為中心主題。每個畫面呈現一個獨特的視覺概念，同時保持所有九個圖像中產品的一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體互動。4. 極簡雕塑排列。5. 漂浮元素。6. 感官特寫。7. 色彩驅動場景。8. 成分抽象。9. 超現實融合。視覺規則：產品必須保持 100% 準確。沒有扭曲。清晰分離。照明與風格：柔和的攝影棚燈光。微妙的亮點。高動態範圍。編輯奢侈品美學。整體感覺：現代、精緻、有凝聚力。高端活動。超真實、電影感、精緻和鼓舞人心。",
+  "tags": "商業廣告, 產品展示, 靜物攝影, 視覺設計, 高端品牌"
+}
+-------------------
+
+[2025-12-20T13:53:12.272Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign. The uploaded product is the central subject. Each frame presents a distinct visual concept with perfect product consistency. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements composition. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion scene. Visual Rules: Product 100% accurate. No distortion. Clean separation. Lighting & Style: Soft studio lighting, subtle highlights, HDR, ultra-sharp focus, editorial luxury advertising aesthetic. Overall Feel: Modern, refined, cohesive, high-end commercial, hyperreal, cinematic, polished.",
+  "zhPrompt": "創建一個3x3的網格，比例為3:4，用於高端商業行銷活動。以上傳的產品作為中心主題。每個畫面呈現一個獨特的視覺概念，同時保持所有九張圖像中產品的一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體/粒子互動。4. 簡約雕塑佈置。5. 漂浮元素構圖。6. 感官特寫。7. 色彩驅動場景。8. 成分抽象。9. 超現實融合場景。視覺規則：產品100%準確。無變形。乾淨分離。光線與風格：柔和工作室照明，細微高光，HDR，超清晰對焦，編輯奢侈品廣告美學。整體感覺：現代，精緻，有凝聚力，高端商業，超現實，電影感，精緻，令人嚮往。",
+  "tags": "商業廣告, 產品展示, 網格設計, 高端品牌, 視覺營銷"
+}
+-------------------
+
+[2025-12-20T13:54:09.858Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept while maintaining product consistency. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion scene. Visual Rules: Product accuracy (shape, proportions, label, branding). No distortion. Clean separation. Lighting: Soft studio lighting, subtle highlights, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic. Overall: Modern, refined, cohesive, high-end commercial, hyperreal, cinematic.",
+  "zhPrompt": "創建一個 3x3 網格，比例為 3:4，用於高端商業行銷活動，並將產品作為中心主題。每個框架呈現一個獨特的視覺概念，同時保持產品的一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體/粒子互動。4. 極簡雕塑排列。5. 漂浮元素。6. 感官特寫。7. 色彩驅動場景。8. 成分抽象。9. 超現實融合場景。視覺規則：產品準確性（形狀、比例、標籤、品牌）。無扭曲。乾淨的分離。光照：柔和的攝影棚光照，微妙的高光，高動態範圍，超清晰的焦點，編輯奢侈品廣告美學。整體：現代、精緻、有凝聚力、高端商業、超現實、電影感。",
+  "tags": "商業攝影, 產品展示, 視覺營銷, 靜物攝影, 廣告美學"
+}
+-------------------
+
+[2025-12-20T13:54:51.876Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept with perfect product consistency. Grid concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion. Product must be 100% accurate. Soft studio lighting, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic. Modern, refined, hyperreal, cinematic, polished.",
+  "zhPrompt": "創建一個 3x3 網格，比例為 3:4，用於高端商業行銷活動，以產品為中心主題。每個畫面都呈現出獨特的視覺概念，並保持產品在所有九個圖像中的完美一致性。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體互動。4. 簡約雕塑佈置。5. 漂浮元素。6. 感官特寫。7. 色彩驅動的場景。8. 成分抽象。9. 超現實融合。產品必須 100% 準確。柔和的攝影棚燈光，高動態範圍，超清晰對焦，編輯奢侈品廣告美學。現代、精緻、超現實、電影感、精雕細琢。",
+  "tags": "商業廣告, 產品展示, 視覺設計, 高端質感, 創意構圖"
+}
+-------------------
+
+[2025-12-20T13:55:39.512Z] Raw Gemini Response:
+{
+  "enPrompt": "Professional commercial product photography of a luxury 18k yellow gold chronograph watch with an emerald green sunburst dial. Centered composition on a minimalist surface. Dramatic caustic lighting with sharp shadows and a vibrant red light refraction effect. Ethereal smoke wisps in the background. High-key atmosphere, metallic reflections, 8k resolution, cinematic render, hyper-realistic, sharp focus on watch details.",
+  "zhPrompt": "一款奢華18k黃金計時碼錶的專業商業產品攝影，搭配翠綠色旭日紋錶盤。中心構圖位於極簡主義表面上。戲劇性的焦散照明，帶有清晰的陰影和鮮豔的紅色光線折射效果。背景中飄渺的煙霧。高調氛圍，金屬反射，8k分辨率，電影渲染，超逼真，對手錶細節的清晰聚焦。",
+  "tags": "產品攝影, 手錶, 計時碼錶, 黃金, 奢侈品"
+}
+-------------------
+
+[2025-12-20T13:56:59.999Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end commercial product photography of a luxury 18k yellow gold chronograph watch with an emerald green dial, standing upright on a reflective surface. Ethereal and high-key lighting, soft glows, intricate caustic light reflections. Dramatic red light leak and sharp shadow. Minimalist light grey background. Professional macro shot, sharp focus, 8k resolution, photorealistic, cinematic composition. 3x3 grid, 3:4 aspect ratio. Grid concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements composition. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion scene. Visual rules: 100% product accuracy, clean separation. Lighting & Style: Soft, controlled studio lighting, subtle highlights, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic. Overall feel: Modern, refined, cohesive, hyperreal, cinematic, polished.",
+  "zhPrompt": "一款奢華18k黃金計時腕錶的高端商業產品攝影，搭配翠綠色錶盤，直立於反光表面上。光線空靈且高調，具有柔和的光暈和複雜的焦散光反射。戲劇性的紅色漏光和清晰的陰影。極簡主義淺灰色背景。專業微距拍攝，焦點清晰，8k分辨率，逼真，電影構圖。3x3網格，3:4長寬比。網格概念：1. 標誌性英雄靜物。2. 極端微距細節。3. 動態液體/粒子互動。4. 簡約雕塑排列。5. 漂浮元素構圖。6. 感官特寫。7. 顏色驅動的場景。8. 成分抽象。9. 超現實融合場景。視覺規則：100%產品準確性，乾淨的分離。照明和風格：柔和、受控的攝影棚照明，微妙的高光，高動態範圍，超清晰的焦點，編輯奢侈品廣告美學。整體感覺：現代、精緻、有凝聚力、超真實、電影化、精美打磨。",
+  "tags": "高端攝影, 奢華腕錶, 產品廣告, 商業攝影, 翠綠色錶盤"
+}
+-------------------
+
+[2025-12-20T13:57:33.200Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end commercial product photography of a luxury 18k yellow gold chronograph watch with an emerald green dial, standing upright on a reflective surface. The lighting is ethereal and high-key, featuring soft glows and intricate caustic light reflections. A dramatic red light leak and sharp shadow create a vibrant color accent against a minimalist light grey background. Professional macro shot, sharp focus on the watch face and bezel, 8k resolution, photorealistic, cinematic composition. Create a 3×3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the uploaded product as the central subject. Each frame must present a distinct visual concept while maintaining perfect product consistency across all nine images. Grid Concepts: 1. Iconic hero still life with bold composition 2. Extreme macro detail highlighting material, surface, or texture 3. Dynamic liquid or particle interaction surrounding the product 4. Minimal sculptural arrangement with abstract forms 5. Floating elements composition suggesting lightness and innovation 6. Sensory close-up emphasizing tactility and realism 7. Color-driven conceptual scene inspired by the product palette 8. Ingredient or component abstraction (non-literal, symbolic) 9. Surreal yet elegant fusion scene combining realism and imagination. Visual Rules: Product must remain 100% accurate in shape, proportions, label, typography, color, and branding. No distortion, deformation, or redesign of the product. Clean separation between product and background. Lighting & Style: Soft, controlled studio lighting, subtle highlights, realistic shadows, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic, premium sensory marketing look. Overall Feel: Modern, refined, visually cohesive, high-end commercial campaign, designed for brand websites, social grids, and digital billboards, hyperreal, cinematic, polished, and aspirational.",
+  "zhPrompt": "一個豪華18k黃金計時手錶的高端商業產品攝影，錶盤為翠綠色，直立於反光表面上。光線空靈且高調，具有柔和的光暈和複雜的焦散光反射。醒目的紅色漏光和銳利的陰影在簡約的淺灰色背景上形成鮮豔的色彩。專業微距鏡頭，錶盤和錶圈上的清晰焦點，8k分辨率，照片寫實，電影構圖。創建一個3×3的網格，縱橫比為3:4，用於以產品為中心主題的高端商業營銷活動。每個框架必須呈現一個獨特的視覺概念，同時在所有九個圖像中保持完美的產品一致性。網格概念：1. 具有大膽構圖的標誌性英雄靜物 2. 突出材料、表面或紋理的極端微距細節 3. 圍繞產品的動態液體或粒子互動 4. 具有抽象形式的極簡雕塑佈置 5. 漂浮元素構圖，暗示輕盈和創新 6. 強調觸覺和真實感的感官特寫 7. 受產品調色板啟發的色彩驅動概念場景 8. 成分或組件抽象（非字面，象徵性）9. 結合現實主義和想像力的超現實而優雅的融合場景。視覺規則：產品的形狀、比例、標籤、排版、顏色和品牌必須保持100%準確。產品不得扭曲、變形或重新設計。產品與背景之間乾淨的分隔。光線和風格：柔和、受控的攝影棚光線，微妙的亮點，逼真的陰影，高動態範圍，超清晰的焦點，編輯奢侈品廣告美學，高級感官營銷外觀。整體感覺：現代、精緻、視覺上連貫，高端商業活動，專為品牌網站、社交網格和數字廣告牌設計，超現實、電影感、精緻且鼓舞人心。",
+  "tags": "商業攝影, 手錶, 奢侈品, 翠綠色, 高端"
+}
+-------------------
+
+[2025-12-20T13:58:48.707Z] Raw Gemini Response:
+{
+  "enPrompt": "High-end commercial product photography of a luxury 18k yellow gold chronograph ROLEX watch with an emerald green dial, standing upright on a reflective surface. Ethereal and high-key lighting, soft glows, intricate caustic light reflections. Dramatic red light leak, sharp shadow, vibrant color accent, minimalist light grey background. Professional macro shot, sharp focus, 8k, photorealistic, cinematic composition. 3x3 grid, 3:4 aspect ratio. Iconic hero still life, extreme macro detail, dynamic liquid interaction, minimal sculptural arrangement, floating elements, sensory close-up, color-driven scene, ingredient abstraction, surreal fusion. Accurate product, clean separation. Soft studio lighting, subtle highlights, high dynamic range, ultra-sharp focus, editorial luxury advertising, premium sensory marketing. Modern, refined, cohesive, hyperreal, cinematic, polished, aspirational.",
+  "zhPrompt": "一款豪華18k黃金計時勞力士手錶的高端商業產品攝影，具有翠綠色錶盤，直立在反光表面上。空靈而高調的照明，柔和的光芒，複雜的焦散光反射。引人注目的紅色漏光，清晰的陰影，鮮豔的色彩，簡約的淺灰色背景。專業微距拍攝，焦點清晰，8k分辨率，逼真，電影構圖。3x3網格，3:4長寬比。標誌性英雄靜物，極端微距細節，動態液體互動，極簡雕塑佈置，漂浮元素，感官特寫，色彩驅動場景，成分抽象，超現實融合。產品精確，乾淨分離。柔和的攝影棚照明，微妙的高光，高動態範圍，超清晰焦點，編輯奢侈品廣告，高級感官營銷。現代、精緻、有凝聚力、超真實、電影感、精雕細琢、令人嚮往。",
+  "tags": "商業攝影, 勞力士, 奢侈品, 腕錶, 產品攝影"
+}
+-------------------
+
+[2025-12-20T14:00:00.086Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign. Use the uploaded product as the central subject. Each frame presents a distinct visual concept while maintaining perfect product consistency across all nine images. Grid Concepts: 1. Iconic hero still life with bold composition. 2. Extreme macro detail highlighting material, surface, or texture. 3. Dynamic liquid or particle interaction surrounding the product. 4. Minimal sculptural arrangement with abstract forms. 5. Floating elements composition suggesting lightness and innovation. 6. Sensory close-up emphasizing tactility and realism. 7. Color-driven conceptual scene inspired by the product palette. 8. Ingredient or component abstraction (symbolic). 9. Surreal yet elegant fusion scene combining realism and imagination. Visual Rules: Product must remain 100% accurate in shape, proportions, label, typography, color, and branding. No distortion, deformation, or redesign. Clean separation between product and background. Lighting & Style: Soft, controlled studio lighting. Subtle highlights, realistic shadows. High dynamic range, ultra-sharp focus. Editorial luxury advertising aesthetic. Premium sensory marketing look. Overall Feel: Modern, refined, visually cohesive. High-end commercial campaign. Designed for brand websites, social grids, and digital billboards. Hyperreal, cinematic, polished, and aspirational.",
+  "zhPrompt": "創建一個 3x3 的網格，縱橫比為 3:4，用於高端商業行銷活動。使用上傳的產品作為中心主題。每個框架都呈現一個獨特的視覺概念，同時在所有九張圖像中保持完美的產品一致性。網格概念：1. 具有大膽構圖的標誌性英雄靜物。2. 極端的微距細節，突出材料、表面或紋理。3. 環繞產品的動態液體或粒子互動。4. 具有抽象形式的極簡雕塑佈置。5. 漂浮元素構圖，暗示輕盈和創新。6. 強調觸覺和真實感的感官特寫。7. 受產品調色板啟發的色彩驅動概念場景。8. 成分或組件的抽象（象徵性的）。9. 結合現實主義和想像力的超現實但優雅的融合場景。視覺規則：產品的形狀、比例、標籤、排版、顏色和品牌必須保持 100% 準確。沒有扭曲、變形或重新設計。產品和背景之間乾淨地分離。光線與風格：柔和、受控的攝影棚燈光。微妙的高光，逼真的陰影。高動態範圍，超清晰的焦點。編輯奢侈品廣告美學。優質感官營銷外觀。整體感覺：現代、精緻、視覺上具有凝聚力。高端商業活動。專為品牌網站、社交網格和數位廣告牌而設計。超現實、電影感、精緻且鼓舞人心。",
+  "tags": "商業廣告, 產品攝影, 網格構圖, 奢侈品, 超現實主義"
+}
+-------------------
+
+[2025-12-20T14:01:09.274Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept, maintaining perfect product consistency. Grid Concepts: 1. Iconic hero still life. 2. Extreme macro detail. 3. Dynamic liquid/particle interaction. 4. Minimal sculptural arrangement. 5. Floating elements. 6. Sensory close-up. 7. Color-driven scene. 8. Ingredient abstraction. 9. Surreal fusion. Product accuracy is paramount. Soft studio lighting, HDR, sharp focus, luxury advertising aesthetic. Modern, refined, cohesive, hyperreal, cinematic, polished.",
+  "zhPrompt": "創建一個3x3網格，比例為3:4，用於高端商業營銷活動，以上傳的產品作為中心主題。每個畫面呈現一個獨特的視覺概念，同時保持所有九張圖像中產品的一致性。\n\n網格概念（每個單元格一個）：\n\n1. 具有大膽構圖的標誌性英雄靜物\n\n2. 突顯材料、表面或紋理的極端微距細節\n\n3. 產品周圍的動態液體或粒子互動\n\n4. 具有抽象形式的極簡雕塑排列\n\n5. 懸浮元素構圖，暗示輕盈和創新\n\n6. 強調觸覺和真實感的感官特寫\n\n7. 受產品調色板啟發的色彩驅動概念場景\n\n8. 成分或組件抽象（非字面，象徵性）\n\n9. 結合現實主義和想像力的超現實但優雅的融合場景\n\n視覺規則：\n\n產品的形狀、比例、標籤、排版、顏色和品牌必須保持100%準確\n\n產品不得扭曲、變形或重新設計\n\n產品與背景之間清晰分離\n\n照明和風格：\n\n柔和、可控的攝影棚照明\n\n微妙的高光、逼真的陰影\n\n高動態範圍、超清晰對焦\n\n編輯奢侈品廣告美學\n\n高級感官營銷外觀\n\n整體感覺：\n\n現代、精緻、視覺連貫\n\n高端商業活動\n\n專為品牌網站、社交媒體和數位看板設計\n\n超現實、電影感、精緻且具有理想",
+  "tags": "商業攝影, 產品展示, 廣告, 視覺設計, 網格構圖"
+}
+-------------------
+
+[2025-12-20T14:11:50.238Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a 3x3 grid in 3:4 aspect ratio for a high-end commercial marketing campaign using the product as the central subject. Each frame presents a distinct visual concept while maintaining product consistency. Frame 1: Iconic hero still life. Frame 2: Extreme macro detail. Frame 3: Dynamic liquid interaction. Frame 4: Minimal sculptural arrangement. Frame 5: Floating elements composition. Frame 6: Sensory close-up. Frame 7: Color-driven conceptual scene. Frame 8: Ingredient abstraction. Frame 9: Surreal fusion scene. Product must remain 100% accurate. Soft, controlled studio lighting, high dynamic range, ultra-sharp focus, editorial luxury advertising aesthetic, hyperreal, cinematic, polished.",
+  "zhPrompt": "創建一個 3x3 的網格，長寬比為 3:4，用於高端商業行銷活動，以產品為中心主題。每個畫面呈現一個獨特的視覺概念，同時保持產品的一致性。畫面 1：標誌性英雄靜物。畫面 2：極端微距細節。畫面 3：動態液體互動。畫面 4：極簡雕塑排列。畫面 5：漂浮元素構圖。畫面 6：感官特寫。畫面 7：色彩驅動的概念場景。畫面 8：成分抽象。畫面 9：超現實融合場景。產品必須保持 100% 準確。柔和、可控的攝影棚燈光，高動態範圍，超清晰焦點，編輯奢侈品廣告美學，超真實，電影感，精緻，有抱負。",
+  "tags": "商業廣告, 產品展示, 視覺設計, 高端, 行銷"
+}
+-------------------
+
+[2025-12-20T14:15:26.664Z] Raw Gemini Response:
+{
+  "enPrompt": "Edit the photo (face based on the reference photo). Create a lively and joyful scene of a man holding a framed cartoon portrait of themselves. The man is wearing a black shirt with ALVIN AI and smiling broadly with expressive, happy faces, exuding excitement and warmth. The cartoon inside the frame captures their joyful expressions with exaggerated features: large, bright eyes, wide open mouths showing teeth, and lively, animated expressions, set against a plain, warm background. The overall setting is indoors with soft, warm lighting, conveying a sense of celebration and fun. Using a Canon EOS R camera with a 50mm f/1.8 lens, f/2.2 aperture, shutter speed 1/200s, ISO 100 and natural light, Full Body, Hyper Realistic Photography, Cinematic, Cinema, Hyper detail, Ultra hd, Color Correction, ultra hd, hdr , color grading, 8k. 9:16",
+  "zhPrompt": "編輯照片（面部基於參考照片）。創建一個生動歡樂的場景，一位男士手持自己的卡通肖像畫框。這位男士身穿印有ALVIN AI的黑色襯衫，面帶燦爛笑容，表情生動、快樂，散發著興奮和溫暖。畫框內的卡通捕捉了他們歡樂的表情，並帶有誇張的特徵：大而明亮的眼睛，張大的嘴巴露出牙齒，以及生動活潑的表情，背景是簡潔而溫暖的。整體設置在室內，採用柔和溫暖的照明，傳達一種慶祝和樂趣的感覺。使用佳能EOS R相機，配備50mm f/1.8鏡頭，f/2.2光圈，快門速度1/200秒，ISO 100和自然光，全身照，超寫實攝影，電影感，影院效果，超細節，超高清，色彩校正，超高清，HDR，色彩分級，8k。9:16",
+  "tags": "攝影, 卡通肖像, 歡樂場景, 人像, 室內"
+}
+-------------------
+
+[2025-12-20T14:16:27.825Z] Raw Gemini Response:
+{
+  "enPrompt": "Hyper-realistic ID-style portrait of a young East Asian man with short black hair and a neat crew cut, wearing a grey crewneck sweatshirt with blue 'GAP' lettering over a white collared shirt. Soft, even studio lighting, high-key, pure white background. Sharp focus on facial features, detailed skin texture, friendly neutral expression. Front-facing, centered composition, upper body shot, professional photography, 8k resolution, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "超寫實證件照風格，一位年輕東亞男子，黑色短髮，整潔的平頭髮型，身穿灰色圓領運動衫，藍色'GAP'字母，內搭白色領襯衫。柔和均勻的攝影棚燈光，高調，純白色背景。面部特徵清晰，皮膚紋理細膩，友善中性的表情。正面，居中構圖，上半身鏡頭，專業攝影，8k分辨率，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰對焦。",
+  "tags": "證件照, 東亞男性, 灰色運動衫, 8k, 超寫實"
+}
+-------------------
+
+[2025-12-20T14:17:32.031Z] Raw Gemini Response:
+{
+  "enPrompt": "A lively and joyful scene of a man holding a framed cartoon portrait of themselves. The man is wearing a black shirt with ALVIN AI and smiling broadly with expressive, happy faces, exuding excitement and warmth. The cartoon inside the frame captures their joyful expressions with exaggerated features: large, bright eyes, wide open mouths showing teeth, and lively, animated expressions, set against a plain, warm background. The overall setting is indoors with soft, warm lighting, conveying a sense of celebration and fun. Shot using a Canon EOS R camera with a 50mm f/1.8 lens, f/2.2 aperture, shutter speed 1/200s, ISO 100 and natural light, Full Body, Hyper Realistic Photography, Cinematic, Cinema, Hyper detail, Ultra hd, Color Correction, ultra hd, hdr, color grading, 8k. 9:16",
+  "zhPrompt": "一個充滿活力和歡樂的場景，一位男士手持一幅自己的卡通肖像畫。這位男士身穿印有ALVIN AI的黑色襯衫，面帶燦爛的笑容，表情生動、快樂，散發著興奮和溫暖的氣息。畫框內的卡通形象捕捉了他們快樂的表情，並帶有誇張的特徵：大而明亮的眼睛、露出牙齒的寬大嘴巴，以及活潑生動的表情，背景是樸素而溫暖的。整體場景設置在室內，光線柔和而溫暖，傳達出一種慶祝和樂趣的感覺。使用佳能EOS R相機，配備50mm f/1.8鏡頭，f/2.2光圈，快門速度1/200秒，ISO 100和自然光，全身照，超寫實攝影，電影感，影院效果，超細節，超高清，色彩校正，超高清，HDR，色彩分級，8k。9:16",
+  "tags": "攝影, 人像, 卡通, 歡樂, 室內"
+}
+-------------------
+
+[2025-12-20T14:19:07.852Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, clean and professional atmosphere.",
+  "zhPrompt": "一張逼真的中景照片，一位美麗的年輕日本OL，留著鮑伯頭，身穿挺括的白色鈕扣襯衫、黑色窄裙、黑色薄絲襪和高跟鞋。她面帶微笑，靠在明亮、現代化的公司辦公室裡的木製辦公桌旁，拿著筆記本和筆。大窗戶灑入柔和的自然光，電影般的燈光，淺景深，清晰的焦點，8k分辨率，乾淨且專業的氛圍。",
+  "tags": "OL, 日本, 辦公室, 時尚, 肖像"
+}
+-------------------
+
+[2025-12-20T14:19:31.368Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, clean and professional atmosphere. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "攝影寫實的中景鏡頭，一位美麗的年輕日本辦公室女性，留著鮑伯頭，身穿清爽的白色鈕扣襯衫、黑色鉛筆裙、透明黑色褲襪和高跟鞋。她面帶微笑，靠在明亮、現代化的公司辦公室裡的木製辦公桌旁，手裡拿著筆記本和筆。大窗戶灑進柔和的自然光，電影般的照明，淺景深，清晰的焦點，8k分辨率，乾淨而專業的氛圍。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "辦公室, 日本女性, 寫實攝影, 時尚, 專業"
+}
+-------------------
+
+[2025-12-20T14:20:20.613Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black short pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, clean and professional atmosphere. 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "一個美麗的年輕日本OL的寫實中景，留著鮑伯頭，身穿乾淨的白色鈕扣襯衫、黑色短鉛筆裙、黑色薄絲襪和高跟鞋。她面帶微笑，靠在明亮現代的辦公室裡的木製辦公桌上，手裡拿著筆記本和筆。大窗戶灑進柔和的自然光線，電影般的照明，淺景深，清晰的焦點，8k分辨率，乾淨專業的氛圍。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點，HDR，工作室品質，獲獎攝影。",
+  "tags": "辦公室, 日本OL, 時尚, 寫實, 專業"
+}
+-------------------
+
+[2025-12-20T14:20:49.166Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black very short pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, clean and professional atmosphere., professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一張逼真的中景照片，一位美麗的年輕日本辦公室女郎，留著鮑伯頭，身穿清爽的白色鈕扣襯衫、黑色超短窄裙、透明黑色褲襪和高跟鞋。她微笑著靠在明亮、現代化的公司辦公室裡的木製辦公桌旁，手裡拿著筆記本和筆。大窗戶灑進柔和的自然日光，電影般的照明，淺景深，清晰的焦點，8k分辨率，乾淨且專業的氛圍，專業的產品攝影，奢華的細節，傑作，最佳品質，超精細，8k分辨率，清晰的焦點。",
+  "tags": "OL, 日本, 辦公室, 時尚, 寫實"
+}
+-------------------
+
+[2025-12-20T14:23:34.865Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black very short pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, clean and professional atmosphere.",
+  "zhPrompt": "逼真的中景鏡頭，一位美麗的年輕日本OL，留著鮑伯頭，穿著乾淨的白色鈕扣襯衫、黑色超短鉛筆裙、透明黑色褲襪和高跟鞋。她微笑著靠在明亮、現代化的公司辦公室的木製辦公桌旁，手裡拿著筆記本和筆。大窗戶灑入柔和的自然光線，電影燈光，淺景深，清晰對焦，8k分辨率，乾淨專業的氛圍。",
+  "tags": "辦公室女郎, 日本, 寫實, 時尚, 專業"
+}
+-------------------
+
+[2025-12-20T14:29:57.611Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, shot on 85mm lens, f/1.8.",
+  "zhPrompt": "一位優雅的東亞女性坐在精緻的咖啡廳裡，逼真的全身照。她有著長長的波浪黑髮，穿著白色羅紋高領毛衣、黑色迷你裙、透明黑色褲襪和金屬金色高跟鞋。她坐在圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，她優雅地擺著姿勢，手放在下巴上，雙腿交叉。巨大的落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高分辨率，8k，使用85mm鏡頭拍攝，f/1.8。",
+  "tags": "寫實, 東亞女性, 咖啡廳, 時尚, 優雅"
+}
+-------------------
+
+[2025-12-20T14:34:19.198Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k, shot on 85mm lens, f/1.8.detailed sheer pantyhose texture, realistic leg highlights, soft nylon sheen, enhanced contrast on legs",
+  "zhPrompt": "一位優雅的東亞女性坐在精緻咖啡館的寫實全身照。她有著長長的波浪黑髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄紗褲襪和金屬金色高跟鞋。她坐在圓形木桌旁的棕色皮椅上，桌上放著一個咖啡杯，優雅地擺姿勢，手放在下巴上，雙腿交叉。大型落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高分辨率，8k，使用85mm鏡頭拍攝，f/1.8。細緻的薄紗褲襪紋理，逼真的腿部高光，柔軟的尼龍光澤，增強腿部對比度",
+  "tags": "咖啡館, 東亞女性, 時尚, 寫實, 8K"
+}
+-------------------
+
+[2025-12-20T14:44:23.307Z] Raw Gemini Response:
+{
+  "enPrompt": "A cinematic photograph in the New Chinese style depicting the \"Spring Equinox\". The scene should embody vibrant life and the tender green of cherry blossoms, reminiscent of the season's characteristics. Integrate the Chinese characters \"春分\" seamlessly into the image using traditional calligraphy. The characters must appear to be naturally embedded within the scene, not added as an afterthought. Focus on capturing the poetic essence and depth of the moment with evocative lighting and shadow play.",
+  "zhPrompt": "一幅新中式攝影美學風格的電影感照片，描繪中國二十四節氣中的「春分」。畫面應體現生機盎然、櫻花嫩綠，展現該節氣的特徵。以極具藝術感的傳統書法風格，將漢字「春分」清晰地融入圖像中，且文字需自然嵌入場景，避免事後添加感。著重捕捉詩意和深度，運用引人入勝的光影效果。",
+  "tags": "二十四節氣, 春分, 新中式, 書法, 攝影"
+}
+-------------------
+
+[2025-12-20T14:44:47.799Z] Raw Gemini Response:
+{
+  "enPrompt": "Create an artistic image for the Chinese solar term \"Vernal Equinox\". Capture the essence of vibrant life with cherry blossoms and tender greens. The image should embody the aesthetic of New Chinese photography, combining cinematic lighting with Eastern charm to evoke poetry and depth. Clearly present the Chinese characters \"春分\" in the image, rendered in an artistic, traditional calligraphy style, naturally embedded within the scene.",
+  "zhPrompt": "請為中國二十四節氣中的「春分」創作一幅藝術圖像。捕捉生機盎然的景象，以櫻花和嫩綠為主。畫面需體現新中式攝影美學，結合電影感的光影與東方韻味，營造詩意和深度。圖像中清晰呈現漢字「春分」，採用極具藝術感的傳統書法風格，並自然地嵌入場景中。",
+  "tags": "二十四節氣, 春分, 新中式, 書法, 攝影美學"
+}
+-------------------
+
+[2025-12-20T14:45:08.019Z] Raw Gemini Response:
+{
+  "enPrompt": "Create an artistic image for the Chinese solar term \"Vernal Equinox\". The image should capture the essence of the season: vibrant vitality, cherry blossoms, and tender green hues. The style should be a New Chinese photographic aesthetic, combining cinematic lighting with Eastern charm to create a poetic and profound scene. Integrate the Chinese characters \"春分\" clearly into the image, using a highly artistic traditional calligraphy style, naturally embedded within the scene and not appearing as an afterthought.",
+  "zhPrompt": "請為中國二十四節氣中的「春分」創作一幅藝術圖像。畫面需捕捉春分的精髓：生機盎然，櫻花盛開，嫩綠的色調。風格應為新中式攝影美學，結合電影感的光影與東方韻味，營造詩意且深刻的場景。將漢字「春分」清晰地融入圖像中，採用極具藝術感的傳統書法風格，自然地嵌入畫面，而非事後添加。",
+  "tags": "二十四節氣, 春分, 新中式, 書法, 攝影美學"
+}
+-------------------
+
+[2025-12-20T14:46:29.855Z] Raw Gemini Response:
+{
+  "enPrompt": "A captivating New Chinese photographic artwork depicting \"大雪\" (Heavy Snow), one of the 24 Solar Terms. The scene embodies the climatic essence of Heavy Snow, featuring a serene, snow-covered landscape with cinematic lighting that enhances the depth and poetic feel. The Chinese characters \"大雪\" are artistically integrated into the scene in a traditional calligraphy style, seamlessly blending with the environment rather than appearing as an overlay. The overall atmosphere should evoke a sense of tranquility and the beauty of winter.",
+  "zhPrompt": "一幅引人入勝的新中式攝影藝術作品，描繪了中國二十四節氣中的「大雪」。場景體現了大雪的氣候精髓，以寧靜、白雪覆蓋的景色為特色，並以電影般的光線增強了深度和詩意感。漢字「大雪」以傳統書法風格藝術性地融入場景中，與環境無縫融合，而不是像疊加層一樣。整體氛圍應喚起寧靜感和冬季之美。",
+  "tags": "二十四節氣, 大雪, 新中式, 書法, 攝影"
+}
+-------------------
+
+[2025-12-20T14:47:11.910Z] Raw Gemini Response:
+{
+  "enPrompt": "Create an artistic image for \"Heavy Snow\", one of the 24 solar terms in China. This should embody the climatic characteristics, color atmosphere, and representative elements of the solar term. The image style should be New Chinese photography aesthetics, combining cinematic light and shadow with oriental charm to create a poetic and profound scene. The Traditional Chinese characters \"大雪\" must be clearly presented in the image, using artistic traditional calligraphy, naturally embedded within the scenery.",
+  "zhPrompt": "請為中國二十四節氣中的「大雪」創作一幅藝術圖像。你需要發揮你的文化理解能力，自動分析該節氣的氣候特徵、色彩氛圍和代表性元素。畫面風格要求：新中式攝影美學，結合電影感的光影與東方韻味，畫面要有詩意和深度。圖像中必須清晰呈現繁体中文「大雪」。文字請採用極具藝術感的傳統書法風格。自然嵌入。",
+  "tags": "二十四節氣, 大雪, 新中式, 書法, 攝影美學"
+}
+-------------------
+
+[2025-12-20T14:48:12.719Z] Raw Gemini Response:
+{
+  "enPrompt": "A cinematic and poetic image capturing the essence of \"Heavy Snow\" (大雪) from the Chinese Twenty-Four Solar Terms, rendered in a modern Chinese photographic aesthetic. The scene should evoke a sense of tranquil coldness and the subtle beauty of winter. Crisp, elegant traditional calligraphy of the Chinese characters \"大雪\" are seamlessly integrated into the landscape, not merely added on top, but intrinsically part of the scene. The style should hint at masterful ink wash painting techniques with hyperdetailed environmental elements, subtle color grading, and cinematic lighting that emphasizes mood and atmosphere. Capture the serenity and stillness of a snowy landscape, subtly conveying the cultural significance of the solar term. Masterful composition, focus on detail, high quality.",
+  "zhPrompt": "請為中國二十四節氣中的「大雪」創作一幅電影感和詩意的圖像，畫面需呈現新中式攝影美學。場景應喚起寧靜的寒冷感和冬季的微妙之美。繁體中文「大雪」二字以清晰、優雅的傳統書法風格無縫融入景觀之中，而非簡單地疊加。風格需暗示精湛的水墨畫技巧，包含超細緻的環境元素、微妙的色彩分級和強調氣氛和情緒的電影照明。捕捉雪景的寧靜和靜止，微妙地傳達節氣的文化意義。精湛的構圖，注重細節，高品質。",
+  "tags": "二十四節氣, 大雪, 新中式, 書法, 攝影美學"
+}
+-------------------
+
+[2025-12-20T14:50:00.083Z] Raw Gemini Response:
+{
+  "enPrompt": "A cinematic and poetic image capturing the essence of \"大雪\" from the Chinese Twenty-Four Solar Terms, rendered in a modern Chinese photographic aesthetic. The scene should evoke a sense of tranquil coldness and the subtle beauty of winter. Crisp, elegant traditional calligraphy of the Traditional Chinese characters \"大雪\" are seamlessly integrated into the landscape, not merely added on top, but intrinsically part of the scene. The style should hint at masterful ink wash painting techniques with hyperdetailed environmental elements, subtle color grading, and cinematic lighting that emphasizes mood and atmosphere. Capture the serenity and stillness of a snowy landscape, subtly conveying the cultural significance of the solar term. Masterful composition, focus on detail, high quality.",
+  "zhPrompt": "一幅電影般且充滿詩意的圖像，捕捉了中國二十四節氣中「大雪」的精髓，以現代中國攝影美學呈現。場景應喚起寧靜的寒冷感和冬季的微妙之美。清晰、優雅的「大雪」繁體中文字傳統書法與景觀無縫融合，不僅僅是添加到頂部，而是場景固有的組成部分。風格應暗示精湛的水墨畫技巧，具有超細緻的環境元素、微妙的色彩分級和強調情緒和氛圍的電影照明。捕捉白雪皚皚的風景的寧靜和靜止，巧妙地傳達節氣的文化意義。精湛的構圖，注重細節，高品質。",
+  "tags": "大雪, 二十四節氣, 攝影, 水墨畫, 冬季"
+}
+-------------------
+
+[2025-12-20T14:52:49.130Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the [BRAND NAME] logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建 [品牌名稱] 標誌的超寫實3D渲染圖，手工製作，材料為粗辮羊毛線。標誌以高細節編織，可見紗線紋理，並以柔和的奶油色縫線勾勒輪廓。將其展示在淡米色毛氈墊上，墊子放在淺色橡木工藝桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布和一個陶瓷茶杯。陽光從側窗照射進來，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080正方形格式。",
+  "tags": "3D渲染, 羊毛編織, 工藝美術, 頂視圖, 柔和光線"
+}
+-------------------
+
+[2025-12-20T14:53:20.287Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the [Boncat] logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建一個超逼真的 [Boncat] 標誌 3D 渲染圖，手工製作，使用厚實的編織羊毛紗線。標誌以高細節針織，具有可見的紗線紋理，並以柔軟的奶油色縫線勾勒輪廓。將其展示在淺米色毛氈墊上，墊子位於淺色橡木工藝桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布和一個陶瓷茶杯。陽光從側面窗戶照射進來，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080 正方形格式。",
+  "tags": "3D渲染, 羊毛, 編織, 工藝, 柔和"
+}
+-------------------
+
+[2025-12-20T14:53:57.526Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the Nike logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建一個超現實的3D渲染圖，呈現手工製作的Nike標誌，使用厚實的編織羊毛紗線。標誌以高細節編織，可見紗線紋理，並用柔軟的奶油色縫線勾勒輪廓。將其展示在淡米色毛氈墊上，墊子置於淺色橡木工藝桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布布和一個陶瓷茶杯。陽光從側面窗戶灑入，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080正方形格式。",
+  "tags": "Nike, 羊毛, 編織, 3D渲染, 工藝"
+}
+-------------------
+
+[2025-12-20T14:54:29.364Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the Google logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建一個超現實的3D渲染圖，以粗辮羊毛紗線手工製作Google標誌。該標誌以高細節針織而成，具有可見的紗線紋理，並以柔和的奶油色縫線勾勒輪廓。將其展示在淡米色毛氈墊上，墊子置於淺色橡木手工桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布和一個陶瓷茶杯。陽光從側面窗戶射入，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080正方形格式。",
+  "tags": "3D渲染, 羊毛工藝, Google標誌, 針織藝術, 溫馨風格"
+}
+-------------------
+
+[2025-12-20T14:55:04.097Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the Google logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建一個超現實的3D渲染圖，以粗辮羊毛線手工製作Google標誌。標誌以高細節針織，具有可見的紗線紋理，並以柔軟的奶油色縫線勾勒輪廓。將其展示在淺米色毛氈墊上，墊子放置在淺色橡木手工桌上，周圍環繞著相配的紗線球、針織針、摺疊的拼布和一個陶瓷茶杯。陽光從側面窗戶照射進來，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080正方形格式。",
+  "tags": "Google, 羊毛, 3D渲染, 工藝, 溫馨"
+}
+-------------------
+
+[2025-12-20T14:55:51.808Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the Google colorful logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建一個超逼真的3D渲染，呈現Google的彩色標誌，手工製作，由厚實的編織羊毛線製成。 標誌以高細節編織，可見的紗線紋理，並用柔軟的奶油色縫線勾勒。 將其展示在淡米色的毛氈墊上，墊子放置在淺色橡木手工藝桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布和一個陶瓷茶杯。 陽光從側面的窗戶射入，投下柔和的陰影。 乾淨、舒適、自上而下的構圖。 1080x1080正方形格式。",
+  "tags": "Google, 羊毛, 編織, 3D渲染, 手工藝"
+}
+-------------------
+
+[2025-12-20T14:56:14.713Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 3D rendering of the Boncat colorful logo, hand-crafted from thick braided wool yarn. The logo is knitted in high detail with visible yarn texture and outlined with soft cream stitching. Display it on a pastel beige felt mat on a light oak wooden craft table, surrounded by matching yarn balls, knitting needles, a folded patchwork cloth, and a ceramic cup of tea. Sunlight streams from a side window, casting soft shadows. Clean, cozy, top-down composition. 1080x1080 square format.",
+  "zhPrompt": "創建 Boncat 彩色標誌的超逼真 3D 渲染圖，手工製作，使用厚實的編織羊毛紗線。標誌以高細節針織，具有可見的紗線紋理，並用柔軟的奶油色縫線勾勒輪廓。將其展示在淡米色毛氈墊上，墊子放在淺色橡木木製工藝桌上，周圍環繞著相配的紗線球、編織針、摺疊的拼布和一個陶瓷茶杯。陽光從側面窗戶照射進來，投下柔和的陰影。乾淨、舒適、自上而下的構圖。1080x1080 正方形格式。",
+  "tags": "3D渲染, 羊毛, 工藝品, 針織, 溫馨"
+}
+-------------------
+
+[2025-12-20T14:58:29.592Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D '[Taipei]' sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic",
+  "zhPrompt": "創建一個超現實的1080x1080正方形渲染圖，一隻人手輕輕握住一個圓形、斜面的微型展示平台，展示一個[台北]的3D收藏立體模型。以其最具標誌性的地標、小規模的現代和歷史建築，以及茂盛的微型綠植和樹木為特色。一個醒目的3D“[台北]”標誌乾淨地構建在平台的前緣。使用精緻、不飽和的配色方案和啞光紋理，以增強逼真的比例模型外觀。用柔和的影棚照明、暖色調的高光和微妙的深度陰影來照亮場景。將構圖放置在一個中性的灰色漸變背景上，保持相同的視角和透視，以保持一致性。添加大氣深度、逼真的紋理和超精確的細節，以實現8K質量的高端收藏美學",
+  "tags": "微縮模型, 台北, 收藏品, 3D渲染, 超寫實"
+}
+-------------------
+
+[2025-12-20T14:58:52.573Z] Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of Taipei. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D Taipei sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic.",
+  "zhPrompt": "創建一個超逼真的1080x1080正方形渲染圖，一隻人手輕輕握住一個圓潤、帶斜面的微型展示平台，展示台北的3D收藏級立體模型。以其最具代表性的地標、小規模的現代和歷史建築以及鬱鬱蔥蔥的微型綠植和樹木為特色。一個醒目的3D「台北」標誌乾淨俐落地內建在平台的前緣。使用精緻、不飽和的配色方案和啞光紋理來增強逼真的比例模型外觀。用柔和的攝影棚照明、暖色調高光和微妙的深度陰影來照亮場景。將構圖放置在一個中性灰色漸變背景上，保持相同的視角和透視圖以保持一致性。添加大氣深度、逼真的紋理和超精確的細節，以呈現8K品質的高端收藏美學。",
+  "tags": "台北, 微縮模型, 收藏品, 3D渲染, 寫實"
+}
+-------------------
+
+[2025-12-20T14:59:10.632Z] Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D “[Taipei]” sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic.",
+  "zhPrompt": "創建一個超現實的1080x1080正方形渲染圖，描繪一隻人手輕輕地捧著一個圓潤、斜面的微型展示平台，平台上展示著[台北]的3D收藏立體模型。 特色包括其最具代表性的地標、小規模的現代和歷史建築，以及茂盛的微型綠色植物和樹木。 一個醒目的3D“[台北]”標誌乾淨利落地構建在平台的前緣。 使用精緻、不飽和的配色方案和啞光紋理，以增強逼真的比例模型外觀。 用柔和的攝影棚照明、溫暖的亮點和微妙的深度陰影來照亮場景。 將構圖放置在一個中性的灰色漸變背景上，保持相同的視角和透視圖以保持一致性。 添加大氣深度、逼真的紋理和超精確的細節，以呈現 8K 品質的高端收藏品美學",
+  "tags": "台北, 微縮模型, 收藏品, 城市景觀, 逼真"
+}
+-------------------
+
+[2025-12-20T14:59:32.519Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D '[Taipei]' sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic",
+  "zhPrompt": "創建一個超逼真的 1080x1080 正方形渲染圖，描繪一隻人手輕輕握住一個圓角、斜面的微型展示平台，展示一個 [台北] 的 3D 收藏立體模型。 以其最具代表性的地標、小規模的現代和歷史建築以及鬱鬱蔥蔥的微型綠色植物和樹木為特色。 一個醒目的 3D「[台北]」標誌乾淨地建在平台的前緣。 使用精緻、不飽和的配色方案和啞光紋理來增強逼真的比例模型外觀。 用柔和的影棚照明、溫暖的亮點和微妙的深度陰影來照亮場景。 將構圖放置在一個中性灰色漸變背景上，保持相同的視角和透視圖以保持一致性。 添加大氣深度、照片般逼真的紋理和超精確的細節，以獲得 8K 品質的高端收藏美學",
+  "tags": "台北, 微型模型, 3D 渲染, 收藏品, 城市景觀"
+}
+-------------------
+
+[2025-12-20T15:00:38.050Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [New Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D '[New Taipei City]' sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic.",
+  "zhPrompt": "創建一個超現實的1080x1080正方形渲染圖，描繪一隻人手輕輕握住一個圓潤、有斜面的微型展示平台，平台上展示一個[新北]的3D收藏品立體模型。模型中包含最具代表性的地標、小型的現代和歷史建築，以及茂盛的微型綠植和樹木。一個醒目的3D“[新北市]”標誌乾淨利落地嵌入平台的邊緣。使用精緻、低飽和度的配色方案和啞光紋理，以增強逼真的比例模型外觀。用柔和的工作室照明、溫暖的高光和微妙的深度陰影來照亮場景。將構圖放置在一個中性的灰色漸變背景前，保持相同的視角和透視以保持一致性。添加大氣深度、逼真的紋理和超精確的細節，以達到8K品質的高端收藏品美學。",
+  "tags": "微縮模型, 新北市, 3D渲染, 收藏品, 超寫實"
+}
+-------------------
+
+[2025-12-20T15:02:05.863Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taiwan Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D “[台北]” sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic",
+  "zhPrompt": "創建一個超現實的 1080x1080 正方形渲染圖，一隻人手輕輕地握住一個圓潤、斜面的微型展示平台，展示一個[台灣台北]的 3D 收藏立體模型。 以其最具代表性的地標、小規模的現代和歷史建築以及茂盛的微型綠色植物和樹木為特色。 一個醒目的 3D“[台北]”標誌乾淨地建在平台的前邊緣。 使用精緻、不飽和的配色方案和啞光紋理，以增強逼真的比例模型外觀。 用柔和的工作室照明、暖色調和微妙的深度陰影照亮場景。 將構圖放置在一個中性灰色漸變背景上，保持相同的視角和透視圖以保持一致性。 增加大氣深度、逼真的紋理和超精確的細節，以獲得 8K 品質的高端收藏美感",
+  "tags": "台北, 台灣, 微型模型, 收藏品, 城市景觀"
+}
+-------------------
+
+[2025-12-20T15:02:38.560Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taiwan Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D “[台北]” sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic",
+  "zhPrompt": "創建一個超逼真的 1080x1080 正方形渲染圖，一隻人手輕輕握住一個圓潤、帶斜面的微型展示平台，展示一個[台灣台北]的 3D 收藏品立體模型。以其最具標誌性的地標、小規模的現代和歷史建築以及鬱鬱蔥蔥的微型綠色植物和樹木為特色。一個醒目的 3D“[台北]”標誌整潔地內建在平台的前邊緣。使用精緻、不飽和的配色方案和啞光紋理，以增強逼真的比例模型外觀。用柔和的攝影棚照明、暖色調高光和微妙的深度陰影來照亮場景。將構圖放置在一個中性的灰色漸變背景前，保持相同的視角和透視圖以保持一致性。增加大氣深度、照片般逼真的紋理和超精確的細節，以獲得 8K 品質的高端收藏品美學",
+  "tags": "微縮模型, 台北, 台灣, 收藏品, 3D渲染"
+}
+-------------------
+
+[2025-12-20T15:03:10.117Z] Raw Gemini Response:
+{
+  "enPrompt": "Create a hyper-realistic 1080x1080 square render of a human hand gently holding a rounded, beveled miniature display platform showcasing a 3D collectible diorama of [Taipei]. Feature its most iconic landmarks, small-scale modern and historical architecture, and lush miniature greenery and trees. A bold 3D \"[台北]\" sign is cleanly built into the front edge of the platform. Use a refined, desaturated color scheme with matte textures to enhance the realistic scale-model look. Light the scene with soft studio illumination, warm highlights, and subtle depth shadows. Place the composition against a neutral gray gradient backdrop, keeping the same viewing angle and perspective for consistency. Add atmospheric depth, photorealistic textures, and ultra-precise detailing for an 8K quality high-end collectible aesthetic",
+  "zhPrompt": "創建一個超逼真的1080x1080方形渲染圖，呈現一隻人手輕輕握住一個圓潤、倒角微縮展示平台，展示一個[台北]的3D收藏立體模型。 包含其最具代表性的地標、小規模的現代和歷史建築，以及茂盛的微型綠植和樹木。一個醒目的3D“[台北]”標誌整潔地嵌入平台的邊緣。 使用精緻、不飽和的配色方案和啞光紋理，以增強逼真的比例模型外觀。 用柔和的影棚照明、暖色調高光和微妙的深度陰影來照亮場景。 將構圖放置在一個中性灰色漸變背景前，保持相同的視角和透視，以保持一致性。 增加大氣深度、照片般逼真的紋理和超精確的細節，以獲得8K品質的高端收藏美學",
+  "tags": "微縮模型, 台北, 收藏品, 3D渲染, 超逼真"
+}
+-------------------
+
+[2025-12-20T15:08:53.541Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature diorama built inside or around a scaled-down coffee cup, where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, macro lens depth, soft lighting.",
+  "zhPrompt": "一個微型西洋鏡，建在或圍繞著一個縮小的咖啡杯，物體本身變成了環境。 微小的人們與它互動，彷彿它是一個巨大的結構。 俏皮的寫實主義，微距鏡頭景深，柔和的光線。",
+  "tags": "微型場景, 咖啡杯, 微觀世界, 寫實主義, 柔和光線"
+}
+-------------------
+
+[2025-12-20T15:09:30.941Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature diorama built inside or around a scaled-down gift shop, where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, macro lens depth, soft lighting.",
+  "zhPrompt": "一個微型西洋鏡，建立在縮小的禮品店內部或周圍，物體本身成為環境。渺小的人們與它互動，彷彿它是一個巨大的結構。嬉戲的現實主義，微距鏡頭景深，柔和的燈光。",
+  "tags": "微型場景, 禮品店, 宏觀攝影, 柔和光線, 趣味寫實"
+}
+-------------------
+
+[2025-12-20T15:10:09.355Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, macro lens depth, soft lighting.",
+  "zhPrompt": "一個微型西洋鏡，建立在縮小的[金錢]內部或周圍，其中物體本身成為環境。 微小的人們與它互動，彷彿它是一個巨大的結構。 富有玩味的現實主義，微距鏡頭深度，柔和的燈光。",
+  "tags": "微型場景, 宏觀攝影, 創意藝術, 比例模型, 柔和光線"
+}
+-------------------
+
+[2025-12-20T15:10:31.542Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, soft lighting, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus.",
+  "zhPrompt": "一個微型立體模型，建立在一個縮小的[金錢]內部或周圍，其中該物體本身成為環境。 微小的人們與之互動，彷彿它是一個巨大的結構。 俏皮的現實主義，柔和的燈光，專業的產品攝影，奢華的細節，傑作，最佳品質，超細緻，8k分辨率，清晰的焦點。",
+  "tags": "微型場景, 立體模型, 產品攝影, 8K, 超細緻"
+}
+-------------------
+
+[2025-12-20T15:10:56.730Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, soft lighting., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮照明以達到敘事效果，以及紋理以達到絕對的逼真度。一個微型立體模型，構建在縮小的[金錢]內部或周圍，其中物體本身變成了環境。微小的人們與之互動，彷彿它是一個巨大的結構。有趣的現實主義，柔和的照明，100毫米微距，f/2.8光圈，柔和的漫射照明，柔光箱，專業產品攝影，奢華細節，傑作，最佳質量，超細緻，8k分辨率，清晰對焦，HDR，工作室質量，獲獎攝影。",
+  "tags": "微型場景, 產品攝影, 柔和光線, 超精細, 8K解析度"
+}
+-------------------
+
+[2025-12-20T15:11:14.376Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, soft lighting., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事影響，並優先考慮紋理以實現絕對保真度。一個微型透視模型建在或圍繞一個縮小的[金錢]而建，其中該物體本身成為環境。 微小的人們與它互動，彷彿它是一個巨大的結構。 俏皮的現實主義，柔和的燈光。100mm 微距，f/2.8 光圈，柔和的漫射光，燈箱，專業產品攝影，奢華的細節，傑作，最佳品質，超精細，8k 解析度，焦點清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "微型場景, 產品攝影, 柔和光線, 細節豐富, 超高解析度"
+}
+-------------------
+
+[2025-12-20T15:11:32.185Z] Raw Gemini Response:
+{
+  "enPrompt": "Analyze the core emotion and physical attributes of the scene. Think step-by-step: Prioritize lighting for narrative impact, and texture for absolute fidelity., A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, soft lighting., 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, 8k resolution, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "分析場景的核心情感和物理屬性。逐步思考：優先考慮光線以產生敘事衝擊力，並優先考慮紋理以實現絕對的保真度。一個微型立體模型，建在縮小的[金錢]內部或周圍，物體本身成為環境。微小的人們與之互動，彷彿它是一個巨大的結構。有趣的現實主義，柔和的光線。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，8k解析度，清晰對焦，HDR，工作室品質，獲獎攝影。",
+  "tags": "微型場景, 產品攝影, 奢華細節, 柔和光線, 超高解析度"
+}
+-------------------
+
+[2025-12-20T15:12:06.449Z] Raw Gemini Response:
+{
+  "enPrompt": "A miniature diorama built inside or around a scaled-down [money], where the object becomes the environment itself. Tiny people interact with it as if it’s a massive structure. Playful realism, macro lens depth, soft lighting.",
+  "zhPrompt": "一個微型立體模型，建在或圍繞一個縮小的[金錢]周圍，其中該物體本身成為環境。 微小的人們與之互動，彷彿它是一個巨大的結構。 俏皮的現實主義，微距鏡頭深度，柔和的照明。",
+  "tags": "微型場景, 立體模型, 微距攝影, 柔和光線, 趣味現實主義"
+}
+-------------------
+
+[2025-12-20T15:13:20.115Z] Raw Gemini Response:
+{
+  "enPrompt": "[Sony PS5] at center of [colored powder, flour, cocoa, pigment] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "[Sony PS5] 位於 [彩色粉末、麵粉、可可粉、顏料] 爆炸的中心，粒子向外輻射，凝固的混亂，高速閃光攝影，動態能量，黑色背景，色彩節日，引人注目的廣告。",
+  "tags": "PS5, 彩色粉末, 高速攝影, 廣告, 爆炸"
+}
+-------------------
+
+[2025-12-20T15:14:22.558Z] Raw Gemini Response:
+{
+  "enPrompt": "[Sony PS5] at center of [colored powder] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "[Sony PS5] 位於 [彩色粉末] 爆炸的中心，粒子向外輻射，凍結的混亂，高速閃光攝影，動態能量，黑色背景，色彩節日，有影響力的廣告。",
+  "tags": "PS5, 彩色粉末, 高速攝影, 廣告, 動態"
+}
+-------------------
+
+[2025-12-20T15:14:37.388Z] Raw Gemini Response:
+{
+  "enPrompt": "[Sony PS5] at center of [colored powder] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "[Sony PS5] 位於 [彩色粉末] 爆炸的中心，粒子向外輻射，凍結的混亂，高速閃光攝影，動態能量，黑色背景，色彩節日，有影響力的廣告。",
+  "tags": "PS5, 彩色粉末, 高速攝影, 爆炸, 廣告"
+}
+-------------------
+
+[2025-12-20T15:15:00.820Z] Raw Gemini Response:
+{
+  "enPrompt": "Sony A7 at center of colored powder explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "Sony A7 位於彩色粉末爆炸的中心，粒子向外輻射，凝固的混亂，高速閃光攝影，動態能量，黑色背景，色彩節日，引人注目的廣告。",
+  "tags": "高速攝影, 彩色粉末, 產品攝影, 廣告, 動態"
+}
+-------------------
+
+[2025-12-20T15:16:03.635Z] Raw Gemini Response:
+{
+  "enPrompt": "[Sony A7] at center of [colored powder, flour, cocoa, pigment] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "[Sony A7]位於[彩色粉末、麵粉、可可、顏料]爆炸的中心，粒子向外輻射，凍結的混沌，高速閃光攝影，動態能量，黑色背景，色彩節日，具有衝擊力的廣告。",
+  "tags": "高速攝影, 色彩爆炸, 產品攝影, 廣告, 動態"
+}
+-------------------
+
+[2025-12-20T15:16:56.618Z] Raw Gemini Response:
+{
+  "enPrompt": "[Sony A7] at center of [yellow powder, flour, cocoa, pigment] explosion, particles radiating outward, frozen chaos, high-speed flash photography, dynamic energy, against black background, festival of color, impactful advertising.",
+  "zhPrompt": "[Sony A7] 位於 [黃色粉末、麵粉、可可、顏料] 爆炸的中心，粒子向外輻射，凝固的混亂，高速閃光攝影，動態能量，黑色背景，色彩節日，引人注目的廣告。",
+  "tags": "產品攝影, 高速攝影, 色彩爆炸, 廣告, 靜態瞬間"
+}
+-------------------

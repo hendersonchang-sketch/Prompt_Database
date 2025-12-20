@@ -180,7 +180,10 @@ export async function POST(request: Request) {
             apiUrl,
             apiKey,
             imageCount = 1,  // 1-4 images
-            previewMode = false // If true, return images without saving to DB
+            previewMode = false, // If true, return images without saving to DB
+            imageBase64 = null, // Optional for img2img
+            strength = 50,
+            style = "preserve"
         } = body;
 
         // Initialize Bilingual Data
@@ -289,7 +292,114 @@ export async function POST(request: Request) {
         const finalSeed = seed && seed !== -1 ? seed : Math.floor(Math.random() * 1000000);
 
         // Provider Logic (Now uses finalPrompt which is likely English)
-        if (provider === "gemini" && apiKey) {
+        if (imageBase64 && apiKey) {
+            // Priority: Image-to-Image Generation if image is provided
+            try {
+                console.log("Attempting Img2Img Generation via Gemini 2.0...");
+                const client = new GoogleGenAI({ apiKey });
+
+                let styleInstruction = '';
+                // Check if the user is requesting a matrix/grid layout
+                const isGridLayout = /九宮格|矩陣|grid|matrix|3x3|layout/i.test(finalPrompt);
+
+                if (isGridLayout) {
+                    styleInstruction = 'Reference the product identity and materials from the image, but follow the requested grid/matrix layout strictly. DO NOT replicate the composition of the reference image; only replicate the PRODUCT itself.';
+                } else if (style === 'preserve') {
+                    styleInstruction = 'Maintain the exact same art style, color palette, and composition as the reference image.';
+                } else if (style === 'enhance') {
+                    styleInstruction = 'Keep the subject but enhance quality, add more details and improve lighting.';
+                } else if (style === 'transform') {
+                    styleInstruction = 'Use the reference as inspiration but feel free to interpret it creatively.';
+                } else {
+                    styleInstruction = 'Reference the original image but apply the requested changes.';
+                }
+
+                const img2imgPrompt = isGridLayout ?
+                    `
+                [URGENT] SYSTEM DIRECTIVE: 3X3 BRAND GRID GENERATION
+                
+                OBJECTIVE: Create 9 DISTINCT high-end commercial frames in a single grid layout.
+                
+                VISUAL VARIETY RULES (MANDATORY):
+                1. DIVERSIFY CAMERA ANGLES: Cell 1 might be eye-level, Cell 2 MUST be macro close-up, Cell 3 MUST be a dynamic angle, etc. 
+                2. DIVERSIFY PERSPECTIVES: Use a mix of "Top-down (Flat Lay)", "Extreme Close-up", "Low Angle Hero Shot", and "Side Profile".
+                3. DIVERSIFY BACKGROUNDS: Each cell must use the unique background described in the Prompt below (e.g., Liquid, Stone, Abstract, Studio). 
+                4. DO NOT REPLICATE: Never use the same background color or lighting setup for adjacent cells.
+                
+                PRODUCT CONSISTENCY (HIGHEST PRIORITY):
+                The UPLOADED IMAGE is for referencing the PRODUCT (Subject) details only: its shape, materials, labels, and branding.
+                The COMPOSITION/ANGLE of the reference image must be IGNORED. Redraw the product inside each cell with unique camera settings.
+                
+                DETAILED CONCEPTS TO EXECUTE:
+                ${finalPrompt}
+                ` : `
+                Image-to-Image Generation Task.
+                Style Mode: ${styleInstruction}
+                Main Subject Reference: [Image Provided]
+                
+                User Request: ${finalPrompt}
+                `;
+
+                const response = await client.models.generateContent({
+                    model: "gemini-2.0-flash-exp-image-generation",
+                    contents: [
+                        { text: img2imgPrompt },
+                        {
+                            inlineData: {
+                                data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, ''),
+                                mimeType: "image/png" // Gemini usually handles this base64
+                            }
+                        }
+                    ],
+                    config: {
+                        responseModalities: ["TEXT", "IMAGE"]
+                    }
+                });
+
+                const fs = require('fs');
+                const path = require('path');
+                const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+                if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+
+                const generatedImages: string[] = [];
+                for (const part of response.candidates?.[0]?.content?.parts || []) {
+                    if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
+                        const buffer = Buffer.from(part.inlineData.data, 'base64');
+                        const filename = `img2img-${Date.now()}-${Math.random().toString(36).substring(7)}.png`;
+                        const filepath = path.join(uploadDir, filename);
+                        fs.writeFileSync(filepath, buffer);
+                        generatedImages.push(`/uploads/${filename}`);
+                    }
+                }
+
+                if (generatedImages.length > 0) {
+                    if (previewMode) {
+                        return NextResponse.json({
+                            previewMode: true,
+                            images: generatedImages,
+                            prompt: finalPrompt,
+                            originalPrompt: originalPrompt,
+                            promptZh: promptZh,
+                            tags: tagsResult,
+                            width,
+                            height,
+                            seed: finalSeed,
+                            cfgScale,
+                            steps,
+                            negativePrompt
+                        });
+                    }
+                    finalImageUrl = generatedImages[0];
+                } else {
+                    const textResponse = response.candidates?.[0]?.content?.parts?.[0]?.text || "";
+                    console.error("Img2Img returned no image, text response:", textResponse);
+                    throw new Error("Failed to generate image from reference");
+                }
+            } catch (err: any) {
+                console.error("Img2Img Generation Failed:", err);
+                throw new Error("Reference Image Generation Failed: " + err.message);
+            }
+        } else if (provider === "gemini" && apiKey) {
             const imageEngine = body.imageEngine || "imagen"; // Default to imagen
 
             if (imageEngine === "gemini-native") {

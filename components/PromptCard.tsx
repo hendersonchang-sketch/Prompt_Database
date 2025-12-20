@@ -31,6 +31,7 @@ interface PromptCardProps {
     onSelect: (item: PromptEntry) => void;
     onToggleFavorite: (e: React.MouseEvent, id: string, current: boolean) => void;
     onDelete: (id: string) => void;
+    handleSetAsReference?: (image: PromptEntry) => void;
 }
 
 export function PromptCard({
@@ -41,6 +42,7 @@ export function PromptCard({
     onSelect,
     onToggleFavorite,
     onDelete,
+    handleSetAsReference
 }: PromptCardProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -56,9 +58,9 @@ export function PromptCard({
                     onSelect(item);
                 }
             }}
-            className={`break-inside-avoid group relative bg-white/5 rounded-2xl overflow-hidden border transition-all hover:shadow-2xl cursor-pointer ${isSelected
+            className={`break-inside-avoid group relative bg-white/5 rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer ${isSelected
                 ? "border-red-500 shadow-lg shadow-red-500/20"
-                : "border-white/10 hover:shadow-purple-500/10"
+                : "border-white/10 hover:shadow-purple-500/30"
                 }`}
         >
             {/* Selection Checkbox */}
@@ -138,6 +140,16 @@ export function PromptCard({
                             className="p-2 bg-red-500/20 hover:bg-red-500 text-red-200 hover:text-white rounded-full transition-colors"
                         >
                             <Trash2 className="w-4 h-4" />
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleSetAsReference?.(item);
+                            }}
+                            title="設為參考圖"
+                            className="p-2 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-white rounded-full transition-colors"
+                        >
+                            <ImageIcon className="w-4 h-4" />
                         </button>
                     </div>
                 </div>

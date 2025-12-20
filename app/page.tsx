@@ -144,6 +144,16 @@ export default function Home() {
             <PromptGallery
                 refreshTrigger={refreshTrigger}
                 onReuse={setReuseData}
+                onSetAsReference={(image) => {
+                    setReuseData({
+                        prompt: image.originalPrompt || image.prompt,
+                        imageUrl: image.imageUrl,
+                    });
+                    // Scroll to form automatically
+                    setTimeout(() => {
+                        document.getElementById('prompt-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
+                }}
             />
 
             {/* Server Status Indicator */}

@@ -14,13 +14,13 @@ import {
 } from "lucide-react";
 
 
-
 interface PromptGalleryProps {
     refreshTrigger: number;
     onReuse?: (data: any) => void;
+    onSetAsReference?: (image: any) => void;
 }
 
-export default function PromptGallery({ refreshTrigger, onReuse }: PromptGalleryProps) {
+export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReference }: PromptGalleryProps) {
     const [prompts, setPrompts] = useState<PromptEntry[]>([]);
     const [loading, setLoading] = useState(true);
     const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
@@ -664,6 +664,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     onSelect={setSelectedImage}
                                     onToggleFavorite={toggleFavorite}
                                     onDelete={handleDelete}
+                                    handleSetAsReference={onSetAsReference}
                                 />
                             ))}
                         </div>
@@ -700,6 +701,10 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     }}
                     handleCopyPrompt={handleCopyPrompt}
                     copyFeedback={copyFeedback}
+                    handleSetAsReference={(image) => {
+                        onSetAsReference?.(image);
+                        setSelectedImage(null);
+                    }}
                 />
             )}
 
