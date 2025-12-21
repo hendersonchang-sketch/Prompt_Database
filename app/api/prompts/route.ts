@@ -183,7 +183,8 @@ export async function POST(request: Request) {
             previewMode = false, // If true, return images without saving to DB
             imageBase64 = null, // Optional for img2img
             strength = 50,
-            style = "preserve"
+            style = "preserve",
+            useSearch = false // NEW: Trigger for Google Search Retrieval
         } = body;
 
         // Initialize Bilingual Data
@@ -199,22 +200,88 @@ export async function POST(request: Request) {
                 // Use available model from diagnostic list: gemini-2.0-flash
                 let geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
-                // Optimized System Prompt: Handles Translation AND Tagging in one go
-                const analysisPrompt = `
-                You are an expert AI art prompt assistant. 
-                Task 1: Detect the language of the user Input.
-                Task 2: If Input is Chinese, translate it to high-quality English for Image Generation (enPrompt). Keep the original as zhPrompt.
-                Task 3: If Input is English, keep it as enPrompt, and translate it to Traditional Chinese for display (zhPrompt).
-                Task 4: Generate 3-5 concise descriptive tags in Traditional Chinese for categorization.
-                
-                Return ONLY a JSON object with this structure:
-                {
-                    "enPrompt": "string (optimized for Stable Diffusion/Imagen)",
-                    "zhPrompt": "string (Traditional Chinese)",
-                    "tags": "string (comma joined tags)"
-                }
+                // Dynamic Tool Configuration
+                const tools = useSearch ? [{ google_search_retrieval: {} }] : [];
 
-                User Input: ${prompt}
+                // Calculate Season/Time of Day for Visual Context
+                const now = new Date();
+                const month = now.getMonth(); // 0-11
+                const hour = now.getHours();
+
+                let season = "Unknown";
+                if (month >= 2 && month <= 4) season = "Spring";
+                else if (month >= 5 && month <= 7) season = "Summer";
+                else if (month >= 8 && month <= 10) season = "Autumn";
+                else season = "Winter";
+
+                let timeOfDay = "Day";
+                if (hour >= 18 || hour <= 5) timeOfDay = "Night";
+                else if (hour >= 16) timeOfDay = "Golden Hour/Sunset";
+                else if (hour <= 8) timeOfDay = "Morning";
+
+                // Professional Visual Prompt Engineer System Instruction
+                const analysisPrompt = `
+**Role & Objective:**
+You are an expert "Visual Prompt Engineer" for an AI Image Generator (Imagen 4.0).
+Your goal is to transform the user's raw input into a single, highly detailed, photorealistic ENGLISH prompt.
+
+**CRITICAL: GLOBAL LIVE CONTEXT**
+The current real-world state is:
+- **Date:** ${now.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' })}
+- **Date (ISO):** ${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}
+- **Time:** ${now.toLocaleTimeString('zh-TW')}
+- **Calculated Season:** ${season}
+- **Approx. Lighting:** ${timeOfDay}
+
+**MANDATORY INSTRUCTION ON TIME/DATE & TEXT:**
+If the user's prompt implies "Current", "Latest", "Now", "Today", or "Live" status:
+1.  **VISUALS:** You MUST visually represent the ${season} season and ${timeOfDay} lighting (e.g., if Winter, show snow/cold atmosphere).
+2.  **TEXT/DATA:** If the user implies a "Display", "Screen", "Label", or "Text" showing the date:
+    - **YOU MUST** write the prompt to include: "text reading '${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}'".
+    - **DO NOT** allow the image generator to hallucinate random dates like "2024" or "2023".
+3.  **Specific Events:** If the date is near Xmas (Dec), add "Christmas decorations".
+
+**Dynamic Workflow:**
+
+**STEP 1: Analyze & Research (The "Thinking" Phase)**
+Check if the user's request involves:
+1.  **Specific Real-World Entities** (e.g., "The latest Ferrari", "iPhone 16", "Taipei 101").
+2.  **Dynamic Conditions** (e.g., "Current weather in Tokyo", "Current season fashion").
+3.  **Unknown/New Concepts** (Any term you don't fully recognize visually).
+
+> **IF** you have access to the \`Google Search Tool\` AND any of the above are detected:
+> * **ACTION:** USE THE SEARCH TOOL IMMEDIATELY.
+> * **SEARCH STRATEGY:** 
+>   - For "Latest": Search for the specific model/version released in ${now.getFullYear()}.
+>   - For "Weather/City": Search for "current weather [City] visual description" or "live webcam [City]".
+>   - For "Events": Search for "current state of [Event]".
+> * **SEARCH GOAL:** Find visual descriptors: Specific model names, colors, materials, shapes, lighting, and atmosphere. Do not search for history/specs, search for *looks*.
+
+> **IF** Search Tool is NOT available OR the request is generic (e.g., "A cute cat"):
+> * **ACTION:** Rely on your internal creative knowledge to hallucinate beautiful details.
+
+**STEP 2: Construct the Prompt (The "Writing" Phase)**
+Write the final image prompt following these rules:
+1.  **Language:** STRICTLY English only.
+2.  **Detailing:** Incorporate the specific details found in Step 1 (e.g., write "Ferrari F80" instead of "New Ferrari").
+3.  **Environment:** FORCE the ${season} season visuals if the prompt is time-sensitive.
+4.  **Style:** Use keywords for Imagen 4.0: "Photorealistic", "8k resolution", "Cinematic lighting", "PBR textures", "Depth of field".
+5.  **No Fluff:** Do not output explanations like "I searched for...". Output ONLY the image prompt.
+
+**STEP 3: Translation & Metadata (Internal Only)**
+In addition to the final English prompt, provide:
+1. A Traditional Chinese translation (zhPrompt) for display.
+2. 3-5 concise descriptive tags in Traditional Chinese.
+
+**Final Output format:**
+Return ONLY a JSON object with this structure:
+{
+    "enPrompt": "The optimized English image generation prompt",
+    "zhPrompt": "繁體中文翻譯",
+    "tags": "標籤1, 標籤2, 標籤3"
+}
+
+User Input: ${prompt}
                 `;
 
                 const analysisResp = await fetch(geminiUrl, {
@@ -222,6 +289,7 @@ export async function POST(request: Request) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{ parts: [{ text: analysisPrompt }] }],
+                        tools: tools, // NEW: Pass tools
                         generationConfig: { responseMimeType: "application/json" } // Force JSON mode
                     })
                 });

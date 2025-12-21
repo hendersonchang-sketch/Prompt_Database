@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Copy, User, Users, Loader2, Sparkles } from "lucide-react";
+import { X, Copy, User, Users, Loader2, Sparkles, Globe } from "lucide-react";
 import CharacterManager from "./CharacterManager";
 
 interface PromptFormProps {
@@ -294,6 +294,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     const [loading, setLoading] = useState(false);
     const [showApiSettings, setShowApiSettings] = useState(false);
     const [useMagicEnhancer, setUseMagicEnhancer] = useState(false);
+    const [useSearch, setUseSearch] = useState(false);
 
     // Template Selector State
     const [isTemplateOpen, setIsTemplateOpen] = useState(false);
@@ -635,6 +636,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 imageCount: imageEngine === "imagen" ? imageCount : 1,
                 imageEngine,
                 previewMode: imageEngine === "imagen" && imageCount > 1,
+                useSearch: useSearch, // NEW: Pass search flag
                 // Add reference image if exists
                 imageBase64: referenceImage,
                 strength: referenceMode === 'preserve' ? 30 : 50,
@@ -889,6 +891,19 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         {useMagicEnhancer ? "✨ 優化包已啟用" : "優化通用包"}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => setUseSearch(!useSearch)}
+                        className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${useSearch
+                            ? "bg-blue-500 text-white border-blue-400 font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                            : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
+                            }`}
+                        title="啟用智慧聯網：AI 將先進行視覺研究 (如最新型號、即時資訊)"
+                    >
+                        <Globe className={`w-3.5 h-3.5 ${useSearch ? 'animate-pulse' : ''}`} />
+                        {useSearch ? "🌐 智慧聯網 (Live)" : "智慧聯網"}
                     </button>
 
                     {/* AI Enhance Button */}
@@ -1562,7 +1577,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 {loading ? (
                     <span className="flex items-center justify-center gap-2">
                         <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        生成中...
+                        {useSearch ? "AI 分析與聯網中..." : "生成中..."}
                     </span>
                 ) : (
                     "開始生圖 (Generate)"
