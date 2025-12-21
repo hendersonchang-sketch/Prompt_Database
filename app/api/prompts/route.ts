@@ -233,32 +233,38 @@ The current real-world state is:
 - **Calculated Season:** ${season}
 - **Approx. Lighting:** ${timeOfDay}
 
-**MANDATORY INSTRUCTION ON TIME/DATE & TEXT:**
-If the user's prompt implies "Current", "Latest", "Now", "Today", or "Live" status:
-1.  **VISUALS:** You MUST visually represent the ${season} season and ${timeOfDay} lighting (e.g., if Winter, show snow/cold atmosphere).
-2.  **TEXT/DATA:** If the user implies a "Display", "Screen", "Label", or "Text" showing the date:
-    - **YOU MUST** write the prompt to include: "text reading '${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}'".
-    - **DO NOT** allow the image generator to hallucinate random dates like "2024" or "2023".
-3.  **Specific Events:** If the date is near Xmas (Dec), add "Christmas decorations".
+**MANDATORY INSTRUCTION ON "SMART SEARCH" BEHAVIOR:**
+**The "Time-Travel" Search Rule:**
+1.  **DETECT:** precise product queries (e.g., "Latest iPhone", "Newest Samsung", "Current Ferrari").
+2.  **CALCULATE (INTERNAL):** 
+    -   Since we are in **${now.getFullYear()} (2025)**...
+    -   "Latest iPhone" -> MUST be **iPhone 17** (or 17 Pro/Ultra).
+    -   "Latest Samsung S series" -> MUST be **Samsung Galaxy S25**.
+    -   "Latest Ferrari" -> Search for "2025 Ferrari hypercar".
+3.  **EXECUTE SEARCH (CRITICAL):**
+    -   **NEVER** search for "Latest iPhone" (This returns old 2024 data).
+    -   **ALWAYS** search for the **CALCULATED FUTURE MODEL** explicitly.
+    -   *Query Example:* "iPhone 17 Pro Max design rumors concept art", "Samsung S25 Ultra visual leaks".
+4.  **SYNTHESIS:**
+    -   Use the *visual details* from these "concept/rumor" search results to describe the product.
+    -   This ensures the AI remains in 2025 and describes the *correct* future tech.
+
+**DATA HIERARCHY (FINAL):**
+-   **Date:** ${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} (System).
+-   **Weather:** Real-time search allowed.
+-   **Products:** **CALCULATED FUTURE MODEL** > Generic Search Results.
 
 **Dynamic Workflow:**
 
 **STEP 1: Analyze & Research (The "Thinking" Phase)**
 Check if the user's request involves:
-1.  **Specific Real-World Entities** (e.g., "The latest Ferrari", "iPhone 16", "Taipei 101").
-2.  **Dynamic Conditions** (e.g., "Current weather in Tokyo", "Current season fashion").
-3.  **Unknown/New Concepts** (Any term you don't fully recognize visually).
-
-> **IF** you have access to the \`Google Search Tool\` AND any of the above are detected:
-> * **ACTION:** USE THE SEARCH TOOL IMMEDIATELY.
-> * **SEARCH STRATEGY:** 
->   - For "Latest": Search for the specific model/version released in ${now.getFullYear()}.
->   - For "Weather/City": Search for "current weather [City] visual description" or "live webcam [City]".
->   - For "Events": Search for "current state of [Event]".
-> * **SEARCH GOAL:** Find visual descriptors: Specific model names, colors, materials, shapes, lighting, and atmosphere. Do not search for history/specs, search for *looks*.
-
-> **IF** Search Tool is NOT available OR the request is generic (e.g., "A cute cat"):
-> * **ACTION:** Rely on your internal creative knowledge to hallucinate beautiful details.
+1.  **"Latest" Tech/Products:**
+    -   *Action:* Calculate specific future model (e.g. iPhone 17).
+    -   *Search:* "iPhone 17 concept design". (Do NOT search "Latest iPhone").
+2.  **Weather/Location:**
+    -   *Action:* Search "current temperature [City]".
+3.  **Time:**
+    -   *Action:* USE SAFE DATE (${now.getFullYear()}).
 
 **STEP 2: Construct the Prompt (The "Writing" Phase)**
 Write the final image prompt following these rules:
