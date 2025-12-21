@@ -220,6 +220,26 @@ export async function POST(request: Request) {
                 else if (hour <= 8) timeOfDay = "Morning";
 
                 // Professional Visual Prompt Engineer System Instruction
+
+                // [NEW] PROMPT INTERCEPTION FOR SMART SEARCH
+                // If the user wants "Latest" and Search is ON, we must intercept to prevent "2024" results.
+                let searchOptimizedPrompt = prompt;
+                if (useSearch) {
+                    const lower = prompt.toLowerCase();
+                    const techTriggers = ['iphone', 'galaxy', 'samsung', 'pixel', 'ferrari', 'car', 'tech', 'laptop', 'gpu', 'nvidia'];
+                    const timeTriggers = ['latest', 'newest', 'current', 'next gen', 'future'];
+
+                    const hasTech = techTriggers.some(t => lower.includes(t));
+                    const hasTime = timeTriggers.some(t => lower.includes(t));
+
+                    if (hasTech && hasTime) {
+                        // Force-inject the "Future Concept" intent directly into the User Input slot
+                        // This tricks the model into thinking the User ASKED for concepts.
+                        searchOptimizedPrompt += ` \n\n(SYSTEM OVERRIDE: The user is asking about the FUTURE 2025 model. DO NOT search for 'latest released' products. SEARCH QUERY MUST BE: '${prompt} concept rumors 2025' or 'future design leaks'. Ignore iPhone 15/16 or old models.)`;
+                        console.log("Smart Search Intercepted: Injected Future Bias.");
+                    }
+                }
+
                 const analysisPrompt = `
 **Role & Objective:**
 You are an expert "Visual Prompt Engineer" for an AI Image Generator (Imagen 4.0).
@@ -234,33 +254,33 @@ The current real-world state is:
 - **Approx. Lighting:** ${timeOfDay}
 
 **MANDATORY INSTRUCTION ON "SMART SEARCH" BEHAVIOR:**
-**The "Time-Travel" Search Rule:**
-1.  **DETECT:** precise product queries (e.g., "Latest iPhone", "Newest Samsung", "Current Ferrari").
-2.  **CALCULATE (INTERNAL):** 
-    -   Since we are in **${now.getFullYear()} (2025)**...
-    -   "Latest iPhone" -> MUST be **iPhone 17** (or 17 Pro/Ultra).
-    -   "Latest Samsung S series" -> MUST be **Samsung Galaxy S25**.
-    -   "Latest Ferrari" -> Search for "2025 Ferrari hypercar".
-3.  **EXECUTE SEARCH (CRITICAL):**
-    -   **NEVER** search for "Latest iPhone" (This returns old 2024 data).
-    -   **ALWAYS** search for the **CALCULATED FUTURE MODEL** explicitly.
-    -   *Query Example:* "iPhone 17 Pro Max design rumors concept art", "Samsung S25 Ultra visual leaks".
-4.  **SYNTHESIS:**
-    -   Use the *visual details* from these "concept/rumor" search results to describe the product.
-    -   This ensures the AI remains in 2025 and describes the *correct* future tech.
+**PROTOCOL: FUTURE-BIAS SEARCHING (Strict Enforcement)**
+1.  **QUERY INTERCEPTION:**
+    -   **Problem:** If you search "Latest iPhone", Google returns "iPhone 15/16" (2024). This breaks the 2025 simulation.
+    -   **Solution:** You are **FORBIDDEN** from searching "Latest [Product]".
+    -   **Mandate:** You MUST rewrite the search query to: "**[Product] [Year+1] concept design rumors**".
+2.  **EXAMPLE MAPPINGS (Memorize These):**
+    -   User: "Latest iPhone" -> **Search:** "iPhone 17 Pro Max ultra concept design" (NOT "Latest iPhone").
+    -   User: "Latest Samsung" -> **Search:** "Samsung Galaxy S25 Ultra leaks render" (NOT "Latest Samsung").
+    -   User: "Newest Ferrari" -> **Search:** "Ferrari 2026 hypercar concept art".
+3.  **RESULT FILTERING (The "Legacy" Filter):**
+    -   **IF** Search Results return "iPhone 15" or "iPhone 16" -> **IGNORE**. Label as "Ancient History".
+    -   **IF** Search Results return "2024" dates -> **IGNORE**.
+    -   **ONLY** accept visual details that look futuristic/conceptual.
 
 **DATA HIERARCHY (FINAL):**
 -   **Date:** ${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} (System).
 -   **Weather:** Real-time search allowed.
--   **Products:** **CALCULATED FUTURE MODEL** > Generic Search Results.
+-   **Products:** **Calculated Future Query** results ONLY.
 
 **Dynamic Workflow:**
 
 **STEP 1: Analyze & Research (The "Thinking" Phase)**
 Check if the user's request involves:
 1.  **"Latest" Tech/Products:**
-    -   *Action:* Calculate specific future model (e.g. iPhone 17).
-    -   *Search:* "iPhone 17 concept design". (Do NOT search "Latest iPhone").
+    -   *Action:* **STOP.** Do not search "What is latest".
+    -   *Action:* **CALCULATE** the future model (e.g. iPhone 17).
+    -   *Search:* **"iPhone 17 concept design"**.
 2.  **Weather/Location:**
     -   *Action:* Search "current temperature [City]".
 3.  **Time:**
@@ -287,7 +307,7 @@ Return ONLY a JSON object with this structure:
     "tags": "標籤1, 標籤2, 標籤3"
 }
 
-User Input: ${prompt}
+User Input: ${searchOptimizedPrompt}
                 `;
 
                 const analysisResp = await fetch(geminiUrl, {
