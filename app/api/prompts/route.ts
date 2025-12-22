@@ -491,7 +491,18 @@ User Input: ${searchOptimizedPrompt}
                 }
             } catch (err: any) {
                 console.error("Img2Img Generation Failed:", err);
-                throw new Error("Reference Image Generation Failed: " + err.message);
+
+                // Allow Quota errors to pass through clearly
+                if (err.message && (err.message.includes('429') || err.message.includes('Quota'))) {
+                    throw new Error("Quota Exceeded");
+                }
+
+                // Handle Google 500 Internal Errors
+                if (err.message && (err.message.includes('500') || err.message.includes('INTERNAL'))) {
+                    throw new Error("Google AI Service Error (500): The image generation service is temporarily failing. Please try again later or use a smaller reference image.");
+                }
+
+                throw new Error("Reference Image Generation Failed: " + (err.message || "Unknown Error"));
             }
         } else if (provider === "gemini" && apiKey) {
             const imageEngine = body.imageEngine || "imagen"; // Default to imagen
@@ -672,6 +683,18 @@ User Input: ${searchOptimizedPrompt}
         return NextResponse.json(entry);
     } catch (error: any) {
         console.error('Failed to create prompt:', error);
+
+        // [NEW] Intelligent Error Handling for Quota
+        const isQuotaError = error?.message?.includes('429') || error?.message?.includes('Quota exceeded');
+
+        if (isQuotaError) {
+            return NextResponse.json({
+                error: 'Quota Exceeded',
+                details: 'Daily image generation limit reached (429). Reset at midnight PST.',
+                stack: error?.stack
+            }, { status: 429 });
+        }
+
         return NextResponse.json({
             error: 'Failed to create prompt',
             details: error?.message || 'Unknown error',

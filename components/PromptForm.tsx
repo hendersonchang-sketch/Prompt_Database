@@ -301,6 +301,25 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     const [activeCategory, setActiveCategory] = useState<TemplateCategory>("Commercial");
 
     const [imageCount, setImageCount] = useState(1);
+
+    // [NEW] Quota Stats
+    const [quotaStats, setQuotaStats] = useState<{ dailyCount: number; dailyLimit: number; resetTime?: string } | null>(null);
+
+    const fetchQuotaStats = async () => {
+        try {
+            const res = await fetch('/api/stats');
+            if (res.ok) {
+                const data = await res.json();
+                setQuotaStats(data);
+            }
+        } catch (e) {
+            console.error("Failed to fetch quota stats", e);
+        }
+    };
+
+    useEffect(() => {
+        fetchQuotaStats();
+    }, []);
     const [imageEngine, setImageEngine] = useState<'flash' | 'pro' | 'imagen'>("flash");
     const [previewImages, setPreviewImages] = useState<string[]>([]);
     const [previewData, setPreviewData] = useState<any>(null);
@@ -665,9 +684,16 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 onSuccess();
                 // Clear reference image after success
                 setReferenceImage(null);
+                // Update stats
+                fetchQuotaStats();
             }
         } catch (error: any) {
             console.error(error);
+            if (error.message?.includes("Quota Exceeded") || error.message?.includes("429")) {
+                // Enhanced 429 Alert
+                const resetTime = quotaStats?.resetTime || "Tomorrow";
+                window.alert(`🚨 今日額度已耗盡！\n\nGoogle Gemini/Imagen API 每日限制 70 次生圖。\n\n請於 ${resetTime} 後再次嘗試，或暫時切換至 Mock 模式。`);
+            }
             setErrorMsg(error.message || "An unexpected error occurred");
         } finally {
             setLoading(false);
@@ -1565,6 +1591,17 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                 全部放棄，重新生成
                             </button>
                         </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Quota Badge */}
+            {quotaStats && (
+                <div className="flex justify-between items-center px-1 text-xs font-medium bg-white/5 rounded-lg p-2 mb-2 border border-white/5">
+                    <span className="text-gray-400">今日額度 (Daily Quota)</span>
+                    <div className={`flex items-center gap-2 ${quotaStats.dailyCount >= quotaStats.dailyLimit ? 'text-red-400' : 'text-cyan-400'}`}>
+                        <span>{quotaStats.dailyCount} / {quotaStats.dailyLimit}</span>
+                        {quotaStats.dailyCount >= quotaStats.dailyLimit && <span>(已滿)</span>}
                     </div>
                 </div>
             )}

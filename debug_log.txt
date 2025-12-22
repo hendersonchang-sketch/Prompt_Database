@@ -2415,3 +2415,689 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "產品攝影, 高速攝影, 色彩爆炸, 廣告, 靜態瞬間"
 }
 -------------------
+
+[2025-12-21T11:24:06.690Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:25:42.853Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:26:23.061Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:40:57.399Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, twisting Tao Zhu Yin Yuan tower, and dense Taipei streets transformed into a cute detailed miniature world. Soft toy-like textures, vibrant but cozy model lighting. Modern cinematic text overlay in the corner reading: '2025.12.21 Clear 19:40'. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field, winter atmosphere.",
+  "zhPrompt": "以傾斜移軸攝影、微距鏡頭、淺景深、高角度、微縮模型、透視模型美學風格，呈現台北101、陶朱隱園，以及轉變成可愛精緻微型世界的密集台北街道。柔軟的玩具般質感，充滿活力但舒適的模型照明。現代電影風格文字疊加在角落，顯示「2025.12.21 晴朗 19:40」。照片寫實，8k分辨率，電影照明，PBR紋理，景深，冬季氛圍。",
+  "tags": "台北, 微縮模型, 傾斜移軸, 城市景觀, 冬季"
+}
+-------------------
+
+[2025-12-21T11:41:34.522Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:41:54.846Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Tokyo city transformed into a cute detailed miniature world. Snow-covered buildings and tiny cars navigate the streets. Modern cinematic text overlay in the corner reading: '2025.12.21 Snowy 19:41'. Soft toy-like textures, vibrant but cozy model lighting. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "傾斜攝影，微距鏡頭，淺景深，高角度，微縮模型，東京城市轉變為可愛的微型世界。白雪覆蓋的建築物和微小的汽車在街道上行駛。現代電影文字疊加在角落，讀取：“2025.12.21 下雪 19:41”。柔軟的玩具般的質感，充滿活力但舒適的模型照明。照片寫實，8k分辨率，電影照明，PBR紋理，景深。",
+  "tags": "東京, 縮微模型, 城市景觀, 冬季, 雪景"
+}
+-------------------
+
+[2025-12-21T11:42:19.779Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:42:48.096Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Tokyo city during winter. Featuring Tokyo Tower and Shibuya Crossing transformed into a cute detailed miniature world. Soft toy-like textures, vibrant but cozy model lighting. Modern cinematic text overlay in the corner reading: '2025.12.21 Cloudy 19:42'. Photorealistic, 8k resolution, Cinematic lighting, PBR textures, Depth of field.",
+  "zhPrompt": "傾斜攝影，微距鏡頭，淺景深，高角度，微縮模型，冬季東京城市透視模型美學。 以東京鐵塔和澀谷十字路口為特色，轉變成可愛的精緻微型世界。 柔軟的玩具般的質感，充滿活力但舒適的模型照明。 現代電影文字疊加在角落，內容為：「2025.12.21 多雲 19:42」。 照片寫實，8k分辨率，電影照明，PBR紋理，景深。",
+  "tags": "東京, 微縮模型, 傾斜攝影, 冬季, 城市景觀"
+}
+-------------------
+
+[2025-12-21T11:45:24.150Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic explosion diagram of the latest Ferrari hypercar, likely the Ferrari SF90 XX Stradale 2025 model, showcasing its engine, chassis, and aerodynamics with intricate detail. PBR textures, depth of field, dynamic lighting, dark winter atmosphere. Modern cinematic text overlay in the corner reading: '2025.12.21 Clear 19:45'",
+  "zhPrompt": "法拉利最新型超跑的逼真8k分辨率電影級爆炸圖，可能是法拉利SF90 XX Stradale 2025款，以精緻的細節展示其引擎、底盤和空氣動力學。PBR紋理，景深，動態照明，黑暗的冬季氛圍。左下角以現代電影風格文字覆蓋顯示：'2025.12.21 晴 19:45'",
+  "tags": "法拉利, 超跑, 爆炸圖, SF90 XX, 汽車"
+}
+-------------------
+
+[2025-12-21T11:45:52.884Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:46:29.791Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic exploded view diagram of the latest Ferrari hypercar, showcasing all internal components with meticulous detail, floating in a dark studio environment, 8k resolution, cinematic lighting, PBR textures, depth of field. Small, modern text overlay in the bottom left corner reading: 'Ferrari F250 2025'",
+    "zhPrompt": "最新法拉利超跑的爆炸視圖示意圖，以細緻的細節展示所有內部組件，漂浮在黑暗的攝影棚環境中，8k分辨率，電影照明，PBR紋理，景深。左下角的小型現代文字疊加層顯示：'Ferrari F250 2025'",
+    "tags": "法拉利, 超跑, 爆炸圖, 跑車, 設計圖"
+}
+-------------------
+
+[2025-12-21T11:47:07.089Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:47:31.023Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic exploded view diagram of the Ferrari SF90 XX Stradale, 8k resolution, cinematic lighting, PBR textures, depth of field, showcasing every component in intricate detail against a dark background. Modern cinematic text overlay in the corner reading: '2025.12.21 Clear 19:47'.",
+    "zhPrompt": "法拉利 SF90 XX Stradale 最新型跑車的爆炸圖，8k 分辨率，電影級光線，PBR 紋理，景深，在深色背景上以精細的細節展示每個組件。左下方要有文字疊加：'2025.12.21 天晴 19:47'。",
+    "tags": "法拉利, 跑車, 爆炸圖, SF90 XX Stradale, 細節"
+}
+-------------------
+
+[2025-12-21T11:54:18.983Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, twisting Tao Zhu Yin Yuan tower, and dense Taipei streets transformed into a cute detailed miniature world. Winter season. Soft toy-like textures, vibrant but cozy model lighting. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "台北101、陶朱隱園和密集的台北街道，以傾斜攝影、微距鏡頭、淺景深、高角度、微縮模型和西洋鏡美學，轉變為可愛的精緻微型世界。冬季。 柔軟的玩具質感，充滿活力而舒適的模型照明。超逼真，8k分辨率，電影照明，PBR紋理，景深。",
+  "tags": "台北, 微型, 傾斜攝影, 冬季, 城市"
+}
+-------------------
+
+[2025-12-21T11:54:35.022Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:55:12.170Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:55:32.169Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:55:57.544Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:56:13.723Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T11:59:27.413Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution exploded view diagram of the newest Apple AirPods model, showcasing internal components with cinematic lighting and PBR textures, depth of field. Modern cinematic text overlay reading: '2025.12.21 Clear Night 7:59:25 PM'",
+  "zhPrompt": "最新款蘋果 AirPods 型號的爆炸圖，展示內部組件，具有電影照明和 PBR 紋理、景深。 現代電影文本疊加顯示：'2025.12.21 晴朗的夜晚 晚上7:59:25'",
+  "tags": "AirPods, 爆炸圖, 最新型號, Apple, 科技"
+}
+-------------------
+
+[2025-12-21T12:01:39.822Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view diagram of the latest Apple AirPods (2025 model), 8k resolution, cinematic lighting, PBR textures, depth of field. Modern cinematic text overlay reading: '2025.12.21 Cloudy 下午8:01:37'",
+  "zhPrompt": "最新型號（2025年款）蘋果AirPods的逼真爆炸圖，8k分辨率，電影照明，PBR紋理，景深。現代電影文字覆蓋顯示：'2025.12.21 多雲 下午8:01:37'",
+  "tags": "AirPods, 爆炸圖, 最新型號, 蘋果, 無線耳機"
+}
+-------------------
+
+[2025-12-21T12:01:59.213Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view diagram of the latest Apple AirPods, displaying all internal components with precise labeling. The model number is clearly shown at the bottom of the diagram. 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "最新款蘋果 AirPods 的爆炸視圖圖表，顯示所有內部組件並精確標示。型號清楚顯示在圖表底部。8k 分辨率，電影燈光，PBR 紋理，景深。",
+  "tags": "AirPods, 爆炸圖, 蘋果, 最新型號, 科技產品"
+}
+-------------------
+
+[2025-12-21T12:03:25.694Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world during winter night. Soft toy-like textures, vibrant model lighting. Modern cinematic text overlay reading: '2025.12.21 16°C Cloudy 20:03'. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "傾斜攝影，微距鏡頭，淺景深，高角度，微縮模型，台北101、陶朱隱園和密集的台北街道在冬季夜晚呈現出可愛精緻的微型世界。柔軟的玩具般的質感，充滿活力的模型燈光。現代電影文字疊加顯示：'2025.12.21 16°C 多雲 20:03'。逼真的照片，8k分辨率，電影燈光，PBR紋理，景深。",
+  "tags": "台北, 微縮模型, 傾斜攝影, 冬季, 夜晚"
+}
+-------------------
+
+[2025-12-21T12:03:40.813Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world. Soft toy-like textures, vibrant model lighting. Winter season, night scene. Modern cinematic text overlay reading: '2025.12.21 16°C Cloudy 20:03'. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "使用傾斜攝影、微距鏡頭、淺景深、高角度、微縮模型、西洋鏡美學，展示台北101、陶朱隱園和密集的台北街道，呈現一個可愛的微型世界。柔軟的玩具質感、鮮豔的模型燈光。冬季夜景。現代電影文字疊加顯示：'2025.12.21 16°C 多雲 20:03'。照片寫實，8k分辨率，電影燈光，PBR紋理，景深。",
+  "tags": "台北, 微縮模型, 傾斜攝影, 冬季, 夜景"
+}
+-------------------
+
+[2025-12-21T12:04:00.871Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:04:39.887Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:08:01.481Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world. Soft toy-like textures, vibrant model lighting. Winter season. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field. Modern cinematic text overlay reading: '2025.12.21 16°C Cloudy 20:07'",
+  "zhPrompt": "台北101、陶朱隱園和密集的台北街道，以可愛精緻的微型世界呈現的移軸攝影，微距鏡頭，淺景深，高角度，微縮模型，西洋鏡美學。 柔和的玩具般紋理，充滿活力的模型燈光。 冬季。 逼真的，8k分辨率，電影燈光，PBR紋理，景深。 現代電影文字疊加顯示：「2025.12.21 16°C 多雲 20:07」",
+  "tags": "微型, 台北, 移軸, 冬季, 城市"
+}
+-------------------
+
+[2025-12-21T12:08:18.194Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:08:40.327Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:08:54.864Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:09:12.216Z] Raw Gemini Response:
+{
+    "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world. Soft toy-like textures, vibrant model lighting. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field. The scene is set in winter with possible signs of cold weather, reflecting the conditions on 2025.12.21 at 20:09.",
+    "zhPrompt": "移軸攝影，微距鏡頭，淺景深，高角度，微縮模型，台北101、陶朱隱園和密集的台北街道，呈現出一個可愛的微型世界。柔軟的玩具般的紋理，充滿活力的模型燈光。照片寫實，8k分辨率，電影照明，PBR紋理，景深。場景設置在冬季，可能有寒冷天氣的跡象，反映了2025.12.21 20:09的狀況。",
+    "tags": "台北, 微縮, 城市, 冬季, 移軸攝影"
+}
+-------------------
+
+[2025-12-21T12:09:32.490Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world. Soft toy-like textures, vibrant model lighting. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field. Winter season.",
+  "zhPrompt": "臺北101、陶朱隱園以及密集的臺北街道，以可愛精緻的微型世界呈現。移軸攝影，微距鏡頭，淺景深，高角度，微縮模型製作，透視模型美學。柔軟的玩具般紋理，充滿活力的模型照明。照片寫實，8k分辨率，電影照明，PBR紋理，景深。冬季。",
+  "tags": "微型城市, 臺北, 移軸攝影, 冬季, 城市景觀"
+}
+-------------------
+
+[2025-12-21T12:09:53.611Z] Raw Gemini Response:
+{
+  "enPrompt": "Tilt-shift photography, macro lens, shallow depth of field, high angle, miniature faking, diorama aesthetic of Taipei 101, Tao Zhu Yin Yuan, and dense Taipei streets as a cute detailed miniature world at night in winter. Soft toy-like textures, vibrant model lighting, photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field. Modern cinematic text overlay reading: '2025.12.21 18°C Cloudy 20:09'",
+  "zhPrompt": "台北101、陶朱隱園和密集的台北街道，在冬夜呈現出可愛的微型世界。移軸攝影，微距鏡頭，淺景深，高角度，微縮模型，透視模型美學。柔軟的玩具般紋理，生動的模型光線，照片寫實，8k分辨率，電影照明，PBR紋理，景深。現代電影文字覆蓋顯示：'2025.12.21 18°C 多雲 20:09'",
+  "tags": "台北, 微縮, 移軸鏡頭, 冬季, 夜景"
+}
+-------------------
+
+[2025-12-21T12:10:11.141Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:11:22.772Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic exploded view diagram of the latest Apple iPhone model, likely iPhone 17, 8k resolution, cinematic lighting, PBR textures, depth of field. The model name 'iPhone 17' is displayed directly below the exploded view. White background.",
+    "zhPrompt": "最新款蘋果iPhone（可能是iPhone 17）的爆炸圖，超逼真，8k分辨率，電影照明，PBR紋理，景深效果。型號名稱“iPhone 17”顯示在爆炸圖的正下方。白色背景。",
+    "tags": "iPhone, 爆炸圖, 科技產品, 蘋果手機, 最新型號"
+}
+-------------------
+
+[2025-12-21T12:11:43.268Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:13:15.921Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view diagram of the Ferrari F80, 8k resolution, cinematic lighting, PBR textures, depth of field, studio lighting. The model name 'Ferrari F80' is displayed directly beneath the car in a modern font.",
+  "zhPrompt": "法拉利 F80 的逼真爆炸圖，8k 分辨率，電影燈光，PBR 紋理，景深，工作室照明。 型號名稱“Ferrari F80”以現代字體顯示在車輛正下方。",
+  "tags": "法拉利, 爆炸圖, F80, 汽車, 設計圖"
+}
+-------------------
+
+[2025-12-21T12:13:37.317Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:13:51.514Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:14:08.196Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:14:28.872Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic explosion diagram of a Ferrari F80 viewed from directly below, with the car model name prominently displayed, PBR textures, depth of field, winter setting, night.",
+  "zhPrompt": "法拉利 F80 最新款汽車的逼真 8k 分辨率電影爆炸圖，從正下方觀看，汽車型號名稱醒目顯示，PBR 紋理，景深，冬季設置，夜晚。",
+  "tags": "法拉利, 爆炸圖, 汽車設計, 冬季, 夜晚"
+}
+-------------------
+
+[2025-12-21T12:14:49.316Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution exploded view diagram of the Ferrari F90 Stradale supercar, showcasing all internal components with labeled parts. Cinematic lighting, PBR textures, depth of field, studio shot on a white background. The name 'Ferrari F90 Stradale' is displayed in a modern font directly beneath the vehicle.",
+  "zhPrompt": "法拉利 F90 Stradale 超級跑車的逼真 8k 分辨率爆炸視圖，展示所有帶有標籤部件的內部組件。電影照明，PBR 紋理，景深，白色背景上的工作室拍攝。車輛正下方以現代字體顯示名稱“Ferrari F90 Stradale”。",
+  "tags": "法拉利, 爆炸圖, 超級跑車, F90, 汽車"
+}
+-------------------
+
+[2025-12-21T12:15:09.591Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic explosion diagram of the Ferrari F80, showcasing its internal components with PBR textures and intricate details, dramatic lighting from directly underneath emphasizing the car's name, set in a winter environment with a shallow depth of field.",
+    "zhPrompt": "逼真的 8k 分辨率電影級法拉利 F80 爆炸圖，展示其內部組件，具有 PBR 紋理和複雜的細節，正下方打出的戲劇性照明突出了汽車的名稱，設置在冬季環境中，具有淺景深。",
+    "tags": "法拉利, 汽車, 爆炸圖, 設計, 冬季"
+}
+-------------------
+
+[2025-12-21T12:15:27.688Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:16:34.209Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution exploded diagram of the latest Apple iPhone, cinematic lighting, PBR textures, depth of field, shown against a black background. The product name \"iPhone\" is displayed in a modern sans-serif font directly below the diagram.",
+  "zhPrompt": "最新款蘋果iPhone的逼真8k分辨率爆炸圖，電影照明，PBR紋理，景深，在黑色背景下顯示。產品名稱“iPhone”以現代無襯線字體顯示在圖表正下方。",
+  "tags": "iPhone, 爆炸圖, 手機, 蘋果, 產品設計"
+}
+-------------------
+
+[2025-12-21T12:16:50.912Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view diagram of the Apple iPhone 16, showcasing internal components with intricate details, 8k resolution, cinematic lighting, PBR textures, depth of field, product photography style, centered on a black background, clear label 'iPhone 16' at the bottom.",
+  "zhPrompt": "蘋果 iPhone 16 的逼真爆炸圖，展示內部組件的複雜細節，8k 分辨率，電影照明，PBR 紋理，景深，產品攝影風格，位於黑色背景的中心，底部清晰標示“iPhone 16”。",
+  "tags": "iPhone 16, 爆炸圖, 產品設計, 蘋果手機, 零件分解"
+}
+-------------------
+
+[2025-12-21T12:17:06.586Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:17:20.573Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:21:55.398Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic exploded view diagram of the latest iPhone 17, showcasing its internal components in intricate detail, 8k resolution, cinematic lighting, PBR textures, depth of field, dark background. The model name \"iPhone 17\" is displayed directly beneath the exploded diagram.",
+    "zhPrompt": "最新款iPhone 17的爆炸圖，以精細的細節展示其內部組件，8k分辨率，電影照明，PBR紋理，景深，深色背景。 型號名稱“iPhone 17”顯示在爆炸圖下方。",
+    "tags": "iPhone 17, 爆炸圖, 手機設計, 科技產品, 冬季"
+}
+-------------------
+
+[2025-12-21T12:22:07.326Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:22:36.051Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view of the latest iPhone 17, showcasing internal components with intricate detail. The phone model name, \"iPhone 17\", is displayed directly beneath the exploded view. 8k resolution, cinematic lighting, PBR textures, depth of field. Winter season visual elements incorporated.",
+  "zhPrompt": "最新款iPhone 17的爆炸圖，以複雜的細節展示內部組件。 手機型號名稱“iPhone 17”顯示在爆炸圖正下方。 8k分辨率、電影照明、PBR紋理、景深。 融入冬季視覺元素。",
+  "tags": "iPhone 17, 爆炸圖, 手機設計, 冬季, 科技"
+}
+-------------------
+
+[2025-12-21T12:22:54.654Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:29:14.607Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic close-up of an iPhone 17 Pro Max, showcasing its rumored holographic display and under-display camera technology. The device features a sleek, titanium frame with a matte black finish, and the triple-lens camera system is seamlessly integrated into the back. 8k resolution, cinematic lighting, PBR textures, depth of field. Winter background with subtle bokeh.",
+  "zhPrompt": "一張逼真的iPhone 17 Pro Max特寫，展示了傳聞中的全息顯示屏和屏下攝像頭技術。 該設備採用光滑的鈦金屬框架，啞光黑色表面處理，三鏡頭攝像系統無縫集成到背面。 8k分辨率，電影照明，PBR紋理，景深。 冬季背景，帶有微妙的散景。",
+  "tags": "iPhone 17, 全息顯示, 屏下攝像頭, 鈦金屬, 冬季"
+}
+-------------------
+
+[2025-12-21T12:29:45.877Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic exploded view diagram of iPhone 17 Pro Max, showcasing internal components with detailed PBR textures, 8k resolution, cinematic lighting, depth of field. The iPhone 17 Pro Max features a rumored under-display camera, titanium frame, and enhanced periscope lens. The words \"iPhone 17 Pro Max\" are displayed directly beneath the phone model, illuminated with cinematic lighting, set against a dark background. Winter season context implied.",
+  "zhPrompt": "iPhone 17 Pro Max 的逼真爆炸圖，展示了具有詳細 PBR 紋理的內部組件，8k 分辨率、電影照明、景深。iPhone 17 Pro Max 具有傳聞中的屏下鏡頭、鈦金屬框架和增強的潛望鏡頭。 「iPhone 17 Pro Max」字樣顯示在手機型號正下方，以電影照明照亮，背景為深色。暗示冬季背景。",
+  "tags": "iPhone 17 Pro Max, 爆炸圖, 概念設計, 智慧型手機, 冬季"
+}
+-------------------
+
+[2025-12-21T12:30:02.496Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:30:53.148Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T12:35:43.973Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T14:31:48.986Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T14:33:23.818Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T22:30:03.852Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-21T22:30:41.813Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T02:49:54.642Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T02:50:50.684Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:03:31.977Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:41:44.731Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:42:51.804Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:43:49.490Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:44:27.218Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T03:48:36.724Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-22T07:51:47.740Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot of a beautiful young Japanese office lady with a bob haircut, wearing a crisp white button-up blouse, black very short pencil skirt, sheer black pantyhose, and high heels. She is smiling and leaning against a wooden office desk in a bright, modern corporate office during winter daylight, holding a notebook and pen. Large windows with soft natural daylight, cinematic lighting, shallow depth of field, sharp focus, 8k resolution, PBR textures, clean and professional atmosphere.",
+  "zhPrompt": "一位美麗的年輕日本辦公室女郎，留著鮑伯頭，身穿清爽的白色鈕扣襯衫、黑色超短鉛筆裙、黑色透明褲襪和高跟鞋，呈現逼真的中景鏡頭。 她微笑著，靠在明亮、現代的企業辦公室的木製辦公桌旁，在冬日陽光下，手裡拿著筆記本和筆。 大窗戶灑入柔和的自然光線，電影般的燈光，淺景深，清晰的焦點，8k分辨率，PBR紋理，乾淨而專業的氛圍。",
+  "tags": "辦公室女郎, 日本, 辦公室, 冬季, 8k"
+}
+-------------------
