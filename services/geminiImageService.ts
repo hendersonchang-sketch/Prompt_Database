@@ -36,7 +36,7 @@ export interface GenerateImageResult {
 // ===== 模型配置 =====
 const MODEL_CONFIG = {
     flash: {
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.5-flash-image',
         thinkingLevel: 'low',
         aspectRatio: '1:1',
     },
@@ -46,7 +46,7 @@ const MODEL_CONFIG = {
         aspectRatio: '1:1',
     },
     imagen: {
-        model: 'imagen-4',
+        model: 'imagen-4.0-ultra-generate-001',
         aspectRatio: '1:1',
     },
 } as const;

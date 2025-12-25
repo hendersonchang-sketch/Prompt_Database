@@ -45,9 +45,12 @@ export function ImageModal({
     const [structuredLoading, setStructuredLoading] = useState(false);
 
     const [isRemovingBg, setIsRemovingBg] = useState(false);
+    const [isRemovingWatermark, setIsRemovingWatermark] = useState(false);
+    const [isSavingProcessing, setIsSavingProcessing] = useState(false);
 
-    // 去背預覽狀態
-    const [removedBgPreview, setRemovedBgPreview] = useState<string | null>(null);
+    // 影像編輯預覽狀態
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const [previewMode, setPreviewMode] = useState<'bg-removal' | 'watermark-removal' | null>(null);
 
     // Toast State
     const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -152,28 +155,37 @@ export function ImageModal({
         setTimeout(() => setToastMessage(null), duration);
     };
 
-    // 存入圖庫 (僅用於去背後圖片更新)
+    // 存入圖庫 (僅用於影像編輯後圖片更新)
     const handleSaveToLibrary = async () => {
-        if (!removedBgPreview) return;
+        if (!previewUrl) return;
 
-        setIsRemovingBg(true);
+        setIsSavingProcessing(true);
         try {
-            const res = await fetch(`/api/prompts/${selectedImage.id}`, {
-                method: 'PATCH',
+            // 切換為建立新紀錄而非更新原始紀錄，以保留原始圖片
+            const res = await fetch('/api/prompts', {
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    imageUrl: removedBgPreview,
+                    imageUrl: previewUrl,
                     prompt: selectedImage.prompt,
+                    originalPrompt: selectedImage.originalPrompt,
                     promptZh: selectedImage.promptZh,
+                    negativePrompt: selectedImage.negativePrompt,
+                    width: selectedImage.width,
+                    height: selectedImage.height,
+                    seed: selectedImage.seed,
+                    cfgScale: selectedImage.cfgScale,
+                    steps: selectedImage.steps,
+                    tags: selectedImage.tags,
+                    imageEngine: selectedImage.engine || (previewMode === 'bg-removal' ? 'bg-removal' : 'watermark-removal')
                 })
             });
             if (res.ok) {
-                showToast('✅ 已成功將去背圖片存入圖庫');
-                setRemovedBgPreview(null);
-                setSelectedImage(prev => ({
-                    ...prev,
-                    imageUrl: removedBgPreview
-                }));
+                const message = previewMode === 'bg-removal' ? '✅ 已成功將去背圖片存為新紀錄' : '✅ 已成功將消除浮水印後的圖片存為新紀錄';
+                showToast(message);
+                setPreviewUrl(null);
+                setPreviewMode(null);
+                // 不更新目前 selectedImage 的 imageUrl，因為我們是建立新紀錄元件
             } else {
                 throw new Error('儲存失敗');
             }
@@ -181,7 +193,7 @@ export function ImageModal({
             showToast('❌ 儲存失敗，請稍後再試');
             console.error('Save to library error:', err);
         } finally {
-            setIsRemovingBg(false);
+            setIsSavingProcessing(false);
         }
     };
 
@@ -361,7 +373,7 @@ export function ImageModal({
                 >
                     <div className="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
                         <img
-                            src={removedBgPreview || selectedImage.imageUrl || ""}
+                            src={previewUrl || selectedImage.imageUrl || ""}
                             alt={selectedImage.prompt}
                             style={{
                                 transform: `scale(${zoomScale})`,
@@ -369,43 +381,47 @@ export function ImageModal({
                             }}
                             className={`max-w-full max-h-full object-contain rounded-2xl shadow-2xl ${zoomScale > 1 ? 'transition-none' : 'transition-transform duration-300'}`}
                         />
-
-                        {/* 去背預覽控制按鈕列 */}
-                        {removedBgPreview && (
-                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-[80] animate-in zoom-in duration-300">
-                                <button
-                                    onClick={() => {
-                                        const a = document.createElement('a');
-                                        a.href = removedBgPreview;
-                                        a.download = `bg-removed-${selectedImage.id || 'image'}.png`;
-                                        a.click();
-                                        showToast('📥 已開始下載');
-                                    }}
-                                    className="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
-                                >
-                                    <Download className="w-4 h-4" />
-                                    下載圖片
-                                </button>
-
-                                <button
-                                    onClick={handleSaveToLibrary}
-                                    disabled={isRemovingBg}
-                                    className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
-                                >
-                                    {isRemovingBg ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                                    存入圖庫
-                                </button>
-
-                                <button
-                                    onClick={() => setRemovedBgPreview(null)}
-                                    className="px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
-                                >
-                                    <X className="w-4 h-4" />
-                                    取消
-                                </button>
-                            </div>
-                        )}
                     </div>
+
+                    {/* 影像編輯預覽控制按鈕列 - 獨立於 pointer-events-none 之外 */}
+                    {previewUrl && (
+                        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-[80] animate-in zoom-in duration-300">
+                            <button
+                                onClick={() => {
+                                    const a = document.createElement('a');
+                                    a.href = previewUrl;
+                                    const suffix = previewMode === 'bg-removal' ? 'bg-removed' : 'watermark-removed';
+                                    a.download = `${suffix}-${selectedImage.id || 'image'}.jpg`;
+                                    a.click();
+                                    showToast('📥 已開始下載');
+                                }}
+                                className="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                            >
+                                <Download className="w-4 h-4" />
+                                下載圖片
+                            </button>
+
+                            <button
+                                onClick={handleSaveToLibrary}
+                                disabled={isSavingProcessing}
+                                className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                            >
+                                {isSavingProcessing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                                存入圖庫
+                            </button>
+
+                            <button
+                                onClick={() => {
+                                    setPreviewUrl(null);
+                                    setPreviewMode(null);
+                                }}
+                                className="px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold flex items-center gap-2 shadow-2xl transition-all active:scale-95"
+                            >
+                                <X className="w-4 h-4" />
+                                取消
+                            </button>
+                        </div>
+                    )}
 
 
                     {/* Info Badges on Image */}
@@ -597,7 +613,7 @@ export function ImageModal({
                                 </button>
                                 <a
                                     href={selectedImage.imageUrl || ""}
-                                    download={`prompt-db-${selectedImage.id}.png`}
+                                    download={`prompt-db-${selectedImage.id}.jpg`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:bg-white/10 hover:text-white transition-all active:scale-95"
@@ -695,7 +711,8 @@ export function ImageModal({
                                                 if (data.imageBase64) {
                                                     // 設置預覽,禁止自動下載
                                                     const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
-                                                    setRemovedBgPreview(resultUrl);
+                                                    setPreviewUrl(resultUrl);
+                                                    setPreviewMode('bg-removal');
                                                     showToast('✨ 去背完成,請確認預覽');
                                                 }
                                             } catch (err: any) { alert('去背失敗'); } finally { setIsRemovingBg(false); }
@@ -705,6 +722,38 @@ export function ImageModal({
                                     >
                                         {isRemovingBg ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Scissors className="w-3.5 h-3.5" />}
                                         一鍵去背
+                                    </button>
+                                    <button
+                                        onClick={async () => {
+                                            if (!selectedImage.imageUrl) return;
+                                            setIsRemovingWatermark(true);
+                                            try {
+                                                const base64 = await getBase64(selectedImage.imageUrl);
+                                                const blob = await (await fetch(selectedImage.imageUrl)).blob();
+                                                const res = await fetch('/api/remove-watermark', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        imageBase64: base64.split(',')[1],
+                                                        mimeType: blob.type,
+                                                        apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                    }),
+                                                });
+                                                if (!res.ok) throw new Error('消除浮水印失敗');
+                                                const data = await res.json();
+                                                if (data.imageBase64) {
+                                                    const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
+                                                    setPreviewUrl(resultUrl);
+                                                    setPreviewMode('watermark-removal');
+                                                    showToast('✨ 消除浮水印完成，請確認預覽');
+                                                }
+                                            } catch (err: any) { alert('消除浮水印失敗: ' + (err.message || '請稍後再試')); } finally { setIsRemovingWatermark(false); }
+                                        }}
+                                        disabled={isRemovingWatermark}
+                                        className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 rounded-xl text-[11px] font-medium transition-all hover:bg-white/10 hover:text-white"
+                                    >
+                                        {isRemovingWatermark ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Paintbrush className="w-3.5 h-3.5" />}
+                                        消除浮水印
                                     </button>
                                 </div>
                             </div>

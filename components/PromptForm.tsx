@@ -335,7 +335,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
 
     // Reference Image State (for Img2Img)
     const [referenceImage, setReferenceImage] = useState<string | null>(null);
-    const [referenceMode, setReferenceMode] = useState<'preserve' | 'subject'>('subject'); // 'preserve' = Lock Composition, 'subject' = Only Subject
+    const [referenceMode, setReferenceMode] = useState<'preserve' | 'subject' | '3d'>('subject'); // 'preserve' = Lock Composition, 'subject' = Only Subject, '3d' = 2D to 3D Evolution
 
     // Flash Suggest State
     const [suggestion, setSuggestion] = useState("");
@@ -591,7 +591,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `image-${Date.now()}-${index + 1}.png`;
+            a.download = `image-${Date.now()}-${index + 1}.jpg`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -658,8 +658,8 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 useSearch: useSearch, // NEW: Pass search flag
                 // Add reference image if exists
                 imageBase64: referenceImage,
-                strength: referenceMode === 'preserve' ? 30 : 50,
-                style: referenceMode === 'preserve' ? 'preserve' : 'transform'
+                strength: referenceMode === 'preserve' ? 30 : (referenceMode === '3d' ? 80 : 50),
+                style: referenceMode === 'preserve' ? 'preserve' : (referenceMode === '3d' ? '3d' : 'transform')
             };
 
             const res = await fetch("/api/prompts", {
@@ -689,12 +689,27 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             }
         } catch (error: any) {
             console.error(error);
-            if (error.message?.includes("Quota Exceeded") || error.message?.includes("429")) {
+            let displayError = error.message;
+            let isJson = false;
+
+            try {
+                const jsonErr = JSON.parse(error.message);
+                displayError = jsonErr.details || jsonErr.error || error.message;
+                isJson = true;
+            } catch (e) {
+                // Not JSON or fail to parse
+            }
+
+            if (displayError.includes("Quota Exceeded") || displayError.includes("429")) {
                 // Enhanced 429 Alert
                 const resetTime = quotaStats?.resetTime || "Tomorrow";
                 window.alert(`🚨 今日額度已耗盡！\n\nGoogle Gemini/Imagen API 每日限制 70 次生圖。\n\n請於 ${resetTime} 後再次嘗試，或暫時切換至 Mock 模式。`);
+            } else {
+                // [NEW] General AI Failure Popup
+                window.alert(`❌ 生圖失敗\n\n理由：${displayError}`);
             }
-            setErrorMsg(error.message || "An unexpected error occurred");
+
+            setErrorMsg(displayError);
         } finally {
             setLoading(false);
         }
@@ -916,7 +931,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={useMagicEnhancer ? "currentColor" : "none"} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        {useMagicEnhancer ? "✨ 優化包已啟用" : "優化通用包"}
+                        {useMagicEnhancer ? "✨ 魔法增強已啟用" : "🪄 魔法增強"}
                     </button>
 
                     <button
@@ -1175,19 +1190,29 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col justify-center gap-1">
+                                <div className="flex flex-col justify-center gap-1.5 min-w-[100px]">
                                     <button
                                         type="button"
-                                        onClick={() => setReferenceMode(referenceMode === 'preserve' ? 'subject' : 'preserve')}
-                                        className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider transition-all border ${referenceMode === 'preserve'
-                                            ? "bg-amber-500 text-black border-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
-                                            : "bg-purple-600/50 text-white border-purple-400/50"
+                                        onClick={() => {
+                                            if (referenceMode === 'preserve') setReferenceMode('subject');
+                                            else if (referenceMode === 'subject') setReferenceMode('3d');
+                                            else setReferenceMode('preserve');
+                                        }}
+                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all border flex items-center justify-center gap-1.5 ${referenceMode === 'preserve'
+                                            ? "bg-amber-500 text-black border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                                            : referenceMode === '3d'
+                                                ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-white border-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.5)] scale-105"
+                                                : "bg-purple-600/80 text-white border-purple-400 shadow-[0_0_15px_rgba(147,51,234,0.3)]"
                                             }`}
                                     >
-                                        {referenceMode === 'preserve' ? "🔒 鎖定構圖" : "🎨 僅參考主體"}
+                                        {referenceMode === 'preserve' && <span className="text-[12px]">🔒</span>}
+                                        {referenceMode === '3d' && <span className="text-[12px]">💎</span>}
+                                        {referenceMode === 'subject' && <span className="text-[12px]">🎨</span>}
+                                        {referenceMode === 'preserve' ? "鎖定構圖" : referenceMode === '3d' ? "3D 進化" : "參考主體"}
                                     </button>
-                                    <div className="text-[8px] text-gray-400 px-1">
-                                        {referenceMode === 'preserve' ? "適合局部更換" : "適合矩陣/換背景"}
+                                    <div className={`text-[9px] px-2 py-0.5 rounded-full text-center font-medium ${referenceMode === '3d' ? "bg-cyan-500/20 text-cyan-300 animate-pulse" : "bg-black/20 text-gray-400"
+                                        }`}>
+                                        {referenceMode === 'preserve' ? "適合局部更換" : referenceMode === '3d' ? "✨ 2D 轉 3D 渲染" : "適合矩陣/換背景"}
                                     </div>
                                 </div>
                             </div>
@@ -1204,8 +1229,8 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             onChange={async (e) => {
                                 const file = e.target.files?.[0];
                                 if (!file) return;
-                                if (file.size > 5 * 1024 * 1024) {
-                                    alert("圖片太大，請小於 5MB");
+                                if (file.size > 20 * 1024 * 1024) {
+                                    alert("圖片太大，請小於 20MB");
                                     return;
                                 }
                                 e.target.value = "";
@@ -1246,8 +1271,8 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             onChange={async (e) => {
                                 const file = e.target.files?.[0];
                                 if (!file) return;
-                                if (file.size > 5 * 1024 * 1024) {
-                                    alert("圖片太大，請小於 5MB");
+                                if (file.size > 20 * 1024 * 1024) {
+                                    alert("圖片太大，請小於 20MB");
                                     return;
                                 }
                                 e.target.value = "";
@@ -1470,6 +1495,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         type="button"
                         onClick={() => {
                             setImageEngine("pro");
+                            // Pro Currently supports 1 image in this UI flow
                             setImageCount(1);
                         }}
                         className={`group relative flex flex-col items-center gap-1 py-3 px-3 rounded-xl border transition-all ${imageEngine === "pro"
@@ -1480,7 +1506,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         <div className="flex items-center gap-1.5 font-bold text-sm">
                             <span className={imageEngine === 'pro' ? 'text-purple-400' : ''}>🧠</span> Gemini 3 Pro
                         </div>
-                        <span className="text-[10px] opacity-60 font-normal">深度推理，品質最穩</span>
+                        <span className="text-[10px] opacity-60 font-normal text-center">深度推理，適合繁體中文排版</span>
                         {imageEngine === "pro" && <div className="absolute inset-x-0 -bottom-px h-1 bg-purple-500 rounded-b-xl" />}
                     </button>
 
@@ -1495,7 +1521,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         <div className="flex items-center gap-1.5 font-bold text-sm">
                             <span className={imageEngine === 'imagen' ? 'text-blue-400' : ''}>🎨</span> Imagen 4.0
                         </div>
-                        <span className="text-[10px] opacity-60 font-normal">寫實藝術，商業畫質</span>
+                        <span className="text-[10px] opacity-60 font-normal text-center">商業品質，文字渲染最精準</span>
                         {imageEngine === "imagen" && <div className="absolute inset-x-0 -bottom-px h-1 bg-blue-500 rounded-b-xl" />}
                     </button>
                 </div>
@@ -1540,6 +1566,11 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             <h3 className="text-xl font-bold text-white">
                                 📸 預覽選擇 (共 {previewImages.length} 張)
                             </h3>
+                            {previewData?.partialResults && (
+                                <div className="px-3 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-200 text-[10px] animate-pulse">
+                                    ⚠️ 部分圖片因安全過濾已移除 ({previewData.actualCount}/{previewData.requestedCount})
+                                </div>
+                            )}
                             <button
                                 type="button"
                                 onClick={cancelPreview}

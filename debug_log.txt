@@ -3101,3 +3101,823 @@ AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/ge
   "tags": "辦公室女郎, 日本, 辦公室, 冬季, 8k"
 }
 -------------------
+
+[2025-12-23T02:49:28.903Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, winter atmosphere, cinematic bokeh, warm interior tones, high resolution, 8k, shot on 85mm lens, f/1.8. Detailed sheer pantyhose texture, realistic leg highlights, soft nylon sheen, enhanced contrast on legs, PBR textures, depth of field, cinematic lighting.",
+    "zhPrompt": "一位優雅的東亞女性坐在精緻的咖啡廳裡，拍攝全身照。她有長長的波浪狀黑髮，穿著白色羅紋高領毛衣、黑色迷你裙、黑色薄紗褲襪和金色金屬高跟鞋。她坐在棕色皮椅上，圓形木桌上放著一個咖啡杯，她優雅地將手放在下巴上，雙腿交叉。大型落地窗背景，柔和的自然晨光，冬季氣氛，電影散景，溫暖的室內色調，高分辨率，8k，使用85mm鏡頭拍攝，f/1.8。細緻的薄紗褲襪紋理，逼真的腿部高光，柔軟的尼龍光澤，增強腿部對比度，PBR材質，景深，電影照明。",
+    "tags": "亞洲女性, 咖啡廳, 冬季時尚, 薄紗褲襪, 電影感"
+}
+-------------------
+
+[2025-12-23T02:51:22.728Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic image of a miniature Taipei city diorama, captured in winter. The scene is set at 10:51 AM with clear skies and a temperature of 18 degrees Celsius. The diorama showcases detailed buildings and landscapes, PBR textures, and depth of field to enhance realism. The current date, December 23, 2025, is subtly displayed on a small digital sign within the diorama.",
+    "zhPrompt": "以攝影寫實的8k分辨率電影感呈現的台北微型城市模型，場景設定在冬季上午10:51，天空晴朗，氣溫攝氏18度。模型展示了精緻的建築和景觀，PBR材質和景深增強了真實感。當前日期2025年12月23日，巧妙地顯示在模型內的一個小型數位標誌上。",
+    "tags": "台北, 微型城市, 冬季, 攝影寫實, 8k"
+}
+-------------------
+
+[2025-12-23T02:51:37.176Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution image of Taipei city miniature, winter season, snow covered roofs, cinematic lighting, PBR textures, depth of field. Date is December 23, 2025, 10:51 AM. Overcast weather with light snow.",
+    "zhPrompt": "以照片寫實的 8k 解析度呈現的台北市微縮景觀，冬季，屋頂覆蓋著白雪，電影照明，PBR 紋理，景深。日期為 2025 年 12 月 23 日上午 10:51。陰天，有小雪。",
+    "tags": "台北, 微縮景觀, 冬季, 雪, 2025"
+}
+-------------------
+
+[2025-12-23T02:54:58.837Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic full-body shot of an elegant East Asian woman sitting in a sophisticated cafe during winter. She has long wavy dark hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose with soft nylon sheen and enhanced contrast on her legs, and metallic gold high heels. She is seated on a brown leather chair at a round wooden table with a coffee cup, posing gracefully with her hand on her chin and legs crossed. Large floor-to-ceiling window background with soft natural morning light, cinematic bokeh, warm interior tones, high resolution, 8k resolution, realistic leg highlights, 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, PBR textures, depth of field, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, sharp focus, HDR, Studio quality, Award winning photography, cinematic lighting.",
+    "zhPrompt": "在冬季，一位優雅的東亞女性坐在精緻咖啡館的逼真全身照片。她有長長的波浪黑髮，穿著白色羅紋高領毛衣、黑色迷你裙、帶有柔軟尼龍光澤和腿部對比度增強的透明黑色連褲襪，以及金屬金色高跟鞋。她坐在棕色皮椅上，靠在圓形木桌旁，桌上放著一個咖啡杯，她優雅地擺姿勢，手放在下巴上，雙腿交叉。大型落地窗背景，柔和的自然晨光，電影散景，溫暖的室內色調，高分辨率，8k分辨率，逼真的腿部高光，100毫米微距，f/2.8光圈，柔和的漫射光，柔光箱，PBR紋理，景深，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，清晰對焦，HDR，工作室品質，獲獎攝影，電影燈光。",
+    "tags": "咖啡館, 冬季時尚, 東亞女性, 連褲襪, 8k分辨率"
+}
+-------------------
+
+[2025-12-23T02:56:00.192Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution full-body portrait of a graceful East Asian woman in a high-end urban cafe, winter season. She wears a form-fitting white ribbed turtleneck sweater and a tailored black mini skirt, complemented by ultra-fine sheer black pantyhose with a subtle nylon sheen and shimmering metallic gold stilettos. Her long, dark wavy hair cascades over her shoulders as she poses thoughtfully with her hand on her chin, legs elegantly crossed. The scene is bathed in soft, golden morning light streaming through floor-to-ceiling windows, creating a dreamy cinematic bokeh. Rich textures of brown leather and polished wood add warmth. Cinematic lighting, PBR textures, Depth of field. Shot on a Sony A7R IV, 85mm f/1.8 lens, capturing intricate fabric details, realistic leg highlights, and ultra-sharp skin textures.",
+  "zhPrompt": "8k分辨率的逼真全身人像，一位優雅的東亞女性在高端都市咖啡廳裡，冬季場景。她身穿修身的白色羅紋高領毛衣和剪裁合身的黑色迷你裙，搭配超細透明黑色褲襪，帶有微妙的尼龍光澤和閃爍的金色金屬細高跟鞋。她長而黑色的波浪髮披在肩上，她若有所思地將手放在下巴上，雙腿優雅地交叉。場景沐浴在柔和的金色晨光中，晨光透過落地窗灑入，營造出夢幻般的電影散景。棕色皮革和拋光木材的豐富紋理增添了溫暖感。電影般的照明，PBR紋理，景深。使用Sony A7R IV，85mm f/1.8鏡頭拍攝，捕捉複雜的織物細節、逼真的腿部高光和超清晰的皮膚紋理。",
+  "tags": "冬季時尚, 咖啡廳, 人像攝影, 東亞女性, 絲襪"
+}
+-------------------
+
+[2025-12-23T03:00:08.521Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic portrait of an extremely beautiful and sweet Japanese woman around 20 years old, with a delicate and flawless oval face, large, watery, and slightly shy eyes, light makeup and pink lips, brown straight long hair with bangs naturally scattered. She is wearing a gray knitted sleeveless cross-short top with gold buttons accentuating her chest, and a white chiffon semi-transparent long skirt, paired with ultra-thin black stockings. Her hands gently lift the hem of the skirt, revealing slender legs and the sheen of the stockings. She stands in front of a bright, modern bedroom's floor-to-ceiling window. The background includes white curtains, a warm yellow floor lamp, and gray walls. Natural window light pours in from the left, creating soft side lighting. The overall tone is bright, high-end gray-white with warm undertones, embodying the quality of a top-tier Japanese-Korean style indoor portrait. Realistic skin radiance, knitted texture, stocking transparency, and chiffon details are highly emphasized. The shot is a high-end sexy black stockings and skirt lifting scene, emphasizing extremely long legs and a blend of homey and seductive vibes. PBR textures, Depth of field.",
+    "zhPrompt": "8k分辨率的電影級寫真，一位極致甜美的日系美女，約20歲，擁有精緻無瑕的瓜子臉，水汪汪略帶羞澀的大眼睛，淡妝粉唇，棕色齊劉海長直發自然披散。她身穿灰色針織無袖交叉短款上衣，金色鈕扣點綴凸顯胸型，搭配白色雪紡半透明長裙，內搭超薄黑色絲襪。雙手輕輕掀起裙擺，露出修長的雙腿和絲襪的光澤。她站在明亮現代臥室的落地窗前，背景包括白色窗簾、暖黃色落地燈和灰色牆壁。自然的窗戶光線從左側灑入，營造出柔和的側光。整體色調明亮，高檔灰白色帶有溫暖的色調，體現了頂級日韓風格室內寫真的質感。逼真的皮膚光澤、針織紋理、絲襪透明感和雪紡細節都得到高度強調。拍攝是一個高端性感的黑絲撩裙場景，強調極致的長腿和居家與誘人氛圍的融合。PBR紋理，景深。",
+    "tags": "日系美女, 黑絲, 寫真, 居家性感, 撩裙"
+}
+-------------------
+
+[2025-12-23T03:00:40.372Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic portrait of an extremely beautiful Japanese woman around 20 years old. She has a delicate, flawless face, large, watery, slightly shy eyes, light makeup with pink lips, and brown bangs with long, straight hair naturally cascading down. She is wearing a gray knitted sleeveless crossover crop top with gold button accents, perfectly accentuating her figure, and a white chiffon semi-transparent long skirt over ultra-thin black stockings. She is gently lifting the skirt to reveal her slender legs and the sheen of the stockings, in a bashful and alluring pose. She is standing in front of a bright, modern bedroom's floor-to-ceiling window, with white curtains, a warm yellow floor lamp, and a gray wall in the background. Natural window light is spilling in from the left, creating soft side lighting. The overall tone is bright, high-end gray-white with warm tones, embodying a top-tier Japanese-Korean indoor boudoir aesthetic. Surreal skin gloss, knitted textures, stocking transparency, and chiffon details are prominent. The image features exaggerated long leg proportions and a blend of domestic comfort and sexuality in a captivating stocking-clad pose. Depth of field, PBR textures.",
+    "zhPrompt": "極致真實的8K電影人像，一位約20歲的極其美麗的日本女性。她擁有精緻無瑕的臉龐，大而水潤、略帶羞澀的眼睛，淡妝粉唇，棕色劉海與自然披散的長直發。她身穿灰色針織無袖交叉短款上衣，金色鈕扣點綴，完美襯托身材，下身搭配白色雪紡半透明長裙，內搭超薄黑色絲襪。她輕輕提起裙擺，露出修長的雙腿和絲襪的光澤，姿態嬌羞迷人。她站在明亮現代臥室的落地窗前，背景是白色窗簾、暖黃色落地燈和灰色牆壁。自然光線從左側灑入，營造出柔和的側光。整體色調明亮、高端，以灰白色為主，帶有暖色調，體現了頂級日韓系室內寫真的美感。超現實的皮膚光澤、針織紋理、絲襪的透明感和雪紡的細節都非常突出。圖像突出了極致的長腿比例，並在迷人的黑絲襪裝扮中融合了居家舒適感和性感。景深，PBR紋理。",
+    "tags": "日系美女, 黑絲, 雪紡裙, 電影人像, 8K"
+}
+-------------------
+
+[2025-12-23T03:00:59.069Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic portrait of an extremely beautiful and sweet Japanese woman, around 20 years old, with a delicate and flawless oval face, large, moist, slightly shy eyes, light makeup and pink lips. She has brown bangs and long, straight hair that naturally falls over her shoulders. She is wearing a gray knitted sleeveless crop top with gold button accents that perfectly fits her figure, and a white tulle chiffon semi-transparent long skirt with ultra-thin black stockings underneath. Her hands gently lift the skirt, revealing her slender legs and the sheen of the stockings. She stands in a coy and seductive pose in front of a bright, modern bedroom floor-to-ceiling window. The background includes white curtains, a warm yellow floor lamp, and a gray wall. Natural window light shines in from the left, creating soft side lighting. The overall tone is bright, high-end, gray-white and warm. The image should have a high-quality Japanese and Korean-style indoor portrait feel, with hyperrealistic skin glow, detailed knitted textures, translucent stockings, and chiffon details. Extreme long legs and a combination of domestic and sexy themes, a top-notch black silk skirt-lifting masterpiece, depth of field, PBR textures.",
+    "zhPrompt": "極致真實的8k電影人像，一位非常美麗和甜美的日本女性，大約20歲，擁有精緻無瑕的鵝蛋臉，大而水潤，略帶羞澀的眼睛，淡妝和粉紅色的嘴唇。 她有棕色的劉海和長而直的頭髮，自然地披在肩上。 她穿著一件灰色針織無袖短款上衣，金色鈕扣點綴，完美貼合她的身材，還有一條白色薄紗雪紡半透明長裙，內搭超薄黑色絲襪。 她的雙手輕輕提起裙子，露出她修長的美腿和絲襪的光澤。 她以嬌羞而誘人的姿勢站在明亮現代臥室的落地窗前。 背景包括白色窗簾、暖黃色落地燈和灰色牆壁。 自然的窗戶光線從左側照射進來，營造出柔和的側面光線。 整體色調明亮、高端、灰白色和溫暖。 圖像應具有高品質的日韓風格室內寫真質感，具有超現實的皮膚光澤、細緻的針織紋理、半透明的絲襪和雪紡細節。 極致的長腿以及家庭和性感主題的結合，頂級的黑色絲綢撩裙大片，景深，PBR紋理。",
+    "tags": "日系美女, 絲襪, 寫真, 居家, 性感"
+}
+-------------------
+
+[2025-12-23T03:03:33.733Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic portrait of an extremely beautiful, sweet, and cute Japanese woman, around 20 years old, with a flawless oval face, large, watery, slightly shy eyes, light makeup, pink lips, brown bangs and long straight hair naturally draped over her shoulders. She is wearing a gray knitted sleeveless crossover crop top with gold button details perfectly accentuating her bust, paired with a white chiffon semi-transparent long skirt and ultra-thin black stockings. She gently lifts the hem of her skirt, revealing her slender legs and the sheen of her stockings, posing shyly and seductively. She stands in front of a bright, modern bedroom floor-to-ceiling window with white curtains, a warm yellow floor lamp, and a gray wall in the background. Natural window light streams in from the left, creating soft side lighting. The overall tone is bright, upscale gray, white, and warm. The quality is of a top-tier Japanese and Korean indoor portrait photoshoot, emphasizing surreal skin radiance, knit textures, stocking translucency, and chiffon details. Depth of field, PBR textures.",
+    "zhPrompt": "極致真實的日系頂級甜美美女寫真，約20歲，精緻無瑕瓜子臉，大眼水潤帶點羞澀，淡妝粉唇，棕色齊劉海長直髮自然披散。身穿灰色針織無袖交叉短上衣，金色鈕扣點綴，完美貼合胸型，下身白色薄紗雪紡半透明長裙，內搭超薄黑色絲襪，雙手輕輕掀起裙擺露出修長美腿與絲襪光澤，姿勢嬌羞誘人。站在明亮現代臥室落地窗前，背景有白色窗簾、暖黃落地燈與灰牆，左側自然窗光灑入形成柔和側光。整體色調明亮高級灰白暖調，日韓系頂級室內寫真質感，超現實皮膚水光、針織紋理、絲襪透光與雪紡薄紗細節，8K電影人像，景深，PBR紋理。",
+    "tags": "日系美女, 甜美, 寫真, 絲襪, 針織"
+}
+-------------------
+
+[2025-12-23T03:05:31.403Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic full body portrait of a young, beautiful Korean-style Asian woman standing in front of a bright, modern floor-to-ceiling window. Natural sunlight streams in from the left, with a blurred cityscape of tall buildings in the background. She has shoulder-length, dark brown wavy hair, delicate features, light makeup, red lips, and a confident smile. She is wearing a white oversized long-sleeved shirt with a small logo embroidered on the left chest, sleeves rolled up to the elbows, front buttons fully open, the shirt hem covering the upper thighs, paired with black high-waisted tight shorts, black sheer stockings, and black patent leather pointed-toe stiletto heels with gold metal embellishments on the toes. Her arms are crossed, her right hand lightly touching her neck, and her left hand wears a silver diamond-studded watch. The pose is elegant and sensual, with a sophisticated and charming demeanor. Professional studio style, 8k resolution, soft natural lighting, fashion magazine quality, PBR textures, depth of field, Winter season.",
+    "zhPrompt": "一位年輕漂亮的韓系亞洲女性，全身站姿肖像，站在明亮現代室內落地窗前，自然陽光從左側灑入，背景為模糊的城市高樓景觀。她有及肩的深棕色大波浪長髮、精緻五官、淡妝、紅唇和自信微笑。穿著白色oversize長袖襯衫，襯衫左胸有小logo刺繡，袖子捲起至手肘，前排扣子全開，襯衫下襬蓋到大腿上段，內搭黑色高腰緊身短褲，搭配黑色薄透絲襪，腳踩黑色漆皮尖頭細跟高跟鞋，鞋頭有金色金屬裝飾。雙臂交叉抱胸，右手輕觸頸部，左手戴著銀色鑲鑽手錶，姿勢優雅性感，氣質幹練而迷人，專業攝影棚風格，高解析度，柔和自然光線，時尚雜誌質感，冬季。",
+    "tags": "韓系美女, 時尚人像, 落地窗, 冬季穿搭, 高跟鞋"
+}
+-------------------
+
+[2025-12-23T03:06:08.538Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:06:34.148Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:07:04.549Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution full body portrait of a beautiful young Korean Asian woman standing in front of a bright modern floor-to-ceiling window. Natural sunlight streams in from the left, with a blurred cityscape of high-rise buildings in the background. She has shoulder-length dark brown wavy hair, delicate features, light makeup, red lipstick, and a confident smile. She wears a white oversized long-sleeved shirt with a small logo embroidered on the left chest, sleeves rolled up to the elbows, all front buttons open, the shirt hem covering the upper thighs, paired with black high-waisted tight-fitting shorts, black sheer stockings, and black patent leather pointed-toe stiletto heels with gold metal decorations. Arms crossed, right hand lightly touching the neck, left hand wearing a silver diamond-studded watch. Elegant and sexy pose, with a capable and charming demeanor. Professional studio style, high resolution, soft natural lighting, fashion magazine quality, depth of field, PBR textures. Winter season visible through the window.",
+    "zhPrompt": "一位年輕漂亮的韓系亞洲女性，全身站姿肖像，站在明亮現代室內落地窗前，自然陽光從左側灑入，背景為模糊的城市高樓冬季景觀。她有及肩的深棕色大波浪長髮、精緻五官、淡妝、紅唇和自信微笑。穿著白色oversize長袖襯衫，襯衫左胸有小logo刺繡，袖子捲起至手肘，前排扣子全開，襯衫下襬蓋到大腿上段，內搭黑色高腰緊身短褲，搭配黑色薄透絲襪，腳踩黑色漆皮尖頭細跟高跟鞋，鞋頭有金色金屬裝飾。雙臂交叉抱胸，右手輕觸頸部，左手戴著銀色鑲鑽手錶，姿勢優雅性感，氣質幹練而迷人，專業攝影棚風格，高解析度，柔和自然光線，時尚雜誌質感。",
+    "tags": "韓系美女, 時尚寫真, 冬季穿搭, 落地窗, 絲襪高跟鞋"
+}
+-------------------
+
+[2025-12-23T03:07:50.408Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body portrait of a stunning young Korean woman in a minimalist modern penthouse. Voluminous shoulder-length dark brown wavy hair, exquisite facial features, soft makeup, bold red lips, confident smile. She wears an unbuttoned white oversized cotton shirt with rolled-up sleeves and a small logo, layered over black high-waisted micro-shorts and sheer black denier tights. Black patent leather pointed-toe stilettos with gold hardware. Pose: arms crossed, right hand touching her neck, showcasing a silver diamond-encrusted watch. Golden hour sunlight from the left, soft highlights. Blurred winter urban skyline through floor-to-ceiling windows. High-end fashion photography, 8k resolution, cinematic lighting, PBR textures, depth of field, sharp focus, Vogue aesthetic.",
+  "zhPrompt": "極具照片寫實感，一位迷人的年輕韓國女性，站在極簡主義的現代閣樓中。蓬鬆的及肩深棕色波浪髮，精緻的五官，淡妝，鮮豔的紅唇，自信的微笑。她穿著一件未扣鈕的寬鬆白色棉質襯衫，捲起袖子，帶有小標誌，內搭黑色高腰超短褲和黑色薄紗褲襪。腳穿黑色漆皮尖頭細高跟鞋，配有優雅的金色硬件。姿勢：雙臂交叉，右手優雅地觸摸頸部，展示一款鑲有銀色鑽石的手錶。從左側射入的金色陽光，營造出柔和的高光。背景：透過落地窗看到的模糊冬季城市天際線。高端時尚攝影，8K分辨率，電影照明，PBR紋理，景深，焦點清晰，Vogue美學。",
+  "tags": "時尚攝影, 韓裔模特, 冬季時尚, 奢華生活, 8K畫質"
+}
+-------------------
+
+[2025-12-23T03:08:41.908Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic full-body portrait of a stunning young Korean woman standing in a minimalist modern penthouse during winter. She has voluminous shoulder-length dark brown wavy hair, exquisite facial features, soft makeup, and bold red lips with a confident smile. She wears an unbuttoned white oversized cotton shirt with rolled-up sleeves and a small logo, layered over black high-waisted micro-shorts and sheer black denier tights. Her footwear consists of black patent leather pointed-toe stilettos featuring elegant gold hardware. Pose: arms crossed, right hand gracefully touching her neck, showcasing a silver diamond-encrusted watch. Natural golden hour sunlight streams from the left, creating soft highlights. Background: blurred urban skyline through floor-to-ceiling windows with a light dusting of snow visible on the distant buildings. High-end fashion photography, 8k resolution, cinematic lighting, PBR textures, depth of field, ultra-detailed textures, sharp focus, Vogue aesthetic, 100mm Macro, f/2.8 aperture, Soft diffused lighting, light tent, professional product photography, luxurious detail, masterpiece, best quality, ultra-detailed, sharp focus, HDR, studio quality, award-winning photography.",
+    "zhPrompt": "在簡約現代頂層公寓的冬季，一位迷人的年輕韓國女性的逼真全身像。她有蓬鬆的齊肩深棕色波浪髮，精緻的五官，淡妝和自信微笑的鮮紅色嘴唇。她穿著一件解開鈕扣的白色超大款純棉襯衫，捲起袖子，帶有小標誌，內搭黑色高腰超短褲和透明黑色長筒襪。她的鞋子包括黑色漆皮尖頭細高跟鞋，配有優雅的金色硬件。姿勢：雙臂交叉，右手優雅地觸摸她的脖子，展示著一塊鑲銀鑽石的手錶。自然的金色時段陽光從左側流出，營造出柔和的亮點。背景：透過落地窗可見模糊的城市天際線，遠處的建築物上可見淡淡的雪。高端時尚攝影，8k分辨率，電影照明，PBR紋理，景深，超細緻紋理，清晰對焦，Vogue美學，100mm微距，f/2.8光圈，柔和的漫射光，燈箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，清晰對焦，HDR，工作室品質，獲獎攝影。",
+    "tags": "韓裔女性, 頂層公寓, 時尚攝影, 冬季, 8K分辨率"
+}
+-------------------
+
+[2025-12-23T03:11:57.368Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution digital art poster of a miniature Taipei island floating above a sea of clouds. The island's shape mirrors Taipei's map, seamlessly blending iconic landmarks, natural landscapes, and cultural elements. Incorporate Taiwanese birds, cinematic lighting, vibrant colors, aerial perspective, and sun reflections, avoiding overly dense architecture. The island showcases a seamless fusion of history and modernity, featuring representative ancient historical buildings transitioning into modern landmarks and skyline. The sea of clouds adopts traditional Taiwanese art styles. 3D text of 'Taipei' in pinyin or English floats above, resembling a symbiotic ecological installation. Minimalist, museum-quality information layers surround the main subject, using classic serif fonts for primary data and thin sans-serif fonts for auxiliary details. Corner annotations with geographical coordinates, nicknames, and founding year in a classic atlas style. Winter season, current temperature, Octane Render, C4D, Isometric City, Micro World, Living Ecosystem, DreamWorks style, 3D modeling, delicate, soft light projection, PBR textures, Depth of field.",
+    "zhPrompt": "一張漂浮在雲海之上的台北微型島嶼的逼真 8k 分辨率數字藝術海報。島嶼的形狀反映了台北的地圖，無縫融合了標誌性地標、自然景觀和文化元素。融入台灣特有鳥類、電影光效、鮮豔色彩、航拍視角和陽光反射，避免過於密集的建築。島嶼展示了歷史與現代的無縫融合，以代表性的古代歷史建築過渡到現代地標和天際線。雲海採用台灣傳統藝術風格。 '台北' 的拼音或英文 3D 文字漂浮在上方，類似於共生生態裝置。極簡主義、博物館品質的信息層環繞著主體，主要數據使用經典的襯線字體，輔助細節使用細無襯線字體。角落註釋採用經典地圖集風格，包含地理坐標、暱稱和建成年份。冬季，當前溫度，Octane Render, C4D, Isometric City, Micro World, Living Ecosystem, DreamWorks 風格, 3D 建模, 精緻, 柔和的光線投射, PBR 紋理, 景深。",
+    "tags": "台北, 微型世界, 數字藝術, 海報, 冬季"
+}
+-------------------
+
+[2025-12-23T03:14:17.779Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic monument in the shape of a coffee cup, massive scale, physically accurate materials with visible wear, scratches, and dust, people and vehicles providing scale reference, low-angle cinematic perspective, realistic daylight, 8k resolution, cinematic lighting, PBR textures, depth of field, winter season.",
+    "zhPrompt": "一個咖啡杯形狀的巨大紀念碑，採用照片寫實風格，比例巨大，物理上精確的材料，可見的磨損、刮痕和灰塵，人物和車輛提供比例參考，低角度電影視角，逼真的日光，8k分辨率，電影照明，PBR紋理，景深，冬季。",
+    "tags": "咖啡杯, 紀念碑, 照片寫實, 冬季, 巨大"
+}
+-------------------
+
+[2025-12-23T03:14:36.848Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:15:23.809Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:16:08.137Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:16:41.285Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:17:29.914Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:17:51.676Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic lighting PBR textures depth of field: An enormous, weathered television monument stands in a winter cityscape, dwarfing the surrounding cars and people. The TV's surface shows realistic wear, scratches, and accumulated dust. Shot from a low-angle, creating a dramatic perspective under realistic daylight.",
+  "zhPrompt": "逼真的 8k 分辨率電影照明 PBR 紋理景深：一座巨大的、飽經風霜的電視紀念碑矗立在冬季的城市景觀中，使周圍的汽車和行人相形見絀。 電視表面顯示出逼真的磨損、划痕和積聚的灰塵。 從低角度拍攝，在逼真的日光下營造出戲劇性的視角。",
+  "tags": "巨型電視, 紀念碑, 冬季城市, 逼真, 低角度"
+}
+-------------------
+
+[2025-12-23T03:26:16.883Z] Raw Gemini Response:
+{
+  "enPrompt": "Isometric interior design of a kawaii Totoro bedroom, pastel colors, cute and dreamy. Totoro is sleeping on a themed bed shaped like a tree stump. Themed furniture and decorations inspired by the character’s universe, 3d render, detailed miniatures, soft gradients, detailed miniature models, cute cartoon, photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field, winter setting.",
+  "zhPrompt": "一個可愛的龍貓臥室的等距室內設計，柔和的色彩，可愛而夢幻。 龍貓睡在一張以樹樁為主題的床上。 以角色宇宙為靈感的主題家具和裝飾品，3d渲染，精緻的微縮模型，柔和的漸變，精緻的微縮模型，可愛的卡通，照片寫實，8k分辨率，電影照明，PBR紋理，景深，冬季佈景。",
+  "tags": "龍貓, 可愛臥室, 室內設計, 3D渲染, 冬季"
+}
+-------------------
+
+[2025-12-23T03:27:06.443Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:27:55.507Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:29:37.225Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:30:10.043Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution commercial hero shot of a futuristic Ferrari 2026 hypercar concept art, studio-grade global illumination, controlled volumetric light beams shaping the product silhouette, soft rim lighting for edge separation, physically accurate material rendering, micro-surface imperfections visible, ray-traced reflections on glossy and matte surfaces, subtle atmospheric haze, shallow depth of field with clean bokeh, cinematic color grading with neutral whites and warm highlights, professional product photography aesthetic, high-end advertising look, set in a winter environment with snow on the ground, PBR textures, depth of field.",
+    "zhPrompt": "未來感十足的法拉利2026超級跑車概念藝術的逼真8k分辨率商業英雄鏡頭，工作室級全局照明，受控的體積光束塑造產品輪廓，柔和的邊緣照明用於邊緣分離，物理上精確的材料渲染，可見的微表面缺陷，光線跟踪反射在有光澤和啞光表面上，微妙的大氣霧霾，具有乾淨散景的淺景深，電影色彩分級，具有中性白色和暖色調，專業產品攝影美學，高端廣告外觀，設置在冬季環境中，地面上有雪，PBR紋理，景深。",
+    "tags": "法拉利, 超級跑車, 概念車, 汽車攝影, 冬季"
+}
+-------------------
+
+[2025-12-23T03:31:06.466Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic lighting PBR textures depth of field: A Lamborghini 2026 concept car, premium commercial hero shot, studio-grade global illumination, controlled volumetric light beams shaping the car's silhouette, soft rim lighting for edge separation, physically accurate material rendering, micro-surface imperfections visible, ray-traced reflections on glossy and matte surfaces, subtle atmospheric haze, shallow depth of field with clean bokeh, cinematic color grading with neutral whites and warm highlights, professional product photography aesthetic, high-end advertising look, set in a winter environment with snow on the ground.",
+  "zhPrompt": "逼真、8k 分辨率、電影照明、PBR 紋理、景深：蘭博基尼 2026 概念車，高級商業宣傳照，工作室級別全局光照，受控體積光束塑造汽車輪廓，柔和的邊緣光分離，物理上精確的材質渲染，可見的微表面缺陷，在光面和啞光表面上進行光線追踪反射，細微的大氣霧霾，具有乾淨散景的淺景深，具有中性白色和暖色高光的電影色彩分級，專業產品攝影美學，高端廣告外觀，設置在冬季環境中，地面有雪。",
+  "tags": "概念車, 兰博基尼, 冬季, 商业摄影, 超逼真"
+}
+-------------------
+
+[2025-12-23T03:31:25.898Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:37:08.971Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:38:03.080Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:38:30.703Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic commercial hero shot of the iPhone 17, 8k resolution, cinematic lighting, PBR textures, depth of field. The phone features a seamless glass body with integrated haptic buttons and a under-display camera. Controlled volumetric light beams shape the product silhouette, highlighting the slim profile and polished edges. Soft rim lighting for edge separation. Physically accurate material rendering showcases micro-surface imperfections. Ray-traced reflections on glossy and matte surfaces. Subtle atmospheric haze. Shallow depth of field with clean bokeh. Cinematic color grading with neutral whites and warm highlights. Professional product photography aesthetic, high-end advertising look, set in a wintery studio environment.",
+  "zhPrompt": "iPhone 17 的超逼真商業英雄鏡頭，8k分辨率，電影照明，PBR紋理，景深。手機具有無縫玻璃機身，集成了觸覺按鈕和屏下攝像頭。受控的體積光束塑造了產品的輪廓，突出了纖薄的輪廓和拋光的邊緣。用於邊緣分離的柔和輪廓光。物理上精確的材料渲染展示了微表面缺陷。在光面和啞光表面上的光線追踪反射。微妙的大氣霧霾。具有乾淨散景的淺景深。具有中性白色和暖色調的電影色彩分級。專業產品攝影美學，高端廣告外觀，設置在冬季工作室環境中。",
+  "tags": "iPhone, 智能手機, 產品攝影, 8K, 冬季"
+}
+-------------------
+
+[2025-12-23T03:39:20.303Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T03:40:08.829Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution commercial hero shot of the iPhone 17 concept design, cinematic lighting, PBR textures, depth of field. Studio-grade global illumination, controlled volumetric light beams shaping the product silhouette. Soft rim lighting for edge separation, physically accurate material rendering, micro-surface imperfections visible, ray-traced reflections on glossy and matte surfaces, subtle atmospheric haze, shallow depth of field with clean bokeh, cinematic color grading with neutral whites and warm highlights. Winter season, professional product photography aesthetic, high-end advertising look.",
+    "zhPrompt": "iPhone 17概念設計的逼真8k分辨率商業英雄鏡頭，電影照明，PBR紋理，景深。工作室級全局照明，控制體積光束塑造產品輪廓。柔和的邊緣光照用於邊緣分離，物理上精確的材料渲染，可見的微表面缺陷，光線追蹤在光面和啞光表面上的反射，微妙的大氣霧霾，具有清晰散景的淺景深，具有中性白色和暖色調的電影色彩分級。冬季，專業產品攝影美學，高端廣告外觀。",
+    "tags": "iPhone 17, 概念設計, 商業攝影, 冬季, 8K 分辨率"
+}
+-------------------
+
+[2025-12-23T03:41:43.679Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic image of Taipei City on December 23, 2025, winter scene. The current temperature is displayed digitally on a large screen in the city center. PBR textures, depth of field.",
+  "zhPrompt": "2025年12月23日台北市的逼真8k分辨率電影圖像，冬季景色。目前溫度以數字形式顯示在市中心的大屏幕上。PBR材質，景深。",
+  "tags": "台北市, 冬季, 氣溫, 城市景觀, 2025"
+}
+-------------------
+
+[2025-12-23T03:43:16.064Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of Taipei City on December 23rd, 2025, showcasing the current weather, which is clear and cold with a temperature of 16°C. The time, 11:43 AM, is displayed on a digital clock in the foreground. Winter atmosphere with visible breath vapor. Cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "2025年12月23日臺北市的逼真8k分辨率圖像，展示了當前天氣，晴朗寒冷，氣溫16°C。時間上午11:43顯示在前景中的數字時鐘上。冬季氣氛，可見呼吸蒸汽。電影照明、PBR紋理、景深。",
+  "tags": "台北市, 冬季, 天氣, 時間, 2025年"
+}
+-------------------
+
+[2025-12-23T03:44:20.878Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution cinematic view of Taipei City on a clear winter day, December 23, 2025, 11:44 AM, with crisp PBR textures and a soft depth of field. The temperature displayed subtly in the image reflects current weather conditions in Taipei.",
+    "zhPrompt": "在晴朗的冬季，以照片般逼真的8k分辨率和電影照明呈現的台北市全景，日期為2025年12月23日上午11:44，具有清晰的PBR紋理和柔和的景深。圖像中巧妙顯示的溫度反映了台北市當前的天氣狀況。",
+    "tags": "台北市, 冬季, 2025年, 天氣, 全景"
+}
+-------------------
+
+[2025-12-23T03:58:43.212Z] Raw Gemini Response:
+{
+  "enPrompt": "Clean 2D vector infographic floor plan of a modern airport terminal. Minimalist architectural schematic design, top-down orthographic view. Professional layout featuring check-in counters, security gates, and immigration zones. Muted gray and beige color palette with vibrant red and blue accent icons. High-contrast lines, flat lighting, sharp edges, professional wayfinding design, digital illustration. Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "現代機場航站樓的清晰2D向量信息圖平面圖。簡約的建築示意設計，頂視正交視圖。專業佈局，包括辦理登機手續的櫃檯、安檢門和出入境區域。柔和的灰色和米色調色板，配以鮮豔的紅色和藍色強調圖標。高對比度線條、平面照明、清晰邊緣、專業導航設計、數字插圖。照片寫實，8k分辨率，電影照明，PBR紋理，景深。",
+  "tags": "機場平面圖, 航站樓設計, 信息圖, 建築示意, 導航設計"
+}
+-------------------
+
+[2025-12-23T03:59:44.360Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:04:26.800Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution rendering of a clean, minimalist airport terminal floor plan. Flat vector illustration style, resembling a technical architectural schematic seen from a top-down, bird's-eye perspective. The background is monochromatic gray and white. Vibrant red and orange highlights indicate duty-free shop icons. Symmetrical composition with sharp lines. Professional UI design elements with highly detailed labels. Even flat lighting. Subtle isometric influence. Winter ambience.",
+  "zhPrompt": "8k分辨率照片寫實渲染，乾淨、極簡的機場航站樓平面圖。扁平向量圖風格，類似於從頂視鳥瞰角度看到的技術建築示意圖。背景為單色灰白色。鮮豔的紅色和橙色高光指示免稅商店圖示。對稱構圖，線條清晰。專業的UI設計元素，帶有高度詳細的標籤。均勻的平面照明。略帶等距視圖影響。冬季氛圍。",
+  "tags": "機場, 平面圖, 極簡設計, 向量圖, 技術示意圖"
+}
+-------------------
+
+[2025-12-23T04:08:23.560Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of a neon sign displaying the text '深夜食堂' in bold, clean Traditional Chinese characters with structured strokes, reminiscent of MingLiU font influence. The background is a blurred, cinematic winter street scene with depth of field, featuring PBR textures and neon lighting effects. The time is night.",
+  "zhPrompt": "一張8k分辨率的逼真照片，一個霓虹燈招牌上以粗體、乾淨的繁體中文字符顯示“深夜食堂”，筆觸結構清晰，讓人聯想到明體風格。背景是模糊的電影般的冬季街景，具有景深效果，採用PBR紋理和霓虹燈照明效果。時間是夜晚。",
+  "tags": "霓虹燈招牌, 深夜食堂, 繁體中文, 冬季街景, 8k分辨率"
+}
+-------------------
+
+[2025-12-23T04:11:41.253Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of a neon sign displaying four vertical Traditional Chinese characters: '深' (Deep), '夜' (Night), '食' (Food), '堂' (Hall). Each character is meticulously crafted with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. The text \"深夜食堂\" is written in premium Traditional Chinese typography with correct calligraphic structures, rendered in vivid neon tube geometry. Cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "一個逼真的8k分辨率圖像，顯示一個霓虹燈招牌，上面有四個垂直的繁體中文字符：「深」（Deep）、「夜」（Night）、「食」（Food）、「堂」（Hall）。 每個字符都以高保真傳統筆觸、尖角製作，沒有簡化字符重疊。 文字“深夜食堂”以優質繁體中文排版呈現，具有正確的書法結構，以生動的霓虹燈管幾何形狀呈現。 電影照明，PBR紋理，景深。",
+  "tags": "霓虹燈招牌, 深夜食堂, 繁體中文, 夜間, 餐廳"
+}
+-------------------
+
+[2025-12-23T04:11:59.959Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution close-up of a neon sign displaying four vertical Traditional Chinese characters: '深' (Deep), '夜' (Night), '食' (Food), '堂' (Hall). Each character is rendered with high-fidelity traditional strokes and sharp corners. The text \"深夜食堂\" is written in premium Traditional Chinese typography with correct calligraphic structures. Black calligraphy ink style neon tube geometry. Cinematic lighting, PBR textures, depth of field, winter night street scene, ambient glow.",
+  "zhPrompt": "一個以黑墨書法風格霓虹燈管幾何結構呈現的招牌特寫，上面以高保真傳統筆觸和銳利邊角顯示四個垂直的繁體中文字：「深」（Deep）、「夜」（Night）、「食」（Food）、「堂」（Hall）。文字「深夜食堂」以優質繁體中文排版書寫，具有正確的書法結構。電影照明，PBR材質，景深，冬季夜晚街景，環境光暈。",
+  "tags": "霓虹燈, 繁體中文, 深夜食堂, 冬季, 街景"
+}
+-------------------
+
+[2025-12-23T04:12:26.104Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:15:46.244Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of a neon sign at night. The sign displays four vertical Traditional Chinese characters: '深' (Deep), '夜' (Night), '食' (Food), '堂' (Hall). Each character is rendered with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. The text '深夜食堂' is written in premium Traditional Chinese typography with correct calligraphic structures, using vibrant neon tube geometry. 50mm lens, f/2.8 aperture, cinematic lighting, balanced composition, professional photography, masterpiece, best quality, ultra-detailed, sharp focus, HDR, studio quality, award-winning photography, PBR textures, depth of field.",
+  "zhPrompt": "一張逼真的8k解析度圖像，顯示一個夜晚的霓虹燈招牌。招牌上顯示四個垂直的繁體中文字符：「深」（深度的「深」），「夜」（夜晚的「夜」），「食」（食物的「食」），「堂」（廳堂的「堂」）。 每個字符都以高保真傳統筆觸、銳利的邊角呈現，沒有簡化字符的重疊。「深夜食堂」文字以優質繁體中文排版書寫，具有正確的書法結構，使用鮮豔的霓虹燈管幾何圖形。 50毫米鏡頭，f/2.8光圈，電影照明，平衡構圖，專業攝影，傑作，最佳品質，超詳細，清晰對焦，HDR，工作室品質，獲獎攝影，PBR材質，景深。",
+  "tags": "深夜食堂, 霓虹燈, 繁體中文, 夜景, 招牌"
+}
+-------------------
+
+[2025-12-23T04:16:04.399Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic, award-winning photograph of a neon sign displaying the Traditional Chinese text. The sign displays four vertical Traditional Chinese characters: '深' (Deep), '夜' (Night), '食' (Food), '堂' (Hall). Each character is rendered with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. The text \"深夜食堂\" is written in premium Traditional Chinese typography with correct calligraphic structures. Black calligraphy ink style. 50mm lens, f/2.8 aperture, cinematic lighting, balanced composition, studio quality, sharp focus, HDR, PBR textures, depth of field, 8k resolution, ultra-detailed. Winter season visuals.",
+  "zhPrompt": "一幅攝影作品，以8k分辨率呈現一個霓虹燈招牌，上面以傳統中文字體寫著「深夜食堂」。招牌上的四個字分別是「深」（深度的意思）、「夜」（夜晚的意思）、「食」（食物的意思）和「堂」（廳堂的意思）。每個字都以高保真度的傳統筆觸呈現，具有清晰的邊角，且沒有簡化字元的重疊。「深夜食堂」這四個字以優質的傳統中文字體書寫，具有正確的書法結構。黑色墨水風格，50mm鏡頭，f/2.8光圈，電影般的照明，平衡的構圖，工作室品質，清晰的對焦，HDR，PBR紋理，景深，冬季視覺效果。",
+  "tags": "霓虹燈, 招牌, 繁體中文, 夜晚, 食堂"
+}
+-------------------
+
+[2025-12-23T04:16:35.624Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution photograph of a vibrant neon sign displaying the characters '台北市' in Taipei, Taiwan. The sign is composed of glowing neon tubes, geometrically shaped into Traditional Chinese characters. Each character, '台' (Platform), '北' (North), '市' (City), is meticulously crafted with distinct, high-fidelity traditional strokes. The text \"台北市\" is written in premium Traditional Chinese typography with correct calligraphic structures. Black calligraphy ink style. Cinematic lighting highlights the neon glow against the backdrop of a Taipei winter night, emphasizing depth of field. 50mm lens, f/2.8 aperture, sharp focus, HDR, studio quality, award-winning photography, PBR textures, ultra-detailed.",
+    "zhPrompt": "一張8k解析度的逼真照片，呈現台灣台北市一個充滿活力的霓虹燈招牌，上面顯示「台北市」字樣。招牌由發光的霓虹燈管組成，幾何形狀組合成繁體中文字符。每個字符「台」（平台）、「北」（北方）、「市」（城市）都經過精心製作，具有獨特、高保真的傳統筆觸。文字「台北市」以優質繁體中文排版書寫，具有正確的書法結構。黑色書法墨水風格。電影照明突出了霓虹燈在台北冬季夜景背景下的光芒，強調了景深。50mm鏡頭，f/2.8光圈，清晰對焦，HDR，工作室品質，獲獎攝影，PBR紋理，超細緻。",
+    "tags": "台北市, 霓虹燈, 繁體中文, 冬季夜景, 台灣"
+}
+-------------------
+
+[2025-12-23T04:17:04.033Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of a neon sign displaying the text \"台北市\". The sign displays three vertical Traditional Chinese characters: '台' (Platform), '北' (North), '市' (City). Each character is rendered with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. The text '台北市' is written in premium Traditional Chinese typography with correct calligraphic structures. The neon tubes have a vibrant, saturated glow, showcasing a modern interpretation of traditional calligraphy. Cinematic lighting, 50mm lens, f/2.8 aperture, shallow depth of field, sharp focus, HDR, studio quality, award-winning photography. Winter season mood, PBR textures, ultra-detailed.",
+  "zhPrompt": "一個8k分辨率的逼真圖像，顯示一個霓虹燈招牌，上面寫著“台北市”字樣。該招牌顯示三個垂直的繁體中文字符：“台”（平台）、“北”（北方）、“市”（城市）。每個字符都以高保真傳統筆觸、尖銳的角，且沒有簡化字符重疊的方式呈現。“台北市”文字以優質繁體中文排版書寫，具有正確的書法結構。霓虹燈管發出充滿活力且飽和的光芒，展示了對傳統書法的現代詮釋。電影照明，50mm鏡頭，f/2.8光圈，淺景深，清晰對焦，HDR，工作室質量，獲獎攝影。冬季氣氛，PBR紋理，超細緻。",
+  "tags": "台北市, 霓虹燈, 繁體中文, 冬季, 夜景"
+}
+-------------------
+
+[2025-12-23T04:17:57.072Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution image of a neon sign displaying the Traditional Chinese characters for \"臺 北 市\" (Taipei City). The sign features geometric neon tubes in a vibrant, eye-catching design. The text \"臺 北 市\" is written in premium Traditional Chinese typography with correct calligraphic structures, STRICTLY Traditional Chinese (繁體中文), NO simplified characters. The image is captured with a 50mm lens at f/2.8 aperture, creating a shallow depth of field. Cinematic lighting enhances the scene, providing a balanced and professional aesthetic. The photograph is ultra-detailed with sharp focus and HDR, mimicking studio-quality, award-winning photography. PBR textures add to the realism, with a focus on absolute fidelity in every detail. The scene is set in Winter, reflecting the date 2025/12/23.",
+  "zhPrompt": "一張8k分辨率的寫實圖像，呈現一個霓虹燈招牌，上面以繁體中文顯示「臺 北 市」字樣。 招牌採用幾何霓虹燈管，設計充滿活力且引人注目。 「臺 北 市」這幾個字以優質的繁體中文字體書寫，具有正確的書法結構，嚴格使用繁體中文（繁體中文），沒有簡體字。 圖像使用50毫米鏡頭，光圈為f/2.8拍攝，營造出淺景深。 電影般的燈光增強了場景，提供了平衡且專業的美感。 照片非常細緻，具有清晰的焦點和HDR，模仿工作室品質、屢獲殊榮的攝影作品。 PBR紋理增加了真實感，重點是每個細節的絕對保真度。場景設定在冬季，反映了2025/12/23的日期。",
+  "tags": "霓虹燈, 台北市, 繁體中文, 夜景, 冬季"
+}
+-------------------
+
+[2025-12-23T04:18:30.447Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:18:57.788Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:19:25.430Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:19:46.751Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-23T04:20:15.855Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution photograph of a neon sign displaying \"臺北市\". The sign displays three vertical Traditional Chinese characters: '臺' (Platform, Tower), '北' (North), '市' (City, Market). Each character is rendered with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. STRICTLY Traditional Chinese (繁體中文), NO simplified characters like 无, 门, 讠. The text '臺北市' is written in premium Traditional Chinese typography with correct calligraphic structures, using vibrant neon tube geometry. Cinematic lighting illuminates the sign against a winter night cityscape. 50mm lens, f/2.8 aperture, shallow depth of field, PBR textures, HDR, Studio quality, Award winning photography, sharp focus, ultra-detailed.",
+  "zhPrompt": "一張8k解析度的逼真照片，一個霓虹燈招牌上顯示著「臺北市」。該標牌顯示三個垂直的繁體中文字符：「臺」（平台、塔）、「北」（北方）、「市」（城市、市場）。每個字符都以高保真傳統筆觸、銳利的角落呈現，沒有簡化字符的重疊。嚴格使用繁體中文（繁體中文），沒有像無、門、讠這樣的簡化字符。「臺北市」這幾個字採用優質繁體中文字體書寫，具有正確的書法結構，使用鮮豔的霓虹燈管幾何形狀。電影般的燈光照亮了冬季夜景中的標牌。50mm鏡頭，f/2.8光圈，淺景深，PBR材質，HDR，工作室品質，獲獎攝影，焦點清晰，超細緻。",
+  "tags": "霓虹燈, 臺北市, 繁體中文, 夜景, 冬季"
+}
+-------------------
+
+[2025-12-23T04:22:30.390Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic, award-winning photograph of a vibrant neon sign displaying \"臺 北 市\" in the heart of Taipei at night, winter 2025. The sign displays four Traditional Chinese characters: '臺' (Platform), '北' (North), '市' (City). Each character is rendered with high-fidelity traditional strokes, sharp corners, and no simplified character overlap. The text '臺 北 市' is written in premium Traditional Chinese typography with correct calligraphic structures. The neon tubes glow with intense, saturated colors, casting reflections on the wet pavement below. The surrounding cityscape is blurred with depth of field, captured with a 50mm lens and a f/2.8 aperture. Cinematic lighting enhances the mood, emphasizing the contrast between the bright neon and the dark urban environment. 8k resolution, PBR textures, sharp focus, HDR, Studio quality.",
+  "zhPrompt": "在2025年冬季夜晚，一幅逼真的獲獎攝影作品，展示著位於台北市中心一個充滿活力的霓虹燈招牌，上面寫著「臺 北 市」。招牌上呈現四個繁體中文字：「臺」（平台），「北」（北方），「市」（城市）。每個字都以高保真傳統筆觸、銳利的邊角呈現，沒有簡化字元的重疊。「臺 北 市」這幾個字以高級繁體中文排版書寫，具有正確的書法結構。霓虹燈管發出強烈、飽和的色彩，在下方潮濕的人行道上投下倒影。周圍的城市景觀因景深而模糊，使用50mm鏡頭和f/2.8光圈拍攝。電影般的照明增強了氣氛，突出了明亮的霓虹燈和黑暗的城市環境之間的對比。8k分辨率，PBR紋理，清晰的焦點，HDR，工作室質量。",
+  "tags": "霓虹燈, 台北市, 夜景, 冬季, 繁體中文"
+}
+-------------------
+
+[2025-12-23T04:22:54.486Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution image of a 3x3 sticker sheet, each sticker featuring a character with identical facial features and proportions based on a source photograph. The sticker sheet has clean-cut edges with thick black outlines, showcasing expressive poses and a lively, modern sticker design. Each sticker is labeled with both English and Traditional Chinese captions. The character is depicted in various outfits: teacher attire, traditional Chinese clothing, nurse uniform, street-style clothing with 2026 fashion trends, and fantasy-inspired costume. The stickers feature soft shadows and a glossy paper texture suitable for social media sharing. Cinematic lighting, PBR textures, depth of field, 50mm lens, f/2.8 aperture, balanced composition, professional studio quality, sharp focus, HDR, award-winning photography.",
+    "zhPrompt": "一張以照片為原型設計的3x3貼紙包，每個貼紙上的人物都具有相同的面部特徵和比例。貼紙邊緣乾淨利落，帶有粗黑線條輪廓，姿態富有表現力，整體呈現活潑的現代貼紙設計風格。每個貼紙旁邊都附有中英文雙語標注。人物身著多種服裝：教師裝、傳統中式服裝、護士制服、融入2026年潮流元素的街頭潮牌服裝，以及奇幻風格服裝。貼紙具有柔和的陰影和光澤的紙張質感，適合在社交媒體上分享。電影級光線，PBR材質，景深效果，50毫米鏡頭，f/2.8光圈，平衡構圖，專業工作室品質，焦點清晰，HDR，獲獎攝影作品。",
+    "tags": "貼紙, 角色設計, 時尚風格, 高分辨率, 繁體中文"
+}
+-------------------
+
+[2025-12-23T04:23:14.467Z] Raw Gemini Response:
+{
+  "enPrompt": "A photorealistic sticker pack featuring 3x3 grid of character portraits based on a single reference photo, showcasing diverse outfits and fashion styles. Each sticker is cleanly cropped with a bold, graphic outline and expressive poses. The overall aesthetic is a vibrant, modern sticker design. Each sticker has bilingual (English and Traditional Chinese) labels beside it. The character maintains consistent facial features, likeness, and proportions across all stickers. Outfits include: Teacher attire (2026 academia style), Traditional Hanfu (2026 trend, silk brocade, rich embroidery), Nurse uniform (modern, crisp), Streetwear (2026 cyber-chic, bio-engineered fabrics, transparent titanium accents), and Fantasy-inspired (ethereal, iridescent fabrics). Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field, 50mm lens, f/2.8 aperture, soft shadows, glossy sticker paper texture, studio quality, award-winning photography, HDR, sharp focus.",
+  "zhPrompt": "一套逼真的貼紙包，包含一個 3x3 網格的人物肖像，這些肖像基於單一參考照片，展示了多樣的服裝和時尚風格。每個貼紙都經過乾淨裁剪，帶有粗體圖形輪廓和富有表現力的姿勢。整體美學是一種充滿活力的現代貼紙設計。每個貼紙旁邊都有雙語（英語和繁體中文）標籤。角色在所有貼紙中保持一致的面部特徵、相似性和比例。服裝包括：教師服（2026 年學院風）、傳統漢服（2026 年潮流，絲綢錦緞，豐富的刺繡）、護士制服（現代、乾淨）、街頭服飾（2026 年賽博潮流，生物工程面料，透明鈦金屬點綴）和奇幻風格（飄逸，彩虹色面料）。逼真，8k 分辨率，電影照明，PBR 紋理，景深，50 毫米鏡頭，f/2.8 光圈，柔和陰影，光面貼紙紙張質感，工作室品質，獲獎攝影，HDR，清晰對焦。\n\n每個貼紙旁邊都帶有中英文標註風格，所有貼紙保持相同的面部特徵、一致的相似度和比例。\n\n請注意：本作品嚴格使用繁體中文，不包含簡化字，如「無」、「門」、「讠」。The text '[TEXT]' is written in premium Traditional Chinese typography with correct calligraphic structures",
+  "tags": "貼紙設計, 人像攝影, 繁體中文標籤, 時尚風格, 高分辨率"
+}
+-------------------
+
+[2025-12-24T08:27:31.383Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution cinematic shot of an elegant young Asian woman with long, dark wavy hair sitting pensively in a cozy cafe during the Winter golden hour. She wears a white ribbed turtleneck sweater, a black mini skirt, sheer black tights (trending in 2026 street style), and shimmering gold stilettos. One hand, clad in a black leather glove, rests on her chin as she looks thoughtfully through a large floor-to-ceiling window at a snowy city street. Beside her on a round wooden table is a latte with heart-shaped foam art. The interior features rich brown leather armchairs and soft, warm ambient lighting, dramatically contrasting with the cool, bright daylight illuminating the snow-covered street outside the window. The scene evokes a serene, melancholic winter mood with detailed PBR textures, sharp focus, and professional photography composition. 100mm Macro lens, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail. Masterpiece, best quality, ultra-detailed, HDR, studio quality, award-winning photography, depth of field.",
+  "zhPrompt": "一個8k分辨率，電影級的逼真鏡頭，描繪一位優雅的年輕亞洲女性，留著黑色長波浪髮，在冬季的黃金時段，若有所思地坐在舒適的咖啡館裡。她身穿白色羅紋高領毛衣、黑色迷你裙、透明黑色絲襪（2026年街頭風格的流行趨勢）和閃亮的金色細高跟鞋。一隻戴著黑色皮手套的手托著下巴，她若有所思地透過落地窗望向白雪皚皚的城市街道。在她旁邊的圓形木桌上，放著一杯帶有心形泡沫拉花的拿鐵。室內裝飾有豐富的棕色皮革扶手椅和柔和溫暖的環境照明，與照亮窗外白雪覆蓋街道的涼爽明亮日光形成鮮明對比。場景營造出一種寧靜、憂鬱的冬季氛圍，具有詳細的PBR紋理、清晰的焦點和專業的攝影構圖。100mm微距鏡頭，f/2.8光圈，柔和的漫射光，光帳，專業產品攝影，奢華的細節。傑作，最佳質量，超細緻，HDR，工作室質量，獲獎攝影，景深。",
+  "tags": "冬季咖啡館, 時尚女性, 憂鬱氛圍, 專業攝影, 8k分辨率"
+}
+-------------------
+
+[2025-12-24T08:27:45.281Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic, 8k resolution, cinematic lighting, PBR textures, depth of field: An elegant young Asian woman with long, dark wavy hair sits pensively in a cozy cafe during a winter sunset. She wears a white ribbed turtleneck sweater, a black mini skirt, sheer black tights, and shimmering gold stilettos. Her gloved hand, clad in black leather, rests on her chin as she thoughtfully looks through a large floor-to-ceiling window at a snowy cityscape. On the round wooden table sits a latte with heart-shaped foam. The cafe interior features rich brown leather armchairs and soft ambient golden hour lighting, sharply contrasting with the cool, bright daylight streaming through the window. 2026 winter fashion street style. The scene evokes a serene, melancholic winter mood, captured with 100mm macro lens, f/2.8 aperture, soft diffused lighting, professional photography composition, luxurious detail, masterpiece, best quality, ultra-detailed, sharp focus, HDR, and studio quality, creating an award-winning image.",
+  "zhPrompt": "一個穿著白色羅紋高領毛衣，黑色迷你裙，黑色薄絲襪和金色細高跟鞋的優雅年輕亞裔女性，在舒適的咖啡館裡沉思地坐著，以黃金時段的光線拍攝的逼真8k分辨率照片。她戴著黑色皮手套的手托著下巴，若有所思地透過巨大的落地窗看著白雪皚皚的城市景觀。圓形木桌上放著一杯帶有心形泡沫的拿鐵。咖啡館內部設有豐富的棕色皮革扶手椅和柔和的環境光，與透過窗戶灑進的涼爽明亮的日光形成鮮明對比。2026年冬季時尚街頭風格。場景喚起了一種寧靜，憂鬱的冬季情緒，使用100毫米微距鏡頭，f / 2.8光圈，柔和的漫射光，專業攝影構圖，奢華的細節，傑作，最佳品質，超詳細，清晰的焦點，HDR和工作室品質拍攝，營造出獲獎的圖像。\n\n標牌上顯示四個垂直的繁體中文字符：「深」（Deep），「夜」（Night），「食」（Food），「堂」（Hall）。每個字符都以高保真傳統筆觸，尖銳的角呈現，沒有簡化字符重疊。文字「深夜食堂」以優質的繁體中文排版書寫，具有正確的書法結構，嚴格禁止使用簡體字，如無、門、言。",
+  "tags": "冬季時尚, 咖啡館場景, 亞洲女性, 專業攝影, 8k分辨率"
+}
+-------------------
+
+[2025-12-24T08:44:36.067Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic cinematic full-body portrait of an elegant East Asian woman with long wavy hair, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and gold stiletto heels. She is sitting gracefully in a vintage brown leather armchair in a cozy cafe, legs crossed, wearing one black leather glove while looking out a large window. A cup of latte with heart latte art sits on a wooden table. Background features a bookshelf and a snowy city street view through floor-to-ceiling windows at sunset. Soft indoor ambient lighting, warm color palette, shallow depth of field, 8k resolution, hyper-realistic, professional photography, 100mm Macro, f/2.8 aperture, soft diffused lighting, light tent, professional product photography, luxurious detail, masterpiece, best quality, ultra-detailed, sharp focus, HDR, studio quality, award-winning photography, PBR textures, depth of field.",
+    "zhPrompt": "在舒適的咖啡館裡，一位優雅的東亞女性，留著長長的波浪髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄透絲襪和金色細高跟鞋，以電影般的全身肖像呈現。她優雅地坐在復古棕色皮革扶手椅上，雙腿交叉，戴著黑色皮革手套，望向大窗戶外。木桌上放著一杯有心形拉花的拿鐵。背景是書架，落地窗外是白雪皚皚的城市街道，呈現日落景象。柔和的室內環境光，暖色調，淺景深，8k分辨率，超逼真，專業攝影，100mm微距鏡頭，f/2.8光圈，柔和的散射光，柔光箱，專業產品攝影，奢華細節，傑作，最佳品質，超細緻，焦點清晰，HDR，工作室品質，獲獎攝影。PBR材質，景深。",
+    "tags": "冬季, 咖啡館, 東亞女性, 時尚, 日落"
+}
+-------------------
+
+[2025-12-24T08:45:18.768Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic cinematic full-body portrait of an elegant East Asian woman with long wavy hair, styled according to 2026 winter fashion trends, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and gold stiletto heels. She is sitting gracefully in a vintage brown leather armchair in a cozy cafe, legs crossed, wearing one black leather glove while looking out a large window. A cup of latte with heart latte art sits on a dark wooden table. Background features a bookshelf and a snowy city street view through large floor-to-ceiling windows at sunset. Soft indoor ambient lighting, warm color palette, shallow depth of field, 8k resolution, hyper-realistic, professional photography, PBR textures. 100mm Macro, f/2.8 aperture, Soft diffused golden hour lighting, professional product photography, luxurious detail, Masterpiece, best quality, ultra-detailed, sharp focus, HDR, Studio quality, Award winning photography.",
+  "zhPrompt": "8k分辨率、電影級全身人像，一位優雅的東亞女性，留著長長的波浪髮，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄透絲襪和金色細高跟鞋，符合2026冬季時尚潮流。她優雅地坐在舒適咖啡廳裡的一張復古棕色皮革扶手椅上，雙腿交叉，戴著黑色皮手套，望向窗外。一杯有心形拉花的拿鐵咖啡放在深色木桌上。背景是書架，以及透過落地窗可見的下雪城市街道景色，正值日落時分。柔和的室內環境光線，溫暖的色調，淺景深，超現實，專業攝影，PBR紋理。100mm微距鏡頭，f/2.8光圈，柔和的金色日落漫射光，專業產品攝影，奢華細節，傑作，最佳品質，超精細，對焦清晰，HDR，工作室品質，獲獎攝影。",
+  "tags": "冬季時尚, 咖啡廳場景, 東亞女性, 電影級人像, 8k分辨率"
+}
+-------------------
+
+[2025-12-24T08:45:49.303Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic cinematic full-body portrait of an elegant East Asian woman with long wavy hair, adorned with a delicate gold hair clip, wearing a white ribbed turtleneck sweater, black mini skirt, sheer black pantyhose, and gold stiletto heels. She is sitting gracefully in a vintage brown leather armchair in a cozy cafe, legs crossed, wearing a single supple black leather glove while looking out a large window. A steaming cup of latte with intricate heart latte art sits on a dark polished wooden table. The background features a dark mahogany bookshelf filled with leather-bound books, and a snowy city street view through expansive floor-to-ceiling windows showing snow covered cars and dimly lit shops. The scene is lit with soft indoor ambient golden hour lighting, enhanced with a warm color palette, and shallow depth of field. 8k resolution, PBR textures, hyper-realistic professional photography, captured with a Leica Summilux-M 35mm f/1.4 lens.",
+  "zhPrompt": "在舒適的咖啡館裡，一位優雅的東亞女性，留著長長的波浪髮，戴著精緻的金色髮夾，身穿白色羅紋高領毛衣、黑色迷你裙、黑色薄透絲襪和金色細高跟鞋，以電影般的全身肖像呈現。她優雅地坐在復古棕色皮革扶手椅上，雙腿交叉，戴著一隻柔軟的黑色皮革手套，望向大窗戶外。一杯熱氣騰騰的拿鐵，上面有精緻的心形拉花藝術，放在深色拋光木桌上。背景是一個深色紅木書架，上面擺滿了皮革裝訂的書籍，以及透過落地窗看到的白雪皚皚的城市街道景色，顯示被雪覆蓋的汽車和昏暗的商店。場景採用柔和的室內環境金色時段照明，並增強了溫暖的調色板和淺景深。8k分辨率，PBR紋理，超逼真的專業攝影，使用徠卡Summilux-M 35mm f/1.4鏡頭拍攝。",
+  "tags": "冬季時尚, 咖啡館場景, 東亞女性, 電影肖像, 8k分辨率"
+}
+-------------------
+
+[2025-12-24T08:48:09.635Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body portrait of a young Japanese female flight attendant, 23 years old, sitting gracefully on a modern chair with her legs crossed in a bustling airport terminal during golden hour. She is wearing a meticulously detailed professional maroon uniform jacket with polished gold buttons, a clearly visible name tag, and a black ID lanyard. Her legs are covered in elegant black sheer tights, and she wears high heels. The shot is a low angle perspective, capturing her confidence and professionalism. Cinematic warm lighting bathes the scene, highlighting her detailed skin texture. The background features a blurred modern airport interior with flight information boards displaying departure times, and a subtly reflective floor. The scene is rendered in 8k resolution with sharp focus, creating a masterwork of photorealistic detail. The overall style incorporates trending 2026 fashion elements, blending classic uniform aesthetics with a contemporary touch.",
+  "zhPrompt": "在熙攘的機場航站樓內，一位年輕的日本女性空服員，23歲，優雅地坐在現代座椅上，雙腿交叉。正值黃金時段，她身穿剪裁精緻的專業栗色制服外套，搭配光亮的金色鈕扣、清晰可見的名牌，以及黑色證件掛繩。腿上穿著優雅的黑色薄絲襪，腳踩高跟鞋。低角度鏡頭捕捉了她的自信和專業。電影般的暖光籠罩著整個場景，突顯她細膩的肌膚紋理。背景是模糊的現代機場內景，航班資訊看板上顯示著起飛時間，地面有著微妙的反射光。畫面以8k分辨率呈現，焦點清晰，營造出逼真細節的大師級作品。整體風格融入2026年的流行時尚元素，將經典制服美學與現代感融為一體。",
+  "tags": "空服員, 機場, 制服, 黃金時段, 肖像"
+}
+-------------------
+
+[2025-12-24T08:48:41.713Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic, full-body portrait of a young Japanese flight attendant sitting on a modern chair with legs crossed in a bustling airport terminal during the golden hour. She is wearing a professionally tailored maroon uniform jacket with gleaming gold buttons, a clearly visible name tag, and an ID lanyard. Sheer black tights accentuate her legs, complemented by elegant high heels. The shot is captured from a low angle, emphasizing her confident posture. Cinematic, warm lighting bathes the scene, highlighting the detailed skin texture and the subtle sheen of her uniform. The background features a blurred modern airport interior, illuminated flight information boards displaying departure schedules, and a polished, reflective floor. Trending CMF 2026 colors are visible in the terminal design. 8k resolution, masterwork, sharp focus, PBR textures, depth of field, winter season, cinematic lighting.",
+  "zhPrompt": "在繁忙機場航站樓的現代椅子上，一位年輕的日本空姐以雙腿交叉的姿勢坐著，全身攝影寫實肖像。她身穿剪裁精良的栗色制服外套，帶有閃亮的金色鈕扣、清晰可見的名牌和身份證掛繩。透明的黑色絲襪襯托出她的腿部，並配以優雅的高跟鞋。鏡頭從低角度拍攝，突顯了她自信的姿態。電影般的暖色調光線籠罩著整個場景，突顯了細緻的皮膚紋理和製服微妙的光澤。背景是模糊的現代機場內部，照明的航班資訊看板顯示著出發時間表，以及拋光的反光地板。2026 年趨勢的顏色材質和表面處理可在航站樓設計中看到。8k 解析度，傑作，清晰對焦，PBR 紋理，景深，冬季，電影照明。\n文字：名牌上的文字以優質繁體中文排版呈現正確的書法結構。\n請嚴格使用繁體中文 (繁體中文)，沒有簡體字，如「无」、「门」、「讠」。",
+  "tags": "機場, 空姐, 制服, 冬季, 攝影寫實"
+}
+-------------------
+
+[2025-12-24T08:49:04.640Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body portrait of a young Japanese flight attendant sitting on a chair with legs crossed in a modern airport terminal during golden hour. She is wearing a professional maroon uniform jacket with gold buttons, a name tag, an ID lanyard, black sheer tights, and high heels. The airport's interior features flight information boards and a reflective floor, all softly blurred with depth of field. Low angle shot, cinematic warm lighting, detailed skin texture. PBR textures, 8k resolution, masterwork, sharp focus. Inspired by 2026 fashion trends, the scene evokes a cyber-chic aesthetic.",
+  "zhPrompt": "一張年輕的日本空姐的全身照片，她穿著專業的栗色制服外套，配有金色鈕扣、名牌、身份證掛繩、黑色薄紗褲襪和高跟鞋，交腿坐在機場航站樓的椅子上。低角度拍攝，電影般的暖色調燈光，細膩的皮膚紋理。背景：模糊的現代機場內部，航班信息顯示屏，反光地板。8k分辨率，傑作，焦點清晰。場景靈感來自2026年的時尚潮流，喚起了一種網絡時尚的美感。",
+  "tags": "機場, 空姐, 時尚, 制服, 肖像"
+}
+-------------------
+
+[2025-12-24T08:52:36.164Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body portrait of a young Japanese flight attendant sitting on a modern airport terminal chair with her legs crossed. She is wearing a professional maroon uniform jacket adorned with gold buttons, a clearly visible name tag, an ID lanyard, elegant black sheer tights, and classic high heels. The shot is captured from a low angle with warm, cinematic lighting, emphasizing the detailed texture of her skin. The background features a blurred modern airport interior, clearly visible flight information boards displaying departure times, and a reflective polished floor. The scene is rendered in 8k resolution with sharp focus, presented as a masterwork. Considering 2026 fashion trends for flight attendant uniforms, there are subtle updates to the cut of the jacket, reflecting a slightly more tailored and modern silhouette. The color palette incorporates Pantone's 2026 trending colors to give the maroon uniform a richer hue, while gold accents are polished with PBR textures to reflect the warm cinematic lighting.",
+  "zhPrompt": "一位年輕的日本航空乘務員坐在現代機場航站樓的椅子上，雙腿交叉，呈現全身攝影寫實肖像。她身穿專業的栗色制服外套，配有金色鈕扣、清晰可見的名牌、身份證掛繩、優雅的黑色薄紗襪和經典高跟鞋。鏡頭以低角度拍攝，採用溫暖的電影照明，強調她皮膚的細膩紋理。背景是模糊的現代機場內部，清晰可見的航班信息顯示牌顯示起飛時間，以及拋光的反光地板。場景以 8k 解析度呈現，焦點清晰，呈現為傑作。考慮到 2026 年的航空乘務員制服時尚趨勢，夾克的剪裁進行了細微更新，反映出更加量身定制和現代的輪廓。調色板融合了潘通 2026 年的流行色，使栗色制服呈現出更豐富的色調，而金色裝飾則採用 PBR 紋理進行拋光，以反映溫暖的電影照明。",
+  "tags": "航空乘務員, 機場, 制服, 電影照明, 8k"
+}
+-------------------
+
+[2025-12-24T08:53:17.726Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic full-body portrait of a young Japanese flight attendant sitting on a modern chair with legs crossed in an airport terminal during golden hour. She is wearing a professional maroon uniform jacket with gold buttons, a visible name tag and ID lanyard, black sheer tights, and high heels. The maroon uniform jacket is inspired by 2026 haute couture. Low angle shot, cinematic warm lighting, detailed skin texture with subtle imperfections, PBR textures. Background: blurred modern airport interior, flight information boards displaying flight schedules, and a reflective polished floor. 8k resolution, masterwork, sharp focus, depth of field.",
+    "zhPrompt": "在機場航站樓內，一位年輕的日本空姐以交叉雙腿的姿勢坐在現代椅子上。她身穿專業的栗色制服外套，配有金色鈕扣、清晰可見的姓名牌和身份證掛繩、黑色薄紗襪和高跟鞋。栗色制服外套的設計靈感來自2026年的高級訂製時裝。低角度拍攝，電影般的溫暖光線，細緻的肌膚紋理，PBR材質。背景：模糊的現代機場內部、顯示航班時刻表的航班資訊看板，以及拋光的反光地板。8k分辨率，傑作，清晰對焦，景深。",
+    "tags": "機場, 空姐, 制服, 日本, 時尚"
+}
+-------------------
+
+[2025-12-24T08:58:20.438Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution isometric miniature of Taipei, Taiwan in a festive Christmas theme, 45° top-down view, centered composition. The city is decorated with seasonal decorations, glowing lights, and winter details. Soft refined textures, realistic PBR materials, gentle lifelike lighting with subtle shadows. Small raised diorama-style city base with clean edges. Clean red Christmas background. At the top-center, the text \"Merry X'mas\" is displayed in large bold text. Directly beneath it, the text \"CHRISTMAS EDITION\" is displayed in medium text. A small round Republic of China (Taiwan) national flag icon is placed below the text. The text automatically matches background contrast (white). Cinematic lighting, depth of field, PBR textures. Square 1080×1080, ultra-clean festive diorama aesthetic, Winter season.",
+  "zhPrompt": "以逼真的8k分辨率呈現台灣台北市的節日聖誕主題等距微縮模型，45°俯視角，中心構圖。城市裝飾有季節性裝飾品、發光燈和冬季細節。柔和精緻的紋理、逼真的PBR材質、柔和逼真的光線和微妙的陰影。小型的凸起立體模型風格的城市底座，邊緣乾淨。乾淨的紅色聖誕背景。在頂部中心，以大膽的字體顯示文字“Merry X'mas”。在其正下方，以中等字體顯示文字“CHRISTMAS EDITION”。在文字下方放置一個小的中華民國（台灣）國旗圖標。文字自動匹配背景對比度（白色）。電影照明、景深、PBR紋理。正方形1080×1080，超乾淨的節日立體模型美學，冬季。",
+  "tags": "台北, 聖誕節, 台灣, 迷你模型, 節日"
+}
+-------------------
+
+[2025-12-24T08:59:48.073Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution isometric miniature diorama of Taipei, Taiwan, rendered in a top-down 45° perspective. The scene is set during winter, featuring Christmas decorations, glowing lights, and seasonal details. Soft, refined textures and realistic PBR materials are used, with gentle lifelike lighting and subtle shadows. The city sits on a small raised diorama base with clean edges. The background is a clean red color. At the top center, the text \"Merry X'mas\" is displayed in large, bold, contrasting white text. Directly beneath it, the text \"CHRISTMAS EDITION\" is displayed in medium-sized, contrasting white text. A small round Taiwan national flag icon is placed below the text. Cinematic lighting, depth of field.",
+  "zhPrompt": "逼真 8k 分辨率，以 45° 俯視角呈現的台灣台北等距微型立體透視模型。場景設定在冬季，以聖誕裝飾、閃爍的燈光和季節性細節為特色。使用柔和、精緻的紋理和逼真的 PBR 材料，並帶有柔和逼真的光照和微妙的陰影。城市位於一個具有乾淨邊緣的小型凸起立體模型底座上。背景為乾淨的紅色。在頂部中心，以大型粗體對比白色文字顯示文字「Merry X'mas」。在其正下方，以中等大小的對比白色文字顯示文字「CHRISTMAS EDITION」。台灣國旗小圖標放置在文字下方。電影照明，景深。",
+  "tags": "台北, 聖誕節, 立體模型, 台灣, 節慶"
+}
+-------------------
+
+[2025-12-24T09:00:34.771Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "Search Grounding can't be used with JSON/YAML/XML mode.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-24T09:00:57.788Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution isometric miniature diorama of Taipei, Taiwan, seen from a 45° top-down angle. The city is decorated for Christmas with festive decorations, glowing lights, and winter details. The scene uses soft refined textures, realistic PBR materials, and gentle lifelike lighting with subtle shadows. The city rests on a small raised diorama base with clean edges. The background is a clean red Christmas color. At the top-center, the text \"Merry X'mas\" is displayed in large bold font. Directly beneath it, the text \"CHRISTMAS EDITION\" is displayed in medium font. A small round Taiwanese national flag icon is placed below the text. The text automatically matches background contrast (white). Cinematic lighting, depth of field, perfectly centered, square 1080×1080, ultra-clean festive diorama aesthetic.",
+  "zhPrompt": "以逼真的8k分辨率呈現台北的微型等距視角立體模型，從45°頂視角俯瞰。城市裝飾著聖誕裝飾、閃爍的燈光和冬季細節。場景採用柔和精緻的紋理、逼真的PBR材質和柔和逼真的光照與微妙的陰影。城市坐落在一個帶有乾淨邊緣的小型凸起立體模型底座上。背景是乾淨的紅色聖誕色彩。在頂部中心，以大膽字體顯示文字“Merry X'mas”。在其正下方，以中等字體顯示文字“CHRISTMAS EDITION”。一個小的圓形台灣國旗圖標放置在文字下方。文字自動匹配背景對比度（白色）。電影照明，景深，完全居中，正方形1080×1080，超乾淨的節日立體美學。",
+  "tags": "台北, 聖誕節, 立體模型, 節日, 台灣"
+}
+-------------------
+
+[2025-12-24T09:01:19.595Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic isometric miniature diorama of Taipei, Taiwan, 8k resolution, centered 45° top-down view. Winter season depicted with festive Christmas decorations, glowing holiday lights, and seasonal details. The miniature city rests on a small raised diorama base with clean edges and refined textures. PBR materials and soft, lifelike lighting with subtle shadows enhance realism. Background is a clean, vibrant Christmas red. At the top-center, the text \"Merry X'mas\" is displayed in large, bold white text for contrast. Directly beneath it, the text \"CHRISTMAS EDITION\" is displayed in medium white text. A small, round Taiwanese national flag icon is placed below the text. Cinematic lighting, depth of field. Composition: perfectly centered, square 1080×1080, ultra-clean festive diorama aesthetic.",
+  "zhPrompt": "逼真的台北市等距微縮模型，8k分辨率，中心45°俯視圖。描繪冬季，以節慶的聖誕裝飾、閃爍的節日燈光和季節性細節。微型城市位於一個邊緣乾淨、紋理精緻的小型凸起立體模型底座上。PBR材質和柔和、逼真的光線及微妙的陰影增強了真實感。背景是乾淨、充滿活力的聖誕紅色。在頂部中心，以大而粗的白色字體顯示文字“Merry X'mas”以形成對比。在其正下方，以中等白色字體顯示文字“CHRISTMAS EDITION”。一個小的圓形台灣國旗圖標放置在文字下方。電影照明、景深。構圖：完美居中，正方形1080×1080，超乾淨的節日立體美學。",
+  "tags": "台北市, 聖誕節, 微縮模型, 台灣, 冬季"
+}
+-------------------
+
+[2025-12-24T09:02:28.932Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8k resolution isometric miniature 3D diorama of Taipei, Taiwan, rendered with soft, refined textures and realistic PBR materials. The scene is festive with Christmas decorations, glowing lights, and winter details. The city is presented on a small, raised diorama-style base with clean edges. The background is a clean, contrasting red Christmas color. Cinematic lighting with subtle shadows enhances the miniature feel. At the top-center, in a bold font, the text \"Merry X'mas\" is displayed. Directly beneath, the text \"CHRISTMAS EDITION\" is shown in a medium font. A small, round Taiwan national flag icon is positioned below the text. The text automatically matches the background contrast (white). Composition is perfectly centered, square 1080×1080. Depth of field.",
+  "zhPrompt": "攝影寫實8k解析度台北市等距微型3D立體透視模型場景，以柔和精緻的紋理和逼真的PBR材質渲染。場景充滿節日氣氛，有聖誕裝飾、發光燈飾和冬季細節。城市呈現在一個小型、凸起的立體模型底座上，邊緣乾淨。背景是乾淨、對比鮮明的紅色聖誕色彩。電影照明與微妙的陰影增強了微型感覺。在頂部中心，以粗體字顯示文字「Merry X'mas」。正下方以中等字體顯示文字「CHRISTMAS EDITION」。一個小的、圓形的台灣國旗圖標位於文字下方。文字自動匹配背景對比度（白色）。構圖完美居中，正方形1080×1080。景深。",
+  "tags": "台北, 聖誕節, 立體透視模型, 台灣, 節慶"
+}
+-------------------
+
+[2025-12-24T09:40:46.401Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic micro diorama, 8k resolution, cinematic lighting, PBR textures, depth of field. A miniature winter forest scene at golden hour, bathed in soft, warm light. Tiny, highly detailed figures are ice skating on a frozen pond. A miniature log cabin with a smoking chimney sits at the edge of the forest. The entire scene is contained within a 1:1 aspect ratio. Winter forest background, soft golden light.",
+  "zhPrompt": "8k分辨率、電影照明、PBR紋理、景深的微型透視模型：一個在黃金時段沐浴在柔和、溫暖光線下的微型冬季森林場景。微小而高度精細的人物正在冰凍的池塘上滑冰。一個帶有冒煙煙囪的微型小木屋位於森林的邊緣。整個場景都包含在 1:1 的縱橫比中。冬季森林背景，柔和的金色光芒。",
+  "tags": "微型場景, 冬季森林, 冰雪, 黃金時段, 1:1"
+}
+-------------------
+
+[2025-12-25T14:17:23.219Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full body professional portrait photography of a 22-year-old Japanese woman with an incredibly youthful appearance, flawless skin, and an elegant demeanor. She has glossy black straight hair styled into a fashionable bob cut with light bangs. Her figure is slender and petite with a small bust. She is seated on a modern shop stool, legs gracefully crossed at the ankles, body slightly leaning forward, gently holding a single scoop ice cream cone, smiling sweetly directly at the camera. She wears a loose, thick V-neck knit sweater adorned with wide horizontal stripes alternating light pastel blue and deep chocolate brown. Below, a brown corduroy A-line mini skirt, paired with off-white pleated ankle socks, and dark brown penny loafers featuring small decorative bows on the vamp. The setting is a bright, clean, and tidy Baskin Robbins 31 ice cream shop interior, with a slightly blurred background featuring pink and blue branded walls and a polished stainless steel counter. The scene is illuminated by soft, professional indoor lighting, uniformly bright and diffuse, creating captivating light and shadow effects and the minimalist aesthetic typical of modern Japanese cafe photography. Shot with an 85mm prime lens, shallow depth of field (f/1.8) for sharp subject focus, extremely high resolution with rich texture details on the knit sweater and corduroy skirt. The color grading features soft, pastel pink tones, complementing her simple and clean makeup. High-end Instagram fashion photography style, 8k resolution, PBR textures.",
+  "zhPrompt": "逼真寫實的專業人像攝影，全身照，一位22歲的日本女性，外表極度年輕，膚色完美無瑕，氣質出眾。她一頭烏黑亮麗的直髮，剪成時尚的波波頭，配上輕盈的瀏海。身材纖細苗條，胸部較小。她坐在現代商店凳子上，雙腿在腳踝處優雅地交叉，身體微微前傾，輕輕拿著一個單球冰淇淋甜筒，對著鏡頭露出甜美的笑容。她穿著一件寬鬆厚實的V領針織衫，飾有淺粉藍色和深巧克力棕色相間的寬橫條紋。下身是棕色燈芯絨A字短裙，搭配米白色褶皺短襪，以及鞋面飾有小巧蝴蝶結的深棕色便士樂福鞋。場景是明亮、整潔的巴斯金羅賓斯31冰淇淋店內部，背景略微虛化，可見粉藍色品牌標示牆面和光亮的 不銹鋼櫃檯。光線為柔和專業的室內照明，均勻明亮且漫射，營造出迷人的光影效果，並具有現代日式咖啡館攝影特有的簡約美學。使用85mm定焦鏡頭拍攝，淺景深（f/1.8）以確保主體清晰銳利，極高解析度，針織衫和燈芯絨裙子紋理細節豐富。柔和的粉紅彩色調，搭配她簡約乾淨的妝容。高端Instagram時尚攝影風格，8k解析度，PBR紋理。",
+  "tags": "日本女性, 冰淇淋店, 時尚攝影, 波波頭, 淺景深"
+}
+-------------------
+
+[2025-12-25T14:23:23.481Z] Raw Gemini Response:
+{
+    "enPrompt": "A photorealistic, full-body portrait of a stunning 22-year-old Japanese woman with an exceptionally youthful allure and flawless porcelain skin, exuding an elegant temperament and a sweet, captivating smile. Her lustrous, jet-black straight hair is styled into a chic, precisely cut bob with delicate, airy bangs. She possesses a slender, petite figure with a small bust. She is seated gracefully on a modern stool inside a bright Baskin-Robbins 31 ice cream parlor, her legs elegantly crossed at the ankles, leaning slightly forward, delicately holding a classic waffle ice cream cone. She looks directly at the camera with her sweet smile. She wears a cozy, thick V-neck knit sweater featuring bold, wide stripes in soft pastel blue and rich, deep chocolate brown, paired with a stylish brown corduroy A-line mini skirt. Her feet are adorned with off-white, finely pleated short socks and sophisticated dark brown penny loafers, each detailed with a subtle small bow on the vamp. The immaculate interior background is gently blurred, showcasing iconic pink and blue branded walls and sleek stainless steel counters. The scene is illuminated by professional, evenly distributed soft interior lighting, creating a bright, clean aesthetic with charming light and shadow effects, reminiscent of high-end modern Japanese cafe photography. Shot with an 85mm prime lens at f/1.8, achieving a shallow depth of field, ensuring the subject is impeccably sharp and vivid. Emphasize rich, PBR textural details on the knit sweater and corduroy skirt with 8K resolution. The overall aesthetic features a soft pink color palette, complemented by minimalist, clean makeup, capturing the style of high-end Instagram fashion photography.",
+    "zhPrompt": "一張逼真、全身的肖像，描繪一位迷人的22歲日本女性，她散發著極致的青春魅力和無瑕的瓷器般肌膚，氣質優雅，笑容甜美迷人。她烏黑亮麗的直髮剪裁成時尚、精準的波波頭，搭配輕盈、飄逸的瀏海。她身材纖細嬌小，胸部較小。她優雅地坐在明亮的31冰淇淋店內的現代凳子上，雙腿在腳踝處優雅交叉，身體微微前傾，輕柔地拿著一個經典的格子冰淇淋甜筒。她甜美地對著鏡頭微笑。她身穿一件舒適厚實的V領針織衫，飾有柔和的淺粉藍色和濃郁的深巧克力棕色相間的寬條紋，下半身搭配一條時尚的棕色燈芯絨A字短裙。腳上穿著米白色細褶短襪和精緻的深棕色便士樂福鞋，每隻鞋面都飾有一個精巧的小蝴蝶結。店內一塵不染的背景輕柔虛化，展示著標誌性的粉藍色品牌牆面和光滑的不銹鋼櫃檯。場景沐浴在專業、均勻分佈的柔和室內燈光下，營造出明亮、潔淨的美學效果，光影迷人，如同高端現代日式咖啡館攝影。使用85mm定焦鏡頭以f/1.8光圈拍攝，實現淺景深，確保主體清晰銳利。強調針織衫和燈芯絨短裙上豐富的PBR紋理細節，具備8K解析度。整體美學呈現柔和的粉紅調色板，搭配極簡、清爽的妝容，捕捉高端Instagram時尚攝影的風格。",
+    "tags": "日系時尚人像, 冰淇淋店場景, 波波頭造型, 甜美女孩, 專業攝影"
+}
+-------------------
+
+[2025-12-25T14:30:40.990Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:31:09.098Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:31:55.422Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:32:30.627Z] Raw Gemini Response:
+{
+    "enPrompt": "A photorealistic, highly detailed 8k resolution image captured on a freezing Winter night, December 25th, 2025, at 10:32 PM. The scene features a quiet, snow-dusted European cobblestone street. A vintage, ornate cast-iron street lamp stands prominently, its warm, golden light piercing through the soft, falling snow, casting long, dramatic shadows and bright, balanced highlights on the wet, reflective cobblestones and ancient, textured brick buildings. Tiny ice crystals glisten on every surface, enhancing texture for absolute fidelity. The atmosphere evokes a profound sense of tranquil solitude and melancholic beauty. Captured with a 50mm lens, f/2.8 aperture, showcasing a shallow depth of field with sharp focus on the lamp and foreground elements. Cinematic lighting creates a strong narrative impact. Masterpiece, best quality, ultra-detailed, HDR, Studio quality, Award winning photography, PBR textures.",
+    "zhPrompt": "一張超現實、極度精細的8K解析度圖像，拍攝於2025年12月25日晚上10點32分，一個嚴寒的冬夜。畫面呈現一條寧靜、白雪覆蓋的歐洲鵝卵石街道。一盞復古、華麗的鑄鐵路燈巍然屹立，其溫暖的金光穿透輕柔飄落的雪花，在濕潤、反光的鵝卵石和古老、有紋理的磚牆建築上投下長而富有戲劇性的陰影及明亮、平衡的光點。微小的冰晶在每個表面閃爍，極大地提升了紋理的絕對真實感。氛圍喚起一種深刻的寧靜孤寂與憂鬱之美。使用50mm鏡頭，f/2.8光圈捕捉，呈現淺景深，路燈和前景元素清晰對焦。電影式照明營造出強烈的敘事衝擊力。傑作、最高品質、超詳細、HDR、工作室品質、屢獲殊榮的攝影、PBR紋理。",
+    "tags": "冬夜, 鵝卵石街, 電影光線, 雪景, 復古路燈"
+}
+-------------------
+
+[2025-12-25T14:33:27.290Z] Raw Gemini Response:
+{
+    "enPrompt": "A 22-year-old Japanese woman, possessing an exceptionally youthful appearance and a flawless complexion. Her demeanor is elegant, accentuated by a sweet, charming smile. She has glossy, jet-black straight hair styled into a chic bob cut with light, wispy bangs. Her figure is slender and petite, with a small bust. She is seated on a shop stool, legs gracefully crossed at the ankles, leaning slightly forward. She delicately holds an ice cream cone, gazing towards the camera with a sweet smile. She wears a loose, thick V-neck knit sweater featuring wide stripes in alternating light pastel blue and deep chocolate brown, suitable for winter. Her lower attire consists of a brown corduroy A-line mini skirt. On her feet are off-white pleated short socks paired with dark brown penny loafers, each adorned with a small, elegant bow on the vamp. The scene is set inside a brightly lit Baskin Robbins 31 ice cream parlor. The background is clean and slightly blurred, showcasing a distinct pink and blue branded signage wall and a gleaming stainless steel counter. The space is illuminated by soft, professional indoor lighting, creating a uniformly bright and even ambiance. Soft, diffused light creates attractive light and shadow effects across her face and figure. This is a photorealistic, highly detailed, professional full-body portrait photograph, capturing a high-end Instagram fashion photography style. Shot with an 85mm prime lens, utilizing a shallow depth of field (f/1.8) to ensure the subject is impeccably sharp. The textures of the knit sweater and corduroy skirt are rendered with exquisite detail and extremely high resolution. The overall aesthetic features a soft pink color palette, complemented by simple and clean makeup. The image embodies the minimalist beauty typical of modern Japanese cafe photography, with cinematic lighting and PBR textures, rendered in 8k resolution.",
+    "zhPrompt": "一位22歲的日本女性，外表極度年輕，膚色完美無瑕，氣質出眾，笑容甜美。她有一頭烏黑亮麗的直髮，剪成時尚的波波頭，配上輕盈的瀏海。身材纖細苗條，胸部較小。她坐在商店的凳子上，雙腿在腳踝處交叉，身體微微前傾，輕輕拿著一支冰淇淋甜筒，對著鏡頭露出甜美的笑容。她身穿一件寬鬆厚實的V領針織衫，飾有淺粉藍色和深巧克力棕色相間的寬條紋，適合冬季。下半身是一條棕色燈芯絨A字短裙。腳穿米白色褶皺短襪和深棕色便士樂福鞋，鞋面飾有小巧的蝴蝶結。場景設定在明亮的巴斯金羅賓斯31冰淇淋店內部。背景乾淨整潔，略帶虛化效果，呈現粉紅色和藍色的品牌標示牆面，以及不銹鋼櫃檯。柔和專業的室內燈光營造出均勻明亮的氛圍。柔和的漫射光在她臉上和身形上創造出迷人的光影效果。這是一張逼真細膩的全身專業人像攝影，具有高端Instagram時尚攝影風格。使用85mm定焦鏡頭拍攝，採用淺景深（f/1.8）使主體清晰銳利。針織衫和燈芯絨裙子的紋理細節豐富，解析度極高。整體美學採用柔和的粉紅彩色調，搭配簡約乾淨的妝容。這幅影像體現了現代日式咖啡館攝影的簡潔美學，具有電影級光照和PBR紋理，以8k解析度呈現。",
+    "tags": "日本女性, 時尚攝影, 冰淇淋店, 波波頭, 冬季穿搭"
+}
+-------------------
+
+[2025-12-25T14:34:38.765Z] Raw Gemini Response:
+{
+    "enPrompt": "A full-body portrait of a stunning 22-year-old Japanese woman, showcasing youthful flawless skin and a gentle, sweet smile. She has perfectly styled, sleek black straight bob hair with sharp bangs framing her expressive eyes. She is elegantly sitting on a minimalist white cylindrical shop stool, her legs gracefully crossed, holding a vibrant double-scoop ice cream cone with intricate waffle cone texture. She wears a fashion-forward, oversized striped V-neck knit sweater, crafted from a premium soft-touch yarn, paired with a stylish brown fine-wale corduroy A-line mini-skirt. Her feet are adorned with classic, polished leather penny loafers, reflecting a refined 2026 street style aesthetic. The setting is a brightly illuminated, contemporary Baskin-Robbins interior, featuring crisp, clean lines, vibrant pastel accents, and polished surfaces. The background is rendered with a beautiful, creamy bokeh effect, subtly blurring the characteristic Baskin-Robbins branding and displays into soft, inviting colors. Captured with an 85mm prime lens at f/1.8 aperture, ensuring exquisite depth of field and tack-sharp focus on the subject. Photorealistic, 8k resolution, cinematic lighting, PBR textures, professional studio photography quality, Instagram fashion editorial style.",
+    "zhPrompt": "一張全身肖像，描繪一位22歲的日本女性，擁有青春無瑕的肌膚和溫柔甜美的笑容。她留著完美造型、烏黑亮麗的直髮波波頭，齊瀏海巧妙地勾勒出她富有表現力的眼睛。她優雅地坐在一張簡約的白色圓柱形商店高腳凳上，雙腿優雅地交叉，手持一個色彩鮮豔的雙球冰淇淋甜筒，甜筒帶有精緻的格子紋理。她身穿一件時尚的oversized條紋V領針織毛衣，由優質柔軟觸感的紗線製成，搭配一條時尚的棕色細條燈芯絨A字迷你裙。她的腳上穿著經典的拋光皮革樂福鞋，展現出2026年精緻的街頭風格美學。場景設置在一個光線明亮的現代化Baskin-Robbins冰淇淋店內部，內部裝潢線條簡潔利落，點綴著鮮豔的馬卡龍色調，表面光潔。背景呈現出美麗、柔和的散景效果，將Baskin-Robbins的標誌和陳列品柔和地虛化成溫暖宜人的色彩。採用85毫米定焦鏡頭，f/1.8光圈，確保景深極佳，主題對焦銳利。寫實主義、8K分辨率、電影級燈光、PBR材質、專業攝影棚級品質、Instagram時尚編輯風格。",
+    "tags": "日系人像, 街頭時尚, 冰淇淋店, 精緻細節, 專業攝影"
+}
+-------------------
+
+[2025-12-25T14:35:20.525Z] Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic full-body portrait of a young Japanese woman, approximately 22 years old, with impeccable, dewy skin and a gentle, inviting smile. Her sleek, jet-black straight bob haircut with precise bangs frames her face perfectly. She is sitting comfortably on a minimalist, modern shop stool, her legs gracefully crossed, delicately holding a vibrant, multi-scoop ice cream cone, glistening with condensation. She wears a cozy, oversized knit V-neck sweater featuring subtle horizontal stripes in muted tones, a textured, rich brown corduroy A-line skirt cinched at the waist, and classic, polished leather penny loafers. The scene is set within a vibrantly lit, contemporary Baskin-Robbins interior, showcasing sleek, clean design elements and a cheerful color palette, providing a warm and inviting atmosphere on a cold winter night. Softbox-lit, professional studio lighting highlights her features with a gentle glow. Shot on an 85mm prime lens at f/1.8 aperture for exquisite depth of field and a dreamy, creamy bokeh background with diffused highlights from distant interior lights. Professional studio photography, high resolution, Instagram-worthy aesthetic, 8K resolution, cinematic lighting, PBR textures, depth of field.",
+  "zhPrompt": "超現實感全身肖像，描繪一位約22歲的年輕日本女性，擁有無瑕水潤的肌膚和溫柔迷人的笑容。她烏黑亮麗的直髮波波頭，配以精準的瀏海，完美地勾勒出臉龐。她舒適地坐在一張簡約現代的店鋪高腳凳上，雙腿優雅地交叉，纖細地捧著一個色彩鮮豔、多球的冰淇淋甜筒，甜筒上泛著晶瑩的水珠。她身穿一件舒適寬鬆的V領針織毛衣，條紋圖案柔和低調；搭配一條腰部收束的棕色燈芯絨A字裙，以及經典光亮的樂福鞋。場景設定在一個光線明亮、充滿活力的現代Baskin-Robbins（31冰淇淋）店內，展現出時尚簡潔的設計元素和歡快的色彩搭配，在寒冷的冬夜營造出溫馨宜人的氛圍。柔光箱打光，專業攝影棚燈光溫和地照亮她的五官。使用85mm定焦鏡頭，f/1.8光圈，營造出絕佳的景深和如夢似幻、奶油般柔和的散景背景，背景中遠處室內燈光泛著柔和的光暈。專業攝影，高解析度，Instagram時尚風格，8K解析度，電影級燈光，PBR紋理，景深。",
+  "tags": "日系時尚, 冰淇淋, 冬日溫暖, 人像攝影, Baskin-Robbins"
+}
+-------------------
+
+[2025-12-25T14:36:03.806Z] Raw Gemini Response:
+{
+    "enPrompt": "A stunning, photorealistic full body portrait of a 22-year-old Japanese woman, captured with an 85mm lens at f/1.8. She possesses youthful, perfectly flawless, radiant skin with subtle natural texture, and a sweet, genuine smile. Her hair is a sleek, glossy black straight bob with precise bangs. She is comfortably seated on a modern, minimalist shop stool, her legs elegantly crossed, delicately holding a perfectly swirled, multi-colored ice cream cone. She wears a cozy, oversized striped V-neck knit sweater made of luxurious, soft wool, a chic brown corduroy A-line skirt with visible fine ribbing, and classic, polished leather penny loafers. The scene is set inside a brightly illuminated Baskin-Robbins, bathed in soft, professional studio-quality lighting. The background features a beautiful, creamy bokeh, subtly blurring the vibrant, colorful details of the ice cream parlor. The image boasts ultra-high resolution, PBR textures, cinematic color grading, and embodies a trending Instagram fashion editorial aesthetic.",
+    "zhPrompt": "一張令人驚豔的寫實風格全身肖像，描繪一位22歲的日本女性，以85mm鏡頭、f/1.8光圈拍攝。她擁有青春無瑕、光彩照人的肌膚，帶有細緻自然的紋理，以及甜美真誠的笑容。她的頭髮是柔順光亮的黑色直髮鮑伯頭，配有整齊的瀏海。她舒適地坐在一個現代簡約的商店凳子上，雙腿優雅地交疊，手中精緻地拿著一支完美螺旋狀、色彩鮮豔的冰淇淋甜筒。她身穿一件由奢華柔軟羊毛製成的舒適寬鬆條紋V領針織毛衣，搭配一條別緻的棕色燈芯絨A字裙，裙擺帶有清晰的細條紋理，腳上穿著經典的拋光皮革樂福鞋。場景設定在明亮通透的Baskin-Robbins冰淇淋店內部，沐浴在柔和、專業的攝影棚級燈光之下。背景呈現出美麗、柔和的散景效果，巧妙地模糊了冰淇淋店內部鮮豔多彩的細節。此圖像具有超高解析度、PBR材質、電影級色彩分級，並體現了當前流行的Instagram時尚雜誌美學。",
+    "tags": "日本女性, 時尚攝影, 冰淇淋店, 寫實肖像, Instagram風格"
+}
+-------------------
+
+[2025-12-25T14:37:50.137Z] Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8K masterpiece, 16:9 aspect ratio, DSLR photography. A decisive moment captured with cinematic lighting, featuring dramatic high-contrast and profound shadows that sculpt intricate contours. The setting is a dim, desolate industrial ruin on a cold winter night, with dilapidated concrete walls, rusted iron-framed windows, and soft, chilling ambient light filtering through. A 23-year-old East Asian stunning beauty, 175cm tall, possessing a model-like hourglass figure, large bust, and long slender legs, is the central focus. She is adorned in a luxurious, glossy deep-V high-slit red velvet-textured leather outfit, sheer black stockings, high heels, and an elegant pearl chain delicately wrapped around her ankle. Her fingernails are painted with a sleek black polish. She is lazily curled up on an old, worn leather sofa, her left hand delicately touching her lips, while her right hand naturally drapes downwards. Her captivating gaze locks directly into the camera. Perched elegantly on the sofa's armrest, a pristine white Persian cat mirrors her direct stare. Shot with a 50mm lens, the image features a refined color palette that leans towards desaturated tones, enhancing the dramatic mood, while the rich red velvet and the pure white of the cat provide striking, razor-sharp contrast. The composition boasts strong geometric lines and a suspended, almost noir atmosphere. PBR textures, depth of field.",
+    "zhPrompt": "單反級寫實8K傑作，16:9畫面比例，單反攝影。以電影運鏡捕捉的決定性瞬間，呈現戲劇性高對比光影和深邃陰影雕塑的精緻輪廓。場景設定在寒冷冬夜的昏暗荒涼工業廢墟中，斑駁的水泥牆、生鏽的鐵窗，柔和而冰冷的環境光線透入。一位23歲的東亞裔絕色美女是核心焦點，身高175公分，擁有模特般的S型沙漏身材、豐滿上圍和修長美腿。她身著奢華亮面深V高開叉紅天鵝絨質地皮衣，搭配透膚黑絲襪、高跟鞋，足踝優雅地纏繞著珍珠鍊。指甲塗有時尚的黑色指甲油。她慵懶地蜷坐在一張舊皮沙發上，左手輕觸唇邊，右手自然垂放。她魅惑的眼神直視鏡頭。一張純白波斯貓優雅地棲息在沙發扶手處，與她一樣直視鏡頭。使用50mm鏡頭拍攝，圖像色彩精緻，傾向於低飽和色調，增強了戲劇性氛圍，而濃郁的紅色天鵝絨和純白色的貓則形成鮮明而銳利的對比。構圖具備強勁的幾何線條，整體氛圍凝滯，充滿黑色電影感。物理渲染材質（PBR textures），景深（depth of field）。",
+    "tags": "東亞美女, 工業廢墟, 波斯貓, 紅色天鵝絨, 高對比"
+}
+-------------------
+
+[2025-12-25T14:38:41.206Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:39:32.455Z] Raw Gemini Response:
+{
+  "enPrompt": "A decisive moment captured in a stunning 8K (7680x4320, 16:9) photorealistic masterpiece. The scene is presented in exquisite, sharp-focus grayscale, emphasizing rich textures and dramatic, high-contrast lighting that sculpts contours with profound shadows, typical of a dim winter night. A 23-year-old East Asian supermodel, 175cm tall with a voluptuous S-figure, prominent bust, and long, elegant legs, is portrayed lounging languidly on an old, distressed leather sofa within a dimly lit, atmospheric industrial ruin. The ruin features mottled concrete walls and stark iron-framed windows. She is dressed in a luxurious, custom deep V-neck, high-slit garment, a fusion of glossy leather and opulent velvet textures, rendered in high-contrast grayscale to articulate its sophisticated material depth. She wears sheer black stockings and sleek high heels, her ankle adorned with a delicate, intricately wrapped pearl chain. Her nails are painted with sophisticated black polish. Her left hand delicately touches her lips, while her right hand rests naturally. Her gaze is intensely seductive, directed straight into the camera, creating a captivating presence. Perched elegantly on the sofa's armrest, a pristine white Persian cat stares intently with aristocratic poise, its eyes mirroring the subject's focus. The entire composition is geometrically powerful, creating a stagnant, intensely concentrated atmosphere. Shot with a 50mm lens at f/8 aperture. Employing Studio HDRI, Three-point Lighting, Global Illumination, Ambient Occlusion, 3D visualization, digital art, ultra-detailed, Unreal Engine 5 render, Octane Render, Ray Tracing.",
+  "zhPrompt": "單反寫實8K (7680x4320 , 16:9)極品傑作照，電影運鏡。決定性瞬間，呈現精緻銳利的灰階色調，強調豐富的紋理和戲劇性的高對比光影，以深邃陰影雕塑輪廓，彷彿一個昏暗冬夜。一位23歲東亞裔絕色超模，身高175公分，擁有豐腴的S身材、宏大的上圍和修長優雅的美腿，慵懶地蜷坐在一張破舊的復古皮沙發上，身處於昏暗而富有氛圍感的工業風廢墟中，斑駁的水泥牆與冷峻的鐵窗構成背景。她身著一件奢華訂製的深V高開叉服裝，融合了皮革的光澤與天鵝絨的華麗質感，在灰階中以高對比呈現其豐富的材質深度。她穿著透膚黑絲襪和時尚高跟鞋，腳踝處纏繞著精緻典雅的珍珠鍊。指甲塗有精緻的黑色指甲油。她的左手輕柔地觸碰唇邊，右手自然垂放。眼神魅惑直視鏡頭，散發著攝人的魅力。扶手處一隻純白色波斯貓優雅地坐著，眼神專注，與她相視而對。整個構圖具有強大的幾何感，營造出一種凝滯而極度集中的氛圍。50mm焦距，f/8光圈。採用Studio HDRI、三點打光、全域光照、環境光遮蔽、3D視覺化、數位藝術、超細節、Unreal Engine 5渲染、Octane Render、光線追蹤。",
+  "tags": "灰階寫實, 東亞超模, 工業廢墟, 波斯貓, 高對比光影"
+}
+-------------------
+
+[2025-12-25T14:40:06.300Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:41:00.253Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:41:33.545Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-25T14:42:54.588Z] Raw Gemini Response:
+{
+  "enPrompt": "Cinematic 85mm photorealistic portrait of a radiant 22-year-old Japanese woman with a gentle, sweet smile and flawless, porcelain-smooth skin. She sports a chic, glossy black bob haircut with neat bangs, styled perfectly. Seated gracefully on a modern cafe stool within a brightly illuminated Baskin-Robbins interior at night, exuding a warm, inviting ambiance. Her ankles are delicately crossed as she holds a slowly melting vanilla ice cream cone. She is dressed in a cozy, chunky V-neck sweater featuring vibrant pink-blue and chocolate brown stripes, paired with a stylish brown corduroy A-line skirt, pristine white ruffled socks, and polished dark brown penny loafers, showcasing contemporary winter fashion. The meticulously designed background showcases a clean, modern Japanese cafe aesthetic, featuring soft pastel tones and an exquisitely creamy bokeh, creating a dreamy, blurred effect. Subtle, ambient indoor lighting meticulously simulates natural daylight, casting a warm, inviting glow that enhances the photorealistic depth and highlights. 8k resolution, hyper-realistic textures, sharp focus on eyes, PBR textures, incredible detail, cinematic lighting, volumetric lighting, subsurface scattering, depth of field.",
+  "zhPrompt": "電影級85毫米寫實肖像，描繪一位容光煥發的22歲日本女性，帶著溫柔甜美的笑容和無瑕如瓷般的肌膚。她梳著時尚、光澤亮麗的黑色鮑伯頭，配以整齊的瀏海，造型完美。她優雅地坐在深夜一家光線明亮的Baskin-Robbins（31冰淇淋）內的現代咖啡館凳子上，散發著溫暖、誘人的氛圍。她雙踝輕輕交叉，手中拿著一支緩慢融化的香草冰淇淋筒。她身穿一件舒適厚實的V領毛衣，上面有鮮豔的粉藍色和巧克力棕色條紋，搭配時尚的棕色燈芯絨A字裙、潔白的荷葉邊襪子和亮澤的深棕色樂福鞋，展現當代冬季時尚。精心設計的背景呈現出簡潔、現代的日式咖啡館美學，柔和的粉彩色調和精美的奶油散景，營造出夢幻般的模糊效果。細膩的室內環境光線精心模擬自然日光，投射出溫暖、誘人的光芒，增強了寫實深度和高光。8K解析度、超逼真紋理、眼睛清晰對焦、PBR紋理、令人難以置信的細節、電影級打光、體積光、次表面散射、景深。",
+  "tags": "日本女性, 冬季時尚, 冰淇淋, 咖啡館, 夜晚"
+}
+-------------------
