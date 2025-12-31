@@ -530,7 +530,7 @@ User Input: ${searchOptimizedPrompt}
                                 {
                                     inlineData: {
                                         data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, ''),
-                                        mimeType: "image/png"
+                                        mimeType: imageBase64.match(/^data:(image\/[a-z]+);base64,/)?.[1] || "image/png"
                                     }
                                 }
                             ]

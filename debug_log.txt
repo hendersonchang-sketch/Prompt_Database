@@ -5828,3 +5828,1273 @@ Raw Gemini Response:
 ENDPOINT: generateContent, ASPECT RATIO: 1:1
 PROMPT: Cinematic 8k photorealistic film still captured on a Phase One IQ4 medium format camera. A pensive young woman stands amidst a rain-slicked Tokyo intersection on New Year's Eve, December 2025. She holds a transparent polycarbonate umbrella; macro-detail reveals individual crystalline raindrops and delicate condensation clinging to the surface. Her eyelashes are beaded with microscopic moisture, her iris reflecting a hyper-detailed kaleidoscope of neon signage. She is dressed in a structured charcoal wool winter coat. The environment features ray-traced reflections on the wet obsidian asphalt, with towering Shinjuku skyscrapers dissolving into a creamy, kaleidoscopic bokeh of magenta, electric blue, and warm amber. Volumetric mist and her faint visible breath mingle with the city's cold glow. Dramatic rim lighting outlines her silhouette, utilizing global illumination to blend the vibrant neon colors. Professional color grading with deep teal shadows and luminous orange highlights, subtle Kodak Vision3 film grain, PBR materials, and subsurface scattering on skin and water.
 -------------------
+
+[2025-12-31T10:48:58.828Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A breathtaking, high-fidelity macro diorama of Taipei City meticulously crafted from LEGO® bricks. The focal point is a towering LEGO Taipei 101, engineered with precision-stacked translucent azure and solid gray ABS plastic pieces, showing intricate architectural setbacks. The surrounding urban landscape features iconic landmarks like the Chiang Kai-shek Memorial Hall and the Grand Hotel, all reconstructed with accurate LEGO stud proportions. The streets are bustling with tiny LEGO minifigures in winter attire, celebrating under the night sky. Floating at the top of the frame, the text 'Happy New Year 2026' is rendered in a premium, clean 3D typography style. The image features professional studio-grade volumetric lighting with soft-box highlights glinting off the glossy plastic surfaces, ray-traced reflections, and realistic global illumination. A shallow depth-of-field (bokeh) effect creates a professional tilt-shift miniature aesthetic, emphasizing the toy-scale craftsmanship.",
+  "zhPrompt": "一座以樂高積木精確重塑的台北市微縮景觀大師傑作。場景核心為宏偉的樂高台北101，運用半透明天藍色與實心灰色積木堆砌出細膩的建築層次。周邊環繞著比例精準的樂高版中正紀念堂與圓山大飯店，街道上布滿了身著冬裝、慶祝跨年的樂高人偶。畫面頂部以高級感十足的3D字體標註『Happy New Year 2026』。整體採用專業攝影棚級別的體積光照明，光影在光滑的ABS塑膠表面產生精緻的反射與全球光照效果。微距攝影帶來的淺景深（波凱）特效完美營造出袖珍模型的精緻質感。",
+  "tags": [
+    "LEGO Architecture",
+    "Taipei 101",
+    "Diorama",
+    "Miniature World",
+    "New Year 2026",
+    "Tilt-shift Photography",
+    "PBR Materials",
+    "8k Resolution"
+  ],
+  "suggested_aspect_ratio": "1:1",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified bricks, grainy, flat lighting, unrealistic shadows, missing pieces, messy layout, simplified architecture, generic city"
+}
+-------------------
+
+[2025-12-31T10:48:58.849Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A breathtaking, high-fidelity macro diorama of Taipei City meticulously crafted from LEGO® bricks. The focal point is a towering LEGO Taipei 101, engineered with precision-stacked translucent azure and solid gray ABS plastic pieces, showing intricate architectural setbacks. The surrounding urban landscape features iconic landmarks like the Chiang Kai-shek Memorial Hall and the Grand Hotel, all reconstructed with accurate LEGO stud proportions. The streets are bustling with tiny LEGO minifigures in winter attire, celebrating under the night sky. Floating at the top of the frame, the text 'Happy New Year 2026' is rendered in a premium, clean 3D typography style. The image features professional studio-grade volumetric lighting with soft-box highlights glinting off the glossy plastic surfaces, ray-traced reflections, and realistic global illumination. A shallow depth-of-field (bokeh) effect creates a professional tilt-shift miniature aesthetic, emphasizing the toy-scale craftsmanship.
+-------------------
+
+[2025-12-31T10:58:25.028Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "Elite-level 8k photorealistic full-body portrait of a young beautiful Taiwanese woman with long dark straight hair and fair skin, sitting gracefully on the granite steps of a modern glass storefront in a Taiwan urban district. She is dressed in a crisp white button-down long-sleeve silk-texture shirt and a tailored black mini pencil skirt, paired with black patent leather high heels with ankle straps. She holds a textured brown cardboard sign with both hands; the sign features the handwritten English text 'Ben, Pete, Jason is' followed by the premium Traditional Chinese characters '乾爹' (Gān diē), rendered with sharp calligraphic precision and traditional strokes. The background captures a quintessential Taiwan street corner during a soft winter sunset, including the iconic green-painted pedestrian walkway, yellow traffic bollards, parked scooters, and a soft-bokeh 7-Eleven sign. Shot with a DSLR, 85mm f/1.8 lens, shallow depth of field, volumetric lighting, PBR materials, and subsurface scattering on skin for extreme realism.",
+    "zhPrompt": "極致 8k 寫實人像，拍攝一位留著黑色長直髮、皮膚白皙的年輕漂亮台灣女性，優雅地坐在台灣城市街角現代玻璃店面的階梯上。她身穿質感細膩的白色長袖襯衫與合身黑色窄裙，搭配黑色漆皮踝帶高跟鞋。雙手拿著一塊有質感的棕色紙板，上面手寫著英文 'Ben, Pete, Jason is' 以及精緻的繁體中文字 '乾爹'，字體筆畫清晰且結構嚴謹。背景展現道地的台灣街景：綠色人行道鋪面、黃色防撞桿、停放的機車，以及遠處微醺模糊的 7-Eleven 招牌。使用 85mm f/1.8 鏡頭拍攝，具備淺景深、體積光效果、PBR 材質貼圖，呈現極致真實的肌膚質感與光影層次。",
+    "tags": [
+      "Photorealistic",
+      "Taiwan Street Style",
+      "Office Lady",
+      "Traditional Chinese Typography",
+      "8k Resolution",
+      "Cinematic Lighting",
+      "Volumetric Fog",
+      "Masterpiece"
+    ],
+    "suggested_aspect_ratio": "4:3",
+    "negative_prompt": "blurry, low resolution, distorted text, simplified chinese characters, messy hair, deformed hands, low quality, grainy, plastic skin, dull eyes"
+  }
+]
+-------------------
+
+[2025-12-31T10:58:25.047Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Elite-level 8k photorealistic full-body portrait of a young beautiful Taiwanese woman with long dark straight hair and fair skin, sitting gracefully on the granite steps of a modern glass storefront in a Taiwan urban district. She is dressed in a crisp white button-down long-sleeve silk-texture shirt and a tailored black mini pencil skirt, paired with black patent leather high heels with ankle straps. She holds a textured brown cardboard sign with both hands; the sign features the handwritten English text 'Ben, Pete, Jason is' followed by the premium Traditional Chinese characters '乾爹' (Gān diē), rendered with sharp calligraphic precision and traditional strokes. The background captures a quintessential Taiwan street corner during a soft winter sunset, including the iconic green-painted pedestrian walkway, yellow traffic bollards, parked scooters, and a soft-bokeh 7-Eleven sign. Shot with a DSLR, 85mm f/1.8 lens, shallow depth of field, volumetric lighting, PBR materials, and subsurface scattering on skin for extreme realism.
+                
+-------------------
+
+[2025-12-31T10:59:42.415Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A master-level 8k photorealistic full-body portrait of a beautiful Taiwanese woman seated elegantly on the architectural concrete steps of a modern glass-fronted storefront in Taipei. She is dressed in an elite Office Lady ensemble: a crisp white button-down long-sleeve shirt with high-fidelity PBR fabric textures and a sleek black mini pencil skirt. She wears black patent leather high heels with delicate ankle straps. With a warm, radiant smile, she holds a textured cardboard sign with both hands. The sign prominently displays the handwritten text 'Ben, Pete, Jason Happy 2026' in bold, legible black marker. The environment is a quintessential Taiwan urban street during a crisp winter afternoon, featuring the iconic green painted pedestrian walkway, bright yellow traffic bollards, and rows of parked scooters. Technical execution includes volumetric lighting, subsurface scattering on her fair skin, and a shallow depth of field (85mm lens, f/2.8) creating a soft, cinematic bokeh background with a blurred 7-Eleven neon sign. Global illumination and ray-traced reflections on the glass building facade.",
+  "zhPrompt": "大師級 8k 超高清寫實人像，一位美麗的台灣年輕女性優雅地坐在台北現代玻璃店面的混凝土階梯上。她身穿精緻的職場女性（OL）裝束：質感細膩的白色長袖襯衫與修身黑色窄裙，搭配閃亮的黑色漆皮細帶高跟鞋。她帶著溫暖燦爛的微笑，雙手平舉著一塊具有真實紋理的瓦楞紙板，紙板上用清晰的手寫體寫著「Ben, Pete, Jason Happy 2026」。背景展現道地的台灣都市街景，包含標誌性的綠色行人專用道、黃色交通防撞桿以及路邊停放的機車。畫面採用 85mm f/2.8 鏡頭拍攝，呈現迷人的電影級淺景深，背景中依稀可見模糊的 7-Eleven 霓虹招牌。光影處理極致，具備體積光與皮膚次表面散射效果，玻璃幕牆上有光線追蹤反射感。",
+  "tags": [
+    "Taiwanese Woman",
+    "Office Lady Style",
+    "2026 New Year",
+    "Urban Street Photography",
+    "Cinematic Lighting",
+    "8k Photorealistic",
+    "85mm Portrait",
+    "PBR Materials"
+  ],
+  "suggested_aspect_ratio": "4:3",
+  "negative_prompt": "blurry, low resolution, distorted limbs, extra fingers, messy handwriting, low quality, overexposed, grainy, flat lighting, watermark, simplified characters, deformed face, unrealistic skin texture"
+}
+-------------------
+
+[2025-12-31T10:59:42.420Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A master-level 8k photorealistic full-body portrait of a beautiful Taiwanese woman seated elegantly on the architectural concrete steps of a modern glass-fronted storefront in Taipei. She is dressed in an elite Office Lady ensemble: a crisp white button-down long-sleeve shirt with high-fidelity PBR fabric textures and a sleek black mini pencil skirt. She wears black patent leather high heels with delicate ankle straps. With a warm, radiant smile, she holds a textured cardboard sign with both hands. The sign prominently displays the handwritten text 'Ben, Pete, Jason Happy 2026' in bold, legible black marker. The environment is a quintessential Taiwan urban street during a crisp winter afternoon, featuring the iconic green painted pedestrian walkway, bright yellow traffic bollards, and rows of parked scooters. Technical execution includes volumetric lighting, subsurface scattering on her fair skin, and a shallow depth of field (85mm lens, f/2.8) creating a soft, cinematic bokeh background with a blurred 7-Eleven neon sign. Global illumination and ray-traced reflections on the glass building facade.
+-------------------
+
+[2025-12-31T11:07:48.782Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Full-body master-level professional portrait of an exceptionally youthful 22-year-old Japanese woman with flawless translucent skin and a radiant, sweet smile. She features a chic jet-black straight bob with airy see-through bangs. She is sitting on a high stool in a bright, modern Baskin-Robbins interior, legs gracefully crossed at the ankles, leaning forward. She is forming a delicate heart shape with her hands while holding a double-scoop ice cream cone. She wears an oversized, chunky V-neck knit sweater with wide horizontal stripes of pale powder blue and deep chocolate brown, paired with a brown corduroy A-line mini skirt, off-white ruffled socks, and dark brown leather penny loafers adorned with tiny bows. At her feet, a sleek advertising board clearly displays the text 'Jason, Love you' in premium modern typography. The background is a clean, aesthetically pleasing ice cream shop with pink and blue branding and stainless steel accents, softened by a creamy bokeh. Shot on 85mm prime lens, f/1.8, cinematic volumetric lighting, PBR materials highlighting the rich textures of the knit wool and corduroy, 8k resolution photorealistic.",
+  "zhPrompt": "極致專業的人像攝影：一位22歲神態極其顯嫩的日本女性，擁有完美無瑕的半透明肌膚與甜美笑容。修剪整齊的烏黑波波頭配上輕盈瀏海。她坐在明亮的巴斯金羅賓斯（31冰淇淋）店內的圓凳上，雙腿於腳踝處交叉並微微前傾，雙手比出愛心手勢並拿著冰淇淋甜筒。身穿寬鬆厚實的粉藍與深巧克力棕色寬條紋V領針織衫、棕色燈芯絨A字短裙、米白色褶皺襪與深棕色蝴蝶結便士樂福鞋。腳邊的廣告板上清晰寫著『Jason, Love you』。背景呈現日系簡約咖啡廳美學，粉藍配色牆面與不鏽鋼櫃檯帶有柔和虛化。使用85mm定焦鏡頭，f/1.8大光圈，光線均勻且具備細膩的質感渲染。",
+  "tags": [
+    "人像攝影",
+    "日系美學",
+    "極致細節",
+    "時尚穿搭",
+    "電影級光效",
+    "8K超高畫質",
+    "淺景深"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified characters, messy hair, low quality, unnatural skin texture, grainy, deformed fingers, extra limbs, dull colors"
+}
+-------------------
+
+[2025-12-31T11:07:48.797Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Full-body master-level professional portrait of an exceptionally youthful 22-year-old Japanese woman with flawless translucent skin and a radiant, sweet smile. She features a chic jet-black straight bob with airy see-through bangs. She is sitting on a high stool in a bright, modern Baskin-Robbins interior, legs gracefully crossed at the ankles, leaning forward. She is forming a delicate heart shape with her hands while holding a double-scoop ice cream cone. She wears an oversized, chunky V-neck knit sweater with wide horizontal stripes of pale powder blue and deep chocolate brown, paired with a brown corduroy A-line mini skirt, off-white ruffled socks, and dark brown leather penny loafers adorned with tiny bows. At her feet, a sleek advertising board clearly displays the text 'Jason, Love you' in premium modern typography. The background is a clean, aesthetically pleasing ice cream shop with pink and blue branding and stainless steel accents, softened by a creamy bokeh. Shot on 85mm prime lens, f/1.8, cinematic volumetric lighting, PBR materials highlighting the rich textures of the knit wool and corduroy, 8k resolution photorealistic.
+                
+-------------------
+
+[2025-12-31T11:09:09.235Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "Masterpiece portrait of an ethereal 22-year-old Japanese woman with a youthful face and flawless skin. She has glossy, jet-black straight hair in a stylish bob with light, wispy bangs. She is seated on a shop stool with her ankles crossed, leaning forward with a radiant, sweet smile while her hands form a perfect heart shape. She wears a premium oversized chunky V-neck knit sweater with wide horizontal stripes of pale powder blue and deep chocolate brown, paired with a brown corduroy A-line mini skirt, off-white ruffled socks, and dark brown penny loafers with dainty bows. At her feet, a clean advertising board clearly displays the text 'Jason, Love you' in elegant, high-fidelity typography. The setting is the interior of a bright Baskin-Robbins 31 shop with signature pink and blue walls and polished stainless steel counters, captured with a soft-focus bokeh background. Professional 85mm f/1.8 prime lens photography, global illumination, ray-traced reflections, PBR materials on the knit textures, and subsurface scattering on the skin. High-end Japanese Instagram editorial fashion aesthetic, 8k resolution, cinematic soft-diffused lighting.",
+    "zhPrompt": "頂級專業人像攝影：一位氣質空靈、膚色完美無瑕的22歲日本女性。她留著烏黑亮麗的時尚直髮波波頭配輕盈瀏海，坐在店內高腳凳上，雙腳在踝處交叉，身體微前傾露出甜美笑容，雙手優雅地比出愛心手勢。她穿著寬鬆厚實的V領針織衫（淺粉藍與巧克力棕寬條紋），搭配棕色燈芯絨A字短裙、米白色褶皺襪與飾有蝴蝶結的深棕色樂福鞋。腳邊放置一塊寫著『Jason, Love you』字跡清晰工整的廣告板。場景位於明亮的巴斯金羅賓斯31冰淇淋店內，背景呈現柔和的粉藍色調與不鏽鋼質感虛化。使用85mm f/1.8定焦鏡頭拍攝，具備極高細節的針織紋理、皮膚散色與環境光遮蔽，呈現高端日系雜誌時尚風格。",
+    "tags": [
+      "日系人像",
+      "極致細節",
+      "時尚攝影",
+      "8k解析度",
+      "光追反射",
+      "波波頭",
+      "針織紋理"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted text, messy hair, simplified characters, deformed hands, extra fingers, low fidelity, bad anatomy, overexposed, grainy, flat lighting"
+  }
+]
+-------------------
+
+[2025-12-31T11:09:09.238Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Masterpiece portrait of an ethereal 22-year-old Japanese woman with a youthful face and flawless skin. She has glossy, jet-black straight hair in a stylish bob with light, wispy bangs. She is seated on a shop stool with her ankles crossed, leaning forward with a radiant, sweet smile while her hands form a perfect heart shape. She wears a premium oversized chunky V-neck knit sweater with wide horizontal stripes of pale powder blue and deep chocolate brown, paired with a brown corduroy A-line mini skirt, off-white ruffled socks, and dark brown penny loafers with dainty bows. At her feet, a clean advertising board clearly displays the text 'Jason, Love you' in elegant, high-fidelity typography. The setting is the interior of a bright Baskin-Robbins 31 shop with signature pink and blue walls and polished stainless steel counters, captured with a soft-focus bokeh background. Professional 85mm f/1.8 prime lens photography, global illumination, ray-traced reflections, PBR materials on the knit textures, and subsurface scattering on the skin. High-end Japanese Instagram editorial fashion aesthetic, 8k resolution, cinematic soft-diffused lighting.
+                
+-------------------
+
+[2025-12-31T11:14:54.623Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a stunning 24-year-old Japanese woman with flawless matte porcelain skin, radiating a blend of innocence and charismatic allure. She features a curvaceous silhouette, accentuated by her shy posture as she hunches slightly, crossing her arms and clutching the sleeves of her oversized cream-white chunky cable-knit sweater. Her hair is a voluminous cascade of fluffy ash-brown curls falling gracefully over her chest. She wears the sweater as a mini-dress, paired with high-gloss, reflective black leather over-the-knee boots. The scene is set in a modern urban plaza during a crisp winter twilight on December 31st. In the background, a contemporary commercial building with expansive glass curtain walls and golden-brown facades glows with warm interior light. The foreground features delicate bare winter branches and small glowing spherical garden lamps. Captured with a Canon EOS R5 and an 85mm f/1.8 lens, the image showcases extreme detail in the wool textures and skin pores, contrasted against a creamy, cinematic bokeh background. Global illumination, ray-traced reflections on leather, and soft volumetric lighting.",
+  "zhPrompt": "一位24歲日本女性的極致寫實電影感人像，肌膚如霧面瓷器般無暇，展現純真與魅力的交織。她身姿豐盈，略微蜷縮，羞澀地避開鏡頭，雙手抓著寬鬆米白色粗針織毛衣的袖子並環抱胸前。蓬鬆的灰棕色長捲髮如瀑布般垂落在胸前。她將毛衣當作超短裙穿著，搭配一雙高光澤黑色過膝皮靴。場景設定在12月31日寒冷的冬日黃昏城市廣場，背景是帶有玻璃帷幕與金棕色外牆的現代建築，散發著溫暖的室內光。前景有稀疏的冬日枯枝與發光的球形地燈。使用佳能 EOS R5 與 85mm f/1.8 鏡頭拍攝，展現極致的羊毛紋理與皮膚毛孔細節，與迷人的電影級散景形成鮮明對比。全局光照、皮靴上的光線追蹤反射以及柔和的體積光。",
+  "tags": [
+    "人像攝影",
+    "日系美學",
+    "冬日黃昏",
+    "極致細節",
+    "電影感光效",
+    "85mm焦段",
+    "繁體中文支援"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "lowres, blurry, distorted, simplified, low quality, bad anatomy, missing fingers, extra limbs, poorly drawn face, text, watermark, signature, messy hair, flat lighting, unrealistic skin texture, oversaturated, deformed boots, simple background, 2D, anime, cartoon, sketch"
+}
+-------------------
+
+[2025-12-31T11:14:54.641Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a stunning 24-year-old Japanese woman with flawless matte porcelain skin, radiating a blend of innocence and charismatic allure. She features a curvaceous silhouette, accentuated by her shy posture as she hunches slightly, crossing her arms and clutching the sleeves of her oversized cream-white chunky cable-knit sweater. Her hair is a voluminous cascade of fluffy ash-brown curls falling gracefully over her chest. She wears the sweater as a mini-dress, paired with high-gloss, reflective black leather over-the-knee boots. The scene is set in a modern urban plaza during a crisp winter twilight on December 31st. In the background, a contemporary commercial building with expansive glass curtain walls and golden-brown facades glows with warm interior light. The foreground features delicate bare winter branches and small glowing spherical garden lamps. Captured with a Canon EOS R5 and an 85mm f/1.8 lens, the image showcases extreme detail in the wool textures and skin pores, contrasted against a creamy, cinematic bokeh background. Global illumination, ray-traced reflections on leather, and soft volumetric lighting.
+                
+-------------------
+
+[2025-12-31T11:15:19.979Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A master-level cinematic portrait of a 24-year-old Japanese woman with flawless porcelain skin featuring a soft matte finish and subtle subsurface scattering. She possesses a captivating yet innocent aura, with a curvaceous silhouette. Her voluminous, fluffy ash-brown curls cascade over her chest. She is captured in a shy, bashful pose, slightly hunched over with arms crossed, clutching the long sleeves of her oversized off-white chunky cable-knit sweater. The sweater is styled as a micro-dress, paired with high-gloss, polished black over-the-knee leather boots. Setting: An urban plaza at twilight in mid-winter. Background: A modern architectural building with vast glass curtain walls and golden-brown stone, glowing with warm interior light. Foreground: Delicate bare tree branches and small luminous spherical garden lights. Lighting: Soft diffused volumetric lighting from the environment, creating a dreamy evening glow. Technical: Shot on Canon EOS R5 with an 85mm f/1.8 lens, 8k resolution, ray-tracing reflections on glass, PBR textures showcasing the contrast between tactile wool and glossy leather, extreme shallow depth of field with buttery cinematic bokeh.",
+  "zhPrompt": "極致人像攝影：一位24歲日本女性，肌膚如瓷器般無暇，呈現高級霧面質感與細膩的光透感。她展現出純真而迷人的氣質，身形豐盈。蓬鬆的灰棕色長捲髮優雅地垂於胸前。她神情羞澀，微微佝僂著身子，雙臂環抱並抓著寬鬆米白色粗針織衫的袖口，目光低垂避開鏡頭。穿著oversized米色麻花編織毛衣與鏡面亮澤的黑色過膝皮靴。場景設定於深冬黃昏的都市廣場，背景為玻璃帷幕與金棕色外牆的現代建築，透出溫暖的室內光暈。前景有稀疏枝條與球形庭園燈。光影採用柔和的體積光與漫射光。佳能 EOS R5, 85mm f/1.8 鏡頭拍攝，呈現電影級散景與8K極高畫質，精準捕捉毛料纖維與皮革光澤的材質對比。",
+  "tags": [
+    "人像攝影",
+    "日系美學",
+    "電影感光效",
+    "淺景深",
+    "冬日氛圍",
+    "高級感",
+    "8K超高清"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, grainy, poorly drawn hands, simplified characters, messy strokes, low quality, unnatural skin texture, overexposed"
+}
+-------------------
+
+[2025-12-31T11:15:19.982Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A master-level cinematic portrait of a 24-year-old Japanese woman with flawless porcelain skin featuring a soft matte finish and subtle subsurface scattering. She possesses a captivating yet innocent aura, with a curvaceous silhouette. Her voluminous, fluffy ash-brown curls cascade over her chest. She is captured in a shy, bashful pose, slightly hunched over with arms crossed, clutching the long sleeves of her oversized off-white chunky cable-knit sweater. The sweater is styled as a micro-dress, paired with high-gloss, polished black over-the-knee leather boots. Setting: An urban plaza at twilight in mid-winter. Background: A modern architectural building with vast glass curtain walls and golden-brown stone, glowing with warm interior light. Foreground: Delicate bare tree branches and small luminous spherical garden lights. Lighting: Soft diffused volumetric lighting from the environment, creating a dreamy evening glow. Technical: Shot on Canon EOS R5 with an 85mm f/1.8 lens, 8k resolution, ray-tracing reflections on glass, PBR textures showcasing the contrast between tactile wool and glossy leather, extreme shallow depth of field with buttery cinematic bokeh.
+                
+-------------------
+
+[2025-12-31T11:15:43.812Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "A hyper-realistic cinematic portrait of a stunning 24-year-old Japanese woman with flawless porcelain skin and a soft matte finish, radiating an innocent yet captivating aura. She features voluminous, fluffy ash-brown long curly hair cascading over her chest. She is captured in a shy, bashful pose, slightly hunched with arms folded over her chest, delicately gripping the long sleeves of her oversized cream-white chunky cable-knit sweater, which is worn as a mini-dress. She gazes away from the lens with a modest expression. She wears glossy, high-shine black over-the-knee leather boots that create a sharp textural contrast. The scene is set in a modern urban plaza at dusk; the background features a contemporary commercial building with expansive glass curtain walls and golden-brown metallic accents, glowing with warm interior global illumination. In the foreground, sparse winter twig silhouettes and small spherical garden orbs emit a soft, magical glow. Shot on Canon EOS R5 with an 85mm f/1.8 lens, featuring extreme shallow depth of field, buttery smooth bokeh, and intricate PBR textures on the knit and leather. Volumetric lighting and ray-traced reflections on the glass facade enhance the 8k photorealistic quality.",
+    "zhPrompt": "極致寫實的電影感人像，主角為一位24歲日本女性，擁有如瓷器般細緻、呈現柔霧質感的肌膚，散發純真而迷人的氣質。她留著一頭蓬鬆的灰棕色長捲髮，髮絲輕垂於胸前。她神情羞澀，微微蜷縮著身子，雙手環抱胸前並抓著寬鬆米白色粗針織衫的袖口，目光低垂避開鏡頭。針織衫呈現超短版洋裝風格，搭配一雙光澤亮麗的黑色過膝皮靴。場景設定在黃昏時分的現代都市廣場，背景建築擁有大面積玻璃帷幕與金棕色外牆，室內散發溫暖光暈。前景點綴著冬日細枝與球形裝飾燈。使用佳能 EOS R5 與 85mm f/1.8 鏡頭拍攝，展現極致的淺景深散景、精密的光影追蹤與細膩的針織與皮革質感。",
+    "tags": [
+      "人像攝影",
+      "景深效果",
+      "都市黃昏",
+      "高階材質表現",
+      "日系美學",
+      "光影細節",
+      "8k超高解析度"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted facial features, simplified texture, artificial skin, low quality, messy hair, deformed hands, missing fingers, extra limbs, dull lighting, oversaturated, watermark, signature, text, simplified Chinese characters"
+  }
+]
+-------------------
+
+[2025-12-31T11:15:43.818Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a stunning 24-year-old Japanese woman with flawless porcelain skin and a soft matte finish, radiating an innocent yet captivating aura. She features voluminous, fluffy ash-brown long curly hair cascading over her chest. She is captured in a shy, bashful pose, slightly hunched with arms folded over her chest, delicately gripping the long sleeves of her oversized cream-white chunky cable-knit sweater, which is worn as a mini-dress. She gazes away from the lens with a modest expression. She wears glossy, high-shine black over-the-knee leather boots that create a sharp textural contrast. The scene is set in a modern urban plaza at dusk; the background features a contemporary commercial building with expansive glass curtain walls and golden-brown metallic accents, glowing with warm interior global illumination. In the foreground, sparse winter twig silhouettes and small spherical garden orbs emit a soft, magical glow. Shot on Canon EOS R5 with an 85mm f/1.8 lens, featuring extreme shallow depth of field, buttery smooth bokeh, and intricate PBR textures on the knit and leather. Volumetric lighting and ray-traced reflections on the glass facade enhance the 8k photorealistic quality.
+                
+-------------------
+
+[2025-12-31T11:16:39.420Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Masterpiece, ultra-high-fidelity 8k DSLR photography of a 24-year-old Japanese woman with flawless porcelain-matte skin. Her expression is a captivating blend of innocence and allure, featuring voluminous, fluffy ash-brown curly hair cascading over her chest. She is captured in a shy, slightly hunched pose, arms crossed tightly over her chest while clutching the oversized sleeves of a chunky cream-white cable-knit sweater worn as a micro-minidress. She wears glossy, high-shine black over-the-knee leather boots. The scene is set in a modern urban plaza during the blue hour of a 2025 winter twilight. In the background, a contemporary commercial building with golden-brown glass curtain walls emits a warm, soft interior glow. The foreground features sparse winter branches and small glowing spherical garden lights. Shot with a Canon EOS R5, 85mm f/1.8 lens, featuring a shallow depth of field with cinematic creamy bokeh, ray-traced reflections on the leather, and intricate PBR textures on the knit fabric and skin pores.",
+  "zhPrompt": "極致專業攝影傑作：一位24歲日本女性，肌膚如瓷器般光滑具霧面質感，展現純真且迷人的氣質。蓬鬆的灰棕色長捲髮垂至胸前。她神情羞澀，微微佝僂並雙臂環抱，抓著寬鬆米白色粗針織衫的袖口，這件毛衣被穿作超短版裙裝，搭配高亮澤黑色過膝皮靴。場景設定在2025年冬季黃昏的現代城市廣場，背景是帶有金棕色玻璃帷幕與暖色室內燈光的建築，前景點綴著稀疏細枝與球形裝飾燈。採用佳能 EOS R5 與 85mm f/1.8 鏡頭拍攝，具備電影級散景、次表面散射肌膚質感與細膩的針織紋理。",
+  "tags": [
+    "日本女性",
+    "專業肖像",
+    "2025冬季時尚",
+    "電影級光效",
+    "針織與皮革",
+    "都市黃昏",
+    "高解析度攝影"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified features, messy hair, low-quality texture, overexposed highlights, plastic skin, deformed fingers, unrealistic proportions, watermark, text."
+}
+-------------------
+
+[2025-12-31T11:16:39.424Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Masterpiece, ultra-high-fidelity 8k DSLR photography of a 24-year-old Japanese woman with flawless porcelain-matte skin. Her expression is a captivating blend of innocence and allure, featuring voluminous, fluffy ash-brown curly hair cascading over her chest. She is captured in a shy, slightly hunched pose, arms crossed tightly over her chest while clutching the oversized sleeves of a chunky cream-white cable-knit sweater worn as a micro-minidress. She wears glossy, high-shine black over-the-knee leather boots. The scene is set in a modern urban plaza during the blue hour of a 2025 winter twilight. In the background, a contemporary commercial building with golden-brown glass curtain walls emits a warm, soft interior glow. The foreground features sparse winter branches and small glowing spherical garden lights. Shot with a Canon EOS R5, 85mm f/1.8 lens, featuring a shallow depth of field with cinematic creamy bokeh, ray-traced reflections on the leather, and intricate PBR textures on the knit fabric and skin pores.
+                
+-------------------
+
+[2025-12-31T11:23:53.402Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic masterpiece portrait of a tall, elegant young Korean woman with lustrous long straight light brown hair and delicate airy bangs. Her makeup is professionally executed, featuring bold crimson lipstick and a captivating gaze directed at the lens. She is attired in a high-fashion, all-white high-gloss patent leather ensemble: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper details. She sits gracefully on a cream-colored leather armchair in a luxurious hotel lobby. A round marble-topped table in front of her holds a fine porcelain coffee cup and a small crystal vase with soft pink roses. The background is filled with warm, volumetric lighting from circular decorative ceiling lamps and blurred floral displays. She elegantly rests her chin on one hand while holding a sleek tablet in the other, which clearly displays the text 'Ben, All in' in a clean, modern digital font. 8k resolution, cinematic lighting, PBR materials, ray-tracing reflections on the white latex surfaces, subsurface scattering on skin, depth of field.",
+  "zhPrompt": "極致寫實的高挑年輕韓國女性，擁有柔亮的淺棕色長直髮與空氣瀏海。精緻妝容搭配鮮紅唇膏，眼神冷艷直視鏡頭。她穿著一套全白色高光澤漆皮時尚服飾：緊身低胸細肩帶短洋裝、同材質及肘長手套，以及帶有拉鍊細節的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮革扶手椅上，大理石圓桌擺放著白色瓷咖啡杯與粉紅玫瑰。背景呈現圓形吊燈的柔和暖光與花卉佈置。她一手輕托下巴，另一手握著平板電腦，螢幕清晰顯示『Ben, All in』字樣。畫面展現 8k 超高解析度、電影級光影、PBR 材質渲染及細膩的皮膚紋理。",
+  "tags": [
+    "超現實主義",
+    "韓國時尚",
+    "漆皮材質",
+    "電影級光效",
+    "8k解析度",
+    "高端室內設計",
+    "人像攝影",
+    "極致細節"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, grainy, overexposed, plastic skin, low-quality textures, missing fingers, deformed face, bad proportions"
+}
+-------------------
+
+[2025-12-31T11:23:53.409Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic masterpiece portrait of a tall, elegant young Korean woman with lustrous long straight light brown hair and delicate airy bangs. Her makeup is professionally executed, featuring bold crimson lipstick and a captivating gaze directed at the lens. She is attired in a high-fashion, all-white high-gloss patent leather ensemble: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper details. She sits gracefully on a cream-colored leather armchair in a luxurious hotel lobby. A round marble-topped table in front of her holds a fine porcelain coffee cup and a small crystal vase with soft pink roses. The background is filled with warm, volumetric lighting from circular decorative ceiling lamps and blurred floral displays. She elegantly rests her chin on one hand while holding a sleek tablet in the other, which clearly displays the text 'Ben, All in' in a clean, modern digital font. 8k resolution, cinematic lighting, PBR materials, ray-tracing reflections on the white latex surfaces, subsurface scattering on skin, depth of field.
+                
+-------------------
+
+[2025-12-31T11:24:17.898Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a tall, elegant young Korean woman with long, lustrous light-brown straight hair and wispy airy bangs. She has a refined makeup look with bold, high-pigment crimson red lipstick, gazing directly into the lens with a confident, cool gaze. She is dressed in a high-fashion ensemble made of ultra-glossy white latex: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots featuring intricate silver zipper hardware. She is seated gracefully on an off-white premium leather armchair in a luxury hotel lobby. In front of her is a polished white marble bistro table holding a porcelain coffee cup and a crystal vase with delicate pink roses. In her hand, she holds a sleek digital tablet clearly displaying the text 'Ben, All in' in sharp, modern typography. The atmosphere is illuminated by soft, volumetric warm lighting from circular designer ceiling fixtures, creating realistic PBR material reflections and ray-traced highlights on her latex outfit. 8k resolution, shot on 85mm lens, f/1.8 for soft background bokeh, subsurface scattering on skin, hyper-detailed textures.",
+  "zhPrompt": "一位高挑冷艷的韓國年輕女性，留著亮麗的淺棕色長直髮與空氣瀏海，精緻的妝容搭配鮮紅唇彩，眼神深邃直視鏡頭。她身穿全套亮白色高感光漆皮乳膠服飾：緊身低胸細肩帶短裙、長及肘部的同材質手套，以及帶有拉鍊細節的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮革扶手椅上，前方是大理石紋路圓桌，擺放著白色咖啡杯與粉色玫瑰。她手持一台平板電腦，螢幕清晰顯示『Ben, All in』字樣。室內光線柔和且溫暖，天花板圓形燈飾產生的光影在乳膠材質上呈現出極致的物理渲染反射，整體構圖呈現頂級奢華時尚感。",
+  "tags": [
+    "韓國名模",
+    "白色漆皮時尚",
+    "極致寫實",
+    "人像攝影",
+    "奢侈環境",
+    "8k解析度",
+    "冷艷氣質",
+    "光追蹤反射"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified characters, deformed fingers, unrealistic skin texture, low quality, grainy, dull eyes, messy hair, poorly drawn face, inconsistent lighting"
+}
+-------------------
+
+[2025-12-31T11:24:17.905Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a tall, elegant young Korean woman with long, lustrous light-brown straight hair and wispy airy bangs. She has a refined makeup look with bold, high-pigment crimson red lipstick, gazing directly into the lens with a confident, cool gaze. She is dressed in a high-fashion ensemble made of ultra-glossy white latex: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots featuring intricate silver zipper hardware. She is seated gracefully on an off-white premium leather armchair in a luxury hotel lobby. In front of her is a polished white marble bistro table holding a porcelain coffee cup and a crystal vase with delicate pink roses. In her hand, she holds a sleek digital tablet clearly displaying the text 'Ben, All in' in sharp, modern typography. The atmosphere is illuminated by soft, volumetric warm lighting from circular designer ceiling fixtures, creating realistic PBR material reflections and ray-traced highlights on her latex outfit. 8k resolution, shot on 85mm lens, f/1.8 for soft background bokeh, subsurface scattering on skin, hyper-detailed textures.
+                
+-------------------
+
+[2025-12-31T11:25:08.559Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a tall, elegant young Korean woman with lustrous long straight light brown hair and delicate air bangs. Her makeup is meticulously applied, featuring bold crimson red lipstick and a piercing, confident direct gaze at the lens. She is adorned in a high-octane fashion ensemble made of pristine white glossy patent leather, consisting of a tight-fitting low-cut spaghetti strap mini dress, elbow-length opera gloves, and over-the-knee pointed-toe high-heel boots with intricate silver zipper details. She sits gracefully in a cream-toned premium leather armchair within a luxury hotel lobby. In front of her is a polished Carrara marble table holding a minimalist white porcelain coffee cup and a crystal vase with soft pink roses. She holds a sleek high-tech tablet displaying the text 'Ben, All in' in a clean, sharp typeface. The environment is bathed in warm, golden volumetric lighting from circular architectural fixtures, creating a soft bokeh background with subtle pink floral accents. 8k resolution, PBR materials, ray-traced reflections on the latex surfaces, subsurface scattering on skin, ultra-fine textures.",
+  "zhPrompt": "一位高挑優雅的年輕韓國女性，留著亮麗的淺棕色長直髮與空氣瀏海。精緻的妝容搭配鮮豔的紅唇，眼神冷艷而自信地直視鏡頭。她身穿一套全白色的高級亮面漆皮服飾：緊身低胸細肩帶短裙、及肘歌劇長手套，以及帶有拉鍊細節的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮革扶手椅上，面前的大理石圓桌放著瓷製咖啡杯與粉色玫瑰。手中握著一台平板電腦，螢幕清晰顯示著『Ben, All in』。室內充滿柔和的暖色體積光，天花板掛著圓形裝飾燈，背景伴隨虛化的粉色花卉裝飾，呈現出極致細節與光影追蹤的超真實質感。",
+  "tags": [
+    "韓國美女",
+    "高級時尚",
+    "白色漆皮",
+    "奢華室內",
+    "8K超真實",
+    "電影感光效",
+    "極致細節",
+    "冷艷氣質"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified characters, messy hair, low quality, grainy, deformed hands, plastic skin, dull eyes, low contrast"
+}
+-------------------
+
+[2025-12-31T11:25:37.187Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-photorealistic cinematic portrait of a tall, elegant young Korean woman with lustrous long straight light-brown hair and airy see-through bangs. She features exquisite makeup with vibrant, high-pigment red lips and a piercing direct gaze. She is dressed in a high-octane luxury ensemble of glossy white patent latex: a body-con plunging mini dress with delicate straps, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper detailing. She is gracefully seated in a plush off-white leather armchair within a luxury hotel lobby. In front of her is a polished white marble table holding a minimalist ceramic coffee cup and a delicate vase of pink roses. To her side, a sleek tablet displays the text 'Ben, All in' in sharp, premium typography. The atmosphere is illuminated by warm volumetric lighting from circular pendant fixtures, creating soft bokeh and global illumination. Ray-traced reflections dance on the latex fabric. 8k resolution, PBR materials, subsurface scattering on skin, shot on 35mm lens for editorial fashion depth.",
+  "zhPrompt": "一位高挑優雅的年輕韓國女性，擁有一頭柔順的淺棕色直髮與空氣感劉海。精緻的妝容搭配鮮豔的亮紅唇彩，眼神深邃且自信地直視鏡頭。她身穿一套極具現代感的亮面全白漆皮乳膠套裝：一件貼身的低胸細肩帶短洋裝，搭配同材質的及肘長手套，以及帶有細緻拉鍊設計的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮質扶手椅中，大理石圓桌上擺放著簡約的咖啡杯與粉紅玫瑰。桌上的平板電腦清晰顯示著『Ben, All in』字樣。環境光線呈現柔和的暖色調，天花板掛著圓形裝飾燈，背景伴隨朦朧的粉色花卉。超高畫質，光影追蹤特效，呈現皮膚與乳膠材質的極致細節。",
+  "tags": [
+    "高奢時尚",
+    "超寫實",
+    "光影追蹤",
+    "韓國女性",
+    "乳膠服飾",
+    "電影質感",
+    "精緻細節"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified characters, messy hair, low quality, unnatural skin texture, grainy, deformed fingers, extra limbs, dull eyes, low contrast."
+}
+-------------------
+
+[2025-12-31T11:25:37.190Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-photorealistic cinematic portrait of a tall, elegant young Korean woman with lustrous long straight light-brown hair and airy see-through bangs. She features exquisite makeup with vibrant, high-pigment red lips and a piercing direct gaze. She is dressed in a high-octane luxury ensemble of glossy white patent latex: a body-con plunging mini dress with delicate straps, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper detailing. She is gracefully seated in a plush off-white leather armchair within a luxury hotel lobby. In front of her is a polished white marble table holding a minimalist ceramic coffee cup and a delicate vase of pink roses. To her side, a sleek tablet displays the text 'Ben, All in' in sharp, premium typography. The atmosphere is illuminated by warm volumetric lighting from circular pendant fixtures, creating soft bokeh and global illumination. Ray-traced reflections dance on the latex fabric. 8k resolution, PBR materials, subsurface scattering on skin, shot on 35mm lens for editorial fashion depth.
+-------------------
+
+[2025-12-31T11:27:03.687Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "An elite-level cinematic portrait of a statuesque young Korean woman with luminous, sleek light-brown hair and delicate air bangs. She features high-fidelity facial features and intricate makeup with vibrant ruby-red lipstick, her piercing gaze directed straight at the lens. She is dressed in a high-gloss, pristine white liquid-latex ensemble, including a form-fitting low-cut spaghetti strap mini dress, elbow-length operatic gloves, and over-the-knee pointed-toe stiletto boots with intricate metallic zipper accents. The PBR material of her outfit exhibits realistic light refraction and subsurface scattering. She sits elegantly in a cream leather armchair within a luxurious hotel lounge bathed in soft volumetric lighting from circular architectural pendant lamps. Before her is a white Carrara marble table holding a minimalist ceramic coffee cup and a crystal vase with fresh pink roses. A high-resolution tablet lies on the table, displaying the crisp, backlit text 'Ben, All in' in premium modern typography. The background features a soft bokeh of ornate floral decorations. 8k resolution photorealistic, ray-traced reflections, global illumination, cinematic composition.",
+    "zhPrompt": "一位優雅高挑的韓國女性，擁有一頭光澤亮麗的淺棕色直髮與空氣瀏海。精緻的五官配上亮紅色的唇妝，眼神自信地直視鏡頭。她穿著全套純白色高光澤液態乳膠服飾：緊身細肩帶短洋裝、及肘長手套以及帶有金屬拉鍊細節的過膝尖頭高跟靴。衣料呈現出極致的物理渲染質感（PBR）與環境光澤。她優雅地側坐在高級飯店大廳的奶油色皮椅上，前方是大理石圓桌，桌上放著簡約的咖啡杯與粉色玫瑰。桌上的平板電腦螢幕清晰顯示「Ben, All in」字樣。背景是柔和的圓形燈具與粉色花卉裝飾的虛化美感。超寫實8K畫質，光追反射效果，電影級構圖。",
+    "tags": [
+      "韓國女性",
+      "乳膠時尚",
+      "奢華飯店",
+      "超寫實",
+      "8K解析度",
+      "光線追蹤",
+      "精緻妝容"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted anatomy, simplified textures, dull colors, messy hair, low fidelity text, cartoonish, deformed fingers, low quality latex, grainy, overexposed"
+  }
+]
+-------------------
+
+[2025-12-31T11:27:03.699Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level cinematic portrait of a statuesque young Korean woman with luminous, sleek light-brown hair and delicate air bangs. She features high-fidelity facial features and intricate makeup with vibrant ruby-red lipstick, her piercing gaze directed straight at the lens. She is dressed in a high-gloss, pristine white liquid-latex ensemble, including a form-fitting low-cut spaghetti strap mini dress, elbow-length operatic gloves, and over-the-knee pointed-toe stiletto boots with intricate metallic zipper accents. The PBR material of her outfit exhibits realistic light refraction and subsurface scattering. She sits elegantly in a cream leather armchair within a luxurious hotel lounge bathed in soft volumetric lighting from circular architectural pendant lamps. Before her is a white Carrara marble table holding a minimalist ceramic coffee cup and a crystal vase with fresh pink roses. A high-resolution tablet lies on the table, displaying the crisp, backlit text 'Ben, All in' in premium modern typography. The background features a soft bokeh of ornate floral decorations. 8k resolution photorealistic, ray-traced reflections, global illumination, cinematic composition.
+-------------------
+
+[2025-12-31T11:29:12.751Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Ultra-realistic 8k cinematic portrait of a tall, elegant young Korean woman with glossy light brown long hair and airy bangs. She has a sophisticated makeup look with bold, vibrant red lipstick, staring intensely into the camera. She is dressed in a high-shine, liquid-reflective white latex ensemble consisting of a form-fitting low-cut spaghetti strap mini dress, matching elbow-length gloves, and sharp over-the-knee pointed stiletto boots with intricate metallic zipper hardware. She sits gracefully on a cream-toned premium leather armchair within a luxury hotel lobby bathed in soft, warm volumetric lighting from circular overhead chandeliers. Before her is a white marble table holding a ceramic coffee cup and a crystal vase of pink roses. A sleek digital tablet on the table clearly displays the text 'Ben, All in My B' in sharp, modern typography. Ray-traced reflections on the latex and marble surfaces, PBR textures, subsurface scattering on skin, shallow depth of field with soft bokeh background.",
+  "zhPrompt": "超高品質 8k 電影級人像，一位高挑優雅的年輕韓國女性，擁有亮麗的淺棕色長直髮與空氣劉海。她妝容精緻，塗著鮮艷的亮紅色口紅，眼神冷艷地直視鏡頭。她身穿一套全白色高光澤乳膠服裝，包括緊身細肩帶低胸短裙、同材質及肘長手套，以及帶有金屬拉鍊細節的尖頭過膝高跟長靴。她優雅地坐在一把米白色高級皮質扶手椅上，背景是光線柔和暖黃的精品飯店大廳，懸掛著圓形裝飾燈具。大理石圓桌上放著白色咖啡杯與粉紅玫瑰，桌上的平板電腦清晰顯示文字「Ben, All in My B」。光線追踪反射效果，皮膚通透感，極致細節與唯美的背景虛化。",
+  "tags": [
+    "超寫實",
+    "韓系美女",
+    "時尚攝影",
+    "乳膠材質",
+    "室內柔光",
+    "冷艷氣質",
+    "8k解析度",
+    "光線追踪"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified characters, messy hair, low quality, grainy, dull skin, inaccurate text on tablet, deformed hands"
+}
+-------------------
+
+[2025-12-31T11:29:12.756Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Ultra-realistic 8k cinematic portrait of a tall, elegant young Korean woman with glossy light brown long hair and airy bangs. She has a sophisticated makeup look with bold, vibrant red lipstick, staring intensely into the camera. She is dressed in a high-shine, liquid-reflective white latex ensemble consisting of a form-fitting low-cut spaghetti strap mini dress, matching elbow-length gloves, and sharp over-the-knee pointed stiletto boots with intricate metallic zipper hardware. She sits gracefully on a cream-toned premium leather armchair within a luxury hotel lobby bathed in soft, warm volumetric lighting from circular overhead chandeliers. Before her is a white marble table holding a ceramic coffee cup and a crystal vase of pink roses. A sleek digital tablet on the table clearly displays the text 'Ben, All in My B' in sharp, modern typography. Ray-traced reflections on the latex and marble surfaces, PBR textures, subsurface scattering on skin, shallow depth of field with soft bokeh background.
+                
+-------------------
+
+[2025-12-31T11:30:52.012Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic masterpiece of a tall, elegant Korean woman with long, lustrous light-brown straight hair and airy bangs, staring directly into the lens with a confident, cool gaze. She is wearing an avant-garde ensemble of high-gloss optic white latex, featuring a sleek low-cut camisole mini dress, elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper hardware. She is seated gracefully on an off-white leather armchair in a lavish 2026-style hotel lobby with soft volumetric lighting and circular designer pendant lamps. On the white marble-veined table before her sits a white porcelain cup and a small bottle of fresh pink roses. A high-spec 2026-model tablet lies on the table, its screen clearly rendering the text 'Ben, All in My B' in crisp, modern typography. The atmosphere is filled with warm, global illumination, creating beautiful specular highlights on the latex texture. 8k resolution, Ray-tracing reflections, PBR materials, shallow depth of field with a soft bokeh background of floral arrangements.",
+  "zhPrompt": "極致超寫實的電影感傑作，一位高挑優雅的韓國女性，留著亮麗的淺棕色長直髮與空氣瀏海，眼神冷艷自信地直視鏡頭。她身穿前衛的高級全白色亮面乳膠（Latex）套裝，包含緊身低胸細肩帶短洋裝、及肘長手套，以及帶有細膩銀色拉鍊細節的尖頭過膝高跟長靴。她優雅地坐在奢華飯店大廳的米白色皮質扶手椅上，室內環繞著柔和的容積光與圓形設計感吊燈。大理石紋路圓桌上擺放著白瓷咖啡杯與粉紅玫瑰花瓶。桌上的一台 2026 年新款平板電腦螢幕上清晰顯示著文字「Ben, All in My B」。整體構圖充滿暖色調的全域照明，在乳膠材質上呈現完美的高光反射，8K 解析度，光線追蹤技術，背景花卉裝飾呈現精緻的散景效果。",
+  "tags": [
+    "韓國女性",
+    "亮面乳膠時尚",
+    "超寫實人像",
+    "2026時尚趨勢",
+    "高奢室內設計",
+    "光線追蹤",
+    "PBR材質"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified Chinese characters, grainy, deformed fingers, unrealistic skin texture, low quality, messy background, dull colors"
+}
+-------------------
+
+[2025-12-31T11:30:52.015Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic cinematic masterpiece of a tall, elegant Korean woman with long, lustrous light-brown straight hair and airy bangs, staring directly into the lens with a confident, cool gaze. She is wearing an avant-garde ensemble of high-gloss optic white latex, featuring a sleek low-cut camisole mini dress, elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate silver zipper hardware. She is seated gracefully on an off-white leather armchair in a lavish 2026-style hotel lobby with soft volumetric lighting and circular designer pendant lamps. On the white marble-veined table before her sits a white porcelain cup and a small bottle of fresh pink roses. A high-spec 2026-model tablet lies on the table, its screen clearly rendering the text 'Ben, All in My B' in crisp, modern typography. The atmosphere is filled with warm, global illumination, creating beautiful specular highlights on the latex texture. 8k resolution, Ray-tracing reflections, PBR materials, shallow depth of field with a soft bokeh background of floral arrangements.
+-------------------
+
+[2025-12-31T11:32:48.481Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a tall, elegant Korean woman with lustrous light brown straight hair and airy see-through bangs, making direct, piercing eye contact. She wears exquisite high-fashion makeup with bold crimson red lipstick. Her attire is a high-gloss, liquid-white latex ensemble: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots featuring intricate metallic zipper detailing. She is seated gracefully in a plush cream leather armchair within a 2026-luxury hotel lounge. The lighting is warm and volumetric, cast by futuristic circular ceiling installations. Before her is a polished white marble table holding a minimalist white coffee cup and a vase of delicate pink roses. On the table, a sleek iPad Pro displays the crisp typography: 'Ben, All in My B'. PBR materials, ray-traced reflections on the latex and marble, 8k resolution, cinematic depth of field with soft bokeh, subsurface scattering on skin.",
+  "zhPrompt": "一位高挑優雅的韓國女性，擁有一頭柔順的淺棕色直髮與空氣瀏海，眼神深邃地直視鏡頭。精緻妝容搭配鮮豔的烈焰紅唇。她身穿一套全白高亮面乳膠（Latex）時裝：緊身低胸細肩帶短裙、同材質及肘長版手套，以及帶有精緻拉鍊設計的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮革扶手椅上，背景燈光溫暖而具層次感。大理石圓桌上擺放著白色咖啡杯與粉色玫瑰花。桌上的平板電腦螢幕清晰顯示著：『Ben, All in My B』。超高畫質，光影追踪效果，乳膠與大理石的質感細節淋漓盡致，具備電影級的景深與構圖。",
+  "tags": [
+    "韓國美女",
+    "乳膠時尚",
+    "奢華內裝",
+    "高質感攝影",
+    "光影追踪",
+    "2026潮流",
+    "人像攝影",
+    "極致細節"
+  ],
+  "suggest_aspect_ratio": "9:16",
+  "negative_prompt": "low resolution, blurry, distorted anatomy, simplified characters, matte texture on latex, messy hair, dull eyes, low contrast, grainy, watermark, multiple tablets"
+}
+-------------------
+
+[2025-12-31T11:32:48.488Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a tall, elegant Korean woman with lustrous light brown straight hair and airy see-through bangs, making direct, piercing eye contact. She wears exquisite high-fashion makeup with bold crimson red lipstick. Her attire is a high-gloss, liquid-white latex ensemble: a form-fitting low-cut spaghetti strap mini dress, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots featuring intricate metallic zipper detailing. She is seated gracefully in a plush cream leather armchair within a 2026-luxury hotel lounge. The lighting is warm and volumetric, cast by futuristic circular ceiling installations. Before her is a polished white marble table holding a minimalist white coffee cup and a vase of delicate pink roses. On the table, a sleek iPad Pro displays the crisp typography: 'Ben, All in My B'. PBR materials, ray-traced reflections on the latex and marble, 8k resolution, cinematic depth of field with soft bokeh, subsurface scattering on skin.
+                
+-------------------
+
+[2025-12-31T11:33:17.829Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "A hyper-realistic cinematic masterpiece featuring a tall, elegant South Korean woman with silky light chestnut hair and delicate air bangs. Her makeup is flawless, highlighted by high-gloss crimson lipstick, as she maintains intense direct eye contact. She is dressed in an avant-garde ensemble of pristine white high-gloss latex: a body-contouring plunging camisole mini dress, opera-length gloves, and thigh-high pointed-toe boots with intricate silver zipper detailing. She sits gracefully in a cream-toned leather armchair within an opulent hotel lounge. On the Carrara marble table rests a minimalist white coffee cup and a crystal vase of pink roses. An ultra-slim tablet on the table displays the crisp text 'Ben, All in My B' in modern typography. The scene is bathed in soft, volumetric warm lighting from halo-shaped pendant lamps, featuring ray-traced reflections on the latex and marble surfaces. 8k resolution, shallow depth of field, PBR materials, ultra-fine textures.",
+    "zhPrompt": "極致寫實的電影感傑作，展現一位身材高挑、氣質優雅的韓國女性。她留著亮麗的淺棕色長直髮與空氣瀏海，妝容精緻，塗抹著高光澤的深紅唇膏，眼神深邃地直視鏡頭。她穿著一套前衛的高級白色亮面乳膠服飾：緊身低胸細肩帶短裙、及肘長手套，以及帶有精緻銀色拉鍊細節的尖頭過膝長靴。她優雅地側坐在高級飯店大廳的奶油色皮革扶手椅上，大理石圓桌上擺放著簡約的白色咖啡杯與粉色玫瑰花。桌上的超薄平板電腦螢幕上清晰顯示著現代字體的「Ben, All in My B」。室內瀰漫著由圓形吊燈發出的柔和暖色容積光，乳膠材質與大理石表面呈現精準的射線追蹤反射。8K超高畫質，細膩的皮膚與材質紋理，絕美虛化背景。",
+    "tags": "韓國美女, 高端時裝, 亮面乳膠, 飯店大廳, 電影級光效, 8K超寫實, 人像攝影, 科技奢華",
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "lowres, bad anatomy, bad hands, text error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, artifact, blurry, distorted, simplified characters, messy hair, dull skin"
+  }
+]
+-------------------
+
+[2025-12-31T11:33:17.832Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic masterpiece featuring a tall, elegant South Korean woman with silky light chestnut hair and delicate air bangs. Her makeup is flawless, highlighted by high-gloss crimson lipstick, as she maintains intense direct eye contact. She is dressed in an avant-garde ensemble of pristine white high-gloss latex: a body-contouring plunging camisole mini dress, opera-length gloves, and thigh-high pointed-toe boots with intricate silver zipper detailing. She sits gracefully in a cream-toned leather armchair within an opulent hotel lounge. On the Carrara marble table rests a minimalist white coffee cup and a crystal vase of pink roses. An ultra-slim tablet on the table displays the crisp text 'Ben, All in My B' in modern typography. The scene is bathed in soft, volumetric warm lighting from halo-shaped pendant lamps, featuring ray-traced reflections on the latex and marble surfaces. 8k resolution, shallow depth of field, PBR materials, ultra-fine textures.
+                
+-------------------
+
+[2025-12-31T11:33:48.114Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level, 8k photorealistic portrait of a tall, elegant Korean woman with long, silky light-brown hair and delicate see-through bangs. Her makeup is meticulously crafted with high-definition matte red lipstick and sharp, focused eyes looking directly into the lens. She is wearing a high-gloss optic white latex ensemble: a form-fitting low-cut spaghetti strap mini dress, elbow-length gloves, and sharp-pointed over-the-knee boots featuring intricate silver zipper details. She sits gracefully in a plush, off-white leather armchair within a futuristic luxury hotel lobby. Before her is a round Carrara marble table hosting a minimalist white porcelain coffee cup and a crystal vase with fresh pink roses. An iPad Pro on the table clearly displays the text 'Ben, All in My B' in premium sans-serif typography. The atmosphere is elevated by warm volumetric lighting from spherical pendant lamps, creating soft bokeh and ray-traced reflections on the glossy latex and marble surfaces. PBR material textures capture the subtle subsurface scattering on skin and the crisp highlights of the patent material.",
+  "zhPrompt": "絕美傑作，8K 超真實攝影。一位高挑優雅的韓國女性，擁有一頭絲滑的淺棕色長直髮與精緻的空氣劉海。妝容冷艷，塗著鮮紅色的唇膏，眼神深邃地直視鏡頭。她身穿整套亮白色高光澤乳膠服飾，包括緊身低胸細肩帶短裙、及肘長手套以及帶有金屬拉鍊細節的尖頭過膝長靴。她優雅地側坐在奢華飯店大廳的米白色皮革扶手椅上，前方是一張大理石紋路圓桌，桌上放著白色咖啡杯與粉紅色玫瑰花。桌上放置一台 iPad 平板電腦，螢幕上以精緻字體寫著「Ben, All in My B」。背景中圓形裝飾燈具散發出柔和的體積光，營造出電影般的景深與光暈效果。乳膠材質具備真實的物理渲染反射，大理石桌面與靴面光影細節豐富。",
+  "tags": [
+    "韓國女性",
+    "高光乳膠服飾",
+    "奢華室內設計",
+    "電影級光影",
+    "超真實細節",
+    "PBR材質渲染",
+    "冷艷氣質",
+    "8K解析度"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, low quality, dull skin, extra limbs, bad proportions, noisy, low-poly, text corruption, simplified Chinese characters."
+}
+-------------------
+
+[2025-12-31T11:33:48.117Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: An elite-level, 8k photorealistic portrait of a tall, elegant Korean woman with long, silky light-brown hair and delicate see-through bangs. Her makeup is meticulously crafted with high-definition matte red lipstick and sharp, focused eyes looking directly into the lens. She is wearing a high-gloss optic white latex ensemble: a form-fitting low-cut spaghetti strap mini dress, elbow-length gloves, and sharp-pointed over-the-knee boots featuring intricate silver zipper details. She sits gracefully in a plush, off-white leather armchair within a futuristic luxury hotel lobby. Before her is a round Carrara marble table hosting a minimalist white porcelain coffee cup and a crystal vase with fresh pink roses. An iPad Pro on the table clearly displays the text 'Ben, All in My B' in premium sans-serif typography. The atmosphere is elevated by warm volumetric lighting from spherical pendant lamps, creating soft bokeh and ray-traced reflections on the glossy latex and marble surfaces. PBR material textures capture the subtle subsurface scattering on skin and the crisp highlights of the patent material.
+                
+-------------------
+
+[2025-12-31T11:34:16.129Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Masterpiece portrait of a statuesque young Korean woman with lustrous light hazelnut-brown long straight hair and delicate wispy bangs. Her makeup is flawless, featuring high-pigment crimson red lipstick and a piercing, confident gaze directed at the lens. She is wearing a couture ensemble of high-gloss pristine white liquid latex: a form-fitting plunging mini dress with spaghetti straps, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate metallic zipper hardware. She is seated elegantly on a cream-colored designer leather armchair in an opulent 2026-style hotel lounge. In front of her is a white Carrara marble table holding a minimalist ceramic cup and a small crystal vase of soft pink roses. A high-end tablet on the table clearly displays the text 'Ben, All in My B' in sophisticated typography. The background features blurred warm spherical pendant lights and lush floral arrangements. Captured with an 85mm lens, f/1.8, showcasing ray-traced reflections on the latex and marble, subsurface scattering on the skin, and cinematic volumetric lighting.",
+  "zhPrompt": "一位高挑冷艷的韓國女性，留著亮麗的淺棕色長直髮與空氣瀏海。妝容精緻，塗著鮮豔的高級紅唇，眼神充滿自信。她穿著一套前衛的全白色亮面乳膠（或漆皮）套裝：一件貼身的細肩帶低胸短洋裝，搭配同材質的及肘長手套以及帶有金屬拉鍊細節的過膝尖頭高跟長靴。她優雅地側坐在高級飯店大廳的米白色皮質座椅上，面前的大理石圓桌放著純白咖啡杯與一小簇粉紅玫瑰。桌上的平板電腦螢幕清晰顯示著「Ben, All in My B」字樣。背景是暖色調的圓形藝術燈具與柔和的花卉裝飾。8k 超高畫質，細膩的光影追蹤技術，呈現極致的材質紋理與電影質感。",
+  "tags": [
+    "韓國美女",
+    "高奢時尚",
+    "乳膠材質",
+    "光影追蹤",
+    "電影感構圖",
+    "8k超解析度",
+    "大理石質感",
+    "2026趨勢"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "low resolution, blurry, distorted anatomy, messy hair, simplified characters, grainy, low quality, dull skin, unnatural reflections, missing fingers, bad lighting"
+}
+-------------------
+
+[2025-12-31T11:34:16.135Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Masterpiece portrait of a statuesque young Korean woman with lustrous light hazelnut-brown long straight hair and delicate wispy bangs. Her makeup is flawless, featuring high-pigment crimson red lipstick and a piercing, confident gaze directed at the lens. She is wearing a couture ensemble of high-gloss pristine white liquid latex: a form-fitting plunging mini dress with spaghetti straps, matching elbow-length opera gloves, and over-the-knee pointed-toe stiletto boots with intricate metallic zipper hardware. She is seated elegantly on a cream-colored designer leather armchair in an opulent 2026-style hotel lounge. In front of her is a white Carrara marble table holding a minimalist ceramic cup and a small crystal vase of soft pink roses. A high-end tablet on the table clearly displays the text 'Ben, All in My B' in sophisticated typography. The background features blurred warm spherical pendant lights and lush floral arrangements. Captured with an 85mm lens, f/1.8, showcasing ray-traced reflections on the latex and marble, subsurface scattering on the skin, and cinematic volumetric lighting.
+                
+-------------------
+
+[2025-12-31T11:38:02.849Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level 8k photorealistic portrait of a young Japanese woman with glossy jet-black hair, elegantly seated on a premium light gray linen sofa. She is dressed in a crisp, structured white poplin shirt featuring a delicate pastel blue silk bow at the collar, paired with a high-waisted light blue wool-blend pencil skirt. Her lips are accented with a sophisticated matte deep crimson lipstick. The scene is illuminated by soft volumetric natural light streaming through an expansive window, creating ethereal light-and-shadow interplay on her face and the refined textures of her attire. She gazes into the camera with a serene, contemplative expression, embodying a quiet and sophisticated grace. Cinematic depth of field with soft bokeh, global illumination, PBR materials, and ray-tracing effects on fabric and skin textures.",
+  "zhPrompt": "一位留著烏黑亮麗長髮的年輕日本女子，優雅地坐在高級淺灰色亞麻沙發上。她身穿一件質地挺括的白色棉質短袖襯衫，領口繫著精緻的淺藍色絲綢蝴蝶結，下身搭配同色系的合身鉛筆裙。她塗抹著深紅色的高級霧面口紅，眼神寧靜而深邃地注視著鏡頭，散發著沉穩且思索的氣質。柔和的自然光如體積光般從大窗戶灑入，在她的臉龐、衣褶和沙發紋理上勾勒出細膩的光影層次。整體風格清新明亮，透過全球照明與物理渲染技術展現極致質感，背景微焦，完美呈現極簡主義的典雅美學。",
+  "tags": [
+    "人像攝影",
+    "極簡主義",
+    "日系美學",
+    "自然光影",
+    "高保真",
+    "優雅氣質",
+    "8k解析度",
+    "寫實質感"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified textures, plastic skin, messy environment, unnatural lighting, oversaturated, extra limbs, low quality"
+}
+-------------------
+
+[2025-12-31T11:38:02.854Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: An elite-level 8k photorealistic portrait of a young Japanese woman with glossy jet-black hair, elegantly seated on a premium light gray linen sofa. She is dressed in a crisp, structured white poplin shirt featuring a delicate pastel blue silk bow at the collar, paired with a high-waisted light blue wool-blend pencil skirt. Her lips are accented with a sophisticated matte deep crimson lipstick. The scene is illuminated by soft volumetric natural light streaming through an expansive window, creating ethereal light-and-shadow interplay on her face and the refined textures of her attire. She gazes into the camera with a serene, contemplative expression, embodying a quiet and sophisticated grace. Cinematic depth of field with soft bokeh, global illumination, PBR materials, and ray-tracing effects on fabric and skin textures.
+                
+-------------------
+
+[2025-12-31T11:38:45.838Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a young Japanese woman with lustrous black hair, seated with effortless grace on a minimalist light grey textured fabric sofa. She is wearing a crisp, structured white short-sleeved poplin shirt adorned with a delicate, fine-silk light blue bow at the collar, paired with a matching tailored light blue pencil skirt. Her lips are a bold, vibrant satin red, contrasting beautifully with her serene, contemplative expression as she gazes into the lens. The scene is bathed in ethereal, soft volumetric natural light pouring through a large window, creating subtle ray-traced highlights and soft shadows on her skin and the high-fidelity fabric textures. The atmosphere is clean, bright, and sophisticated, emphasizing a minimalist aesthetic with a soft bokeh background. 8k resolution, global illumination, subsurface scattering on skin, PBR materials, photorealistic, 85mm lens compression.",
+  "zhPrompt": "一幅極致寫實且具電影感的肖像，描繪一位蓄著烏黑亮髮的年輕日本女性，優雅地端坐在極簡風格的淺灰色質感布藝沙發上。她身穿一件質地挺括的純白短袖襯衫，領口繫著精緻的淺藍色絲綢蝴蝶結，下身搭配同色系的合身鉛筆裙。她的雙唇塗抹著亮眼且具緞面質感的鮮紅口紅，與她凝視鏡頭時沉靜且若有所思的神情形成動人對比。柔和的自然光透過大窗戶灑入，營造出空靈的體積光效果，在她的皮膚與高精細的面料紋理上勾勒出細膩的射線追踪高光與柔和陰影。整體氛圍清新明亮且高雅，強調極簡主義美學與柔和的散景背景。8k 解析度，全域照明，皮膚次表面散射，PBR 材質，寫實攝影。",
+  "tags": [
+    "日本女性",
+    "優雅氣質",
+    "極簡美學",
+    "自然光影",
+    "高端攝影",
+    "8k畫質",
+    "體積光",
+    "寫實主義"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted features, messy hair, low quality, oversaturated colors, artificial lighting, cluttered background, simplified textures, deformed hands, bad anatomy, grainy, noise."
+}
+-------------------
+
+[2025-12-31T11:38:45.842Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 9:16
+PROMPT: A hyper-realistic cinematic portrait of a young Japanese woman with lustrous black hair, seated with effortless grace on a minimalist light grey textured fabric sofa. She is wearing a crisp, structured white short-sleeved poplin shirt adorned with a delicate, fine-silk light blue bow at the collar, paired with a matching tailored light blue pencil skirt. Her lips are a bold, vibrant satin red, contrasting beautifully with her serene, contemplative expression as she gazes into the lens. The scene is bathed in ethereal, soft volumetric natural light pouring through a large window, creating subtle ray-traced highlights and soft shadows on her skin and the high-fidelity fabric textures. The atmosphere is clean, bright, and sophisticated, emphasizing a minimalist aesthetic with a soft bokeh background. 8k resolution, global illumination, subsurface scattering on skin, PBR materials, photorealistic, 85mm lens compression.
+-------------------
+
+[2025-12-31T11:39:29.973Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a young Japanese woman with lustrous raven-black hair, seated with poised elegance on a textured light gray minimalist sofa. She is dressed in a crisp, high-thread-count white short-sleeved poplin shirt featuring a delicate, silken pale blue bow at the neckline, paired with a matching pale blue tailored pencil skirt. Her lips are adorned with high-pigment matte red lipstick. Soft, diffused volumetric winter sunlight streams through a large window, creating subtle ray-traced highlights and gentle gradients across her skin and the fine fabric textures. She gazes directly into the lens with a serene, pensive expression, radiating a calm and sophisticated aura. The composition uses global illumination and subsurface scattering on the skin for a lifelike glow, set against a minimalist interior with soft bokeh to emphasize the interplay of light, high-end CMF details, and refined posture.",
+  "zhPrompt": "一位擁有一頭烏黑亮麗秀髮的年輕日本女性，優雅地端坐在質感細膩的淺灰色簡約沙發上。她身穿一件挺括的高磅數白色短袖襯衫，領口點綴著精緻的淡藍色絲質蝴蝶結，下身搭配同色系的合身鉛筆裙。唇上抹著亮麗且飽滿的霧面紅唇。柔和且具體積感的冬日自然光從窗外灑入，在她的面容與衣裝纖維上勾勒出細膩的光影變化與柔和陰影。她神情平靜且帶著沉思，凝視鏡頭時散發出沉穩而高貴的氣質。場景強調光影、色彩與材質（PBR）的極致交融，背景簡約並帶有柔美的焦外虛化，展現出純粹的高級感。",
+  "tags": [
+    "人像攝影",
+    "極簡主義",
+    "電影感光效",
+    "8K超高畫質",
+    "寫實質感",
+    "優雅氣質",
+    "日系美學"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted facial features, plastic skin texture, messy hair, low quality, oversaturated colors, deformed hands, inconsistent lighting, simplified character strokes"
+}
+-------------------
+
+[2025-12-31T11:39:29.977Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a young Japanese woman with lustrous raven-black hair, seated with poised elegance on a textured light gray minimalist sofa. She is dressed in a crisp, high-thread-count white short-sleeved poplin shirt featuring a delicate, silken pale blue bow at the neckline, paired with a matching pale blue tailored pencil skirt. Her lips are adorned with high-pigment matte red lipstick. Soft, diffused volumetric winter sunlight streams through a large window, creating subtle ray-traced highlights and gentle gradients across her skin and the fine fabric textures. She gazes directly into the lens with a serene, pensive expression, radiating a calm and sophisticated aura. The composition uses global illumination and subsurface scattering on the skin for a lifelike glow, set against a minimalist interior with soft bokeh to emphasize the interplay of light, high-end CMF details, and refined posture.
+                
+-------------------
+
+[2025-12-31T11:44:06.695Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T11:44:16.674Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T11:44:16.677Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 台北現在的天氣，氣溫，時間
+-------------------
+
+[2025-12-31T11:46:15.843Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T11:46:15.845Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A cinematic street photography shot of a bustling Taipei street in the Ximending district, around 8 PM. The asphalt is glistening and wet from a recent evening rain shower, creating mirror-like reflections of vibrant neon signs with traditional Chinese characters. Steam rises from a street food vendor's cart as pedestrians with umbrellas pass by, and a scooter's red taillight streaks through the frame. The atmosphere is humid, warm, and energetic, with Taipei 101 faintly visible in the distant, hazy skyline. Shot on a Sony a7 IV with a 35mm f/1.4 lens, using a wide aperture to create beautiful bokeh. The image is ultra-sharp, with realistic textures and a moody, cinematic color grade.
+-------------------
+
+[2025-12-31T11:49:19.601Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Cinematic portrait of a young Japanese woman with lustrous jet-black hair and a serene, contemplative gaze looking directly into the lens. She is seated with effortless elegance on a premium light gray textured linen sofa. She wears a crisp, structured white deep V-neck short-sleeved shirt in fine cotton poplin, paired with a sophisticated pale blue micro-pencil skirt. Her lips feature a bold, satin-finish vibrant red. Soft, diffused winter afternoon sunlight cascades from a large window, creating delicate volumetric lighting and subtle chiaroscuro effects across her features and the fabric textures. The background is a minimalist, airy interior with clean architectural lines and soft bokeh. 8k resolution, photorealistic, PBR materials, subsurface scattering on skin, global illumination, ray-tracing reflections in the eyes.",
+  "zhPrompt": "一位氣質優雅的年輕日本女子，留著烏黑亮麗的長髮，神情寧靜且帶著思索，深情凝視鏡頭。她優雅地坐在淺灰色高質感亞麻沙發上，身著挺括的白色深V領短袖襯衫與精緻的淺藍色超短鉛筆裙。唇部塗抹亮紅色的緞面口紅，成為視覺中心。柔和的冬日自然光從大側窗灑入，形成細膩的體積光與明暗變化，精準勾勒出她的臉龐與衣物纖維質感。整體背景為簡約、明亮的室內設計，充滿純淨的高級感。8K超高清畫質，物理渲染材質，極致的光影細節。",
+  "tags": [
+    "人像攝影",
+    "日系簡約",
+    "光影藝術",
+    "時尚大片",
+    "極簡主義",
+    "高畫質渲染",
+    "體積光",
+    "微距細節"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted, grainy, messy hair, harsh shadows, overexposed, low quality, deformed hands, plastic skin texture, flat lighting, dull colors"
+}
+-------------------
+
+[2025-12-31T11:49:19.605Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Cinematic portrait of a young Japanese woman with lustrous jet-black hair and a serene, contemplative gaze looking directly into the lens. She is seated with effortless elegance on a premium light gray textured linen sofa. She wears a crisp, structured white deep V-neck short-sleeved shirt in fine cotton poplin, paired with a sophisticated pale blue micro-pencil skirt. Her lips feature a bold, satin-finish vibrant red. Soft, diffused winter afternoon sunlight cascades from a large window, creating delicate volumetric lighting and subtle chiaroscuro effects across her features and the fabric textures. The background is a minimalist, airy interior with clean architectural lines and soft bokeh. 8k resolution, photorealistic, PBR materials, subsurface scattering on skin, global illumination, ray-tracing reflections in the eyes.
+                
+-------------------
+
+[2025-12-31T11:53:36.209Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A high-fidelity 8k photorealistic iPhone selfie of a stunning early-20s East Asian woman at a Burger King during a casual evening. Captured with a 24mm front-facing lens, the composition is an arm-length handheld shot from a mid-to-low POV. She has large, round expressive eyes and a soft, confident gaze, with loose dark hair falling naturally across her face. Her physique is a slim-curvy silhouette, featuring a narrow feminine waist, flat stomach, and full natural chest volume with realistic weight. She is wearing a tight-fitting, light grey cropped t-shirt in thin stretch-cotton with PBR material textures showing subtle fabric tension and a no-bra aesthetic, paired with snug light blue denim shorts. She leans toward the camera, holding a burger close to her mouth while sitting at a table. The background features the warm, volumetric glow of orange-toned digital menu boards and a softly blurred fast-food counter. The table holds a detailed tray with fries and a branded paper cup. Lighting is characterized by natural overhead restaurant illumination, global illumination with soft shadows, and subsurface scattering on skin for a raw, unedited social media aesthetic.",
+  "zhPrompt": "一張高品質的 8k 超寫實 iPhone 自拍，主角是一位 20 歲出頭的東亞女性，在傍晚的漢堡王店內。鏡頭採用 24mm 前置鏡頭特有的廣角透視，呈現伸手自拍的隨性構圖。她擁有大而圓的深邃雙眸，神情自信且柔和，深色長髮自然散落。身形比例遵循穠纖合度的曲線，纖細的腰部與自然的胸部豐盈感形成對比，展現真實的身體線條。她穿著一件淺灰色緊身短版棉質 T 恤，呈現出細膩的織物張力與無內衣的自然質感，搭配淡藍色牛仔短褲。她微微向鏡頭傾身，手持漢堡正準備享用。背景伴隨漢堡王招牌式的橘色發光菜單板，呈現出柔和的景深虛化，桌上放著裝有薯條與紙杯的餐盤。光影方面運用了環境全局光照與室內頂燈，在皮膚上形成真實的次表面散射效果，充滿日常生活的寫實感。",
+  "tags": [
+    "High Realism",
+    "iPhone Selfie Aesthetic",
+    "East Asian Subject",
+    "Burger King Interior",
+    "Slim-Curvy Physique",
+    "Volumetric Lighting",
+    "Cinematic Daily Life",
+    "PBR Textures"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, face cloning, same person likeness, professional studio lighting, heavy retouching, exaggerated muscles, plastic skin, nudity, explicit sexual posing, male presence, missing fingers, deformed hands, artificial highlights, simplified characters, messy typography"
+}
+-------------------
+
+[2025-12-31T11:54:00.660Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic 4k social media selfie captured with a 2026 flagship smartphone's 24mm front camera, featuring a stunning East Asian woman in her early 20s. She has a slim-curvy physique with a narrow waist and petite ribcage, leaning forward at a Burger King booth in a casual, unstaged pose. She wears a thin, form-fitting heather-grey cropped t-shirt showing realistic fabric tension and soft subsurface scattering of light, paired with light-wash denim shorts. Her expression is a soft, confident gaze with large expressive eyes and messy dark hair. The background is a detailed fast-food interior during a winter evening, featuring softly glowing digital menu boards with volumetric bloom and a tray of realistic food. The lighting is authentic overhead tungsten, creating natural skin textures, subtle pores, and realistic shadows. The image exhibits slight mobile-sensor noise and organic lens distortion for an elite, authentic 'real-life' aesthetic.",
+  "zhPrompt": "一張由 2026 年旗艦手機 24mm 前置鏡頭拍攝的極致寫實 4k 社群媒體自拍照。鏡頭主角為一位二十出頭的東亞女性，擁有纖細且具曲線美的身材，腰部纖細，肋骨架窄小，在漢堡王（Burger King）的隔間座中自然地向前傾。她穿著一件淺灰色合身短版薄棉 T 恤，呈現出真實的面料張力與光影散射效果，搭配淺藍色牛仔短褲。她神情柔和自信，雙眼明亮有神，留著微亂的深色長髮。背景為冬季傍晚的速食店內景，數位菜單看板發出柔和的體積光，桌上擺放著真實的漢堡與薯條。燈光採用真實的鎢絲頂燈，營造出細膩的皮膚紋理、毛孔與自然陰影，並帶有輕微的手機感光元件噪點與鏡頭畸變，呈現頂級的真實生活質感。",
+  "tags": [
+    "寫實攝影",
+    "社交媒體風格",
+    "生活化捕捉",
+    "光影渲染",
+    "PBR材質",
+    "手機鏡頭視角",
+    "2026科技感",
+    "東亞美人"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, plastic skin, professional studio lighting, airbrushed, CGI, face cloning, identical twin likeness, heavy retouching, exaggerated muscles, nudity, explicit sexual posing, male presence, simplified Chinese characters, text artifacts"
+}
+-------------------
+
+[2025-12-31T11:54:00.666Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic 4k social media selfie captured with a 2026 flagship smartphone's 24mm front camera, featuring a stunning East Asian woman in her early 20s. She has a slim-curvy physique with a narrow waist and petite ribcage, leaning forward at a Burger King booth in a casual, unstaged pose. She wears a thin, form-fitting heather-grey cropped t-shirt showing realistic fabric tension and soft subsurface scattering of light, paired with light-wash denim shorts. Her expression is a soft, confident gaze with large expressive eyes and messy dark hair. The background is a detailed fast-food interior during a winter evening, featuring softly glowing digital menu boards with volumetric bloom and a tray of realistic food. The lighting is authentic overhead tungsten, creating natural skin textures, subtle pores, and realistic shadows. The image exhibits slight mobile-sensor noise and organic lens distortion for an elite, authentic 'real-life' aesthetic.
+-------------------
+
+[2025-12-31T11:54:36.933Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic 8k raw iPhone front-camera selfie of a stunningly beautiful 22-year-old East Asian woman sitting in a Burger King during a winter evening. The camera is held at arm's length, 24mm wide-angle lens perspective with slight peripheral distortion typical of a mobile sensor. She has a slim-curvy physique with a high chest-to-waist ratio, featuring a petite ribcage and a narrow feminine waist. She is wearing a thin, light grey fitted cotton crop-top t-shirt that displays realistic fabric tension and subtle anatomical contours, paired with short light blue denim shorts. Her pose is casual: one hand brings a burger toward her mouth while she leans slightly toward the lens with a soft, confident gaze. The background features volumetric lighting from glowing menu boards and a softly blurred fast-food counter. The lighting is natural overhead restaurant illumination, creating soft shadows and highlighting her smooth skin texture with subsurface scattering. PBR materials on the tray, fries, and paper cup with visible Burger King branding. Cinematic realism with slight film grain and social media aesthetic, ray-traced reflections on the table surface.",
+  "zhPrompt": "一張超高清 8k 原始 iPhone 前置鏡頭自拍照，主角是一位 22 歲的東亞美女，冬日傍晚坐在漢堡王（Burger King）內。相機以手臂長度手持，24mm 廣角鏡頭透視，帶有手機感光元件特有的輕微邊緣畸變。她擁有曼妙的曲線身材，胸腰比極佳，呈現精緻的肋骨線條與纖細腰身。她穿著一件淺灰色貼身薄棉短版 T 恤，展現真實的面料張力與細微的身體輪廓，搭配淺藍色牛仔短褲。動作隨性自然：一手將漢堡舉向嘴邊，身體微向鏡頭前傾，眼神溫柔自信。背景是發光的點餐燈箱與模糊的快餐店櫃台，體現體積光效果。室內上方燈光營造出柔和陰影，並通過次表面散射展現細膩的皮膚質感。托盤、薯條和印有商標的紙杯呈現 PBR 材質細節，帶有輕微膠片顆粒感與社群媒體寫實風格，桌面反射清晰可見。",
+  "tags": [
+    "超寫實主義",
+    "iPhone 自拍感",
+    "光線追蹤反射",
+    "曼妙身材",
+    "膠片質感",
+    "快餐店場景",
+    "次表面散射",
+    "8k 解析度"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified characters, professional studio lighting, airbrushed skin, fake plastic texture, extra fingers, cartoonish, low quality, messy background clutter, nudity, explicit content, male presence"
+}
+-------------------
+
+[2025-12-31T11:54:36.937Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic 8k raw iPhone front-camera selfie of a stunningly beautiful 22-year-old East Asian woman sitting in a Burger King during a winter evening. The camera is held at arm's length, 24mm wide-angle lens perspective with slight peripheral distortion typical of a mobile sensor. She has a slim-curvy physique with a high chest-to-waist ratio, featuring a petite ribcage and a narrow feminine waist. She is wearing a thin, light grey fitted cotton crop-top t-shirt that displays realistic fabric tension and subtle anatomical contours, paired with short light blue denim shorts. Her pose is casual: one hand brings a burger toward her mouth while she leans slightly toward the lens with a soft, confident gaze. The background features volumetric lighting from glowing menu boards and a softly blurred fast-food counter. The lighting is natural overhead restaurant illumination, creating soft shadows and highlighting her smooth skin texture with subsurface scattering. PBR materials on the tray, fries, and paper cup with visible Burger King branding. Cinematic realism with slight film grain and social media aesthetic, ray-traced reflections on the table surface.
+-------------------
+
+[2025-12-31T12:12:00.047Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Ultra-high-fidelity exploded-view diagram of a 2019 Japanese-spec Honda Odyssey in deep metallic Midnight Plum Purple. The vehicle is meticulously deconstructed into a thousand floating components: a polished K24W engine block with visible forged pistons, intricate CVT transmission gears, multi-link suspension assemblies with PBR-mapped coil springs, and the signature 'Magic Slide' interior seats. Every element is suspended in zero-gravity with surgical precision against a minimalist dove-gray cyclorama. Advanced global illumination and ray-traced reflections accentuate the subsurface scattering on high-density polymers and the anisotropic brushing on aluminum parts. Captured with a Phase One IQ4 150MP, 100mm macro lens, featuring razor-sharp focus on every hexagonal bolt and electrical wire. Professional multi-point studio lighting with softbox arrays creates subtle ambient occlusion shadows, emphasizing mechanical depth. 8K resolution, hyperrealistic automotive engineering photography, clinical museum-grade aesthetic.",
+  "zhPrompt": "極致精密、超高解析度的 2019 年日規 Honda Odyssey 爆炸分解圖。車身採用深邃的「午夜梅紫」金屬漆。整台車被精確地拆解成數千個懸浮組件：拋光處理的 K24W 引擎缸體、細緻的活塞、複雜的 CVT 變速箱齒輪、具備 PBR 貼圖質感的懸吊系統，以及標誌性的車內座椅。所有零件在極簡的鴿灰色攝影棚背景中以零重力、外科手術般的精確度排列。運用先進的全局光照與光線追蹤技術，呈現高密度聚合物的次表面散射與鋁製零件的各向異性拉絲質感。使用 Phase One IQ4 150MP 搭配 100mm 微距鏡頭拍攝，展現出每一顆六角螺栓與電線的極致鋒利細節。專業多點影棚柔光燈陣列營造出細膩的環境光遮蔽陰影，強調機械結構的深度感。8K 分辨率，超寫實汽車工藝攝影，展現博物館級別的臨床美學。",
+  "tags": [
+    "爆炸圖",
+    "汽車工程",
+    "超寫實",
+    "機械美學",
+    "工業設計",
+    "8K分辨率",
+    "影棚燈光"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted, messy, cluttered, overlapping parts, missing components, simplified textures, chromatic aberration, grain, noise, low-poly, unrealistic shadows, simplified geometry, fused parts"
+}
+-------------------
+
+[2025-12-31T12:12:00.051Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Ultra-high-fidelity exploded-view diagram of a 2019 Japanese-spec Honda Odyssey in deep metallic Midnight Plum Purple. The vehicle is meticulously deconstructed into a thousand floating components: a polished K24W engine block with visible forged pistons, intricate CVT transmission gears, multi-link suspension assemblies with PBR-mapped coil springs, and the signature 'Magic Slide' interior seats. Every element is suspended in zero-gravity with surgical precision against a minimalist dove-gray cyclorama. Advanced global illumination and ray-traced reflections accentuate the subsurface scattering on high-density polymers and the anisotropic brushing on aluminum parts. Captured with a Phase One IQ4 150MP, 100mm macro lens, featuring razor-sharp focus on every hexagonal bolt and electrical wire. Professional multi-point studio lighting with softbox arrays creates subtle ambient occlusion shadows, emphasizing mechanical depth. 8K resolution, hyperrealistic automotive engineering photography, clinical museum-grade aesthetic.
+-------------------
+
+[2025-12-31T12:14:05.818Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T12:14:05.822Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A masterpiece exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its deep metallic Midnight Plum Purple finish gleaming. The vehicle is perfectly deconstructed, with every component—engine block, pistons, transmission, suspension, chassis, and interior seats—frozen in a meticulously organized, suspended state. The entire assembly is set against a pristine, minimalist light gray studio background, evoking a clean, clinical museum atmosphere. The scene is illuminated by diffused, multi-point studio lighting that catches the polished chrome, brushed aluminum, and glossy plastic of each part, casting soft shadows that define their form. Photographed with a Phase One XF 150MP camera and a 100mm macro lens, achieving hyperrealistic detail and tack-sharp focus on every bolt and wire. 8K resolution, photorealistic rendering, a symphony of mechanical precision and aesthetic beauty.
+-------------------
+
+[2025-12-31T14:01:21.720Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic 8k macro photograph from a top-down orthographic perspective, capturing a whimsical miniature diorama of a digital chat interface. The centerpiece is a physical, long lime-green message bubble made of premium PBR plastic with subtle subsurface scattering. The bubble features sharp, high-fidelity black text: '新年快樂 Happy New Year'. The Traditional Chinese characters '新', '年', '快', '樂' are rendered with perfect calligraphic structure, alongside 'Happy New Year' in a clean modern sans-serif. To the left, microscopic yet crisp gray text displays '已讀 455' stacked precisely above the timestamp '00:00'. The entire scene rests on a pristine white matte surface adorned with a seamless, high-contrast black line art pattern of LINE FRIENDS characters. Global illumination and soft ambient occlusion create gentle contact shadows, while the macro lens provides a shallow depth of field, making the texture of the green bubble pop against the patterned background.",
+  "zhPrompt": "一張細節驚人的 8k 微距攝影，採用俯視視角捕捉奇幻的微型數位對話場景。核心是一個亮綠色的實體對話框，具備 PBR 材質感與細膩的光線散射效果。框內印有極其清晰的黑色文字：'新年快樂 Happy New Year'。繁體中文字符『新』、『年』、『快』、『樂』結構嚴謹且筆畫分明。對話框左側以微小灰字標註著『已讀 455』及時間戳記『00:00』。場景背景為純白色霧面材質，佈滿黑色線條勾勒的 LINE FRIENDS 角色無縫圖案。全局照明營造出柔和的陰影與真實質感，微距對焦精準鎖定在對話框及其紋理上。",
+  "tags": [
+    "微距攝影",
+    "微縮景觀",
+    "LINE FRIENDS",
+    "2026新年",
+    "繁體中文設計",
+    "極簡藝術",
+    "3D渲染質感"
+  ],
+  "suggested_aspect_ratio": "1:1",
+  "negative_prompt": "simplified chinese, blurry text, distorted characters, low resolution, grainy, plastic artifacts, messy strokes, incorrect typography, missing strokes in characters"
+}
+-------------------
+
+[2025-12-31T14:01:21.736Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic 8k macro photograph from a top-down orthographic perspective, capturing a whimsical miniature diorama of a digital chat interface. The centerpiece is a physical, long lime-green message bubble made of premium PBR plastic with subtle subsurface scattering. The bubble features sharp, high-fidelity black text: '新年快樂 Happy New Year'. The Traditional Chinese characters '新', '年', '快', '樂' are rendered with perfect calligraphic structure, alongside 'Happy New Year' in a clean modern sans-serif. To the left, microscopic yet crisp gray text displays '已讀 455' stacked precisely above the timestamp '00:00'. The entire scene rests on a pristine white matte surface adorned with a seamless, high-contrast black line art pattern of LINE FRIENDS characters. Global illumination and soft ambient occlusion create gentle contact shadows, while the macro lens provides a shallow depth of field, making the texture of the green bubble pop against the patterned background.
+-------------------
+
+[2025-12-31T14:06:04.865Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic macro top-down photograph of a whimsical physical miniature scene. At the center lies a tactile, 3D lime-green message bubble object crafted from premium smooth PBR polymer with subtle subsurface scattering. Deeply printed inside the bubble is the crisp black sans-serif text '2026 Happy New Year'. To the immediate left, delicately printed on the matte white surface, is the small gray status text '已讀 2026'—the characters '已' and '讀' are rendered in STRICTLY Traditional Chinese typography with high-fidelity traditional strokes—stacked precisely above the timestamp '20:26'. The entire composition rests on a high-texture white backdrop featuring a seamless, minimalist repeating pattern of black line art depicting characters like Brown, Cony, and Sally. Global illumination provides bright, studio-grade even lighting with soft, diffuse ambient occlusion shadows. Sharp macro-lens focus on the bubble object with a gentle fall-off blur towards the edges, 8k resolution, ray-traced reflections.",
+  "zhPrompt": "一張頂視角微縮景觀的極致宏觀攝影。中心是一個實體萊姆綠 3D 訊息對話框，採用高品質 PBR 聚合物材質。對話框內印有清晰的黑色「2026 Happy New Year」字樣。在對話框左側的啞光白色平面上，印有細小的灰色狀態文字，上方為繁體中文「已讀 2026」（嚴格確保使用繁體結構），下方為時間戳記「20:26」。背景為純白色，帶有黑色線條繪製的 LINE FRIENDS 角色無縫重複圖案。採用全局照明技術，光線均勻柔和，具有細膩的環境光遮蔽陰影。微距鏡頭精確對焦於對話框，呈現 8k 超高畫質與光線追蹤細節。",
+  "tags": [
+    "宏觀攝影",
+    "微縮模型",
+    "3D 立體字體",
+    "LINE FRIENDS 風格",
+    "極簡主義",
+    "全局照明",
+    "2026 新年慶祝"
+  ],
+  "suggested_aspect_ratio": "1:1",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified Chinese characters, pixelated, noisy, messy background, harsh shadows, chromatic aberration, low-quality 3D render, flat lighting, messy strokes"
+}
+-------------------
+
+[2025-12-31T14:06:04.876Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic macro top-down photograph of a whimsical physical miniature scene. At the center lies a tactile, 3D lime-green message bubble object crafted from premium smooth PBR polymer with subtle subsurface scattering. Deeply printed inside the bubble is the crisp black sans-serif text '2026 Happy New Year'. To the immediate left, delicately printed on the matte white surface, is the small gray status text '已讀 2026'—the characters '已' and '讀' are rendered in STRICTLY Traditional Chinese typography with high-fidelity traditional strokes—stacked precisely above the timestamp '20:26'. The entire composition rests on a high-texture white backdrop featuring a seamless, minimalist repeating pattern of black line art depicting characters like Brown, Cony, and Sally. Global illumination provides bright, studio-grade even lighting with soft, diffuse ambient occlusion shadows. Sharp macro-lens focus on the bubble object with a gentle fall-off blur towards the edges, 8k resolution, ray-traced reflections.
+-------------------
+
+[2025-12-31T14:06:45.461Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:06:45.463Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A detailed macro photograph from a top-down perspective capturing a whimsical miniature scene. A long, bright lime-green LINE message bubble object . Inside the green bubble, the black text "2026 Happy New Year" is printed. To the left of the bubble, on the white surface, the small gray text "已讀 2026" is stacked directly above the timestamp "20:26". The entire scene is set against a white background covered in a seamless, repeating pattern of black line art illustrations of LINE FRIENDS characters. The lighting is bright and even, casting soft shadows, with the focus sharply on the miniature figures and the bubble object.
+-------------------
+
+[2025-12-31T14:07:30.539Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:07:30.541Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A detailed macro photograph from a top-down perspective capturing a whimsical miniature scene. A long, bright lime-green LINE message bubble object . Inside the green bubble, the black text "2026 Happy New Year" is printed. To the left of the bubble, on the white surface, the small gray text "已讀 3" is stacked directly above the timestamp "20:26". The entire scene is set against a white background covered in a seamless, repeating pattern of black line art illustrations of LINE FRIENDS characters. The lighting is bright and even, casting soft shadows, with the focus sharply on the miniature figures and the bubble object.
+-------------------
+
+[2025-12-31T14:17:32.704Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:17:32.707Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A detailed macro photograph from a top-down perspective capturing a whimsical miniature scene. A long, bright lime-green LINE message bubble object . Inside the green bubble, the black text "2026 Happy New Year" is printed. To the left of the bubble, on the white surface, the small gray text "已讀 3" is stacked directly above the timestamp "20:26". The entire scene is set against a white background covered in a seamless, repeating pattern of black line art illustrations of LINE FRIENDS characters. The lighting is bright and even, casting soft shadows, with the focus sharply on the miniature figures and the bubble object.
+-------------------
+
+[2025-12-31T14:18:27.972Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:18:27.975Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its every component frozen in a moment of perfect, suspended deconstruction. The deep metallic Midnight Plum Purple body panels gleam with a liquid-like finish, contrasting with the raw, intricate beauty of the internal mechanics. Each part—from the engine block and its precisely machined pistons to the complex transmission gears and plush interior seats—is meticulously arranged in a gravity-defying, organized cloud. The entire assembly floats within a vast, minimalist studio with a seamless light gray cyclorama background, evoking the sterile precision of a high-tech design museum. Flawless illumination from multiple diffused softboxes wraps every surface in even light, while a single key light carves out hyper-sharp highlights on polished chrome and brushed aluminum, casting gentle, form-defining shadows. Captured with a Phase One XF 150MP camera and a 100mm macro lens, achieving impossible tack-sharp focus. An 8K photorealistic CGI masterpiece, a symphony of mechanical precision and aesthetic elegance.
+                
+-------------------
+
+[2025-12-31T14:19:18.803Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:19:18.806Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its every component frozen in a moment of perfect, suspended deconstruction. The deep metallic Midnight Plum Purple body panels gleam with a liquid-like finish, contrasting with the raw, intricate beauty of the internal mechanics. Each part—from the engine block and its precisely machined pistons to the complex transmission gears and plush interior seats—is meticulously arranged in a gravity-defying, organized cloud. The entire assembly floats within a vast, minimalist studio with a seamless light gray cyclorama background, evoking the sterile precision of a high-tech design museum. Flawless illumination from multiple diffused softboxes wraps every surface in even light, while a single key light carves out hyper-sharp highlights on polished chrome and brushed aluminum, casting gentle, form-defining shadows. Captured with a Phase One XF 150MP camera and a 100mm macro lens, achieving impossible tack-sharp focus. An 8K photorealistic CGI masterpiece, a symphony of mechanical precision and aesthetic elegance.
+-------------------
+
+[2025-12-31T14:20:38.352Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:20:38.355Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its every component meticulously organized in a zero-gravity knolling pattern, frozen in a moment of perfect, suspended deconstruction. The deep metallic Midnight Plum Purple body panels gleam with a liquid-like finish, contrasting with the raw, intricate beauty of the internal mechanics. Each part—from the engine block with its precisely machined pistons to the complex transmission gears and plush interior seats—is rendered with impossible detail. The entire assembly floats within a vast, minimalist studio featuring a seamless, light gray cyclorama background, evoking the sterile precision of a high-tech design museum. Flawless, multi-point studio lighting from large diffused softboxes wraps every surface in even light, while a single key light carves out hyper-sharp highlights on polished chrome and brushed aluminum, casting gentle, form-defining shadows. Photorealistic CGI masterpiece, captured with the fidelity of a Phase One XF 150MP camera using a 100mm macro lens, achieving tack-sharp focus across the entire composition, 8K resolution.
+-------------------
+
+[2025-12-31T14:21:57.581Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:21:57.583Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its every component meticulously organized in a zero-gravity knolling pattern, frozen in a moment of perfect, suspended deconstruction. The deep metallic Midnight Plum Purple body panels gleam with a liquid-like finish, contrasting with the raw, intricate beauty of the internal mechanics. Each part—from the engine block with its precisely machined pistons to the complex transmission gears and plush interior seats—is rendered with impossible detail. The entire assembly floats within a vast, minimalist studio featuring a seamless, light gray cyclorama background, evoking the sterile precision of a high-tech design museum. Flawless, multi-point studio lighting from large diffused softboxes wraps every surface in even light, while a single key light carves out hyper-sharp highlights on polished chrome and brushed aluminum, casting gentle, form-defining shadows. Photorealistic CGI masterpiece, captured with the fidelity of a Phase One XF 150MP camera using a 100mm macro lens, achieving tack-sharp focus across the entire composition, 8K resolution.
+-------------------
+
+[2025-12-31T14:23:01.178Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:23:01.181Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its every component meticulously organized in a zero-gravity knolling pattern, frozen in a moment of perfect, suspended deconstruction. The deep metallic Midnight Plum Purple body panels gleam with a flawless, liquid-like finish, contrasting the raw, intricate beauty of the internal mechanics—from the engine block with its precisely machined pistons to the plush, textured interior seats. The entire assembly floats weightlessly within a vast, minimalist studio featuring a seamless, light gray cyclorama background, evoking the sterile precision of a high-tech design museum. Flawless, multi-point studio lighting from large diffused softboxes wraps every surface in even light, while a single key light carves out hyper-sharp highlights on polished chrome and brushed aluminum, casting gentle, form-defining shadows. A photorealistic CGI masterpiece, captured with the fidelity of a Phase One XF 150MP camera and a 100mm macro lens, achieving tack-sharp focus across the entire composition, 8K ultra-high resolution.
+-------------------
+
+[2025-12-31T14:24:49.893Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:24:49.896Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An awe-inspiring exploded-view diagram of a 2019 Japanese-spec Honda Odyssey, its thousands of components frozen in a moment of perfect, suspended deconstruction. The assembly is meticulously organized in a zero-gravity knolling pattern, floating weightlessly within a vast, minimalist studio featuring a seamless, light gray cyclorama background, evoking the sterile precision of a high-tech design museum. The deep metallic Midnight Plum Purple body panels gleam with a flawless, liquid-like clear coat finish, creating a stark contrast against the raw, intricate beauty of the internal mechanics—from the precisely machined V6 engine block to the plush, textured fabric of the interior seats. Flawless, multi-point studio lighting from massive diffused softboxes wraps every surface in even illumination, while a single key light carves out hyper-sharp specular highlights on polished chrome and brushed aluminum, casting gentle, form-defining contact shadows. A photorealistic CGI masterpiece, captured with the extreme fidelity of a Phase One XF 150MP digital back on a technical camera, using a 100mm macro lens to achieve impossible, tack-sharp focus across the entire composition. Rendered in stunning 8K ultra-high resolution.
+-------------------
+
+[2025-12-31T14:25:59.524Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T14:25:59.527Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A photorealistic CGI masterpiece of a 2019 Japanese-spec Honda Odyssey in an awe-inspiring exploded-view diagram. Its thousands of components are frozen in a moment of perfect, suspended deconstruction, meticulously organized in a zero-gravity knolling pattern. The assembly floats weightlessly within a vast, minimalist studio featuring a seamless, light gray cyclorama. The deep metallic Midnight Plum Purple body panels gleam with a flawless, liquid-like clear coat, contrasting the raw mechanics. Meticulous multi-point studio lighting from massive diffused softboxes provides even illumination, while a single key light carves hyper-sharp specular highlights on polished chrome. Captured with the extreme fidelity of a Phase One XF 150MP technical camera and a 100mm macro lens, achieving impossible tack-sharp focus across the entire composition in 8K ultra-high resolution.
+-------------------
+
+[2025-12-31T16:55:19.722Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "A hyperrealistic, 8k resolution, medium close-up portrait of an elegant young Asian woman, approximately 25-30 years old, with smooth, perfectly styled blonde shoulder-length hair. She possesses delicate, luminous porcelain skin and subtle, natural makeup, her expressive eyes gazing gently towards the viewer. She is seated with a poised posture, wearing a crisp, premium white short-sleeved collared blouse, featuring a meticulously tied delicate light blue silk bow tie at the neckline. Her attire includes a matching high-waisted, impeccably tailored light blue pencil skirt made from a soft wool blend, showcasing refined textures and clean lines. The entire scene is bathed in dramatic, strong, directional simulated natural light from the left, evoking a cinematic chiaroscuro effect. This lighting casts distinct, artistic, elongated shadows across her face, accentuating her facial contours, and creating deep, sculptural folds within the fabric of her clothing. The high-contrast yet luminous effect highlights her features and the pristine textures. The minimalist and harmonious color palette is dominated by cool tones of pristine arctic white and soft sky blue, set against a subtle, neutral cool grey background. Warm, natural skin tones provide a captivating contrast. Eye-level perspective, extremely shallow depth of field, PBR textures, subsurface scattering, ultra-detailed, professional studio photography quality, captured with a prime lens, volumetric light, intricate details, photorealistic.",
+  "zhPrompt": "一張超現實、8K解析度的特寫肖像，描繪一位優雅的年輕亞洲女性，約25-30歲，留著柔順、完美造型的金色及肩髮。她擁有細緻、光澤的瓷肌和輕柔、自然的妝容，她那充滿表情的雙眼溫柔地望向觀者。她坐姿端莊，身著一件挺括、優質的白色短袖翻領襯衫，領口繫著一個精緻的淺藍色絲質蝴蝶領結。她的服裝還包括一條搭配的高腰、剪裁完美的淺藍色鉛筆裙，採用柔軟的羊毛混紡面料製成，展現出精緻的紋理和簡潔的線條。整個場景沐浴在左側戲劇性、強烈、定向的模擬自然光中，營造出電影般的明暗對比效果。這種光線在她臉上投射出清晰、藝術性、細長的陰影，突顯她的面部輪廓，並在衣物褶皺中創造出深邃、雕塑般的層次。高對比度卻又明亮的效果突出了她的特徵和潔淨的紋理。極簡而和諧的色彩調色板以純淨的北極白和柔和的天空藍等冷色調為主，背景為微妙、中性的冷灰色。溫暖、自然的膚色形成迷人的對比。特寫視角、平視角度、極淺的景深、PBR材質、次表面散射、超高細節、專業攝影棚級別的攝影品質、使用定焦鏡頭捕捉、體積光、複雜細節、寫實。",
+  "tags": "亞洲女性肖像, 極簡時尚, 戲劇性光影, 冷色調, 攝影棚人像"
+}
+-------------------
+
+[2025-12-31T16:55:19.740Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyperrealistic, 8k resolution, medium close-up portrait of an elegant young Asian woman, approximately 25-30 years old, with smooth, perfectly styled blonde shoulder-length hair. She possesses delicate, luminous porcelain skin and subtle, natural makeup, her expressive eyes gazing gently towards the viewer. She is seated with a poised posture, wearing a crisp, premium white short-sleeved collared blouse, featuring a meticulously tied delicate light blue silk bow tie at the neckline. Her attire includes a matching high-waisted, impeccably tailored light blue pencil skirt made from a soft wool blend, showcasing refined textures and clean lines. The entire scene is bathed in dramatic, strong, directional simulated natural light from the left, evoking a cinematic chiaroscuro effect. This lighting casts distinct, artistic, elongated shadows across her face, accentuating her facial contours, and creating deep, sculptural folds within the fabric of her clothing. The high-contrast yet luminous effect highlights her features and the pristine textures. The minimalist and harmonious color palette is dominated by cool tones of pristine arctic white and soft sky blue, set against a subtle, neutral cool grey background. Warm, natural skin tones provide a captivating contrast. Eye-level perspective, extremely shallow depth of field, PBR textures, subsurface scattering, ultra-detailed, professional studio photography quality, captured with a prime lens, volumetric light, intricate details, photorealistic.
+                
+-------------------
+
+[2025-12-31T16:58:03.852Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A photorealistic portrait of an elegant young Asian woman with neatly styled blonde hair, wearing a crisp white short-sleeved collared blouse featuring a delicate light blue bow tie and a matching high-waisted light blue pencil skirt. She is seated, looking gently towards the viewer. The scene is bathed in strong, directional natural light from the left, casting distinct, artistic shadows across her face and the folds of her clothing, creating a high-contrast yet luminous effect. The color palette is minimalist, dominated by cool tones of pristine white, soft sky blue, and a subtle neutral grey background, with warm skin tones providing contrast. Medium close-up, eye-level perspective, shallow depth of field, professional studio photography quality.
+                
+-------------------
+
+[2025-12-31T17:02:57.241Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+    "enPrompt": "An ultra-realistic, professional editorial photograph capturing a confident young East Asian woman in a pristine, sharp white short-sleeved collared blouse with a meticulously tied elegant light blue necktie and a matching high-waisted light blue skirt. Her light blonde hair is neatly styled, showcasing modern elegance. She is seated gracefully on a minimalist light gray upholstered sofa, looking directly at the viewer with a gentle, inviting smile. Photorealistic, 8k resolution, cinematic natural daylight with strong directional light from the upper left, casting distinct chiaroscuro shadow patterns on her face and body, creating high-key illumination and prominent volumetric light. PBR textures, depth of field, subtle bokeh background. The color palette features muted pastel blues and crisp whites, harmoniously contrasted with neutral grays and warm, natural skin tones, presenting a bright and serene aesthetic. Upper body shot, medium shot, slight off-center framing, vertical composition, eye-level perspective, direct gaze. Fine art portraiture, studio quality, hyper-detailed, incredibly sharp focus, unreal engine 5 render.",
+    "zhPrompt": "一張超現實、專業的編輯攝影照片，捕捉一位自信的年輕東亞女性。她穿著潔白、剪裁俐落的短袖有領襯衫，繫著一條精心打理的優雅淡藍色領帶，搭配一條高腰的淡藍色裙子。她淺金色的頭髮造型整齊，展現出現代優雅。她優雅地坐在一張簡約的淺灰色軟墊沙發上，帶著溫和而迷人的微笑，直接看向觀者。寫實攝影，8K解析度，電影般的自然日光，左上方射來強烈的定向光，在她臉部和身體上投射出清晰的光影模式，營造出高調照明和顯著的體積光。PBR材質，景深，背景帶有柔和的散景效果。色彩方案採用柔和的粉藍色和清新的白色，與中性灰色和溫暖、自然的膚色形成和諧對比，呈現明亮而寧靜的美學。上半身特寫，中景，輕微偏離中心構圖，垂直構圖，平視視角，直接凝視。美術肖像攝影，工作室品質，超高細節，極致銳利對焦，虛幻引擎5渲染。",
+    "tags": "東亞女性, 淺金髮, 專業肖像, 淡藍色系, 極簡主義"
+}
+-------------------
+
+[2025-12-31T17:02:57.330Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: An ultra-realistic, professional editorial photograph capturing a confident young East Asian woman in a pristine, sharp white short-sleeved collared blouse with a meticulously tied elegant light blue necktie and a matching high-waisted light blue skirt. Her light blonde hair is neatly styled, showcasing modern elegance. She is seated gracefully on a minimalist light gray upholstered sofa, looking directly at the viewer with a gentle, inviting smile. Photorealistic, 8k resolution, cinematic natural daylight with strong directional light from the upper left, casting distinct chiaroscuro shadow patterns on her face and body, creating high-key illumination and prominent volumetric light. PBR textures, depth of field, subtle bokeh background. The color palette features muted pastel blues and crisp whites, harmoniously contrasted with neutral grays and warm, natural skin tones, presenting a bright and serene aesthetic. Upper body shot, medium shot, slight off-center framing, vertical composition, eye-level perspective, direct gaze. Fine art portraiture, studio quality, hyper-detailed, incredibly sharp focus, unreal engine 5 render.
+                
+-------------------
+
+[2025-12-31T17:06:04.478Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic 8K resolution, ultra-detailed professional fine art portraiture, cinematic lighting, PBR textures. A confident young East Asian woman, with neatly styled light blonde hair, is elegantly dressed in a pristine white short-sleeved collared blouse featuring an elegant light blue necktie, paired with a matching high-waisted light blue skirt. She is seated on a minimalist gray sofa, looking directly at the viewer with a gentle smile. The scene is illuminated by dynamic natural daylight, with strong directional light from the upper left creating distinct chiaroscuro shadow patterns on her face and body. High-key illumination and volumetric light contribute to a bright and serene palette of muted pastel blues, crisp whites, neutral grays, and warm skin tones. This upper body, medium shot features a slight off-center framing, shallow depth of field with a soft bokeh background, and a vertical composition. Captured from an eye-level perspective with a direct gaze.",
+  "zhPrompt": "一張**寫實級8K解析度**的超詳細專業藝術肖像照，**電影級光照**，**PBR材質紋理**。一位自信的年輕東亞女性，梳理整齊的淺金色頭髮，優雅地穿著潔白的短袖翻領襯衫，搭配一條精緻的淺藍色領帶，以及一條同色系的高腰淺藍色裙子。她坐在一張極簡主義的灰色沙發上，帶著溫和的微笑直視觀者。場景由動態的自然日光照亮，強烈的定向光從左上方射入，在她臉部和身體上形成鮮明的明暗對比陰影圖案。高調照明和體積光共同營造出明亮而寧靜的調色板，包含柔和的粉彩色藍、潔淨的白色、中性灰色和溫暖膚色。這張上半身中景特寫，構圖略微偏離中心，具備淺景深與柔和的散景背景，並採用垂直構圖。拍攝視角為平視，人物直接凝視鏡頭。",
+  "tags": "東亞女性, 寫實人像, 電影光影, 時尚優雅, 淺景深"
+}
+-------------------
+
+[2025-12-31T17:09:49.665Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+    "enPrompt": "An ultra-realistic, professional studio photograph of a confident young East Asian woman, 8k resolution, photorealistic, fine art portraiture. She has meticulously styled, luminous light blonde hair and wears a pristine, tailored white short-sleeved collared blouse, an elegant light blue silk necktie, and a matching high-waisted light blue a-line skirt, showcasing contemporary 2026 fashion trends. She is seated gracefully on a sleek, minimalist charcoal gray fabric sofa with clean lines, looking directly at the viewer with a gentle, serene smile. Dynamic, high-key natural daylight streams from the upper left, casting distinct chiaroscuro shadow patterns that define her features and form. Strong volumetric light and cinematic lighting create depth. The bright, serene color palette features muted pastel blues and crisp whites against neutral grays and warm, healthy skin tones. Upper body shot, medium view, slight off-center vertical composition, very shallow depth of field with creamy soft bokeh background. Eye-level perspective, direct gaze.",
+    "zhPrompt": "一張超現實、專業工作室攝影作品，8K解析度，照片級寫實，美術肖像風格。一位自信的年輕東亞女性，擁有精心打理、亮麗的淺金色頭髮，穿著一件一塵不染、剪裁合身的白色短袖翻領襯衫，繫著一條優雅的淺藍色絲綢領帶，搭配一條同色系的高腰淺藍色A字裙，展現2026年當代時尚趨勢。她優雅地坐在一張線條簡潔、極簡主義的木炭灰色布藝沙發上，帶著溫柔而寧靜的微笑，直接注視著觀看者。動態、高調的自然日光從左上方傾瀉而入，投射出鮮明的明暗對比陰影，勾勒出她的五官和身形。強烈的體積光和電影般的光線營造出深度。明亮而寧靜的調色板以柔和的粉藍色和清爽的白色為主，與中性灰色和溫暖健康的膚色形成對比。上半身特寫，中景，略微偏離中心的垂直構圖，景深極淺，背景散景柔和奶油狀。視線平視，眼神直接。",
+    "tags": "東亞女性肖像, 2026時尚, 極簡主義, 高調攝影, 淺金色頭髮"
+}
+-------------------
+
+[2025-12-31T17:12:40.608Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+    "enPrompt": "A breathtakingly photorealistic, ultra-detailed professional portrait of a confident young East Asian woman, approximately 22-26 years old, with impeccably styled, subtly layered light blonde hair framing her face. She wears a pristine, crisp white short-sleeved collared silk blouse, meticulously tailored for a sharp, elegant silhouette. An elegant, perfectly knotted light blue necktie adds a refined touch, complementing her matching high-waisted, tailored light blue pencil skirt made of fine wool blend. She is seated comfortably and poised on a sleek, minimalist charcoal gray fabric sofa, its texture subtly visible. Her posture is graceful, and she looks directly at the viewer with a captivating, gentle and knowing smile, her eyes sparkling with intelligence and warmth. The scene is illuminated by dynamic, soft yet strong natural daylight, mimicking the clean light of early morning or late afternoon. A powerful directional light source from the upper left casts dramatic chiaroscuro shadow patterns across her elegant facial contours and the delicate folds of her clothing, emphasizing depth and form. High-key illumination bathes the scene in a bright, ethereal glow, with palpable volumetric light particles subtly dancing in the air. The color palette is serene and sophisticated, featuring muted pastel blues and crisp, luminous whites sharply contrasted with neutral, textured grays of the sofa and the warm, healthy tones of her skin. This creates a bright, clean, and inviting aesthetic. This is an upper body shot, a classic medium portrait, slightly off-center framed for artistic balance. A shallow depth of field creates a luxurious, creamy bokeh background, blurring into soft, indistinct shapes. The vertical composition draws the eye upwards, enhancing her stature. Captured from an eye-level perspective, ensuring a direct and intimate gaze from the subject. 8k resolution, cinematic quality, PBR textures, depth of field, finely detailed fabric, studio portrait, fashion photography, hyper-realism, vivid clarity, masterpiece.",
+    "zhPrompt": "一張令人驚嘆的超寫實、超詳細專業肖像，描繪一位自信的年輕東亞女性，約22-26歲，她擁有完美造型、層次分明的淺金色秀髮，輕柔地勾勒出臉龐。她身穿一件潔白無瑕、挺括的短袖領口絲綢襯衫，剪裁精良，呈現出銳利優雅的輪廓。一條優雅、完美打結的淺藍色領帶增添了精緻感，與她搭配的高腰、合身淺藍色羊毛混紡鉛筆裙相得益彰。她舒適而優雅地坐在一張時尚簡約的炭灰色布藝沙發上，沙發的紋理隱約可見。她姿態優雅，帶著迷人、溫柔而睿智的微笑，直視觀者，眼神閃爍著智慧與溫暖。場景由動態、柔和而強烈的自然日光照亮，模仿清晨或傍晚清澈的光線。從左上方射來一道強烈的定向光源，在她的優雅臉部輪廓和衣服的細緻褶皺上投下戲劇性的明暗對比陰影，強調深度和形態。高光照明使整個場景沐浴在明亮、空靈的光芒中，可感知的體積光粒子在空氣中輕微舞動。色彩調色板寧靜而精緻，以柔和的粉藍色和清澈、明亮的白色為主，與沙發的中性、有紋理的灰色以及她溫暖健康的膚色形成鮮明對比。這營造出明亮、潔淨且誘人的美學。這是一張上半身肖像，經典的中景人像，為藝術平衡略微偏離中心構圖。淺景深營造出奢華、奶油般的焦外虛化背景，模糊成柔和、模糊的形狀。垂直構圖引導視線向上，增強了她的氣質。以平視視角拍攝，確保主體直接而親密的凝視。8K分辨率，電影級品質，PBR材質，景深，精緻布料細節，攝影棚肖像，時尚攝影，超現實主義，生動清晰，傑作。",
+    "tags": "東亞女性, 肖像攝影, 淺金髮, 藍色領帶, 高光照明"
+}
+-------------------
+
+[2025-12-31T17:15:24.318Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8k resolution studio portrait of a confident young East Asian woman, mid-20s, with impeccably styled, luminous light blonde hair. She wears a pristine white short-sleeved collared blouse, an elegant light blue necktie, and a matching high-waisted light blue skirt, meticulously tailored for a 2026 aesthetic. Seated gracefully on a minimalist light gray fabric sofa, she gazes directly at the viewer with a gentle, inviting smile. The scene is bathed in crisp, simulated natural daylight, specifically a strong directional light source from the upper left, creating exquisite chiaroscuro shadow patterns and volumetric light effects across her face and body. High-key illumination emphasizes a bright and serene palette of muted pastel blues, crisp whites, and neutral grays, perfectly complementing her warm skin tones. Upper body medium shot, slight off-center vertical composition, eye-level perspective, direct gaze, shallow depth of field with creamy bokeh background. Fine art portraiture, hyper-detailed, PBR textures, cinematic lighting.",
+    "zhPrompt": "一張超現實主義的 8K 解析度攝影棚人像照，描繪一位自信的年輕東亞女性，約二十多歲，擁有精心造型的亮金色頭髮。她穿著一件潔白的短袖翻領襯衫，搭配優雅的淡藍色領帶和一條配套的淡藍色高腰裙，剪裁精緻，展現 2026 年的時尚美學。她優雅地坐在簡約的淺灰色布藝沙發上，帶著溫和、迷人的微笑直接凝視著觀看者。場景沐浴在清澈、模擬的自然日光中，特別是來自左上方強烈的定向光源，在她的臉龐和身體上創造出精美的明暗對比陰影模式和立體光效果。高調照明強調了明亮而寧靜的色調，包括柔和的粉藍色、潔淨的白色和中性灰色，完美襯托出她溫暖的膚色。上半身中景特寫，略微偏離中心的垂直構圖，平視視角，直接凝視，淺景深帶有柔和的散景背景。精緻藝術肖像攝影，超細節，PBR 材質紋理，電影感燈光。",
+    "tags": "時尚肖像, 東亞女性, 模擬日光, 高鍵照明, 極簡風格"
+}
+-------------------
+
+[2025-12-31T17:16:16.612Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "An ultra-realistic professional studio photograph of a confident young East Asian woman, mid-20s, with impeccably styled, luminous light blonde hair, individual strands visible. She wears a pristine, crisp white short-sleeved collared blouse with visible cotton texture, an elegantly tied light blue silk necktie, and a perfectly tailored matching high-waisted light blue skirt. She is seated gracefully on a minimalist light gray upholstered sofa with clean architectural lines, gazing directly at the viewer with a gentle, authentic smile. Her flawless skin exhibits subtle texture and natural makeup. Dynamic, strong directional simulated natural daylight pours from a large softbox positioned upper left, creating dramatic chiaroscuro shadow patterns and distinct highlights across her face and body. High-key illumination and soft volumetric light create a serene, bright atmosphere. The color palette features muted pastel blues, crisp whites, neutral grays, and warm, lifelike skin tones. This is an upper body, medium shot with a slight off-center vertical composition, captured from an eye-level perspective, ensuring a direct gaze. The image features a shallow depth of field with a creamy, soft bokeh background, 8k resolution, hyper-detailed, PBR textures, fine art portraiture, and professional retouching, magazine quality.",
+  "zhPrompt": "一位自信的年輕東亞女性的超現實專業攝影肖像，約20多歲，髮型無瑕，一頭明亮的淺金色秀髮，根根分明。她身穿一件潔淨挺括的白色短袖翻領襯衫，可見棉質紋理；打著一條優雅繫好的淺藍色絲質領帶；以及一條完美剪裁的配套高腰淺藍色裙子。她優雅地坐在一張簡約的淺灰色軟墊沙發上，沙發線條簡潔，面帶溫和真誠的微笑，直視觀看者。她無瑕的肌膚呈現細微紋理和自然妝容。動態、強烈定向的模擬自然日光從左上方的大型柔光箱傾瀉而下，在她臉部和身體上營造出戲劇性的明暗對比陰影模式和鮮明的高光。高調照明和柔和的體積光營造出寧靜明亮的氛圍。色彩調色板以柔和的粉藍色、潔淨的白色、中性灰色和溫暖、逼真的膚色為主。這是一張上半身中景照片，構圖略微偏離中心，垂直視角，從視線水平拍攝，確保直接凝視。圖像具有淺景深和柔和奶油狀的散景背景，8K分辨率，超高細節，PBR紋理，美術人像攝影，以及專業修圖，雜誌品質。",
+  "tags": "東亞女性, 專業肖像, 淺金色頭髮, 高調照明, 極簡主義"
+}
+-------------------
+
+[2025-12-31T17:16:21.229Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "An ultra-realistic, hyper-detailed 8K resolution professional photograph capturing a confident and poised young East Asian woman, approximately 25-30 years old, with impeccably styled, sleek light blonde hair, subtly layered and framing her face. Her expression is a gentle, inviting smile, maintaining a direct and engaging gaze towards the viewer. She wears a pristine, high-thread-count white short-sleeved collared silk blouse, meticulously tailored. An elegant, narrow light blue silk necktie is neatly knotted, perfectly complementing a perfectly tailored, high-waisted light blue A-line skirt made of a luxurious, structured fabric, exhibiting PBR textures. She is comfortably seated on a minimalist, textured dark gray linen sofa, against an intentionally blurred, subtly illuminated background. The scene is captured with professional studio lighting mimicking dynamic natural daylight, specifically a strong, diffused directional light source from the upper left. This creates distinct, artistic chiaroscuro shadow patterns across her face and body, emphasizing her features. High-key illumination floods the scene with volumetric light, creating a bright and ethereal atmosphere. A harmonious palette of muted pastel blues and crisp whites dominates, beautifully contrasted by neutral grays of the sofa and the warm, healthy glow of her skin tones, achieving a truly serene and vibrant visual. Fine art portraiture quality. Upper body shot, medium shot, slightly off-center framing, with a shallow depth of field and exquisitely soft, creamy bokeh in the background. Vertical composition, captured at eye-level perspective to maintain the direct gaze. Cinematic lighting, photorealistic.",
+  "zhPrompt": "一張超現實、極度細緻的8K專業攝影作品，捕捉了一位自信優雅的年輕東亞女性，約25-30歲。她擁有造型無可挑剔、光滑的淺金色秀髮，髮絲柔和地層次分明並框住臉龐。她的表情是溫柔而迷人的微笑，眼神直接且專注地凝視著觀者。她身著一件原始無瑕、高織數的白色短袖翻領絲質襯衫，剪裁精良。一條優雅細窄的淺藍色絲質領帶整齊打結，完美搭配一條剪裁完美、高腰的淺藍色A字裙，裙子由奢華有質感的布料製成，展現PBR紋理。她舒適地坐在一個簡約的深灰色亞麻質沙發上，背景故意模糊，略帶柔和的光線。場景以專業攝影棚燈光捕捉，模仿動態的自然日光，特別是來自左上方強烈而柔和的方向性光源。這在她臉部和身體上創造出獨特而富有藝術感的明暗對比陰影模式，突顯了她的五官。高調照明以體積光充滿整個場景，營造出明亮而飄逸的氛圍。柔和的粉彩色調藍色和清新的白色構成和諧的調色板，與沙發的中性灰色和她膚色溫暖健康的膚色形成美麗的對比，呈現出真正寧靜而充滿活力的視覺效果。精緻的藝術肖像品質。上半身特寫，中景拍攝，構圖略微偏離中心，景深淺，背景具有精美的柔和奶油般散景。垂直構圖，以視線平視的角度拍攝，以保持直接的凝視。電影級燈光，寫實攝影。",
+  "tags": "東亞女性, 淺金色頭髮, 專業肖像, 柔和日光, 高調照明"
+}
+-------------------
+
+[2025-12-31T17:19:03.242Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot portrait of a serene East Asian woman, approximately 28 years old, with perfectly styled, shimmering ash blonde hair that gently frames her face. She wears a pristine, meticulously ironed white short-sleeved shirt made of premium mercerized cotton, and a sleek, light blue silk-blend necktie. She is seated elegantly on a sculptural, minimalist charcoal grey modular sofa with a subtle textured upholstery. Dramatic, directional studio lighting, specifically a powerful side-light from a large softbox, mimics intense natural light, casting sharp chiaroscuro shadows across her form and the background, creating brilliant highlights on her luminous, flawless skin with subtle sub-surface scattering, and emphasizing the crisp, clean textures of her attire. Eye-level camera angle with a very shallow depth of field, resulting in beautiful, soft cinematic bokeh in the background. The aesthetic is impeccably clean and professional, dominated by a cool blue and crisp white color palette, beautifully complemented by the warm, natural tones of her skin. Ultra-detailed, 8k resolution, professional studio photography, Canon EOS R5, f/1.8, cinematic color grading, PBR textures, depth of field.",
+  "zhPrompt": "一張寧靜的東亞女性的逼真中景肖像，她擁有完美造型、閃爍的灰金色頭髮，輕柔地勾勒出臉龐。她穿著一件整潔、熨燙精良的優質絲光棉白色短袖襯衫，以及一條時尚的淺藍色絲綢混紡領帶。她優雅地坐在一張雕塑般、極簡主義的木炭灰色模組化沙發上，沙發表面有著細緻的紋理。戲劇性、定向的攝影棚燈光，特別是來自大型柔光箱的強烈側光，模仿著強烈的自然光，在她身上和背景投射出銳利的明暗對比陰影，在她發光、無暇且帶有微妙次表面散射的皮膚上創造出明亮的高光，並強調了她服裝清晰、乾淨的紋理。平視的鏡頭角度，景深極淺，在背景中產生美麗、柔和的電影散景。美學上極其簡潔專業，以冷藍色和清爽白色為主色調，與她溫暖、自然的膚色完美互補。超細節、8K解析度、專業攝影棚攝影、Canon EOS R5、f/1.8、電影色彩分級、PBR紋理、景深。",
+  "tags": "逼真肖像, 東亞女性, 灰金色頭髮, 專業攝影棚燈光, 極簡主義"
+}
+-------------------
+
+[2025-12-31T17:19:03.255Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: Photorealistic medium shot portrait of a serene East Asian woman, approximately 28 years old, with perfectly styled, shimmering ash blonde hair that gently frames her face. She wears a pristine, meticulously ironed white short-sleeved shirt made of premium mercerized cotton, and a sleek, light blue silk-blend necktie. She is seated elegantly on a sculptural, minimalist charcoal grey modular sofa with a subtle textured upholstery. Dramatic, directional studio lighting, specifically a powerful side-light from a large softbox, mimics intense natural light, casting sharp chiaroscuro shadows across her form and the background, creating brilliant highlights on her luminous, flawless skin with subtle sub-surface scattering, and emphasizing the crisp, clean textures of her attire. Eye-level camera angle with a very shallow depth of field, resulting in beautiful, soft cinematic bokeh in the background. The aesthetic is impeccably clean and professional, dominated by a cool blue and crisp white color palette, beautifully complemented by the warm, natural tones of her skin. Ultra-detailed, 8k resolution, professional studio photography, Canon EOS R5, f/1.8, cinematic color grading, PBR textures, depth of field.
+                
+-------------------
+
+[2025-12-31T17:20:12.443Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+    "enPrompt": "Photorealistic 8K RAW photo, medium shot portrait of a serene and elegant East Asian woman, her ash blonde hair perfectly styled. She wears a pristine, subtly textured white short-sleeved cotton shirt and a silken light blue necktie. She is seated gracefully on a sleek, minimalist grey sofa. Dramatic hard directional natural light, reminiscent of Golden Hour, floods the scene from a large window, creating exquisite chiaroscuro shadows and bright specular highlights, emphasizing her luminous, dewy skin with subsurface scattering and the crisp, intricate fabric textures of her attire. Shot on a Sony A7R V with a G Master 85mm f/1.4 lens at eye-level, featuring an extremely shallow depth of field and creamy soft bokeh in the background. The aesthetic is clean, contemporary minimalist professional, with a cool blue and crisp white color palette beautifully complemented by warm, natural skin tones. Ultra-detailed, showcasing fine details of individual hair strands, skin pores, and fabric weaves. Cinematic quality, high resolution, Physically Based Rendering (PBR), volumetric lighting, Global Illumination, award-winning portrait photography.",
+    "zhPrompt": "一張逼真的8K RAW照片，中景肖像，捕捉了一位寧靜優雅的東亞女性。她的灰金色頭髮造型完美，穿著一件原始、帶有細微紋理的白色短袖棉襯衫和一條絲滑的淺藍色領帶。她優雅地坐在一張時尚、簡約的灰色沙發上。戲劇性的硬質定向自然光，讓人聯想到黃金時段，從一扇大窗戶灑滿整個場景，營造出精緻的光影對比和明亮的鏡面高光，強調她發光、濕潤的皮膚，帶有次表面散射效果，以及她服裝上清晰、複雜的織物紋理。使用Sony A7R V搭配G Master 85mm f/1.4鏡頭，以視平線角度拍攝，景深極淺，背景帶有柔和的奶油般散景。整體美學是簡潔、當代極簡專業風格，以冷藍色和清爽白色調色板為主，與溫暖、自然的膚色形成美麗的互補。超高細節，展現髮絲、皮膚毛孔和織物編織的精緻細節。電影級品質，高解析度，基於物理渲染（PBR），體積光，全局照明，屢獲殊榮的肖像攝影。",
+    "tags": "東亞女性, 專業肖像, 極簡主義, 灰金色頭髮, 8K逼真攝影"
+}
+-------------------
+
+[2025-12-31T17:20:12.446Z] ENGINE: flash, MODEL: gemini-2.5-flash-image
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Photorealistic 8K RAW photo, medium shot portrait of a serene and elegant East Asian woman, her ash blonde hair perfectly styled. She wears a pristine, subtly textured white short-sleeved cotton shirt and a silken light blue necktie. She is seated gracefully on a sleek, minimalist grey sofa. Dramatic hard directional natural light, reminiscent of Golden Hour, floods the scene from a large window, creating exquisite chiaroscuro shadows and bright specular highlights, emphasizing her luminous, dewy skin with subsurface scattering and the crisp, intricate fabric textures of her attire. Shot on a Sony A7R V with a G Master 85mm f/1.4 lens at eye-level, featuring an extremely shallow depth of field and creamy soft bokeh in the background. The aesthetic is clean, contemporary minimalist professional, with a cool blue and crisp white color palette beautifully complemented by warm, natural skin tones. Ultra-detailed, showcasing fine details of individual hair strands, skin pores, and fabric weaves. Cinematic quality, high resolution, Physically Based Rendering (PBR), volumetric lighting, Global Illumination, award-winning portrait photography.
+-------------------
+
+[2025-12-31T17:21:29.322Z] Model: gemini-2.5-flash, Alchemy: false
+Raw Gemini Response:
+{
+  "enPrompt": "Photorealistic medium shot portrait of a serene East Asian woman, mid-20s, with sleek, luminous ash blonde hair styled in soft, subtle waves. She wears a meticulously tailored pristine white short-sleeved shirt crafted from premium crisp cotton, paired with a perfectly knotted light blue silk necktie. She is seated elegantly on a modern, architecturally minimalist dove grey sofa, upholstered in a fine-textured recycled wool blend. Dramatic, emulated winter morning natural light streams from the left, creating stark chiaroscuro shadows and brilliant highlights across her face and the crisp fabric, accentuating her luminous, porcelain skin and the shirt's pristine textures. Captured with an 85mm prime lens at f/1.4, eye-level camera angle, featuring a shallow depth of field and exquisitely soft bokeh in the background. The aesthetic is clean, professional, and sophisticated, dominated by a cool blue and crisp white color palette, beautifully contrasted by her warm, natural skin tones. Ultra-detailed, 8k resolution, cinematic color grading, PBR textures, professional studio photoshoot quality, high dynamic range.",
+  "zhPrompt": "一張寧靜的東亞女性寫實半身肖像，年約二十多歲，擁有時尚、光澤的灰金色頭髮，髮型為柔和、精緻的波浪。她身穿一件精心剪裁的潔白短袖襯衫，選用優質挺括的棉質面料，搭配一條完美打結的淺藍色絲綢領帶。她優雅地坐在一張現代、建築風格極簡的鴿灰色沙發上，沙發覆蓋著精細紋理的再生羊毛混紡面料。戲劇性、模擬的冬日清晨自然光從左側灑落，在她臉部和挺括的衣料上投射出鮮明的明暗對比陰影和璀璨高光，突顯她明亮、瓷器般的肌膚和襯衫的潔淨質感。以85毫米定焦鏡頭、f/1.4光圈拍攝，視線水平機位，具有淺景深和精美柔和的背景虛化效果。整體美學乾淨、專業且精緻，以冷藍色和潔淨的白色調為主，與她溫暖自然的膚色形成美麗對比。超高細節、8K分辨率、電影級色彩分級、PBR紋理、專業攝影棚拍攝品質、高動態範圍。",
+  "tags": "東亞女性, 灰金髮色, 專業肖像, 極簡主義, 電影級光線"
+}
+-------------------
+
+[2025-12-31T17:21:29.327Z] ENGINE: flash, MODEL: gemini-2.5-flash-image
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Photorealistic medium shot portrait of a serene East Asian woman, mid-20s, with sleek, luminous ash blonde hair styled in soft, subtle waves. She wears a meticulously tailored pristine white short-sleeved shirt crafted from premium crisp cotton, paired with a perfectly knotted light blue silk necktie. She is seated elegantly on a modern, architecturally minimalist dove grey sofa, upholstered in a fine-textured recycled wool blend. Dramatic, emulated winter morning natural light streams from the left, creating stark chiaroscuro shadows and brilliant highlights across her face and the crisp fabric, accentuating her luminous, porcelain skin and the shirt's pristine textures. Captured with an 85mm prime lens at f/1.4, eye-level camera angle, featuring a shallow depth of field and exquisitely soft bokeh in the background. The aesthetic is clean, professional, and sophisticated, dominated by a cool blue and crisp white color palette, beautifully contrasted by her warm, natural skin tones. Ultra-detailed, 8k resolution, cinematic color grading, PBR textures, professional studio photoshoot quality, high dynamic range.
+-------------------
+
+[2025-12-31T17:25:07.458Z] API Error 400:
+{
+  "error": {
+    "code": 400,
+    "message": "google_search_retrieval is not supported. Please use google_search tool instead.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+AVAILABLE MODELS: models/embedding-gecko-001, models/gemini-2.5-flash, models/gemini-2.5-pro, models/gemini-2.0-flash-exp, models/gemini-2.0-flash, models/gemini-2.0-flash-001, models/gemini-2.0-flash-exp-image-generation, models/gemini-2.0-flash-lite-001, models/gemini-2.0-flash-lite, models/gemini-2.0-flash-lite-preview-02-05, models/gemini-2.0-flash-lite-preview, models/gemini-exp-1206, models/gemini-2.5-flash-preview-tts, models/gemini-2.5-pro-preview-tts, models/gemma-3-1b-it, models/gemma-3-4b-it, models/gemma-3-12b-it, models/gemma-3-27b-it, models/gemma-3n-e4b-it, models/gemma-3n-e2b-it, models/gemini-flash-latest, models/gemini-flash-lite-latest, models/gemini-pro-latest, models/gemini-2.5-flash-lite, models/gemini-2.5-flash-image-preview, models/gemini-2.5-flash-image, models/gemini-2.5-flash-preview-09-2025, models/gemini-2.5-flash-lite-preview-09-2025, models/gemini-3-pro-preview, models/gemini-3-flash-preview, models/gemini-3-pro-image-preview, models/nano-banana-pro-preview, models/gemini-robotics-er-1.5-preview, models/gemini-2.5-computer-use-preview-10-2025, models/deep-research-pro-preview-12-2025, models/embedding-001, models/text-embedding-004, models/gemini-embedding-exp-03-07, models/gemini-embedding-exp, models/gemini-embedding-001, models/aqa, models/imagen-4.0-generate-preview-06-06, models/imagen-4.0-ultra-generate-preview-06-06, models/imagen-4.0-generate-001, models/imagen-4.0-ultra-generate-001, models/imagen-4.0-fast-generate-001, models/veo-2.0-generate-001, models/veo-3.0-generate-001, models/veo-3.0-fast-generate-001, models/veo-3.1-generate-preview
+
+[2025-12-31T17:25:07.469Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: 【人物與髮型】
+一位24歲的日本女性。肌膚如瓷器般光滑無瑕，呈現柔和的霧面質感。散發著純真而又極具魅力的氣質。豐滿的胸部。一頭蓬鬆的灰棕色長捲髮，垂到胸前。
+【動作與姿勢】
+她微微佝僂著身子，雙臂環抱著胸前，抓著寬鬆的針織衫袖子，羞澀地低頭看向別處，避開鏡頭。
+【服裝】
+一件寬鬆的米白色粗針織衫，下擺拉至肩部，宛如一件短版毛衣裙。搭配一雙光滑亮澤的黑色過膝皮靴。
+【環境與光線】
+黃昏或傍晚時分的戶外城市廣場。背景是一棟現代商業建築，擁有大面積的玻璃帷幕牆和金棕色外牆，室內燈光溫暖柔和。前景包含稀疏的細枝樹木和小巧的球形裝飾花園燈。柔和的漫射光來自上方或附近的建築光源，營造出迷人的效果。
+[美學]
+超高解析度的數位單眼照片，呈現逼真的畫面。專業級人像攝影，淺景深帶來電影般的散景效果。構圖完美，柔焦區域與肌膚和針織紋理的清晰細節形成鮮明對比。使用佳能 EOS R5 相機和 85mm f/1.8 鏡頭拍攝。
+                
+-------------------
+
+[2025-12-31T17:28:36.260Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic portrait of a captivating 24-year-old Japanese woman with flawless porcelain-smooth skin and a soft matte finish. She has voluminous, fluffy ash-brown curly hair cascading down her chest. Her expression is shy and innocent, her gaze averted from the camera. She adopts a bashful posture, slightly hunched with arms wrapped around her chest, clutching the sleeves of her oversized cream-white chunky knit sweater, which is worn as a mini dress. She wears high-shine, polished black leather over-the-knee boots with distinct PBR material reflections. The setting is a metropolitan plaza at dusk during winter. The background features a modern architectural building with expansive glass curtain walls and gold-bronze accents, glowing with warm internal light. Foreground elements include thin bare tree branches and soft spherical garden lanterns. Shot on Canon EOS R5 with an 85mm f/1.8 lens, featuring shallow depth of field and exquisite cinematic bokeh. Subsurface scattering on skin textures and intricate detail on the knit wool fibers. Volumetric lighting and global illumination create a dreamy, atmospheric glow.",
+  "zhPrompt": "一位24歲日本女性的超逼真電影感肖像。肌膚如瓷器般光滑無瑕，呈現高級的柔和霧面感。她留著一頭蓬鬆的灰棕色長捲髮，如瀑布般垂至胸前。神情清純而充滿魅力，羞澀地低頭避開鏡頭，雙臂環抱胸前，手指抓著寬鬆的米白色粗針織毛衣袖口。毛衣呈現寬鬆的短裙感，搭配一雙光澤亮麗的黑色過膝皮靴，展現出極致的材質對比。背景是冬季黃昏時分的城市廣場，現代玻璃帷幕建築透出溫暖的室內光線。前景點綴著稀疏的冬日細枝與球形裝飾燈。採用佳能 EOS R5 搭配 85mm f/1.8 鏡頭拍攝，具備迷人的淺景深散景效果，光影層次分明，細節觸手可及。",
+  "tags": [
+    "日本女性",
+    "都市黃昏",
+    "針織時尚",
+    "人像攝影",
+    "淺景深",
+    "電影質感",
+    "8k解析度",
+    "環境光影"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified textures, flat lighting, messy hair, low quality, watermark, text, signature, plastic skin, dull eyes"
+}
+-------------------
+
+[2025-12-31T17:28:36.273Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A hyper-realistic cinematic portrait of a captivating 24-year-old Japanese woman with flawless porcelain-smooth skin and a soft matte finish. She has voluminous, fluffy ash-brown curly hair cascading down her chest. Her expression is shy and innocent, her gaze averted from the camera. She adopts a bashful posture, slightly hunched with arms wrapped around her chest, clutching the sleeves of her oversized cream-white chunky knit sweater, which is worn as a mini dress. She wears high-shine, polished black leather over-the-knee boots with distinct PBR material reflections. The setting is a metropolitan plaza at dusk during winter. The background features a modern architectural building with expansive glass curtain walls and gold-bronze accents, glowing with warm internal light. Foreground elements include thin bare tree branches and soft spherical garden lanterns. Shot on Canon EOS R5 with an 85mm f/1.8 lens, featuring shallow depth of field and exquisite cinematic bokeh. Subsurface scattering on skin textures and intricate detail on the knit wool fibers. Volumetric lighting and global illumination create a dreamy, atmospheric glow.
+                
+-------------------

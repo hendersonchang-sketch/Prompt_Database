@@ -751,6 +751,35 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
+
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (window.confirm("確定要重置所有設定嗎？")) {
+                            setFormData(defaultState);
+                            setUseMagicEnhancer(false);
+                            setUseSearch(false);
+                            setImageCount(1);
+                            setImageEngine("flash");
+                            setReferenceImage(null);
+                            setReferenceMode('subject');
+                            setPreviewImages([]);
+                            setPreviewData(null);
+                            setIsPreviewMode(false);
+                            setErrorMsg("");
+                            setPreviousPrompt(null);
+                            setSuggestion("");
+                            setActiveCategory("Commercial");
+                        }
+                    }}
+                    className="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1 border border-red-500/30 px-2 py-1 rounded bg-red-500/10"
+                    title="重置所有設定為預設值"
+                >
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    重置
+                </button>
             </div>
 
             {/* API Settings */}
@@ -1346,165 +1375,165 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         {imageEngine === "imagen" && <div className="absolute inset-x-0 -bottom-px h-1 bg-blue-500 rounded-b-xl" />}
                     </button>
                 </div>
-            </div>
 
-            {/* Image Count Selector */}
-            <div className={`space-y-2 transition-all duration-300 ${imageEngine !== 'imagen' ? 'opacity-40 grayscale pointer-events-none' : 'opacity-100'}`}>
-                <div className="flex justify-between items-center">
-                    <label className="text-xs text-gray-400 block">生成數量 (Image Count)</label>
-                    {imageEngine !== 'imagen' && (
-                        <span className="text-[10px] text-amber-500/70 italic">Flash/Pro 目前僅限 1 張</span>
+                {/* Image Count Selector */}
+                <div className={`space-y-2 transition-all duration-300 ${imageEngine !== 'imagen' ? 'opacity-40 grayscale pointer-events-none' : 'opacity-100'}`}>
+                    <div className="flex justify-between items-center">
+                        <label className="text-xs text-gray-400 block">生成數量 (Image Count)</label>
+                        {imageEngine !== 'imagen' && (
+                            <span className="text-[10px] text-amber-500/70 italic">Flash/Pro 目前僅限 1 張</span>
+                        )}
+                    </div>
+                    <div className="flex gap-2">
+                        {[1, 2, 3, 4].map(count => (
+                            <button
+                                key={count}
+                                type="button"
+                                disabled={imageEngine !== 'imagen'}
+                                onClick={() => setImageCount(count)}
+                                className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${imageCount === count && imageEngine === 'imagen'
+                                    ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/30"
+                                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                                    }`}
+                            >
+                                {count} 張
+                            </button>
+                        ))}
+                    </div>
+                    {imageCount > 1 && imageEngine === 'imagen' && (
+                        <p className="text-[10px] text-amber-400 animate-in fade-in slide-in-from-top-1">
+                            💡 多圖模式：生成後可預覽並選擇最滿意的一張存入圖庫
+                        </p>
                     )}
                 </div>
-                <div className="flex gap-2">
-                    {[1, 2, 3, 4].map(count => (
-                        <button
-                            key={count}
-                            type="button"
-                            disabled={imageEngine !== 'imagen'}
-                            onClick={() => setImageCount(count)}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${imageCount === count && imageEngine === 'imagen'
-                                ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/30"
-                                : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
-                                }`}
-                        >
-                            {count} 張
-                        </button>
-                    ))}
-                </div>
-                {imageCount > 1 && imageEngine === 'imagen' && (
-                    <p className="text-[10px] text-amber-400 animate-in fade-in slide-in-from-top-1">
-                        💡 多圖模式：生成後可預覽並選擇最滿意的一張存入圖庫
-                    </p>
-                )}
-            </div>
 
-            {/* Preview Mode Overlay */}
-            {isPreviewMode && previewImages.length > 0 && (
-                <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-xl font-bold text-white">
-                                📸 預覽選擇 (共 {previewImages.length} 張)
-                            </h3>
-                            {previewData?.partialResults && (
-                                <div className="px-3 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-200 text-[10px] animate-pulse">
-                                    ⚠️ 部分圖片因安全過濾已移除 ({previewData.actualCount}/{previewData.requestedCount})
+                {/* Preview Mode Overlay */}
+                {isPreviewMode && previewImages.length > 0 && (
+                    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+                        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-xl font-bold text-white">
+                                    📸 預覽選擇 (共 {previewImages.length} 張)
+                                </h3>
+                                {previewData?.partialResults && (
+                                    <div className="px-3 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-200 text-[10px] animate-pulse">
+                                        ⚠️ 部分圖片因安全過濾已移除 ({previewData.actualCount}/{previewData.requestedCount})
+                                    </div>
+                                )}
+                                <button
+                                    type="button"
+                                    onClick={cancelPreview}
+                                    className="text-gray-400 hover:text-white transition-colors"
+                                >
+                                    ✕ 關閉
+                                </button>
+                            </div>
+
+                            {/* Magic Enhance Feedback */}
+                            {isLastResultEnhanced && lastEnhancedPrompt && (
+                                <div className="mb-6 p-4 bg-purple-500/10 border border-purple-500/30 rounded-xl animate-in fade-in slide-in-from-top-4 duration-500">
+                                    <div className="flex items-center gap-2 mb-2 text-purple-300 font-bold text-sm">
+                                        <Sparkles className="w-4 h-4 animate-pulse" />
+                                        <span>AI 煉金成果 (Master Alchemist Result)</span>
+                                    </div>
+                                    <div className="text-xs text-purple-200/80 leading-relaxed font-mono bg-black/30 p-3 rounded-lg border border-purple-500/10">
+                                        {lastEnhancedPrompt}
+                                    </div>
+                                    <div className="mt-2 text-[10px] text-purple-400 italic">
+                                        * 以此高品質指令為例，AI 為您擴充了光影、質感與構圖細節。
+                                    </div>
                                 </div>
                             )}
-                            <button
-                                type="button"
-                                onClick={cancelPreview}
-                                className="text-gray-400 hover:text-white transition-colors"
-                            >
-                                ✕ 關閉
-                            </button>
-                        </div>
 
-                        {/* Magic Enhance Feedback */}
-                        {isLastResultEnhanced && lastEnhancedPrompt && (
-                            <div className="mb-6 p-4 bg-purple-500/10 border border-purple-500/30 rounded-xl animate-in fade-in slide-in-from-top-4 duration-500">
-                                <div className="flex items-center gap-2 mb-2 text-purple-300 font-bold text-sm">
-                                    <Sparkles className="w-4 h-4 animate-pulse" />
-                                    <span>AI 煉金成果 (Master Alchemist Result)</span>
-                                </div>
-                                <div className="text-xs text-purple-200/80 leading-relaxed font-mono bg-black/30 p-3 rounded-lg border border-purple-500/10">
-                                    {lastEnhancedPrompt}
-                                </div>
-                                <div className="mt-2 text-[10px] text-purple-400 italic">
-                                    * 以此高品質指令為例，AI 為您擴充了光影、質感與構圖細節。
-                                </div>
+                            <div className={`grid gap-4 ${previewImages.length === 2 ? 'grid-cols-2' : previewImages.length >= 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                                {previewImages.map((imgUrl, idx) => (
+                                    <div key={idx} className="group relative bg-black/40 rounded-xl overflow-hidden border border-white/10">
+                                        <img
+                                            src={imgUrl}
+                                            alt={`Preview ${idx + 1}`}
+                                            className="w-full aspect-square object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button
+                                                type="button"
+                                                onClick={() => downloadImage(imgUrl, idx)}
+                                                className="flex-1 py-2 px-3 bg-white/20 hover:bg-white/30 rounded-lg text-sm text-white font-medium transition-all flex items-center justify-center gap-1"
+                                            >
+                                                ⬇️ 下載
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => saveToGallery(imgUrl)}
+                                                disabled={loading}
+                                                className="flex-1 py-2 px-3 bg-green-600 hover:bg-green-500 rounded-lg text-sm text-white font-medium transition-all flex items-center justify-center gap-1 disabled:opacity-50"
+                                            >
+                                                ✓ 存入圖庫
+                                            </button>
+                                        </div>
+                                        <div className="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+                                            #{idx + 1}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
+
+                            <div className="mt-4 text-center">
+                                <button
+                                    type="button"
+                                    onClick={cancelPreview}
+                                    className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm text-gray-300 transition-all"
+                                >
+                                    全部放棄，重新生成
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Quota Badge */}
+                {quotaStats && (
+                    <div className="flex justify-between items-center px-1 text-xs font-medium bg-white/5 rounded-lg p-2 mb-2 border border-white/5">
+                        <span className="text-gray-400">今日額度 (Daily Quota)</span>
+                        <div className={`flex items-center gap-2 ${quotaStats.dailyCount >= quotaStats.dailyLimit ? 'text-red-400' : 'text-cyan-400'}`}>
+                            <span>{quotaStats.dailyCount} / {quotaStats.dailyLimit}</span>
+                            {quotaStats.dailyCount >= quotaStats.dailyLimit && <span>(已滿)</span>}
+                        </div>
+                    </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-lg text-white shadow-lg hover:shadow-cyan-500/25 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                        {loading && imageEngine !== 'pro' ? (
+                            <>
+                                <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                {useSearch ? "AI 分析與聯網中..." : "生成中..."}
+                            </>
+                        ) : (
+                            <>🎨 開始生圖 (Generate)</>
                         )}
+                    </button>
 
-                        <div className={`grid gap-4 ${previewImages.length === 2 ? 'grid-cols-2' : previewImages.length >= 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-                            {previewImages.map((imgUrl, idx) => (
-                                <div key={idx} className="group relative bg-black/40 rounded-xl overflow-hidden border border-white/10">
-                                    <img
-                                        src={imgUrl}
-                                        alt={`Preview ${idx + 1}`}
-                                        className="w-full aspect-square object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button
-                                            type="button"
-                                            onClick={() => downloadImage(imgUrl, idx)}
-                                            className="flex-1 py-2 px-3 bg-white/20 hover:bg-white/30 rounded-lg text-sm text-white font-medium transition-all flex items-center justify-center gap-1"
-                                        >
-                                            ⬇️ 下載
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => saveToGallery(imgUrl)}
-                                            disabled={loading}
-                                            className="flex-1 py-2 px-3 bg-green-600 hover:bg-green-500 rounded-lg text-sm text-white font-medium transition-all flex items-center justify-center gap-1 disabled:opacity-50"
-                                        >
-                                            ✓ 存入圖庫
-                                        </button>
-                                    </div>
-                                    <div className="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
-                                        #{idx + 1}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="mt-4 text-center">
-                            <button
-                                type="button"
-                                onClick={cancelPreview}
-                                className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm text-gray-300 transition-all"
-                            >
-                                全部放棄，重新生成
-                            </button>
-                        </div>
-                    </div>
+                    <button
+                        type="button"
+                        onClick={handleBananaProSubmit}
+                        disabled={loading}
+                        className="w-full py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-purple-600 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-orange-500/30 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-white/20"
+                    >
+                        {loading && imageEngine === 'pro' && useMagicEnhancer ? (
+                            <>
+                                <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                <span>🍌 Banana Pro 思考中...</span>
+                            </>
+                        ) : (
+                            <>🍌 Banana Pro (100% Web 版)</>
+                        )}
+                    </button>
                 </div>
-            )}
-
-            {/* Quota Badge */}
-            {quotaStats && (
-                <div className="flex justify-between items-center px-1 text-xs font-medium bg-white/5 rounded-lg p-2 mb-2 border border-white/5">
-                    <span className="text-gray-400">今日額度 (Daily Quota)</span>
-                    <div className={`flex items-center gap-2 ${quotaStats.dailyCount >= quotaStats.dailyLimit ? 'text-red-400' : 'text-cyan-400'}`}>
-                        <span>{quotaStats.dailyCount} / {quotaStats.dailyLimit}</span>
-                        {quotaStats.dailyCount >= quotaStats.dailyLimit && <span>(已滿)</span>}
-                    </div>
-                </div>
-            )}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-lg text-white shadow-lg hover:shadow-cyan-500/25 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                    {loading && imageEngine !== 'pro' ? (
-                        <>
-                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            {useSearch ? "AI 分析與聯網中..." : "生成中..."}
-                        </>
-                    ) : (
-                        <>🎨 開始生圖 (Generate)</>
-                    )}
-                </button>
-
-                <button
-                    type="button"
-                    onClick={handleBananaProSubmit}
-                    disabled={loading}
-                    className="w-full py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-purple-600 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-orange-500/30 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-white/20"
-                >
-                    {loading && imageEngine === 'pro' && useMagicEnhancer ? (
-                        <>
-                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            <span>🍌 Banana Pro 思考中...</span>
-                        </>
-                    ) : (
-                        <>🍌 Banana Pro (100% Web 版)</>
-                    )}
-                </button>
             </div>
 
             <CharacterManager
