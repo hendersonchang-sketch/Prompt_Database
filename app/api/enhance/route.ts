@@ -14,45 +14,56 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API Key not configured' }, { status: 500 });
         }
 
+        // 👑 UPGRADE: Switching to Gemini 1.5 Pro for maximum reasoning capability
         const client = new GoogleGenAI({ apiKey: key });
 
+        // 🧠 Dynamic Chain-of-Thought System Prompt
         const enhancePrompt = `
-You are an expert AI Art Prompt Engineer. Transform a simple user description into a professional, detailed prompt optimized for AI image generation (Stable Diffusion, Midjourney, Imagen).
+You are a World-Class AI Art Director and Prompt Engineer (specializing in Midjourney v6, Stable Diffusion XL, and Imagen 3).
+Your goal is to transform a simple user concept into a "Masterpiece Level" image prompt using a meaningful Chain-of-Thought process.
 
-User's simple description: "${prompt}"
+User's Input: "${prompt}"
 
-Analyze and enhance by adding:
-1. Subject details (appearance, pose, expression)
-2. Art style (photorealistic, anime, oil painting, 3D render, etc.)
-3. Lighting and atmosphere  
-4. Camera angle and composition
-5. Quality keywords (8K, highly detailed, sharp focus)
-6. Mood and color palette
+### 🧠 YOUR THINKING PROCESS (Chain of Thought):
+1.  **Analyze the Subject:** What is the core subject? What is the vibe (e.g., mysterious, cheerful, epic)?
+2.  **Determine the Category & Strategy:**
+    *   *Portrait:* Focus on skin texture, 85mm lens, eyes, emotion.
+    *   *Landscape:* Focus on atmosphere, 14mm wide angle, lighting, clouds.
+    *   *Sci-Fi/Cyberpunk:* Focus on neon, reflections, futuristic materials.
+    *   *Product:* Focus on studio lighting, sharp details, clean background.
+3.  **Select Technical Specs:** Choose the specific camera, lens, and lighting that best fits the subject (not just random words).
+4.  **Draft the Prompt:** Construct a cohesive narrative description, not just a list of tags.
 
-Output JSON format:
+### 🎯 OUTPUT REQUIREMENT (JSON):
+Generate a JSON response. The 'enhanced' prompt must be in English.
+The 'enhancedZH' should be a Traditional Chinese (Taiwan) translation of the enhanced prompt.
+
 {
-    "enhanced": "Complete enhanced English prompt (80-120 words)",
-    "enhancedZH": "繁體中文版本的增強描述",
+    "enhanced": "A highly detailed, narrative-driven prompt in English. (80-150 words). Start with the subject, then environment, then lighting/mood, then technical specs.",
+    "enhancedZH": "繁體中文版本的完整 Prompt，語氣要優美通順",
     "additions": {
-        "style": "detected/added art style",
-        "lighting": "added lighting description",
-        "camera": "added camera/composition details",
-        "quality": "added quality keywords"
+        "style": "The specific art style used (e.g., 'Cinematic Realism', 'Impressionist Oil')",
+        "lighting": "The lighting setup used (e.g., 'Volumetric God Rays', 'Neon Rim Light')",
+        "camera": "Camera/Lens specs used (e.g., '85mm f/1.8', 'IMAX 70mm')",
+        "quality": "Quality keywords used"
     },
     "promptScore": {
-        "before": 0,
-        "after": 0,
-        "improvement": "explanation of improvements"
+        "before": 30,
+        "after": 95,
+        "improvement": "Briefly explain what you added (e.g., 'Added dramatic lighting and defined a cyberpunk setting')"
     },
-    "tags": ["key", "descriptor", "tags"]
-}`;
+    "tags": ["key", "descriptive", "tags", "max", "5"]
+}
+`;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            // 🚀 Upgraded to Gemini 2.5 Pro (Superior to 1.5 Pro)
+            model: "gemini-2.5-pro",
             contents: [{ text: enhancePrompt }],
             config: {
                 responseMimeType: "application/json",
-                temperature: 0.6
+                // Higher temperature for more creativity in art direction
+                temperature: 0.75
             }
         });
 
@@ -69,9 +80,14 @@ Output JSON format:
                 tags: data.tags || []
             });
         } catch {
+            // Fallback if JSON parsing fails (rare with 1.5 Pro)
             return NextResponse.json({
                 original: prompt,
-                enhanced: text.trim()
+                enhanced: text.trim(),
+                enhancedZH: "解析失敗，請重試",
+                additions: {},
+                promptScore: {},
+                tags: []
             });
         }
 

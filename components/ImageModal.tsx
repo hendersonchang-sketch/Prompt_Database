@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Download, Save, Paintbrush, Sparkles, ZoomIn, ZoomOut, RotateCcw, Zap, ImageIcon, MonitorPlay, Expand
+    Scissors, Download, Save, Paintbrush, Sparkles, ZoomIn, ZoomOut, RotateCcw, Zap, ImageIcon, MonitorPlay, Expand, FileJson, Dna, Palette, User
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
+import CharacterManager from "./CharacterManager";
 
 interface ImageModalProps {
     selectedImage: PromptEntry;
@@ -50,7 +51,7 @@ export function ImageModal({
 
     // 影像編輯預覽狀態
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-    const [previewMode, setPreviewMode] = useState<'bg-removal' | 'watermark-removal' | 'upscale' | 'outpaint' | null>(null);
+    const [previewMode, setPreviewMode] = useState<'bg-removal' | 'watermark-removal' | 'upscale' | 'outpaint' | 'outpaint-vertical' | null>(null);
 
     // Toast State
     const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -58,6 +59,17 @@ export function ImageModal({
     // AI Tool States
     const [isUpscaling, setIsUpscaling] = useState(false);
     const [isOutpainting, setIsOutpainting] = useState(false);
+    const [isOutpaintingVertical, setIsOutpaintingVertical] = useState(false);
+    const [isJsonAnalyzing, setIsJsonAnalyzing] = useState(false);
+    const [isDnaExtracting, setIsDnaExtracting] = useState(false);
+    const [visualJson, setVisualJson] = useState<any>(null);
+    const [showFullReport, setShowFullReport] = useState(false);
+
+    // Character Saving Logic
+    const [showCharManager, setShowCharManager] = useState(false);
+    const [charDataToSave, setCharDataToSave] = useState<any>(null);
+    const [deconstructedPrompt, setDeconstructedPrompt] = useState<any>(null);
+    const [isDeconstructing, setIsDeconstructing] = useState(false);
 
     // Scroll Management Refs
     const sidebarRef = useRef<HTMLDivElement>(null);
@@ -175,13 +187,13 @@ export function ImageModal({
                     originalPrompt: selectedImage.originalPrompt,
                     promptZh: selectedImage.promptZh,
                     negativePrompt: selectedImage.negativePrompt,
-                    width: previewMode === 'outpaint' ? Math.round(selectedImage.height * (16 / 9)) : selectedImage.width, // Rough estimate for 16:9 outpaint
-                    height: selectedImage.height,
+                    width: previewMode === 'outpaint' ? Math.round(selectedImage.height * (16 / 9)) : selectedImage.width,
+                    height: previewMode === 'outpaint-vertical' ? Math.round(selectedImage.width * (16 / 9)) : selectedImage.height,
                     seed: selectedImage.seed,
                     cfgScale: selectedImage.cfgScale,
                     steps: selectedImage.steps,
                     tags: selectedImage.tags,
-                    imageEngine: selectedImage.engine || (previewMode === 'bg-removal' ? 'bg-removal' : previewMode === 'watermark-removal' ? 'watermark-removal' : previewMode === 'upscale' ? 'upscale-4k' : 'outpaint-16:9')
+                    imageEngine: selectedImage.engine || (previewMode === 'bg-removal' ? 'bg-removal' : previewMode === 'watermark-removal' ? 'watermark-removal' : previewMode === 'upscale' ? 'upscale-4k' : previewMode === 'outpaint' ? 'outpaint-16:9' : 'outpaint-9:16')
                 })
             });
             if (res.ok) {
@@ -517,6 +529,141 @@ export function ImageModal({
                             </div>
                         )}
 
+                        {/* Section: Structured Generation Data (Collapsible) */}
+                        <div className="space-y-2">
+                            <details className="group">
+                                <summary className="list-none cursor-pointer">
+                                    <div className="flex items-center justify-between py-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-1 h-3 bg-gray-600 rounded-full group-open:bg-indigo-500 transition-colors" />
+                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest group-hover:text-gray-300 transition-colors">生成參數結構分析</h4>
+                                        </div>
+                                        <div className="text-[10px] text-gray-600 group-hover:text-white transition-colors">
+                                            <span className="group-open:hidden">展開詳細數據</span>
+                                            <span className="hidden group-open:inline">收摺</span>
+                                        </div>
+                                    </div>
+                                </summary>
+                                <div className="mt-2 animate-in slide-in-from-top-2 duration-200">
+                                    <div className="bg-black/40 rounded-xl border border-white/5 overflow-hidden">
+                                        {/* Group 1: Core Configuration */}
+                                        <div className="p-3 border-b border-white/5 bg-white/[0.02]">
+                                            <h5 className="text-[9px] font-bold text-indigo-400 uppercase mb-2">核心設定 (Core Config)</h5>
+                                            <div className="grid grid-cols-2 gap-y-2 text-[10px]">
+                                                <div className="text-gray-500">Engine 模型: <span className="text-gray-300 font-mono ml-1">{selectedImage.engine || 'N/A'}</span></div>
+                                                <div className="text-gray-500">Dimensions尺寸: <span className="text-gray-300 font-mono ml-1">{selectedImage.width} x {selectedImage.height}</span></div>
+                                                <div className="text-gray-500">Seed 種子碼: <span className="text-gray-300 font-mono ml-1">{selectedImage.seed}</span></div>
+                                                <div className="text-gray-500">Created 建立時間: <span className="text-gray-300 font-mono ml-1">{new Date(selectedImage.createdAt).toLocaleDateString()}</span></div>
+                                            </div>
+                                        </div>
+
+                                        {/* Group 2: Generation Parameters */}
+                                        <div className="p-3 border-b border-white/5">
+                                            <h5 className="text-[9px] font-bold text-emerald-400 uppercase mb-2">生成參數 (Parameters)</h5>
+                                            <div className="grid grid-cols-2 gap-y-2 text-[10px]">
+                                                <div className="text-gray-500">Sampler 採樣器: <span className="text-gray-300 font-mono ml-1">{selectedImage.sampler}</span></div>
+                                                <div className="text-gray-500">Steps 步數: <span className="text-gray-300 font-mono ml-1">{selectedImage.steps}</span></div>
+                                                <div className="text-gray-500">CFG Scale 提示權重: <span className="text-gray-300 font-mono ml-1">{selectedImage.cfgScale}</span></div>
+                                                <div className="text-gray-500">ID: <span className="text-gray-500 font-mono ml-1 text-[9px]">{selectedImage.id}</span></div>
+                                            </div>
+                                        </div>
+
+                                        {/* Group 3: Prompt Analysis */}
+                                        <div className="p-3 bg-white/[0.02]">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <h5 className="text-[9px] font-bold text-amber-400 uppercase">提示詞結構 (Prompts)</h5>
+                                                <button
+                                                    onClick={async () => {
+                                                        const p = selectedImage.prompt || selectedImage.originalPrompt;
+                                                        if (!p) return;
+                                                        setIsDeconstructing(true);
+                                                        setDeconstructedPrompt(null);
+                                                        try {
+                                                            const res = await fetch('/api/deconstruct-prompt', {
+                                                                method: 'POST',
+                                                                headers: { 'Content-Type': 'application/json' },
+                                                                body: JSON.stringify({
+                                                                    prompt: p,
+                                                                    apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                                }),
+                                                            });
+                                                            if (!res.ok) throw new Error('拆解失敗');
+                                                            const data = await res.json();
+                                                            setDeconstructedPrompt(data);
+                                                            showToast('🧩 提示詞拆解完成');
+                                                        } catch (err: any) { alert('拆解失敗: ' + err.message); } finally { setIsDeconstructing(false); }
+                                                    }}
+                                                    disabled={isDeconstructing}
+                                                    className="px-2 py-1 bg-amber-500/10 hover:bg-amber-500/20 text-[9px] text-amber-300 rounded border border-amber-500/20 flex items-center gap-1 transition-all"
+                                                >
+                                                    {isDeconstructing ? <Loader2 className="w-2.5 h-2.5 animate-spin" /> : <Microscope className="w-2.5 h-2.5" />}
+                                                    智慧拆解
+                                                </button>
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                {/* Original */}
+                                                <div>
+                                                    <span className="text-[9px] text-gray-500 block mb-0.5">Original / AI Complete (完整):</span>
+                                                    <p className="text-[10px] text-gray-400 font-mono bg-black/30 p-1.5 rounded border border-white/5 break-all">
+                                                        {selectedImage.prompt || selectedImage.originalPrompt}
+                                                    </p>
+                                                </div>
+
+                                                {/* Deconstructed Results */}
+                                                {deconstructedPrompt && (
+                                                    <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
+                                                        <div className="group/item">
+                                                            <div className="flex justify-between items-center mb-0.5">
+                                                                <span className="text-[9px] text-pink-400 font-bold flex items-center gap-1">
+                                                                    👤 角色鎖定碼 (Subject)
+                                                                </span>
+                                                                <button onClick={() => navigator.clipboard.writeText(deconstructedPrompt.subject_prompt)} className="opacity-0 group-hover/item:opacity-100 text-[9px] text-gray-500 hover:text-white">複製</button>
+                                                            </div>
+                                                            <div className="text-[10px] text-gray-300 font-mono bg-pink-500/5 p-1.5 rounded border border-pink-500/10 break-words">{deconstructedPrompt.subject_prompt}</div>
+                                                        </div>
+
+                                                        <div className="group/item">
+                                                            <div className="flex justify-between items-center mb-0.5">
+                                                                <span className="text-[9px] text-cyan-400 font-bold flex items-center gap-1">
+                                                                    🎨 風格鎖定碼 (Style)
+                                                                </span>
+                                                                <button onClick={() => navigator.clipboard.writeText(deconstructedPrompt.style_prompt)} className="opacity-0 group-hover/item:opacity-100 text-[9px] text-gray-500 hover:text-white">複製</button>
+                                                            </div>
+                                                            <div className="text-[10px] text-gray-300 font-mono bg-cyan-500/5 p-1.5 rounded border border-cyan-500/10 break-words">{deconstructedPrompt.style_prompt}</div>
+                                                        </div>
+
+                                                        <div className="group/item">
+                                                            <div className="flex justify-between items-center mb-0.5">
+                                                                <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
+                                                                    🏔️ 場景描述 (Scene)
+                                                                </span>
+                                                                <button onClick={() => navigator.clipboard.writeText(deconstructedPrompt.scene_prompt)} className="opacity-0 group-hover/item:opacity-100 text-[9px] text-gray-500 hover:text-white">複製</button>
+                                                            </div>
+                                                            <div className="text-[10px] text-gray-300 font-mono bg-emerald-500/5 p-1.5 rounded border border-emerald-500/10 break-words">{deconstructedPrompt.scene_prompt}</div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        {/* Raw JSON Copy */}
+                                        <div className="p-2 bg-black/60 flex justify-end">
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(JSON.stringify(selectedImage, null, 2));
+                                                    showToast('📋 已複製完整 JSON 原始檔');
+                                                }}
+                                                className="text-[9px] text-gray-500 hover:text-white flex items-center gap-1 transition-colors"
+                                            >
+                                                <Copy className="w-3 h-3" /> 複製完整原始 JSON
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+
                         {/* Section: Technical Parameters */}
                         <div className="grid grid-cols-4 gap-2">
                             {[
@@ -829,8 +976,263 @@ export function ImageModal({
                                         {isOutpainting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Expand className="w-3.5 h-3.5" />}
                                         擴展 16:9
                                     </button>
+
+                                    <button
+                                        onClick={async () => {
+                                            if (!selectedImage.imageUrl) return;
+                                            setIsOutpaintingVertical(true);
+                                            try {
+                                                const base64 = await getBase64(selectedImage.imageUrl);
+                                                const res = await fetch('/api/outpaint', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        imageBase64: base64.split(',')[1],
+                                                        apiKey: localStorage.getItem('geminiApiKey') || '',
+                                                        prompt: selectedImage.prompt,
+                                                        ratio: "9:16" // Vertical expansion
+                                                    }),
+                                                });
+                                                if (!res.ok) throw new Error('擴圖失敗');
+                                                const data = await res.json();
+                                                if (data.imageBase64) {
+                                                    const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
+                                                    setPreviewUrl(resultUrl);
+                                                    setPreviewMode('outpaint-vertical');
+                                                    showToast('✨ 智慧擴圖 (9:16) 完成，請確認預覽');
+                                                }
+                                            } catch (err: any) { alert('擴圖失敗: ' + (err.message)); } finally { setIsOutpaintingVertical(false); }
+                                        }}
+                                        disabled={isOutpaintingVertical}
+                                        className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 hover:border-purple-500/40 text-purple-200 rounded-xl text-[11px] font-medium transition-all hover:bg-purple-500/20"
+                                    >
+                                        {isOutpaintingVertical ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Expand className="w-3.5 h-3.5 rotate-90" />}
+                                        擴展 9:16
+                                    </button>
+
+                                    <button
+                                        onClick={async () => {
+                                            if (!selectedImage.imageUrl) return;
+                                            setIsDnaExtracting(true);
+                                            // Reset view
+                                            setVisualJson(null);
+                                            setShowFullReport(false);
+                                            try {
+                                                const base64 = await getBase64(selectedImage.imageUrl);
+                                                const res = await fetch('/api/analyze-json', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        imageBase64: base64.split(',')[1],
+                                                        apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                    }),
+                                                });
+                                                if (!res.ok) throw new Error('提取失敗');
+                                                const data = await res.json();
+                                                setVisualJson(data);
+                                                showToast('🧬 DNA 提取完成');
+                                                // Auto-scroll to DNA section
+                                                setTimeout(() => {
+                                                    sidebarRef.current?.scrollTo({ top: sidebarRef.current.scrollHeight, behavior: 'smooth' });
+                                                }, 100);
+                                            } catch (err: any) { alert('提取失敗: ' + (err.message)); } finally { setIsDnaExtracting(false); }
+                                        }}
+                                        disabled={isDnaExtracting}
+                                        className="col-span-2 flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-pink-500/10 to-rose-500/10 border border-pink-500/20 hover:border-pink-500/40 text-pink-200 rounded-xl text-[11px] font-medium transition-all hover:bg-pink-500/20 shadow-lg shadow-pink-900/10"
+                                    >
+                                        {isDnaExtracting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Dna className="w-3.5 h-3.5" />}
+                                        提取角色 DNA
+                                    </button>
                                 </div>
                             </div>
+
+                            {/* DNA Extraction Result Card */}
+                            {visualJson && visualJson.reverse_engineering && (
+                                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-1 h-3 bg-pink-500 rounded-full shadow-[0_0_8px_rgba(236,72,153,0.8)]" />
+                                            <h4 className="text-[10px] font-black text-pink-400 uppercase tracking-widest flex items-center gap-2">
+                                                <Dna className="w-3 h-3" />
+                                                角色 DNA 檔案 (Character DNA)
+                                            </h4>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() => setShowFullReport(!showFullReport)}
+                                                className={`text-[10px] transition-colors flex items-center gap-1 ${showFullReport ? 'text-pink-400' : 'text-gray-600 hover:text-pink-400'}`}
+                                            >
+                                                <FileJson className="w-3 h-3" />
+                                                {showFullReport ? '隱藏詳細報告' : '查看完整分析'}
+                                            </button>
+                                            <button
+                                                onClick={() => setVisualJson(null)}
+                                                className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors"
+                                            >
+                                                關閉
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gradient-to-br from-pink-500/5 via-purple-500/5 to-blue-500/5 rounded-2xl p-1 border border-pink-500/20 shadow-2xl">
+                                        <div className="bg-black/40 rounded-xl p-4 space-y-4 backdrop-blur-xl">
+
+                                            {/* Subject DNA */}
+                                            <div className="space-y-1.5 group/dna">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-[9px] font-bold text-pink-300 uppercase tracking-wider flex items-center gap-1.5">
+                                                        <User className="w-2.5 h-2.5" />
+                                                        Subject / Character (角色)
+                                                    </span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(visualJson.reverse_engineering.subject_prompt);
+                                                            showToast('🧬 角色 Code 已複製');
+                                                        }}
+                                                        className="px-2 py-1 bg-pink-500/20 hover:bg-pink-500/40 text-pink-200 rounded text-[9px] transition-all opacity-80 hover:opacity-100"
+                                                    >
+                                                        複製 Code
+                                                    </button>
+                                                </div>
+                                                <div className="p-2.5 bg-black/40 rounded-lg border border-pink-500/10 hover:border-pink-500/30 transition-colors">
+                                                    <p className="text-[10px] text-gray-300 font-mono break-words leading-relaxed">
+                                                        {visualJson.reverse_engineering.subject_prompt}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Style DNA */}
+                                            <div className="space-y-1.5 group/dna">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-[9px] font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+                                                        <Palette className="w-2.5 h-2.5" />
+                                                        Art Style (畫風)
+                                                    </span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(visualJson.reverse_engineering.style_prompt);
+                                                            showToast('🎨 風格 Code 已複製');
+                                                        }}
+                                                        className="px-2 py-1 bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-200 rounded text-[9px] transition-all opacity-80 hover:opacity-100"
+                                                    >
+                                                        複製 Code
+                                                    </button>
+                                                </div>
+                                                <div className="p-2.5 bg-black/40 rounded-lg border border-cyan-500/10 hover:border-cyan-500/30 transition-colors">
+                                                    <p className="text-[10px] text-gray-300 font-mono break-words leading-relaxed">
+                                                        {visualJson.reverse_engineering.style_prompt}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="mt-3 pt-3 border-t border-white/10 flex justify-center">
+                                                <button
+                                                    onClick={() => {
+                                                        setCharDataToSave({
+                                                            name: 'New Character',
+                                                            basePrompt: visualJson.reverse_engineering.subject_prompt,
+                                                            description: visualJson.reverse_engineering.scene_prompt
+                                                        });
+                                                        setShowCharManager(true);
+                                                    }}
+                                                    className="w-full flex items-center justify-center gap-2 p-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-all shadow-lg shadow-indigo-500/20 font-bold text-sm"
+                                                >
+                                                    <Save className="w-4 h-4" />
+                                                    💾 存入角色庫 (Save to Vault)
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Visual JSON Result Section (Hidden if we just want DNA? Or simplistic version?) */}
+                            {/* We keep the original full JSON below but formatted as 'Analysis Report' */}
+                            {visualJson && showFullReport && (
+                                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-1 h-3 bg-yellow-500 rounded-full" />
+                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest">JSON 結構化分析</h4>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(JSON.stringify(visualJson, null, 2));
+                                                    showToast('📋 已複製 JSON');
+                                                }}
+                                                className="text-[10px] text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                                            >
+                                                <Copy className="w-3 h-3" /> 複製
+                                            </button>
+                                            <button
+                                                onClick={() => setVisualJson(null)}
+                                                className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors"
+                                            >
+                                                清除
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Reverse Engineering Section */}
+                                    {visualJson.reverse_engineering && (
+                                        <div className="bg-white/[0.03] rounded-xl p-3 border border-white/5 space-y-3">
+                                            <h5 className="text-[9px] font-bold text-pink-400 uppercase tracking-widest flex items-center gap-2">
+                                                <Sparkles className="w-3 h-3" />
+                                                視覺逆向拆解 (Visual Reverse Engineering)
+                                            </h5>
+
+                                            <div className="space-y-2">
+                                                <div className="group/re">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-[9px] text-gray-400 font-bold">👤 角色鎖定碼 (Subject)</span>
+                                                        <button
+                                                            onClick={() => navigator.clipboard.writeText(visualJson.reverse_engineering.subject_prompt)}
+                                                            className="text-[9px] text-gray-600 hover:text-white opacity-0 group-hover/re:opacity-100 transition-opacity"
+                                                        >複製</button>
+                                                    </div>
+                                                    <div className="text-[10px] text-gray-300 font-mono bg-black/20 p-2 rounded border border-white/5 break-words">
+                                                        {visualJson.reverse_engineering.subject_prompt}
+                                                    </div>
+                                                </div>
+
+                                                <div className="group/re">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-[9px] text-gray-400 font-bold">🎨 風格鎖定碼 (Style)</span>
+                                                        <button
+                                                            onClick={() => navigator.clipboard.writeText(visualJson.reverse_engineering.style_prompt)}
+                                                            className="text-[10px] text-gray-600 hover:text-white opacity-0 group-hover/re:opacity-100 transition-opacity"
+                                                        >複製</button>
+                                                    </div>
+                                                    <div className="text-[10px] text-gray-300 font-mono bg-black/20 p-2 rounded border border-white/5 break-words">
+                                                        {visualJson.reverse_engineering.style_prompt}
+                                                    </div>
+                                                </div>
+
+                                                <div className="group/re">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-[9px] text-gray-400 font-bold">🏔️ 場景描述 (Scene)</span>
+                                                        <button
+                                                            onClick={() => navigator.clipboard.writeText(visualJson.reverse_engineering.scene_prompt)}
+                                                            className="text-[10px] text-gray-600 hover:text-white opacity-0 group-hover/re:opacity-100 transition-opacity"
+                                                        >複製</button>
+                                                    </div>
+                                                    <div className="text-[10px] text-gray-300 font-mono bg-black/20 p-2 rounded border border-white/5 break-words">
+                                                        {visualJson.reverse_engineering.scene_prompt}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="bg-black/40 rounded-xl p-4 border border-white/10 overflow-hidden relative group">
+                                        <pre className="text-[10px] font-mono text-gray-300 whitespace-pre-wrap overflow-x-auto max-h-[300px] custom-scrollbar">
+                                            {JSON.stringify(visualJson, null, 2)}
+                                        </pre>
+                                    </div>
+                                </div>
+                            )}
 
                         </div>
                     </div>
@@ -1465,6 +1867,17 @@ export function ImageModal({
                     </div>
                 </div>
             )}
+            {/* Character Manager Integration */}
+            <CharacterManager
+                isOpen={showCharManager}
+                onClose={() => setShowCharManager(false)}
+                onSelect={(char) => {
+                    // Optional: maybe create a toast or just close
+                    setShowCharManager(false);
+                    alert(`角色「${char.name}」已儲存！`);
+                }}
+                initialChar={charDataToSave}
+            />
         </div>
     );
 }

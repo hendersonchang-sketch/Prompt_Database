@@ -14,9 +14,10 @@ interface CharacterManagerProps {
     isOpen: boolean;
     onClose: () => void;
     onSelect: (char: Character) => void;
+    initialChar?: Partial<Character>; // New prop for pre-filling
 }
 
-export default function CharacterManager({ isOpen, onClose, onSelect }: CharacterManagerProps) {
+export default function CharacterManager({ isOpen, onClose, onSelect, initialChar }: CharacterManagerProps) {
     const [characters, setCharacters] = useState<Character[]>([]);
     const [isAdding, setIsAdding] = useState(false);
     const [newChar, setNewChar] = useState<Partial<Character>>({
@@ -27,11 +28,26 @@ export default function CharacterManager({ isOpen, onClose, onSelect }: Characte
         avatarUrl: ''
     });
 
+    // Handle opening logic (fetch & pre-fill)
     useEffect(() => {
         if (isOpen) {
             fetchCharacters();
+
+            if (initialChar) {
+                setNewChar({
+                    name: initialChar.name || '',
+                    description: initialChar.description || '',
+                    basePrompt: initialChar.basePrompt || '',
+                    seed: initialChar.seed || -1,
+                    avatarUrl: initialChar.avatarUrl || ''
+                });
+                setIsAdding(true);
+            }
+        } else {
+            // Reset when closed
+            setIsAdding(false);
         }
-    }, [isOpen]);
+    }, [isOpen]); // Only trigger on open/close state change
 
     const fetchCharacters = async () => {
         try {
@@ -77,7 +93,10 @@ export default function CharacterManager({ isOpen, onClose, onSelect }: Characte
 
     return (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-gray-900 border border-white/10 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            <div
+                onClick={(e) => e.stopPropagation()}
+                className="bg-gray-900 border border-white/10 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden"
+            >
 
                 {/* Header */}
                 <div className="p-5 border-b border-white/10 flex justify-between items-center bg-gray-800/50">

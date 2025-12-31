@@ -5168,3 +5168,663 @@ Raw Gemini Response:
 ENDPOINT: generateContent, ASPECT RATIO: 1:1
 PROMPT: A stunning hyper-realistic lifestyle portrait of a vibrant 20-year-old Taiwanese woman on an outdoor hard-court tennis court during a crisp winter afternoon. She has an exquisite oval face, sparkling expressive eyes filled with joy, and a delicate 'pure-desire' makeup aesthetic. Her long, jet-black hair is slightly damp and side-parted with natural, realistic tangles. She is wearing a cream-white low-cut sleeveless athletic tank top and micro-mini charcoal grey dolphin shorts, paired with sleek white sneakers. The scene is drenched in golden afternoon sunlight, creating intense cinematic rim lighting that traces her silhouette. The image features professional-grade technical detail: visible skin pores, fine peach fuzz, and subtle natural skin textures through subsurface scattering. High ISO film grain and a candid snapshot aesthetic evoke a high-end lifestyle blog feel. 8k resolution, ray-tracing, PBR materials, volumetric sunbeams, and a soft-focus bokeh background.
 -------------------
+
+[2025-12-31T02:24:06.537Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "A cinematic full-body portrait of an elegant young East Asian woman with radiant blonde hair styled in a precise, sophisticated high bun. She is dressed in a high-fashion interpretation of a classic aesthetic: a crisp, high-thread-count white short-sleeved collared shirt with sharp lines, a premium silk light-blue bow tie with a subtle jacquard weave, and a matching pleated light-blue skirt showing realistic fabric draping. She stands with a graceful posture, looking directly at the viewer with a gentle, warm smile. The setting is a minimalist architectural space with floor-to-ceiling glass during a soft winter morning. Volumetric lighting streams through the windows, illuminating subtle dust motes and creating soft lens flares. Technical execution features PBR materials, subsurface scattering on the skin, ray-traced reflections on a polished floor, and a sharp architectural perspective with soft background bokeh. 8k resolution photorealistic, global illumination.",
+    "zhPrompt": "一位優雅的年輕亞裔女性全身電影感肖像，金髮精緻地盤成高髮髻。她身著高級時裝版的經典裝束：一件線條俐落的高支數白色短袖領襯衫，搭配帶有細微緹花織紋的高級絲綢淺藍色蝴蝶結，以及垂墜感真實的同色百褶裙。她以優雅的姿態直視鏡頭，帶著溫柔暖心的微笑。背景為極簡主義建築空間，冬日晨光透過落地窗形成體積光，空氣中可見細微塵埃與柔和光暈。技術細節包含PBR材質建模、皮膚次表面散射效果、磨光地面的光線追蹤反射，以及帶有柔美焦外虛化的建築透視構圖。8K超高畫質，全球照明技術。",
+    "tags": [
+      "人像攝影",
+      "2026時尚美學",
+      "高精細度",
+      "體積光",
+      "光線追蹤",
+      "極致質感",
+      "亞裔面孔",
+      "冬日氛圍"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted anatomy, messy hair, simplified textures, flat lighting, overexposed, extra limbs, missing fingers, low-fidelity, grainy, cartoonish, simplified clothing"
+  }
+]
+-------------------
+
+[2025-12-31T02:24:06.550Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A cinematic full-body portrait of an elegant young East Asian woman with radiant blonde hair styled in a precise, sophisticated high bun. She is dressed in a high-fashion interpretation of a classic aesthetic: a crisp, high-thread-count white short-sleeved collared shirt with sharp lines, a premium silk light-blue bow tie with a subtle jacquard weave, and a matching pleated light-blue skirt showing realistic fabric draping. She stands with a graceful posture, looking directly at the viewer with a gentle, warm smile. The setting is a minimalist architectural space with floor-to-ceiling glass during a soft winter morning. Volumetric lighting streams through the windows, illuminating subtle dust motes and creating soft lens flares. Technical execution features PBR materials, subsurface scattering on the skin, ray-traced reflections on a polished floor, and a sharp architectural perspective with soft background bokeh. 8k resolution photorealistic, global illumination.
+-------------------
+
+[2025-12-31T02:25:18.741Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Full-body cinematic portrait of a young Asian woman with radiant honey-blonde hair styled in a sophisticated high bun. She wears a crisp white short-sleeved collared shirt in premium cotton, accented by a light-blue silk bow tie and a matching tailored micro-mini skirt. The scene is illuminated by soft, volumetric winter sunlight from a large window, creating subtle lens flares and highlighting the PBR textures of the fabric. Her expression is a gentle, warm smile with direct eye contact. High-fidelity skin rendering with subsurface scattering, standing in a minimalist modern interior. 8k resolution, photorealistic, global illumination, shallow depth of field with soft bokeh background.",
+  "zhPrompt": "全身電影級肖像，一位年輕的亞洲女性，留著耀眼的蜂蜜金色頭髮並盤成精緻的高髮髻。她穿著一件優質棉質的潔白短袖領襯衫，搭配淡藍色絲綢蝴蝶結和配套的修身超短裙。場景由大型窗戶透入的柔和體積冬日陽光照射，產生細微的鏡頭光暈，並突顯出織物的 PBR 材質細節。她的表情帶著溫柔溫暖的微笑，並與鏡頭直接對視。高保真皮膚渲染與次表面散射效果，站在極簡主義的現代室內。8k 解析度，照片寫實，全局照明，淺景深及柔和的背景虛化。",
+  "tags": [
+    "人像攝影",
+    "亞洲女性",
+    "金髮",
+    "極簡主義",
+    "8k寫實",
+    "電影級光效",
+    "冬日陽光",
+    "全高清"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified textures, messy hair, low quality, CGI, cartoon, bad anatomy, deformed hands, extra fingers, text, watermark, heavy shadows"
+}
+-------------------
+
+[2025-12-31T02:25:18.747Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Full-body cinematic portrait of a young Asian woman with radiant honey-blonde hair styled in a sophisticated high bun. She wears a crisp white short-sleeved collared shirt in premium cotton, accented by a light-blue silk bow tie and a matching tailored micro-mini skirt. The scene is illuminated by soft, volumetric winter sunlight from a large window, creating subtle lens flares and highlighting the PBR textures of the fabric. Her expression is a gentle, warm smile with direct eye contact. High-fidelity skin rendering with subsurface scattering, standing in a minimalist modern interior. 8k resolution, photorealistic, global illumination, shallow depth of field with soft bokeh background.
+-------------------
+
+[2025-12-31T02:26:30.791Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A full-body masterpiece photograph of a stunning young Asian woman with radiant platinum blonde hair styled in a sophisticated sleek high bun. She is wearing a high-fashion ensemble: a crisp white tailored deep V-neck short-sleeved collared shirt, accented with a delicate silk light blue bow tie, and a matching designer super short mini skirt in soft azure. She stands with elegant posture, facing the camera directly with a gentle, inviting smile. The scene is set in a luxury minimalist penthouse, illuminated by soft, natural winter morning light through floor-to-ceiling windows, creating beautiful volumetric lighting and subtle lens flares. 8k photorealistic detail, subsurface scattering on her skin, PBR textures on the cotton and silk fabrics, ray-traced reflections on the polished marble floor, cinematic composition with a crisp focus and soft background bokeh.",
+  "zhPrompt": "一位年輕亞裔女性的全身傑作攝影，留著耀眼的白金色頭髮，梳成精緻俐落的高髮髻。她穿著高訂時尚套裝：一件挺括的白色深V領短袖襯衫，搭配精緻的淡藍色絲綢領結，以及一條同色系的淡藍色設計師超短迷你裙。她以優雅的姿態站立，直視鏡頭，帶著溫柔親切的微笑。場景設定在奢華極簡的頂層公寓中，採用落地窗透入的柔和冬季晨光照明，營造出絕佳的體積光效果與細微的光暈。8k 超高畫質寫實細節，皮膚展現次表面散射質感，棉質與絲綢面料呈現 PBR 材質紋理，大理石地面上有光線追蹤反射，電影級構圖且焦距清晰，背景呈現柔美虛化。",
+  "tags": [
+    "寫實攝影",
+    "高訂時尚",
+    "亞裔美女",
+    "白金髮色",
+    "體積光",
+    "8k解析度",
+    "柔和焦外",
+    "光線追蹤"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, cartoon, illustration, low quality, deformed hands, extra fingers, text, watermark, grainy, oversaturated, messy hair, poorly drawn face"
+}
+-------------------
+
+[2025-12-31T02:26:30.794Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A full-body masterpiece photograph of a stunning young Asian woman with radiant platinum blonde hair styled in a sophisticated sleek high bun. She is wearing a high-fashion ensemble: a crisp white tailored deep V-neck short-sleeved collared shirt, accented with a delicate silk light blue bow tie, and a matching designer super short mini skirt in soft azure. She stands with elegant posture, facing the camera directly with a gentle, inviting smile. The scene is set in a luxury minimalist penthouse, illuminated by soft, natural winter morning light through floor-to-ceiling windows, creating beautiful volumetric lighting and subtle lens flares. 8k photorealistic detail, subsurface scattering on her skin, PBR textures on the cotton and silk fabrics, ray-traced reflections on the polished marble floor, cinematic composition with a crisp focus and soft background bokeh.
+-------------------
+
+[2025-12-31T02:27:17.965Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Full-body cinematic portrait of a stunning young Asian woman with luminous skin, her hair styled in a refined blonde bun. She is wearing a bespoke white deep V-neck collared shirt crafted from high-grade matte cotton, paired with a delicate light blue silk bow tie. Her outfit features a matching light blue ultra-mini skirt with structured pleats. She stands with elegant posture, facing the camera with a gentle, inviting smile. The scene is bathed in soft, volumetric winter daylight filtering through large floor-to-ceiling windows, highlighting the PBR textures of the fabric and the subsurface scattering on her skin. Shot with a high-end prime lens, f/2.8, creating a soft bokeh of a minimalist luxury interior. 8k photorealistic, ray-traced reflections, intricate fabric detail, global illumination.",
+  "zhPrompt": "一位年輕亞裔女性的全身電影級肖像，肌膚透亮，髮型為優雅的金色髮髻。她穿著一件量身定制的白色深V領短袖襯衫，選用高級啞光棉料，搭配精緻的淺藍色絲綢蝴蝶結。下半身穿著同色系的淺藍色超短迷你裙，剪裁立體。她姿態優雅地站立，面向鏡頭展現溫柔親切的微笑。場景沐浴在透過落地窗灑入的柔和冬日體積光中，完美呈現布料的PBR材質細節與皮膚的次表面散射效果。採用高端定焦鏡頭、f/2.8光圈拍攝，背景呈現簡約奢華室內空間的柔美虛化。8k超高畫質，光線追蹤反射，極致細節，全局照明。",
+  "tags": [
+    "超寫實主義",
+    "電影感燈光",
+    "2026時尚設計",
+    "次表面散射",
+    "8k解析度",
+    "全身肖像",
+    "奢華簡約",
+    "體積光"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, deformed hands, extra fingers, simplified textures, flat lighting, unrealistic skin, grainy, overexposed, messy hair, poorly drawn face, out of focus, low quality craftsmanship."
+}
+-------------------
+
+[2025-12-31T02:27:17.971Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Full-body cinematic portrait of a stunning young Asian woman with luminous skin, her hair styled in a refined blonde bun. She is wearing a bespoke white deep V-neck collared shirt crafted from high-grade matte cotton, paired with a delicate light blue silk bow tie. Her outfit features a matching light blue ultra-mini skirt with structured pleats. She stands with elegant posture, facing the camera with a gentle, inviting smile. The scene is bathed in soft, volumetric winter daylight filtering through large floor-to-ceiling windows, highlighting the PBR textures of the fabric and the subsurface scattering on her skin. Shot with a high-end prime lens, f/2.8, creating a soft bokeh of a minimalist luxury interior. 8k photorealistic, ray-traced reflections, intricate fabric detail, global illumination.
+-------------------
+
+[2025-12-31T02:44:39.417Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A hyper-realistic cinematic masterpiece capturing a 20-year-old Taiwanese woman in a dynamic tennis mid-swing on a weathered blue hard-court. The scene is set during the low-angle golden hour of December 31st, 2025, with long amber shadows and intense volumetric rim lighting. Her delicate oval face features professional 'pure-desire' aesthetic makeup with a dewy finish and sparkling, joyful eyes. Her long, raven-black hair is realistically damp with sweat, side-parted with natural tangles. She is dressed in a cream-white ribbed sleeveless performance tank top and ultra-short charcoal gray athletic dolphin shorts. Technical precision: 8k resolution, PBR materials, subsurface scattering on skin to reveal visible pores and micro-wrinkles, ray-traced shadows, and high ISO film grain. Shot on a 35mm lens with a high-shutter speed snapshot aesthetic, featuring subtle anamorphic lens flare and soft bokeh of a winter landscape in the background.",
+  "zhPrompt": "2025年12月31日深冬金黃時分，一名20歲台灣少女在戶外藍色硬地網球場展現動感揮拍瞬間。低角度夕陽勾勒出強烈的金邊輪廓光與體積光感。少女精緻的瓜子臉採用『純慾風』妝容，呈現水潤底妝與閃爍清亮的眼神。烏黑長髮因汗水微濕，自然交纏於頸間。她身穿米白色羅紋運動背心與極短炭灰色真理褲。技術細節：8K超高畫質、PBR物理渲染、皮膚次表面散射（展現細微毛孔與紋理）、射線追蹤陰影與底片顆粒感。採用35mm鏡頭高快門抓拍，背景帶有冬日樹影的深邃虛化與微弱鏡頭光暈。",
+  "tags": [
+    "寫實主義",
+    "金色時刻",
+    "台灣少女",
+    "網球運動",
+    "運動時尚",
+    "8K超高畫質",
+    "純慾風",
+    "體積光"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified features, airbrushed skin, plastic skin, CGI, cartoon, anime, overexposed, missing limbs, malformed hands, low quality, watermark, signature, text, simplified texture, flat lighting, unnatural eyes, cloned face, unrealistic proportions"
+}
+-------------------
+
+[2025-12-31T02:44:39.444Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A hyper-realistic cinematic masterpiece capturing a 20-year-old Taiwanese woman in a dynamic tennis mid-swing on a weathered blue hard-court. The scene is set during the low-angle golden hour of December 31st, 2025, with long amber shadows and intense volumetric rim lighting. Her delicate oval face features professional 'pure-desire' aesthetic makeup with a dewy finish and sparkling, joyful eyes. Her long, raven-black hair is realistically damp with sweat, side-parted with natural tangles. She is dressed in a cream-white ribbed sleeveless performance tank top and ultra-short charcoal gray athletic dolphin shorts. Technical precision: 8k resolution, PBR materials, subsurface scattering on skin to reveal visible pores and micro-wrinkles, ray-traced shadows, and high ISO film grain. Shot on a 35mm lens with a high-shutter speed snapshot aesthetic, featuring subtle anamorphic lens flare and soft bokeh of a winter landscape in the background.
+-------------------
+
+[2025-12-31T03:01:25.550Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level cinematic portrait of a young East Asian woman with cascading long curly mahogany hair and a pensive, introspective expression. She is seated elegantly sideways in a plush, off-white premium calfskin leather armchair within a high-end 2026-aesthetic hotel lobby. She wears an oversized, off-the-shoulder cream knit sweater featuring high-fidelity PBR cable-stitch textures, paired with ultra-glossy black thigh-high patent leather boots. She is captured in a self-hugging pose. In the foreground, a polished Carrara marble-topped table holds a minimalist white ceramic cup and a slender glass vase containing a single, dew-moistened pink rose. The background dissolves into a sophisticated soft-focus array of delicate pink floral arrangements and warm golden architectural highlights. The scene is illuminated by volumetric winter morning sunbeams, showcasing subtle lens flares and shimmering dust motes. High-fidelity ray-tracing on reflective surfaces, 8k resolution photorealistic, subsurface scattering on skin and petals, sharp architectural line perspective with a creamy bokeh background.",
+  "zhPrompt": "這是一幅大師級的電影感肖像，描繪一位年輕的東亞女性，蓄著如瀑布般的長捲棕髮，眼神憂鬱而深邃。她優雅地側坐在高級飯店大廳的乳白色頂級皮革扶手椅上，身穿一件寬鬆的露肩米色針織毛衣，展現出極致細膩的針織紋理，搭配亮面黑色漆皮過膝長靴。她輕輕環抱著自己，神情沉思。前景的圓形大理石桌上擺放著精緻的白色陶瓷杯和插有一朵帶露粉色玫瑰的極簡花瓶。背景是奢華的飯店空間，帶有柔焦效果的粉色花藝與金色建築線條交織。冬日清晨的體積光透過大窗灑入，營造出細微的塵埃光點與鏡頭光暈。拋光表面具備光線追蹤反射，8k超高畫質顯現皮膚與花瓣的次表面散射效果，畫面構圖精美且具備柔美的背景虛化。",
+  "tags": [
+    "極致寫實",
+    "電影級照明",
+    "2026時尚趨勢",
+    "人像攝影",
+    "豪華室內設計",
+    "8K解析度",
+    "光線追蹤",
+    "體積光"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted, cartoon, anime, low quality, bad anatomy, missing fingers, extra limbs, messy hair, simplified characters, grainy, noisy, text, watermark, signature, deformed face"
+}
+-------------------
+
+[2025-12-31T03:01:25.569Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level cinematic portrait of a young East Asian woman with cascading long curly mahogany hair and a pensive, introspective expression. She is seated elegantly sideways in a plush, off-white premium calfskin leather armchair within a high-end 2026-aesthetic hotel lobby. She wears an oversized, off-the-shoulder cream knit sweater featuring high-fidelity PBR cable-stitch textures, paired with ultra-glossy black thigh-high patent leather boots. She is captured in a self-hugging pose. In the foreground, a polished Carrara marble-topped table holds a minimalist white ceramic cup and a slender glass vase containing a single, dew-moistened pink rose. The background dissolves into a sophisticated soft-focus array of delicate pink floral arrangements and warm golden architectural highlights. The scene is illuminated by volumetric winter morning sunbeams, showcasing subtle lens flares and shimmering dust motes. High-fidelity ray-tracing on reflective surfaces, 8k resolution photorealistic, subsurface scattering on skin and petals, sharp architectural line perspective with a creamy bokeh background.
+-------------------
+
+[2025-12-31T03:03:31.608Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A masterfully composed cinematic portrait of a young East Asian woman with cascading, long wavy mahogany brown hair and a deep, melancholic gaze. She leans gracefully against a cream-white premium leather armchair in an opulent hotel lobby. She wears an oversized, off-shoulder beige cashmere knit sweater featuring intricate, hyper-detailed PBR ribbed textures, paired with high-shine black patent leather over-the-knee boots. Her posture is pensive, arms gently folded in a self-embrace. In the foreground, a polished white marble table hosts a fine ceramic cup and a minimalist glass vase containing a single, dew-kissed pink rose with visible subsurface scattering. The background dissolves into a soft-focus melange of lavish pink floral installations and sleek golden architectural lines. Soft winter morning light streams through floor-to-ceiling windows, creating ethereal volumetric rays and dancing dust motes with subtle lens flares. High-fidelity ray-traced reflections on polished surfaces, 8k ultra-photorealistic resolution, and professional depth of field.",
+  "zhPrompt": "大師級電影感肖像，描繪一位蓄著如瀑布般長捲棕髮、眼神憂鬱深邃的年輕東亞女性。她優雅地側靠於奢華飯店大廳的乳白色頂級皮革扶手椅旁，身著寬鬆的露肩米色羊絨針織毛衣，展現極致細膩的編織紋理，搭配亮面黑色漆皮過膝長靴。她神情沉思，輕輕環抱著自己。前景圓形大理石桌上擺放著精緻陶瓷杯與插有一朵帶露粉色玫瑰的極簡花瓶。背景為帶有柔焦效果的奢華花藝與金色建築線條。冬日清晨的體積光透過大窗灑入，營造出細微塵埃光點與鏡頭光暈。拋光表面具備光線追蹤反射，8k超高畫質呈現皮膚與花瓣的次表面散射效果，具備柔美的背景虛化與精美構圖。",
+  "tags": [
+    "電影感肖像",
+    "東亞女性",
+    "奢華飯店",
+    "冬季晨光",
+    "針織紋理",
+    "8k超高清",
+    "光線追蹤",
+    "體積光"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified textures, flat lighting, messy hair, low quality, oversaturated, deformed hands, missing fingers, text, watermark, logo, grainy, dull skin, unnatural reflections."
+}
+-------------------
+
+[2025-12-31T03:03:31.613Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A masterfully composed cinematic portrait of a young East Asian woman with cascading, long wavy mahogany brown hair and a deep, melancholic gaze. She leans gracefully against a cream-white premium leather armchair in an opulent hotel lobby. She wears an oversized, off-shoulder beige cashmere knit sweater featuring intricate, hyper-detailed PBR ribbed textures, paired with high-shine black patent leather over-the-knee boots. Her posture is pensive, arms gently folded in a self-embrace. In the foreground, a polished white marble table hosts a fine ceramic cup and a minimalist glass vase containing a single, dew-kissed pink rose with visible subsurface scattering. The background dissolves into a soft-focus melange of lavish pink floral installations and sleek golden architectural lines. Soft winter morning light streams through floor-to-ceiling windows, creating ethereal volumetric rays and dancing dust motes with subtle lens flares. High-fidelity ray-traced reflections on polished surfaces, 8k ultra-photorealistic resolution, and professional depth of field.
+                
+-------------------
+
+[2025-12-31T03:04:10.869Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A master-level cinematic portrait of a young East Asian woman with cascading, voluminous wavy chestnut hair and a profound, melancholic gaze. She stands elegantly in profile, leaning against a cream-white premium leather armchair in a grand luxury hotel lobby. She wears an oversized off-the-shoulder beige cable-knit sweater featuring hyper-detailed PBR textures, paired with high-gloss black patent leather over-the-knee boots. Her posture is contemplative as she gently embraces herself. In the foreground, a polished round marble table holds an exquisite white ceramic cup and a minimalist vase with a single dew-kissed pink rose. The background showcases a luxurious hotel interior with soft-focus floral arrangements and golden architectural accents. Winter morning volumetric lighting streams through expansive windows, highlighting dancing dust motes and subtle lens flares. Features ray-traced reflections on polished surfaces, 8k photorealistic resolution, and complex subsurface scattering on skin and petals, framed with a soft-focus bokeh composition.",
+  "zhPrompt": "大師級電影感人物肖像：一位年輕東亞女性，蓄著如瀑布般的長捲棕髮，眼神憂鬱而深邃。她優雅地側身倚靠在豪華飯店大廳的乳白色頂級皮革扶手椅旁，身穿一件寬鬆的露肩米色麻花編織毛衣，展現出極致細膩的針織紋理，並搭配亮面黑色漆皮過膝長靴。她輕輕環抱著自己，神情陷入沉思。前景的圓形大理石桌上擺放著精緻的白瓷杯和插有一朵帶露粉色玫瑰的極簡花瓶。背景是奢華的飯店空間，柔焦的粉色花藝與金色建築線條交織。冬日清晨的體積光透過落地大窗灑入，營造出細微的塵埃光點與鏡頭光暈。拋光表面具備光線追蹤反射，8k超高畫質展現皮膚與花瓣的次表面散射效果，畫面構圖精美且具備柔美的背景虛化。",
+  "tags": [
+    "電影感肖像",
+    "光線追蹤",
+    "體積光",
+    "針織紋理",
+    "次表面散射",
+    "冬季光影",
+    "奢華內飾",
+    "8k超高清"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted, cartoon, anime, low quality, messy hair, simplified textures, flat lighting, unrealistic skin, deformed hands, plastic look, watermark, signature"
+}
+-------------------
+
+[2025-12-31T03:04:10.873Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A master-level cinematic portrait of a young East Asian woman with cascading, voluminous wavy chestnut hair and a profound, melancholic gaze. She stands elegantly in profile, leaning against a cream-white premium leather armchair in a grand luxury hotel lobby. She wears an oversized off-the-shoulder beige cable-knit sweater featuring hyper-detailed PBR textures, paired with high-gloss black patent leather over-the-knee boots. Her posture is contemplative as she gently embraces herself. In the foreground, a polished round marble table holds an exquisite white ceramic cup and a minimalist vase with a single dew-kissed pink rose. The background showcases a luxurious hotel interior with soft-focus floral arrangements and golden architectural accents. Winter morning volumetric lighting streams through expansive windows, highlighting dancing dust motes and subtle lens flares. Features ray-traced reflections on polished surfaces, 8k photorealistic resolution, and complex subsurface scattering on skin and petals, framed with a soft-focus bokeh composition.
+-------------------
+
+[2025-12-31T03:07:25.801Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A master-level cinematic portrait of a young East Asian woman with cascading, voluminous wavy brown hair and deep, melancholic eyes. She leans elegantly against a premium cream-colored pebbled leather armchair in a high-end hotel lobby. She wears a chunky, oversized off-shoulder beige knit sweater with hyper-detailed yarn textures, contrasted by sleek, high-gloss black patent leather over-the-knee boots. Her posture is introspective, lightly hugging herself while holding a delicate porcelain cup. In the foreground, a polished round Carrara marble table features a minimalist crystal vase holding a single, dew-kissed pink rose. The background is a sprawling luxury interior with soft-focus floral arrangements and intricate gold architectural accents. Crystalline winter morning volumetric lighting streams through expansive floor-to-ceiling windows, illuminating floating dust motes and creating subtle lens flares. Exceptional 8k resolution, ray-traced reflections on polished surfaces, subsurface scattering on skin and rose petals, professional bokeh, and a sophisticated cinematic composition.",
+  "zhPrompt": "大師級電影感肖像，描繪一位東亞年輕女性，擁有瀑布般波浪棕髮與憂鬱深邃的眼神。她優雅地側倚在頂級飯店大廳的乳白色荔枝紋皮革扶手椅旁，身穿一件露肩米色粗針織寬鬆毛衣，針織紋理極致細膩，搭配亮面黑色漆皮過膝長靴。她輕輕環抱自身，手持精緻瓷杯，神情陷入沉思。前景的圓形大理石桌上置有一只極簡水晶花瓶，插著一朵帶有露珠的粉色玫瑰。背景為奢華飯店空間，交織著柔焦粉色花藝與金色建築線條。冬日清晨的體積光透過落地大窗灑入，營造出微小的塵埃光點與細膩鏡頭光暈。8k 超高畫質，拋光表面的光線追蹤反射，皮膚與花瓣的次表面散射效果，具備柔美深度的背景虛化與精湛的構圖。",
+  "tags": [
+    "Cinematic Portrait",
+    "East Asian Beauty",
+    "Winter Morning Light",
+    "High-Texture Knitwear",
+    "Luxury Interior",
+    "8k Photorealistic",
+    "Volumetric Lighting",
+    "Ray Tracing"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified textures, bad anatomy, extra limbs, missing fingers, anime style, cartoon, watermark, signature, text, overexposed, low contrast, plastic skin, messy hair, simplified background."
+}
+-------------------
+
+[2025-12-31T03:07:25.809Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: A master-level cinematic portrait of a young East Asian woman with cascading, voluminous wavy brown hair and deep, melancholic eyes. She leans elegantly against a premium cream-colored pebbled leather armchair in a high-end hotel lobby. She wears a chunky, oversized off-shoulder beige knit sweater with hyper-detailed yarn textures, contrasted by sleek, high-gloss black patent leather over-the-knee boots. Her posture is introspective, lightly hugging herself while holding a delicate porcelain cup. In the foreground, a polished round Carrara marble table features a minimalist crystal vase holding a single, dew-kissed pink rose. The background is a sprawling luxury interior with soft-focus floral arrangements and intricate gold architectural accents. Crystalline winter morning volumetric lighting streams through expansive floor-to-ceiling windows, illuminating floating dust motes and creating subtle lens flares. Exceptional 8k resolution, ray-traced reflections on polished surfaces, subsurface scattering on skin and rose petals, professional bokeh, and a sophisticated cinematic composition.
+                
+-------------------
+
+[2025-12-31T03:08:05.104Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A masterpiece cinematic portrait of a young East Asian woman with cascading wavy brunette hair and deep, melancholic eyes. She leans gracefully against an ivory premium leather armchair in a grand luxury hotel lobby. She wears an oversized off-the-shoulder beige mohair knit sweater with hyper-detailed interlaced yarn textures, paired with high-gloss black patent leather over-the-knee boots. In a pensive stance, she lightly embraces herself while holding a delicate porcelain cup. The foreground features a polished circular marble table holding a minimalist glass vase with a single dewy pink rose. The background is a sophisticated architectural space with soft-focus pink floral installations and elegant gold trim. Winter morning volumetric sunlight streams through massive windows, creating ethereal dust motes and subtle lens flares. Advanced ray-tracing reflections on the marble and leather, subsurface scattering on her skin and the rose petals, 8k resolution photorealistic, shot on 85mm lens with creamy bokeh.",
+  "zhPrompt": "大師級電影感肖像，描繪一位蓄著如瀑長捲棕髮、眼神深邃憂鬱的年輕東亞女性。她優雅地倚靠在頂級飯店大廳的乳白色皮革扶手椅旁，身著露肩米色粗針織毛衣，展現極致細膩的織物紋理，搭配光澤感極強的黑色漆皮過膝長靴。她輕撫雙臂並手持瓷杯，神情陷入沉思。前景圓形大理石桌上立著一朵帶露珠的粉色玫瑰。冬日清晨的體積光穿透落地窗，灑落細微塵埃與柔和光暈。畫面呈現光線追蹤的真實反射，皮膚與花瓣具備細膩的次表面散射效果，8k超高畫質，搭配如奶油般的背景虛化。",
+  "tags": [
+    "大師級攝影",
+    "電影光影",
+    "極致寫實",
+    "冬日氛圍",
+    "奢華美學",
+    "次表面散射",
+    "8k解析度"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified textures, flat lighting, messy hair strands, overexposed, grainy, plastic skin, simplified knit patterns, low quality leather texture"
+}
+-------------------
+
+[2025-12-31T03:08:05.108Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A masterpiece cinematic portrait of a young East Asian woman with cascading wavy brunette hair and deep, melancholic eyes. She leans gracefully against an ivory premium leather armchair in a grand luxury hotel lobby. She wears an oversized off-the-shoulder beige mohair knit sweater with hyper-detailed interlaced yarn textures, paired with high-gloss black patent leather over-the-knee boots. In a pensive stance, she lightly embraces herself while holding a delicate porcelain cup. The foreground features a polished circular marble table holding a minimalist glass vase with a single dewy pink rose. The background is a sophisticated architectural space with soft-focus pink floral installations and elegant gold trim. Winter morning volumetric sunlight streams through massive windows, creating ethereal dust motes and subtle lens flares. Advanced ray-tracing reflections on the marble and leather, subsurface scattering on her skin and the rose petals, 8k resolution photorealistic, shot on 85mm lens with creamy bokeh.
+-------------------
+
+[2025-12-31T03:10:51.822Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Masterpiece full-body cinematic portrait of a beautiful young Taiwanese woman in her mid-20s, embodying an elite Office Lady (OL) aesthetic. She is wearing a high-fidelity white cotton button-down shirt with visible fabric weave and a tailored jet-black pencil skirt with PBR material textures. She is seated gracefully on the granite steps of a minimalist glass storefront. Her long, straight dark hair features anisotropic highlights, and her fair skin exhibits realistic subsurface scattering. The environment is a Taipei urban corner on a soft winter afternoon, December 31st, featuring the iconic emerald-green painted pedestrian walkway and weathered yellow safety bollards. In the creamy bokeh background, a blurred 7-Eleven neon sign and rows of parked scooters provide authentic local atmosphere. Shot on 85mm f/1.8 prime lens, ray-traced reflections on the glass facade, volumetric soft-diffused lighting, global illumination, 8k ultra-photorealistic resolution.",
+  "zhPrompt": "氣質優雅的台灣年輕女性全身肖像，展現極致職場 OL 風格。她穿著質感細膩的白色長袖襯衫與合身碳黑窄裙，優雅地坐在極簡玻璃店面的花崗岩階梯上。長直髮透著柔和光澤，白皙肌膚呈現真實的微血管透光感。場景設定於 12 月底冬日午後的台北街頭，畫面包含標誌性的綠色人行道與鮮黃色防撞桿。背景中 7-Eleven 的霓虹招牌與整齊停放的機車在深邃散景中完美融合。採用 85mm 定焦鏡頭視覺，具備精準的光線追蹤與全局照明，展現 8K 超高畫質的細節表現。",
+  "tags": [
+    "Taiwan Urban Style",
+    "Office Lady Aesthetic",
+    "Cinematic Portrait",
+    "Street Photography",
+    "8k Photorealistic",
+    "Winter Soft Lighting",
+    "Hyper-detailed",
+    "PBR Materials"
+  ],
+  "suggested_aspect_ratio": "3:4",
+  "negative_prompt": "blurry, low resolution, distorted, cartoonish, oversaturated, missing limbs, bad anatomy, simplified characters, messy hair, flat lighting, unrealistic skin, fused fingers, watermark, text, signature."
+}
+-------------------
+
+[2025-12-31T03:10:51.829Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Masterpiece full-body cinematic portrait of a beautiful young Taiwanese woman in her mid-20s, embodying an elite Office Lady (OL) aesthetic. She is wearing a high-fidelity white cotton button-down shirt with visible fabric weave and a tailored jet-black pencil skirt with PBR material textures. She is seated gracefully on the granite steps of a minimalist glass storefront. Her long, straight dark hair features anisotropic highlights, and her fair skin exhibits realistic subsurface scattering. The environment is a Taipei urban corner on a soft winter afternoon, December 31st, featuring the iconic emerald-green painted pedestrian walkway and weathered yellow safety bollards. In the creamy bokeh background, a blurred 7-Eleven neon sign and rows of parked scooters provide authentic local atmosphere. Shot on 85mm f/1.8 prime lens, ray-traced reflections on the glass facade, volumetric soft-diffused lighting, global illumination, 8k ultra-photorealistic resolution.
+-------------------
+
+[2025-12-31T03:11:32.399Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level cinematic full-body portrait of a graceful young Taiwanese professional woman, 25 years old, featuring hyper-realistic micro-skin textures and subsurface scattering. She is sitting elegantly on the granite steps of a modern minimalist storefront with anodized aluminum frames and ray-traced glass reflections. She has long, obsidian-straight hair catching the soft ambient light and a warm, approachable smile. Her attire consists of a crisp white cotton button-down shirt with high-fidelity fabric weave and a tailored black pencil skirt, paired with glossy patent leather high heels featuring delicate ankle straps and realistic light glints. The setting is a Taipei urban corner during a soft winter afternoon; the ground features the iconic green non-slip pedestrian lane and weathered yellow traffic bollards. In the background, a cinematic shallow depth of field (bokeh) blurs a row of parked scooters and the soft glow of a distant 7-Eleven neon sign. Captured with an 85mm prime lens, f/1.8, 8k resolution, volumetric lighting, PBR materials, and global illumination for a photorealistic masterpiece.",
+  "zhPrompt": "一幅極致精細的電影感全身人像，描繪一位優雅的 25 歲台灣職場女性，展現超寫實的皮膚微紋理與透光感。她優雅地坐在現代極簡店面的花崗岩階梯上，店面玻璃折射著環境光。她留著一頭柔順的黑色直髮，帶著溫暖親切的微笑；身穿質感細膩的白色純棉襯衫與合身黑色窄裙，搭配閃耀漆皮光澤的腳踝繫帶高跟鞋。場景設定在冬日午後的台北街頭，地面上有指標性的綠色人行道與斑駁的黃色防撞桿。背景運用電影級淺景深效果，模糊了整排機車與遠處 7-Eleven 招牌的柔和霓虹光。使用 85mm 定焦鏡頭、f/1.8 光圈、8k 解析度、體積光與 PBR 物理渲染，呈現大師級寫實質感。",
+  "tags": [
+    "寫實主義",
+    "台灣街頭",
+    "OL風格",
+    "電影級佈光",
+    "85mm人像",
+    "8K高解析度",
+    "PBR渲染",
+    "極致細節"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted facial features, simplified texture, artificial skin, messy hair, low-quality fabric, extra limbs, bad anatomy, flat lighting, noisy background, overexposed, simplified traditional Chinese characters"
+}
+-------------------
+
+[2025-12-31T03:11:32.402Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level cinematic full-body portrait of a graceful young Taiwanese professional woman, 25 years old, featuring hyper-realistic micro-skin textures and subsurface scattering. She is sitting elegantly on the granite steps of a modern minimalist storefront with anodized aluminum frames and ray-traced glass reflections. She has long, obsidian-straight hair catching the soft ambient light and a warm, approachable smile. Her attire consists of a crisp white cotton button-down shirt with high-fidelity fabric weave and a tailored black pencil skirt, paired with glossy patent leather high heels featuring delicate ankle straps and realistic light glints. The setting is a Taipei urban corner during a soft winter afternoon; the ground features the iconic green non-slip pedestrian lane and weathered yellow traffic bollards. In the background, a cinematic shallow depth of field (bokeh) blurs a row of parked scooters and the soft glow of a distant 7-Eleven neon sign. Captured with an 85mm prime lens, f/1.8, 8k resolution, volumetric lighting, PBR materials, and global illumination for a photorealistic masterpiece.
+-------------------
+
+[2025-12-31T03:12:59.636Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "An elite-level 8k photorealistic full-body portrait of a stunning young Taiwanese woman with long straight obsidian hair and radiant fair skin, exhibiting a gentle, approachable smile. She is elegantly seated on the architectural granite steps of a sleek glass-fronted building in a modern 2026 Taipei district. She wears a high-fidelity business-casual ensemble: a crisp white cotton-poplin button-down shirt tucked into a tailored black wool-blend mini pencil skirt, paired with black patent leather ankle-strap heels with realistic light reflections. The setting is a quintessential Taipei street corner during a soft winter afternoon; the distinctive emerald-green painted pedestrian walkway stretches into the distance. Technical details: Ray-traced reflections on the glass storefront, PBR material textures on fabric and skin, subtle subsurface scattering on facial features. Lighting: Diffused volumetric sunlight characteristic of late December, soft global illumination, 85mm f/1.2 lens aesthetic with creamy bokeh. Background includes detailed parked scooters and the iconic glow of a 7-Eleven sign, rendered with cinematic shallow depth of field.",
+    "zhPrompt": "頂級 8k 超高清寫實全身人像，展現一位擁有烏黑長直髮與白皙通透肌膚的年輕漂亮台灣女性，面帶溫柔可親的微笑。她優雅地坐在 2026 年台北現代玻璃店面的花崗岩階梯上，身穿高質感的職場時尚穿搭：洗鍊的白色棉質長袖襯衫搭配合身黑色羊毛混紡窄裙，以及帶有真實反光的漆皮踝帶高跟鞋。背景為典型的台北冬日午後街頭，腳下是標誌性的綠色人行道鋪面與黃色防撞桿。技術層面：玻璃幕牆的射線追蹤反射，皮膚與布料的 PBR 材質質感，面部細微的次表面散射。光影：十二月下旬特有的柔和體積光，全域照明，85mm f/1.2 鏡頭美學帶來的奶油般散景，背景點綴著精細的機車與遠處 7-Eleven 招牌的朦朧光影。",
+    "tags": [
+      "台灣街拍",
+      "OL風格",
+      "人像攝影",
+      "電影級布光",
+      "8k解析度",
+      "PBR材質",
+      "寫實主義",
+      "2026時尚"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted, cartoon, anime, low quality, unnatural skin texture, extra fingers, messy hair, simplified Chinese characters, text artifacts, bad anatomy, overexposed, grainy"
+  }
+]
+-------------------
+
+[2025-12-31T03:12:59.639Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level 8k photorealistic full-body portrait of a stunning young Taiwanese woman with long straight obsidian hair and radiant fair skin, exhibiting a gentle, approachable smile. She is elegantly seated on the architectural granite steps of a sleek glass-fronted building in a modern 2026 Taipei district. She wears a high-fidelity business-casual ensemble: a crisp white cotton-poplin button-down shirt tucked into a tailored black wool-blend mini pencil skirt, paired with black patent leather ankle-strap heels with realistic light reflections. The setting is a quintessential Taipei street corner during a soft winter afternoon; the distinctive emerald-green painted pedestrian walkway stretches into the distance. Technical details: Ray-traced reflections on the glass storefront, PBR material textures on fabric and skin, subtle subsurface scattering on facial features. Lighting: Diffused volumetric sunlight characteristic of late December, soft global illumination, 85mm f/1.2 lens aesthetic with creamy bokeh. Background includes detailed parked scooters and the iconic glow of a 7-Eleven sign, rendered with cinematic shallow depth of field.
+-------------------
+
+[2025-12-31T03:14:10.476Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "Cinematic 8k photorealistic full-body portrait of an elegant young Taiwanese woman in a sophisticated Office Lady aesthetic, seated gracefully on the architectural concrete steps of a modern glass storefront. She is wearing a high-fidelity white cotton button-down shirt with intricate fabric weave and a sleek jet-black tailored mini pencil skirt. Her footwear consists of black patent leather high heels with delicate ankle straps, featuring sharp specular reflections and PBR material accuracy. Her long, straight obsidian-black hair exhibits realistic strand separation and anisotropic sheen under soft, diffused winter daylight. The skin is rendered with advanced subsurface scattering for a fair, luminous glow. The environment captures a vivid Taipei urban corner, featuring the iconic emerald-green anti-slip pedestrian walkway, vibrant yellow safety bollards, and a row of parked scooters in the soft bokeh-blurred background. A distant, out-of-focus 7-Eleven sign adds authentic local atmosphere. Global illumination and ray-traced reflections on the glass windows create a multi-layered composition. Shot with an 85mm f/1.4 prime lens, shallow depth of field, slightly low angle to emphasize the leading lines of the sidewalk.",
+    "zhPrompt": "頂級 8K 寫實全人像，一位優雅的台灣年輕女性展現精緻職場風格（OL），端坐於現代玻璃店面的建築階梯上。她身穿高質感的白色開襟襯衫，紋理細膩，搭配剪裁俐落的黑色窄裙與帶有細緻踝帶的漆皮高跟鞋，鞋面反射著銳利的光澤與 PBR 材質質感。她漆黑的長直髮在柔和的冬日散射光下呈現真實的髮絲細節。皮膚透過次表面散射技術呈現出柔和白皙的透亮感。場景精準還原台北街角，包含標誌性的綠色人行道鋪面、鮮艷的黃色防撞桿，以及背景中散景模糊的機車群。遠處微弱的 7-Eleven 招牌增添了在地氛圍。全局照明與玻璃店面的光線追蹤反射營造出富有層次感的深度。使用 85mm f/1.4 鏡頭拍攝，極淺景深，採用微低角度以強調人行道的透視導引線。",
+    "tags": [
+      "台灣街拍",
+      "職場穿搭",
+      "極致寫實",
+      "電影光效",
+      "人像攝影",
+      "8K解析度",
+      "次表面散射",
+      "光線追蹤"
+    ],
+    "suggested_aspect_ratio": "9:16",
+    "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, overexposed, extra limbs, fused fingers, low quality textures, watermark, text errors."
+  }
+]
+-------------------
+
+[2025-12-31T03:14:10.479Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Cinematic 8k photorealistic full-body portrait of an elegant young Taiwanese woman in a sophisticated Office Lady aesthetic, seated gracefully on the architectural concrete steps of a modern glass storefront. She is wearing a high-fidelity white cotton button-down shirt with intricate fabric weave and a sleek jet-black tailored mini pencil skirt. Her footwear consists of black patent leather high heels with delicate ankle straps, featuring sharp specular reflections and PBR material accuracy. Her long, straight obsidian-black hair exhibits realistic strand separation and anisotropic sheen under soft, diffused winter daylight. The skin is rendered with advanced subsurface scattering for a fair, luminous glow. The environment captures a vivid Taipei urban corner, featuring the iconic emerald-green anti-slip pedestrian walkway, vibrant yellow safety bollards, and a row of parked scooters in the soft bokeh-blurred background. A distant, out-of-focus 7-Eleven sign adds authentic local atmosphere. Global illumination and ray-traced reflections on the glass windows create a multi-layered composition. Shot with an 85mm f/1.4 prime lens, shallow depth of field, slightly low angle to emphasize the leading lines of the sidewalk.
+-------------------
+
+[2025-12-31T03:15:40.161Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level cinematic portrait of a stunning young Taiwanese woman sitting gracefully on urban steps in a 2026 Taipei commercial district. She has long, silk-like dark straight hair and fair skin with delicate subsurface scattering. She is wearing a high-fidelity white button-down long-sleeve shirt crafted with realistic fabric micro-textures and a tailored black mini pencil skirt. Her footwear consists of black patent leather high heels with elegant ankle straps, reflecting the soft winter afternoon light. The environment features a modern glass storefront with ray-traced reflections of the city, the iconic Taiwan green-painted pedestrian walkway, and yellow traffic bollards. In the background, a cluster of parked scooters and a soft-bokeh 7-Eleven sign provide local atmosphere. Shot on a 85mm prime lens at f/2.2, capturing volumetric lighting and subtle dust motes in the shaded alleyway, with a slightly low-angle leading line composition.",
+  "zhPrompt": "一張頂級電影感的人像攝影，捕捉一位年輕漂亮的台灣女性優雅地坐在 2026 年台北商業區的階梯上。她擁有如絲綢般的黑色直長髮，白皙的肌膚在冬日午後的柔和光線下呈現細膩的皮下散射效果。她身穿一件具有真實布料微紋理的白色扣領長袖襯衫，搭配剪裁俐落的黑色窄裙與帶有踝帶的黑色漆皮高跟鞋。背景融合了帶有光線追蹤反射的現代玻璃店面、台灣特色的綠色人行道以及黃色防撞桿，遠處伴隨著模糊的機車群與 7-Eleven 招牌。使用 85mm 定焦鏡頭以 f/2.2 光圈拍攝，呈現出體積光效果與細微的空氣塵埃，結合略帶低角度的引導線構圖。",
+  "tags": [
+    "人像攝影",
+    "台灣街頭",
+    "都會時尚",
+    "電影級布光",
+    "85mm鏡頭",
+    "高解析度質感",
+    "OL風格",
+    "2026都市美學"
+  ],
+  "suggested_aspect_ratio": "4:3",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, noisy background, flat lighting, unrealistic skin texture, low quality, oversaturated colors"
+}
+-------------------
+
+[2025-12-31T03:15:40.168Z] ENGINE: Img2Img (gemini-2.5-flash-image)
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 
+                Image-to-Image Generation Task.
+                Style Mode: Reference the original image but apply the requested changes.
+                Main Subject Reference: [Image Provided]
+                
+                User Request: An elite-level cinematic portrait of a stunning young Taiwanese woman sitting gracefully on urban steps in a 2026 Taipei commercial district. She has long, silk-like dark straight hair and fair skin with delicate subsurface scattering. She is wearing a high-fidelity white button-down long-sleeve shirt crafted with realistic fabric micro-textures and a tailored black mini pencil skirt. Her footwear consists of black patent leather high heels with elegant ankle straps, reflecting the soft winter afternoon light. The environment features a modern glass storefront with ray-traced reflections of the city, the iconic Taiwan green-painted pedestrian walkway, and yellow traffic bollards. In the background, a cluster of parked scooters and a soft-bokeh 7-Eleven sign provide local atmosphere. Shot on a 85mm prime lens at f/2.2, capturing volumetric lighting and subtle dust motes in the shaded alleyway, with a slightly low-angle leading line composition.
+                
+-------------------
+
+[2025-12-31T03:16:10.390Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level, 8k photorealistic portrait of a stunning young Taiwanese woman with long, lustrous dark hair and radiant fair skin, exhibiting an approachable and gentle smile. She is elegantly seated on the architectural stone steps of a sleek, modern glass storefront in a Taipei urban district. Her attire is a high-fidelity business-casual ensemble: a crisp white button-down shirt with fine cotton PBR material textures and a tailored black mini pencil skirt, paired with black patent leather high heels featuring delicate ankle straps. The composition is a cinematic full-body shot from a slightly low angle, utilizing leading lines from the iconic Taiwan green-painted pedestrian walkway and black-framed glass facade. Environmental alchemy includes soft, diffused winter daylight with volumetric subtle haze, emphasizing the cool late-December atmosphere. Technical specs: 85mm lens, f/2.8 aperture for soft creamy bokeh, capturing distant blurred elements like parked scooters, yellow safety bollards, and the faint glow of a 7-Eleven sign. Subsurface scattering on skin and ray-traced reflections on the glass and patent leather.",
+  "zhPrompt": "極致擬真的 8k 攝影大作，捕捉一位氣質高雅的台灣年輕女性。她留著一頭烏黑柔順的直長髮，肌膚白皙細膩，帶著溫柔親切的微笑。她優雅地坐在台北現代玻璃店面的石階上，身穿精緻的白色商務長袖襯衫與合身黑色窄裙，搭配閃耀漆皮光澤的腳踝扣帶高跟鞋，展現專業且迷人的職場 OL 風采。構圖採用低角度全身取景，利用台灣特色綠色人行道與建築邊線營造縱深感。環境呈現 12 月底清冷而柔和的自然擴散光，光線在皮膚與織物上產生細膩的次表面散射。背景虛化效果優美，點綴著停放的機車、黃色防撞桿與遠方 7-Eleven 招牌的朦朧燈火。85mm 人像焦段，光影層次分明，展現電影級質感。",
+  "tags": [
+    "台灣街頭",
+    "職場女性",
+    "高解析度",
+    "電影級光影",
+    "淺景深",
+    "8k",
+    "人像攝影",
+    "細節寫實"
+  ],
+  "suggested_aspect_ratio": "4:3",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, anatomical inaccuracies, dull skin, oversaturated, low-quality textures, plastic look, deformed hands, extra fingers, text, watermark"
+}
+-------------------
+
+[2025-12-31T03:16:10.394Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level, 8k photorealistic portrait of a stunning young Taiwanese woman with long, lustrous dark hair and radiant fair skin, exhibiting an approachable and gentle smile. She is elegantly seated on the architectural stone steps of a sleek, modern glass storefront in a Taipei urban district. Her attire is a high-fidelity business-casual ensemble: a crisp white button-down shirt with fine cotton PBR material textures and a tailored black mini pencil skirt, paired with black patent leather high heels featuring delicate ankle straps. The composition is a cinematic full-body shot from a slightly low angle, utilizing leading lines from the iconic Taiwan green-painted pedestrian walkway and black-framed glass facade. Environmental alchemy includes soft, diffused winter daylight with volumetric subtle haze, emphasizing the cool late-December atmosphere. Technical specs: 85mm lens, f/2.8 aperture for soft creamy bokeh, capturing distant blurred elements like parked scooters, yellow safety bollards, and the faint glow of a 7-Eleven sign. Subsurface scattering on skin and ray-traced reflections on the glass and patent leather.
+-------------------
+
+[2025-12-31T03:18:30.016Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Masterpiece cinematic portrait of a stunning young Taiwanese woman with long, lustrous raven-black hair and radiant, porcelain-fair skin with realistic subsurface scattering, exhibiting an approachable and gentle smile. She is dressed in an elite business-casual ensemble: a crisp white button-down shirt rendered with PBR cotton micro-weave textures and a tailored black mini pencil skirt, complemented by high-gloss black patent leather heels with delicate ankle straps. She is seated elegantly sideways in a plush, off-white premium calfskin leather armchair with visible grain within a high-end 2026-aesthetic hotel lobby featuring parametric architectural curves. Foreground: a polished Carrara marble table with sharp ray-traced reflections, a minimalist white ceramic cup, and a slender glass vase holding a single pink rose with macro-detailed dew droplets. Background: a sophisticated soft-focus array of winter floral arrangements and warm golden global illumination highlighting the interior geometry. Volumetric lighting, 8k resolution, photorealistic craftsmanship, crisp architectural perspective.",
+  "zhPrompt": "大師級電影感人像，描繪一位氣質出眾的台灣年輕女性，擁有烏黑亮麗的長髮與白皙通透的肌膚（呈現細緻的皮下散射效果），面帶溫柔親切的微笑。她穿著頂級商務休閒套裝：運用PBR物理渲染技術表現棉質紋理的俐落白襯衫，搭配合身黑色窄裙與帶有細緻踝帶的高光漆皮高跟鞋。她優雅地側坐在2026年未來美學風格酒店大堂的米白色頂級小牛皮扶手椅上。前景展示了具有光線追蹤反射效果的卡拉拉大理石桌，上方放置極簡白瓷杯與插著單朵帶露粉色玫瑰的細長玻璃瓶。背景呈現冬日氛圍下柔焦的粉色花卉與溫暖的金色建築亮點。體積光、8K解析度、超寫實細節、全局照明、精確的建築透視。",
+  "tags": [
+    "人像攝影",
+    "2026未來美學",
+    "商業時尚",
+    "超高解析度",
+    "寫實主義",
+    "體積光",
+    "光線追蹤",
+    "室內設計"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted features, messy hair, simplified Chinese characters, extra limbs, poor anatomy, overexposed highlights, grainy texture, low-quality materials, dull skin, unnatural lighting"
+}
+-------------------
+
+[2025-12-31T03:18:30.021Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Masterpiece cinematic portrait of a stunning young Taiwanese woman with long, lustrous raven-black hair and radiant, porcelain-fair skin with realistic subsurface scattering, exhibiting an approachable and gentle smile. She is dressed in an elite business-casual ensemble: a crisp white button-down shirt rendered with PBR cotton micro-weave textures and a tailored black mini pencil skirt, complemented by high-gloss black patent leather heels with delicate ankle straps. She is seated elegantly sideways in a plush, off-white premium calfskin leather armchair with visible grain within a high-end 2026-aesthetic hotel lobby featuring parametric architectural curves. Foreground: a polished Carrara marble table with sharp ray-traced reflections, a minimalist white ceramic cup, and a slender glass vase holding a single pink rose with macro-detailed dew droplets. Background: a sophisticated soft-focus array of winter floral arrangements and warm golden global illumination highlighting the interior geometry. Volumetric lighting, 8k resolution, photorealistic craftsmanship, crisp architectural perspective.
+-------------------
+
+[2025-12-31T03:53:28.323Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A cinematic, ultra-high-definition portrait of a young Asian woman with lustrous, flowing long black hair, exuding a gentle and warm smile directed at the camera. She is elegantly posed on polished light-grey architectural stone steps within a minimalist modern interior. She wears a crisp, impeccably tailored white poplin button-up shirt and a sleek, fitted black mini-skirt that highlights professional sophistication. Her footwear consists of high-gloss patent leather black stiletto heels with sharp reflections. The background features a plush, textured charcoal-grey fabric sofa and a large floor-to-ceiling window draped in ethereal sheer white curtains, allowing soft, diffused winter afternoon light to create volumetric rays and subtle dust motes. Advanced subsurface scattering on her skin, PBR material rendering for the fabrics, and a shallow depth of field with soft bokeh on the neutral light-grey walls. 8k resolution, ray-traced reflections, global illumination.",
+  "zhPrompt": "一位氣質優雅的亞洲年輕女性，留著柔順的黑色長髮，對著鏡頭展露溫柔的微笑。她隨意而優雅地坐在現代室內設計的淺灰色石階上。身穿一件挺括的白色棉質襯衫與合身的黑色窄裙，展現幹練又不失柔美的氣息。腳穿一雙閃耀極致光澤的黑色漆皮尖頭高跟鞋。背景中可見質感高級的深灰色布藝沙發，以及掛著輕盈白色紗簾的大落地窗，冬日午後柔和的漫射光線透過窗戶形成細微的體積光效。採用高級次表面散射技術呈現真實膚質，PBR 物理材質渲染織物與皮革，結合淺景深鏡頭讓背景呈現柔美虛化，營造極致的 8K 寫實電影質感。",
+  "tags": [
+    "寫實主義",
+    "人像攝影",
+    "室內設計",
+    "8K解析度",
+    "電影感光效",
+    "現代時尚",
+    "物理渲染",
+    "柔和採光"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, poorly drawn face, simplified textures, messy hair, jagged edges, overexposed, fake skin texture, low-quality material rendering, extra limbs, grainy, out of focus"
+}
+-------------------
+
+[2025-12-31T03:53:46.332Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A masterpiece portrait of a young Asian woman with silky, waist-length black hair, exuding a serene and gentle smile. She is dressed in a crisp, high-thread-count white cotton button-up shirt with sharp collars and a tailored black wool mini-skirt. On her feet are glossy black patent leather high heels, exhibiting realistic ray-traced reflections. She is sitting gracefully on a contemporary charcoal grey fabric sofa with a visible tactile weave. The background is a minimalist interior featuring a plain light grey matte-finished wall. To the side, a massive floor-to-ceiling window is draped in translucent sheer white silk curtains, allowing soft, diffused winter midday sunlight to create subtle volumetric rays and a high-key atmosphere. Exceptional skin texture with subsurface scattering, PBR materials on fabrics, and cinematic depth of field with a soft bokeh effect, 8k resolution photorealistic.",
+  "zhPrompt": "一幅大師級人像攝影，鏡頭捕捉一位擁有絲滑及腰黑髮的年輕亞洲女性，展現出寧靜溫柔的微笑。她穿著一件挺括的高織白色棉質襯衫，領口線條銳利，搭配剪裁合身的黑色羊毛迷你裙。腳穿亮面黑色漆皮高跟鞋，展現出真實的光線追蹤反射。她優雅地坐在沙發上，沙發採用當代深灰色織物，布料紋理清晰可見。背景為極簡主義室內設計，牆面為平滑的淺灰色啞光質感。側邊巨大的落地窗垂掛著半透明的純白絲綢紗簾，讓冬季正午柔和的擴散日光形成細微的體積光與高調氛圍。皮膚紋理具備細緻的次表面散射，布料採用PBR材質建模，配合電影級景深與柔和焦外虛化，8K超高清寫實影像。",
+  "tags": [
+    "人像攝影",
+    "極簡主義",
+    "電影光效",
+    "亞洲女性",
+    "8K超高清",
+    "冬季日光",
+    "時裝攝影",
+    "寫實質感"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified textures, oversaturated, messy hair, plastic skin, low-quality fabrics, inconsistent lighting, simplified strokes, cartoonish"
+}
+-------------------
+
+[2025-12-31T03:53:46.335Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A masterpiece portrait of a young Asian woman with silky, waist-length black hair, exuding a serene and gentle smile. She is dressed in a crisp, high-thread-count white cotton button-up shirt with sharp collars and a tailored black wool mini-skirt. On her feet are glossy black patent leather high heels, exhibiting realistic ray-traced reflections. She is sitting gracefully on a contemporary charcoal grey fabric sofa with a visible tactile weave. The background is a minimalist interior featuring a plain light grey matte-finished wall. To the side, a massive floor-to-ceiling window is draped in translucent sheer white silk curtains, allowing soft, diffused winter midday sunlight to create subtle volumetric rays and a high-key atmosphere. Exceptional skin texture with subsurface scattering, PBR materials on fabrics, and cinematic depth of field with a soft bokeh effect, 8k resolution photorealistic.
+-------------------
+
+[2025-12-31T03:55:05.510Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level photorealistic portrait of a young East Asian woman with waist-length, lustrous black hair and a gentle, captivating smile. She is elegantly dressed in a deep V-neck ivory silk blouse and a high-waisted, form-fitting black patent leather mini-skirt, paired with mirror-shine black stiletto high heels. She is sitting casually on minimalist polished grey stone interior steps within a high-end modern living space. In the background, a plush charcoal grey fabric sofa and expansive floor-to-ceiling windows with sheer white linen curtains create a sophisticated atmosphere. The scene is illuminated by soft, diffused winter daylight filtering through the curtains, featuring volumetric lighting, global illumination, and realistic subsurface scattering on skin textures. Captured with an 85mm lens at f/1.8, providing a soft bokeh effect on the architectural interior, 8k resolution, PBR materials, ray-tracing reflections.",
+  "zhPrompt": "一位留著垂腰黑亮長髮、帶著溫柔迷人微笑的年輕東亞女性極致寫實肖像。她優雅地穿著深 V 領象牙色絲綢上衣和高腰貼身黑色漆皮迷你裙，搭配鏡面亮黑色細高跟鞋。她隨意地坐在高級現代生活空間內的簡約磨光灰色室內石階上。背景中，豪華的深灰色布藝沙發和配有半透明白色亞麻窗簾的大型落地窗營造出精緻的氛圍。場景由透過窗簾過濾的柔和冬季漫射日光照射，具有體積光、全局照明以及皮膚紋理上的真實次表面散射。使用 85mm 鏡頭、f/1.8 光圈捕捉，為建築室內提供柔和的散景效果，8k 分辨率，PBR 材料，光線追踪反射。",
+  "tags": [
+    "超寫實主義",
+    "時尚肖像",
+    "電影級光效",
+    "室內設計",
+    "8k 解析度",
+    "柔和散景",
+    "2026 現代美學"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, extra limbs, messy hair, low quality, grainy, overexposed, cartoon, animation, poorly drawn hands, missing fingers, simplified textures"
+}
+-------------------
+
+[2025-12-31T03:55:05.518Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level photorealistic portrait of a young East Asian woman with waist-length, lustrous black hair and a gentle, captivating smile. She is elegantly dressed in a deep V-neck ivory silk blouse and a high-waisted, form-fitting black patent leather mini-skirt, paired with mirror-shine black stiletto high heels. She is sitting casually on minimalist polished grey stone interior steps within a high-end modern living space. In the background, a plush charcoal grey fabric sofa and expansive floor-to-ceiling windows with sheer white linen curtains create a sophisticated atmosphere. The scene is illuminated by soft, diffused winter daylight filtering through the curtains, featuring volumetric lighting, global illumination, and realistic subsurface scattering on skin textures. Captured with an 85mm lens at f/1.8, providing a soft bokeh effect on the architectural interior, 8k resolution, PBR materials, ray-tracing reflections.
+-------------------
+
+[2025-12-31T03:55:50.074Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A high-fidelity cinematic portrait of a graceful young Asian woman with long, lustrous raven hair, wearing a sophisticated deep V-neck silk blouse and a tailored black mini-skirt. She is adorned with mirror-finish black patent leather stilettos. She sits with effortless elegance on minimalist charcoal basalt stone steps within a luxury contemporary interior. In the soft-focus background, a premium heather-grey fabric sofa sits against a plain light grey gallery wall. Massive floor-to-ceiling windows with sheer white voile curtains diffuse the soft winter daylight, creating ethereal volumetric lighting and subtle lens flares. Captured with an Arri Alexa, 50mm lens, f/1.8, featuring PBR materials, ray-traced reflections on the footwear, subsurface scattering on the skin, and 8k photorealistic detail.",
+  "zhPrompt": "一位氣質優雅的亞洲年輕女性，擁有一頭烏黑亮麗的長髮，身著高雅的深V絲綢上衣與合身的黑色超短裙，搭配鏡面質感的黑色漆皮高跟鞋。她優雅地坐在現代奢華室內的極簡深灰色石階上。背景中，一張高級麻灰色布藝沙發靠在淡灰色牆面旁，巨大的落地窗垂掛著半透明白色紗簾，柔化了2025年冬日的自然光影，營造出空靈的體積光效果。採用 Arri Alexa 攝影機定格，50mm 鏡頭，f/1.8 大光圈，具備 PBR 材質細節、光線追蹤反射與 8K 超高畫質。",
+  "tags": [
+    "極簡主義",
+    "電影感光效",
+    "8K超高解像度",
+    "時尚人像",
+    "光線追蹤",
+    "高級感",
+    "室內設計",
+    "寫實主義"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, messy hair, low quality, unnatural skin texture, simplified shapes, pixelated, watermark, grainy, overexposed, simplified clothing textures, dull eyes"
+}
+-------------------
+
+[2025-12-31T03:55:50.079Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A high-fidelity cinematic portrait of a graceful young Asian woman with long, lustrous raven hair, wearing a sophisticated deep V-neck silk blouse and a tailored black mini-skirt. She is adorned with mirror-finish black patent leather stilettos. She sits with effortless elegance on minimalist charcoal basalt stone steps within a luxury contemporary interior. In the soft-focus background, a premium heather-grey fabric sofa sits against a plain light grey gallery wall. Massive floor-to-ceiling windows with sheer white voile curtains diffuse the soft winter daylight, creating ethereal volumetric lighting and subtle lens flares. Captured with an Arri Alexa, 50mm lens, f/1.8, featuring PBR materials, ray-traced reflections on the footwear, subsurface scattering on the skin, and 8k photorealistic detail.
+-------------------
+
+[2025-12-31T03:57:02.850Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "A high-fidelity 8k photorealistic portrait of a young Asian woman with sleek, flowing raven-black hair, captured in a sophisticated indoor setting. She is wearing a premium charcoal-toned deep V-neck silk blouse and a precisely tailored black mini-skirt, exuding modern elegance. Her footwear consists of high-gloss patent leather stiletto heels with sharp ray-traced reflections. She sits with effortless grace on minimalist honed limestone steps. The background features a high-end 2026-style interior with a large-weave grey fabric sofa and expansive floor-to-ceiling windows draped in sheer linen curtains. Soft-wrap volumetric winter light filters through the glass, creating gentle global illumination and realistic subsurface scattering on her skin. Cinematic composition with a shallow depth of field, sharp focus on her gentle smile and expressive eyes, PBR materials, and ultra-detailed textures.",
+  "zhPrompt": "高品質 8K 寫實人像，一位留著柔順烏黑長髮的年輕亞洲女性，置身於典雅的室內空間。她身穿高級炭灰色深 V 領絲綢襯衫與精緻剪裁的黑色短裙，散發現代優雅氣息。腳穿具有細膩光線追蹤反射效果的亮面漆皮高跟鞋，優雅地坐在極簡主義的磨砂石階上。背景展現 2026 年設計風格的居家環境，配有粗織灰色布藝沙發與掛著薄紗窗簾的大型落地窗。冬日的柔和體積光透過玻璃灑入，形成溫潤的全局照明與細膩的皮膚次表面散射效果。電影感構圖，淺景深處理，精確對焦於她溫柔的微笑與雙眸，展現極致的材質細節與紋理。",
+  "tags": [
+    "寫實人像",
+    "現代極簡風格",
+    "2026 時尚趨勢",
+    "全局照明",
+    "電影級構圖",
+    "8K 超高畫質",
+    "PBR 材質"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, cartoonish, low quality, unnatural skin texture, messy hair, poorly drawn hands, overexposed, grainy, plastic-looking skin, simplified features, dull lighting"
+}
+-------------------
+
+[2025-12-31T03:57:02.854Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A high-fidelity 8k photorealistic portrait of a young Asian woman with sleek, flowing raven-black hair, captured in a sophisticated indoor setting. She is wearing a premium charcoal-toned deep V-neck silk blouse and a precisely tailored black mini-skirt, exuding modern elegance. Her footwear consists of high-gloss patent leather stiletto heels with sharp ray-traced reflections. She sits with effortless grace on minimalist honed limestone steps. The background features a high-end 2026-style interior with a large-weave grey fabric sofa and expansive floor-to-ceiling windows draped in sheer linen curtains. Soft-wrap volumetric winter light filters through the glass, creating gentle global illumination and realistic subsurface scattering on her skin. Cinematic composition with a shallow depth of field, sharp focus on her gentle smile and expressive eyes, PBR materials, and ultra-detailed textures.
+-------------------
+
+[2025-12-31T03:57:40.568Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An exquisite cinematic portrait of a young Asian woman with flowing obsidian-black hair, exuding elegance and grace. She wears a tailored charcoal-silk deep V-neck blouse paired with a high-fashion fitted black mini-skirt, showcasing a sophisticated feminine silhouette. On her feet are high-gloss patent leather stilettos with sharp ray-traced reflections. She is seated casually on polished architectural limestone steps within a minimalist modern interior. The background features a designer grey fabric sofa and floor-to-ceiling windows with sheer white curtains diffusing soft winter daylight. The lighting is a masterclass in volumetric global illumination, highlighting the subsurface scattering of her skin and the intricate PBR textures of the silk and stone. Shot on 85mm lens, f/1.8 for a soft bokeh, 8k resolution, photorealistic masterpiece.",
+  "zhPrompt": "一位氣質優雅的年輕亞洲女性，留著如瀑布般的黑色長髮，神情溫柔。她穿著剪裁精緻的深V木炭色絲綢襯衫與合身黑色迷你裙，展現出曼妙且平衡的曲線。腳穿鏡面亮漆皮高跟鞋，優雅地坐在室內的磨光石階上。背景展現極簡主義設計，包含現代灰色布藝沙發與掛著半透明白色紗簾的大落地窗，冬日的柔和光線穿透而入。畫面採用全局照明技術，細膩呈現肌膚質感與絲綢光澤，營造出8K超清電影感視覺饗宴。",
+  "tags": [
+    "極簡主義建築",
+    "電影級光影",
+    "高品質寫實",
+    "時尚攝影",
+    "光跡追蹤",
+    "絲綢質感",
+    "人像美學"
+  ],
+  "suggested_aspect_ratio": "9:16",
+  "negative_prompt": "blurry, low resolution, distorted anatomy, simplified characters, messy hair, low-poly, grain, chromatic aberration, overexposed, dull textures, plastic skin"
+}
+-------------------
+
+[2025-12-31T03:57:40.571Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An exquisite cinematic portrait of a young Asian woman with flowing obsidian-black hair, exuding elegance and grace. She wears a tailored charcoal-silk deep V-neck blouse paired with a high-fashion fitted black mini-skirt, showcasing a sophisticated feminine silhouette. On her feet are high-gloss patent leather stilettos with sharp ray-traced reflections. She is seated casually on polished architectural limestone steps within a minimalist modern interior. The background features a designer grey fabric sofa and floor-to-ceiling windows with sheer white curtains diffusing soft winter daylight. The lighting is a masterclass in volumetric global illumination, highlighting the subsurface scattering of her skin and the intricate PBR textures of the silk and stone. Shot on 85mm lens, f/1.8 for a soft bokeh, 8k resolution, photorealistic masterpiece.
+-------------------
+
+[2025-12-31T04:27:06.432Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level cinematic masterpiece captured on a Sony A7R IV with an 85mm f/1.4 G-Master lens, featuring a breathtakingly beautiful young woman standing in a rain-slicked Shinjuku street on New Year's Eve 2025. She wears a high-fidelity beige gabardine trench coat with visible PBR fabric textures. Her expression is deeply contemplative and serene; microscopic raindrops are suspended on her eyelashes with subsurface scattering of light. Her damp hair is rendered with individual strand physics, clinging softly to her temples. She holds a transparent dome umbrella that functions as a refractive lens, distorting the vibrant neon city glow. The background is a dense urban labyrinth of vibrant neon signs featuring premium Traditional Chinese typography: '新宿' (Shinjuku) and '夜歌' (Night Song), rendered with sharp calligraphic precision. Ray-traced reflections of cyan and magenta light dance on the wet, porous asphalt. Volumetric lighting illuminates the falling winter rain, creating a moody, introspective atmosphere with a sharp neon rim light outlining her silhouette against a soft, creamy bokeh of city lights. 8k resolution, global illumination, hyper-realistic skin texture, RAW photo.",
+  "zhPrompt": "極致電影感傑作，使用 Sony A7R IV 與 85mm f/1.4 鏡頭拍攝。一名絕美且神情沈思的年輕女子於 2025 年跨年夜站在雨中的新宿街頭。她穿著細膩質感的米色風衣，手持透明圓頂傘，長睫毛上懸掛著晶瑩的雨滴。皮膚展現出真實的次表面散射與細微毛孔。背景霓虹招牌包含精美的繁體中文「新宿」與「夜歌」書法字體。光線透過體積光技術表現冬雨的密度，青色與品紅色的側逆光完美勾勒出她的輪廓，地面的濕潤瀝青路面反射出絢麗的光影，營造出深邃且富有情緒的氛圍。8k 高畫質，超寫實皮膚質感，焦外柔美虛化。",
+  "tags": [
+    "電影感攝影",
+    "東京夜色",
+    "繁體中文霓虹",
+    "超寫實",
+    "冬季氛圍",
+    "85mm 肖像",
+    "光影錬金術",
+    "光追蹤反射"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted text, simplified Chinese characters, grain, plastic skin, flat lighting, artifacts, messy composition, low contrast, out of focus"
+}
+-------------------
+
+[2025-12-31T04:27:06.445Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: An elite-level cinematic masterpiece captured on a Sony A7R IV with an 85mm f/1.4 G-Master lens, featuring a breathtakingly beautiful young woman standing in a rain-slicked Shinjuku street on New Year's Eve 2025. She wears a high-fidelity beige gabardine trench coat with visible PBR fabric textures. Her expression is deeply contemplative and serene; microscopic raindrops are suspended on her eyelashes with subsurface scattering of light. Her damp hair is rendered with individual strand physics, clinging softly to her temples. She holds a transparent dome umbrella that functions as a refractive lens, distorting the vibrant neon city glow. The background is a dense urban labyrinth of vibrant neon signs featuring premium Traditional Chinese typography: '新宿' (Shinjuku) and '夜歌' (Night Song), rendered with sharp calligraphic precision. Ray-traced reflections of cyan and magenta light dance on the wet, porous asphalt. Volumetric lighting illuminates the falling winter rain, creating a moody, introspective atmosphere with a sharp neon rim light outlining her silhouette against a soft, creamy bokeh of city lights. 8k resolution, global illumination, hyper-realistic skin texture, RAW photo.
+-------------------
+
+[2025-12-31T04:42:21.698Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "An elite-level cinematic film still capturing a pensive young woman in sophisticated 2026 winter street fashion, standing isolated on a rain-slicked Shinjuku street at night. She holds a premium transparent umbrella; hyper-detailed micro-raindrops cling to its surface and her damp eyelashes, creating intricate prismatic refractions. Her thoughtful gaze mirrors the vibrant, blurred city lights. Subsurface scattering on her skin and subtle condensation of breath in the cold December air. The environment features ray-traced reflections on wet asphalt and a masterful bokeh of towering skyscrapers with next-gen holographic neon signage. Global illumination with a teal and amber cinematic color grade. Shot on Canon EOS R5, 85mm f/1.2, shallow depth of field, subtle film grain, volumetric lighting, PBR materials, ultra-photorealistic 8k resolution.",
+  "zhPrompt": "極致寫實的電影劇照。一位神情憂鬱的年輕女子身穿2026年冬裝，站在雨後霓虹閃爍的東京新宿街頭。她手持一把透明雨傘，傘面與睫毛上掛著細微的水珠，折射出城市的光影。皮膚展現細膩的次表面散射效果，冬日寒冷的呼吸化作微弱的白煙。背景是極美的焦外虛化，包含高樓大廈與次世代全息看板，地面的濕潤瀝青完美反射著光影。採用佳能EOS R5、85mm f/1.2鏡頭拍攝，具備電影感色調、體積光效、物理渲染材質與8K超高解析度。",
+  "tags": [
+    "東京雨夜",
+    "電影劇照",
+    "極致寫實",
+    "霓虹光影",
+    "2026時尚",
+    "冬日氛圍",
+    "8K解析度",
+    "體積光"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted, cartoon, anime, simplified characters, messy hair, low quality, oversaturated, deformed eyes, extra fingers, noisy, watermark, grainy, low-poly."
+}
+-------------------
+
+[2025-12-31T04:42:45.412Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+{
+  "enPrompt": "Cinematic 8k photorealistic film still captured on a Phase One IQ4 medium format camera. A pensive young woman stands amidst a rain-slicked Tokyo intersection on New Year's Eve, December 2025. She holds a transparent polycarbonate umbrella; macro-detail reveals individual crystalline raindrops and delicate condensation clinging to the surface. Her eyelashes are beaded with microscopic moisture, her iris reflecting a hyper-detailed kaleidoscope of neon signage. She is dressed in a structured charcoal wool winter coat. The environment features ray-traced reflections on the wet obsidian asphalt, with towering Shinjuku skyscrapers dissolving into a creamy, kaleidoscopic bokeh of magenta, electric blue, and warm amber. Volumetric mist and her faint visible breath mingle with the city's cold glow. Dramatic rim lighting outlines her silhouette, utilizing global illumination to blend the vibrant neon colors. Professional color grading with deep teal shadows and luminous orange highlights, subtle Kodak Vision3 film grain, PBR materials, and subsurface scattering on skin and water.",
+  "zhPrompt": "2025年12月跨年夜，東京雨後街頭的電影感劇照。一位神情憂鬱沈思的年輕女子獨自佇立，手持透明雨傘，傘面與睫毛上凝結著細膩剔透的水珠。她的瞳孔倒映著繁華城市的霓虹燈火。背景是新宿摩天大樓構成的極致虛化光斑，色彩在濕漉的柏油路面上交織流淌。冷冽的冬日空氣中隱約可見呼吸的白霧，整體氛圍呈現出一種寂靜的憂傷美學。強烈的霓虹邊緣光勾勒出身影，呈現高動態範圍的明暗對比。使用 85mm 中畫幅鏡頭細節模擬，具備極淺景深、細膩的底片質感與專業的冷暖色調校正，8K 超高解析度與物理渲染材質。",
+  "tags": [
+    "電影質感",
+    "城市憂鬱",
+    "東京夜景",
+    "擬真光影",
+    "8K解析度",
+    "霓虹光斑",
+    "2025跨年",
+    "超寫實細節"
+  ],
+  "suggested_aspect_ratio": "16:9",
+  "negative_prompt": "blurry, low resolution, distorted features, simplified textures, flat lighting, unrealistic water droplets, oversaturated, plastic skin, cartoonish, low-quality bokeh, missing fingers, deformed eyes, messy strokes, simplified background"
+}
+-------------------
+
+[2025-12-31T04:42:45.419Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: Cinematic 8k photorealistic film still captured on a Phase One IQ4 medium format camera. A pensive young woman stands amidst a rain-slicked Tokyo intersection on New Year's Eve, December 2025. She holds a transparent polycarbonate umbrella; macro-detail reveals individual crystalline raindrops and delicate condensation clinging to the surface. Her eyelashes are beaded with microscopic moisture, her iris reflecting a hyper-detailed kaleidoscope of neon signage. She is dressed in a structured charcoal wool winter coat. The environment features ray-traced reflections on the wet obsidian asphalt, with towering Shinjuku skyscrapers dissolving into a creamy, kaleidoscopic bokeh of magenta, electric blue, and warm amber. Volumetric mist and her faint visible breath mingle with the city's cold glow. Dramatic rim lighting outlines her silhouette, utilizing global illumination to blend the vibrant neon colors. Professional color grading with deep teal shadows and luminous orange highlights, subtle Kodak Vision3 film grain, PBR materials, and subsurface scattering on skin and water.
+-------------------

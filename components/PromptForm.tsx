@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Copy, User, Users, Loader2, Sparkles, Globe } from "lucide-react";
+import { X, Copy, User, Users, Loader2, Sparkles, Globe, Undo2 } from "lucide-react";
 import CharacterManager from "./CharacterManager";
 
 interface PromptFormProps {
@@ -328,8 +328,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     const [isPreviewMode, setIsPreviewMode] = useState(false);
 
     // Character DNA State
-    const [savedCharacters, setSavedCharacters] = useState<{ name: string, prompt: string }[]>([]);
-    const [isCharacterMenuOpen, setIsCharacterMenuOpen] = useState(false);
+
     const [showCharManager, setShowCharManager] = useState(false);
 
     // Prompt Queue State (for batch variations)
@@ -356,16 +355,9 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     };
 
     // Load saved characters from localStorage on mount
+
+    // Load prompt queue & stats
     useEffect(() => {
-        const stored = localStorage.getItem('characterDNA');
-        if (stored) {
-            try {
-                setSavedCharacters(JSON.parse(stored));
-            } catch (e) {
-                console.error('Failed to load characters', e);
-            }
-        }
-        // Load prompt queue
         const queueStr = localStorage.getItem('promptQueue');
         if (queueStr) {
             try {
@@ -375,7 +367,6 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             }
         }
 
-        // Load template stats
         const statsStr = localStorage.getItem('templateStats');
         if (statsStr) {
             try {
@@ -385,14 +376,12 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             }
         }
 
-        // Listen for localStorage changes (from other components on same page)
         const checkQueue = () => {
             const currentQueueStr = localStorage.getItem('promptQueue');
             if (currentQueueStr) {
                 try {
                     const parsedQueue = JSON.parse(currentQueueStr);
                     setPromptQueue(prev => {
-                        // Only update if different
                         if (JSON.stringify(prev) !== JSON.stringify(parsedQueue)) {
                             return parsedQueue;
                         }
@@ -404,81 +393,11 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             }
         };
 
-        // Check every 500ms for queue updates
         const interval = setInterval(checkQueue, 500);
-
         return () => clearInterval(interval);
     }, []);
 
-    // Save character DNA
-    const saveCharacterDNA = () => {
-        if (!formData.prompt.trim()) {
-            alert('請先輸入或生成角色描述');
-            return;
-        }
-        const name = prompt('給這個角色取個名字:');
-        if (!name) return;
 
-        const newCharacters = [...savedCharacters, { name, prompt: formData.prompt }];
-        setSavedCharacters(newCharacters);
-        localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
-        alert(`角色 「${name}」 已儲存！`);
-    };
-
-    // Load character DNA
-    const loadCharacterDNA = (characterPrompt: string) => {
-        setFormData(prev => ({ ...prev, prompt: characterPrompt + ', [場景描述]' }));
-        setIsCharacterMenuOpen(false);
-    };
-
-    // Delete character DNA
-    const deleteCharacterDNA = (index: number) => {
-        if (!confirm('確定要刪除這個角色嗎？')) return;
-        const newCharacters = savedCharacters.filter((_, i) => i !== index);
-        setSavedCharacters(newCharacters);
-        localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
-    };
-
-    // Edit character DNA - allow editing both name and description
-    const editCharacterDNA = (index: number) => {
-        const char = savedCharacters[index];
-
-        // Ask what to edit
-        const choice = window.prompt(
-            `編輯角色「${char.name}」\n\n輸入選項：\n1 = 只改名稱\n2 = 只改描述\n3 = 兩個都改`,
-            "1"
-        );
-
-        if (choice === null) return; // cancelled
-
-        let newName = char.name;
-        let newPrompt = char.prompt;
-
-        if (choice === "1" || choice === "3") {
-            const inputName = window.prompt('修改角色名稱:', char.name);
-            if (inputName === null) return;
-            newName = inputName || char.name;
-        }
-
-        if (choice === "2" || choice === "3") {
-            const inputPrompt = window.prompt('修改角色描述:', char.prompt);
-            if (inputPrompt === null) return;
-            newPrompt = inputPrompt || char.prompt;
-        }
-
-        // Update character
-        const newCharacters = [...savedCharacters];
-        newCharacters[index] = { name: newName, prompt: newPrompt };
-        setSavedCharacters(newCharacters);
-        localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
-    };
-
-    // Preview character DNA - just show, no side effects
-    const previewCharacterDNA = (char: { name: string, prompt: string }) => {
-        // Use a custom approach to avoid focus issues
-        const message = `【${char.name}】\n\n${char.prompt}`;
-        window.alert(message);
-    };
 
     // Default State
 
@@ -584,6 +503,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     // ... (Rest of component)
 
     const [errorMsg, setErrorMsg] = useState("");
+    const [previousPrompt, setPreviousPrompt] = useState<string | null>(null);
 
     // Download image helper
     const downloadImage = async (imageUrl: string, index: number) => {
@@ -969,12 +889,32 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         {useSearch ? "🌐 智慧聯網 (Live)" : "智慧聯網"}
                     </button>
 
+                    {/* Undo Button */}
+                    {previousPrompt && (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setFormData(prev => ({ ...prev, prompt: previousPrompt }));
+                                setPreviousPrompt(null);
+                            }}
+                            className="text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white"
+                            title="復原上一次的擴寫 (Undo)"
+                        >
+                            <Undo2 className="w-3.5 h-3.5" />
+                            復原
+                        </button>
+                    )}
+
                     {/* AI Enhance Button */}
                     <button
                         type="button"
                         disabled={loading || !formData.prompt.trim()}
                         onClick={async () => {
                             if (!formData.prompt.trim()) return;
+
+                            // Save current prompt for Undo
+                            setPreviousPrompt(formData.prompt);
+
                             setLoading(true);
                             try {
                                 const res = await fetch("/api/enhance", {
@@ -1073,89 +1013,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                         </>
                     )}
 
-                    <div className="relative">
-                        <button
-                            type="button"
-                            onClick={() => setIsCharacterMenuOpen(!isCharacterMenuOpen)}
-                            className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${savedCharacters.length > 0 || isCharacterMenuOpen
-                                ? "bg-cyan-500/20 text-cyan-200 border-cyan-500/50"
-                                : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
-                                }`}
-                        >
-                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            角色庫 {savedCharacters.length > 0 && `(${savedCharacters.length})`}
-                        </button>
 
-                        {isCharacterMenuOpen && (
-                            <>
-                                <div className="fixed inset-0 z-20" onClick={() => setIsCharacterMenuOpen(false)} />
-                                <div className="absolute top-10 right-0 z-30 w-72 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-3 animate-in fade-in slide-in-from-top-2">
-                                    <div className="flex justify-between items-center mb-2 pb-2 border-b border-white/10">
-                                        <span className="text-xs text-gray-400">已儲存的角色 DNA</span>
-                                        <button
-                                            onClick={saveCharacterDNA}
-                                            className="text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
-                                        >
-                                            + 儲存目前
-                                        </button>
-                                    </div>
-                                    {savedCharacters.length > 0 ? (
-                                        <div className="space-y-2 max-h-48 overflow-y-auto">
-                                            {savedCharacters.map((char, idx) => (
-                                                <div key={idx} className="flex items-center gap-1 group">
-                                                    <button
-                                                        onClick={() => loadCharacterDNA(char.prompt)}
-                                                        className="flex-1 text-left px-3 py-2 bg-white/5 hover:bg-cyan-500/20 rounded-lg text-sm text-white transition-colors truncate"
-                                                        title="點擊套用此角色"
-                                                    >
-                                                        {char.name}
-                                                    </button>
-                                                    {/* Preview Button */}
-                                                    <button
-                                                        onClick={() => previewCharacterDNA(char)}
-                                                        className="p-1.5 text-gray-400 hover:text-cyan-300 hover:bg-cyan-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
-                                                        title="預覽角色描述"
-                                                    >
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                        </svg>
-                                                    </button>
-                                                    {/* Edit Button */}
-                                                    <button
-                                                        onClick={() => editCharacterDNA(idx)}
-                                                        className="p-1.5 text-gray-400 hover:text-yellow-300 hover:bg-yellow-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
-                                                        title="編輯角色"
-                                                    >
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                        </svg>
-                                                    </button>
-                                                    {/* Delete Button */}
-                                                    <button
-                                                        onClick={() => deleteCharacterDNA(idx)}
-                                                        className="p-1.5 text-gray-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-all opacity-0 group-hover:opacity-100"
-                                                        title="刪除此角色"
-                                                    >
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <div className="text-center text-gray-500 text-xs py-4">
-                                            尚無儲存的角色<br />
-                                            <span className="text-cyan-400">點擊下方「🧑 提取角色」上傳圖片</span>
-                                        </div>
-                                    )}
-                                </div>
-                            </>
-                        )}
-                    </div>
                 </div>
 
                 {/* Magic Reverse Prompt Area */}
@@ -1285,56 +1143,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                                 }
                             }}
                         />
-                        <input
-                            type="file"
-                            id="character-upload"
-                            accept="image/*"
-                            className="hidden"
-                            onChange={async (e) => {
-                                const file = e.target.files?.[0];
-                                if (!file) return;
-                                if (file.size > 20 * 1024 * 1024) {
-                                    alert("圖片太大，請小於 20MB");
-                                    return;
-                                }
-                                e.target.value = "";
-                                setLoading(true);
-                                try {
-                                    const reader = new FileReader();
-                                    reader.onloadend = async () => {
-                                        const base64 = reader.result as string;
-                                        const res = await fetch("/api/describe", {
-                                            method: "POST",
-                                            headers: { "Content-Type": "application/json" },
-                                            body: JSON.stringify({
-                                                image: base64,
-                                                apiKey: formData.apiKey,
-                                                characterOnly: true
-                                            }),
-                                        });
-                                        if (!res.ok) throw new Error(await res.text());
-                                        const data = await res.json();
-                                        if (data.prompt) {
-                                            const name = prompt('給這個角色取個名字:');
-                                            if (name) {
-                                                const newCharacters = [...savedCharacters, { name, prompt: data.prompt }];
-                                                setSavedCharacters(newCharacters);
-                                                localStorage.setItem('characterDNA', JSON.stringify(newCharacters));
-                                                setFormData(prev => ({ ...prev, prompt: data.prompt + ', [場景描述]' }));
-                                                alert(`角色「${name}」已儲存到角色庫！`);
-                                            } else {
-                                                setFormData(prev => ({ ...prev, prompt: data.prompt }));
-                                            }
-                                        }
-                                    };
-                                    reader.readAsDataURL(file);
-                                } catch (err: any) {
-                                    setErrorMsg(err.message || "角色提取失敗");
-                                } finally {
-                                    setLoading(false);
-                                }
-                            }}
-                        />
+
 
                         {/* Clear Button */}
                         {formData.prompt && (
@@ -1396,17 +1205,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             </span>
                         </button>
 
-                        <button
-                            type="button"
-                            onClick={() => document.getElementById('character-upload')?.click()}
-                            className="p-2 bg-white/5 hover:bg-cyan-500/20 text-gray-400 hover:text-cyan-400 rounded-xl transition-all backdrop-blur-md border border-white/5 group relative"
-                            title="提取角色 DNA"
-                        >
-                            <User className="w-4 h-4" />
-                            <span className="absolute -top-10 right-0 w-max px-2 py-1 bg-black text-[10px] text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                                🧑 提取角色
-                            </span>
-                        </button>
+
 
                         <button
                             type="button"
