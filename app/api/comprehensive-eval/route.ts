@@ -111,7 +111,7 @@ export async function POST(request: Request) {
 請只返回 JSON，不要有任何其他文字。確保所有評分在 1-10 之間，百分比在 0-1 之間。`;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [
                 { text: evaluationPrompt },
                 {

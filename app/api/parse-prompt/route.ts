@@ -59,7 +59,7 @@ Return ONLY valid JSON (no markdown, no code blocks, just raw JSON) with this ex
 If a field is not present in the prompt, use null or an empty array. Be concise but accurate. The Chinese translations should be natural Traditional Chinese.`;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [
                 { text: systemPrompt },
                 { text: `Analyze this prompt:\n\n${prompt}` }

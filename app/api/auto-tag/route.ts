@@ -55,7 +55,7 @@ Be specific and use professional terminology. Include both English tags and ensu
 `;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [
                 { text: tagPrompt },
                 {

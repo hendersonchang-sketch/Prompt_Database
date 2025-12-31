@@ -43,7 +43,7 @@ const MODEL_CONFIG = {
         aspectRatio: '1:1',
     },
     pro: {
-        model: 'gemini-3-pro-image-preview',
+        model: 'gemini-2.5-flash-image',
         thinkingLevel: 'high',
         aspectRatio: '1:1',
     },

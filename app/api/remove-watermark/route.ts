@@ -29,7 +29,7 @@ export async function POST(request: Request) {
         // 2. Step 1: 將全圖發送給 Gemini，使其能感知背景上下文
         // 使用 client.models.generateContent 以確保呼叫成功
         const response = await client.models.generateContent({
-            model: "gemini-2.0-flash-exp",
+            model: "gemini-2.0-flash",
             contents: [
                 {
                     inlineData: {

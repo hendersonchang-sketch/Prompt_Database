@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         `;
 
         const scriptResponse = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [{ text: scriptPrompt }],
             config: { responseMimeType: "application/json" }
         });
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
                 High quality, consistent character, detailed background, distinct comic book lines.`;
 
                 const result = await client.models.generateContent({
-                    model: "gemini-2.0-flash-exp-image-generation", // Or gemini-2.0-flash-exp if that's what we have
+                    model: "gemini-2.5-flash-image", // Or gemini-2.0-flash-exp if that's what we have
                     contents: [{ text: fullPrompt }],
                     config: { responseModalities: ["TEXT", "IMAGE"] }
                 });

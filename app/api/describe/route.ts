@@ -77,7 +77,7 @@ CRITICAL: Focus on TIMELESS features. Exclude pose, action, camera angle, lighti
 `;
 
             const response = await client.models.generateContent({
-                model: "gemini-3-flash-preview",
+                model: "gemini-2.5-flash",
                 contents: [
                     {
                         role: "user",
@@ -150,7 +150,7 @@ IMPORTANT: Output ONLY valid JSON, no additional text.
 `;
 
             const response = await client.models.generateContent({
-                model: "gemini-3-flash-preview",
+                model: "gemini-2.5-flash",
                 contents: [
                     {
                         role: "user",

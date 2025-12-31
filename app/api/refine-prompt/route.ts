@@ -52,7 +52,7 @@ Output JSON format:
 }`;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [{ text: refinementPrompt }],
             config: {
                 responseMimeType: "application/json",

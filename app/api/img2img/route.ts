@@ -53,7 +53,7 @@ The output should be a complete, high-quality image.
 
         // 使用圖片生成模型
         const response = await client.models.generateContent({
-            model: "gemini-2.0-flash-exp-image-generation",
+            model: "gemini-2.5-flash-image",
             contents: [
                 { text: img2imgPrompt },
                 {

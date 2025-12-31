@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         };
 
         const response = await client.models.generateContent({
-            model: "gemini-2.0-flash-exp",
+            model: "gemini-2.0-flash",
             contents: [
                 imagePart,
                 { text: "Remove the background from this image completely. Make the background transparent or pure white. Keep only the main subject in the foreground. Output the edited image." }

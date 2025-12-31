@@ -76,7 +76,7 @@ All coordinates are in 0-1000 scale.
 `;
 
         const response = await client.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: [
                 { text: cropPrompt },
                 {
