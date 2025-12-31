@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
     X, Copy, Heart, Play, Trash2, Loader2, BarChart3, Microscope, Brain,
-    Scissors, Download, Save, Paintbrush, Sparkles, ZoomIn, ZoomOut, RotateCcw, Zap, ImageIcon
+    Scissors, Download, Save, Paintbrush, Sparkles, ZoomIn, ZoomOut, RotateCcw, Zap, ImageIcon, MonitorPlay, Expand
 } from "lucide-react";
 import { PromptEntry } from "./PromptCard";
 import SocialPreview from "./SocialPreview";
@@ -50,10 +50,14 @@ export function ImageModal({
 
     // 影像編輯預覽狀態
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-    const [previewMode, setPreviewMode] = useState<'bg-removal' | 'watermark-removal' | null>(null);
+    const [previewMode, setPreviewMode] = useState<'bg-removal' | 'watermark-removal' | 'upscale' | 'outpaint' | null>(null);
 
     // Toast State
     const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+    // AI Tool States
+    const [isUpscaling, setIsUpscaling] = useState(false);
+    const [isOutpainting, setIsOutpainting] = useState(false);
 
     // Scroll Management Refs
     const sidebarRef = useRef<HTMLDivElement>(null);
@@ -171,17 +175,22 @@ export function ImageModal({
                     originalPrompt: selectedImage.originalPrompt,
                     promptZh: selectedImage.promptZh,
                     negativePrompt: selectedImage.negativePrompt,
-                    width: selectedImage.width,
+                    width: previewMode === 'outpaint' ? Math.round(selectedImage.height * (16 / 9)) : selectedImage.width, // Rough estimate for 16:9 outpaint
                     height: selectedImage.height,
                     seed: selectedImage.seed,
                     cfgScale: selectedImage.cfgScale,
                     steps: selectedImage.steps,
                     tags: selectedImage.tags,
-                    imageEngine: selectedImage.engine || (previewMode === 'bg-removal' ? 'bg-removal' : 'watermark-removal')
+                    imageEngine: selectedImage.engine || (previewMode === 'bg-removal' ? 'bg-removal' : previewMode === 'watermark-removal' ? 'watermark-removal' : previewMode === 'upscale' ? 'upscale-4k' : 'outpaint-16:9')
                 })
             });
             if (res.ok) {
-                const message = previewMode === 'bg-removal' ? '✅ 已成功將去背圖片存為新紀錄' : '✅ 已成功將消除浮水印後的圖片存為新紀錄';
+                const message =
+                    previewMode === 'bg-removal' ? '✅ 已成功將去背圖片存為新紀錄' :
+                        previewMode === 'watermark-removal' ? '✅ 已成功將消除浮水印後的圖片存為新紀錄' :
+                            previewMode === 'upscale' ? '⚡ 4K 放大圖已存入圖庫' :
+                                '↔️ 擴展圖片已存入圖庫';
+
                 showToast(message);
                 setPreviewUrl(null);
                 setPreviewMode(null);
@@ -754,6 +763,71 @@ export function ImageModal({
                                     >
                                         {isRemovingWatermark ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Paintbrush className="w-3.5 h-3.5" />}
                                         消除浮水印
+                                    </button>
+
+                                    {/* New AI Tools: Upscale & Outpaint */}
+                                    <button
+                                        onClick={async () => {
+                                            if (!selectedImage.imageUrl) return;
+                                            setIsUpscaling(true);
+                                            try {
+                                                const base64 = await getBase64(selectedImage.imageUrl);
+                                                const res = await fetch('/api/upscale', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        imageBase64: base64.split(',')[1],
+                                                        apiKey: localStorage.getItem('geminiApiKey') || ''
+                                                    }),
+                                                });
+                                                if (!res.ok) throw new Error('放大失敗');
+                                                const data = await res.json();
+                                                if (data.imageBase64) {
+                                                    const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
+                                                    setPreviewUrl(resultUrl);
+                                                    setPreviewMode('upscale');
+                                                    showToast('✨ 4K 放大完成，請確認預覽');
+                                                }
+                                            } catch (err: any) { alert('放大失敗: ' + (err.message)); } finally { setIsUpscaling(false); }
+                                        }}
+                                        disabled={isUpscaling}
+                                        className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 hover:border-amber-500/40 text-amber-200 rounded-xl text-[11px] font-medium transition-all hover:bg-amber-500/20"
+                                    >
+                                        {isUpscaling ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Zap className="w-3.5 h-3.5" />}
+                                        4K 畫質放大
+                                    </button>
+
+                                    <button
+                                        onClick={async () => {
+                                            if (!selectedImage.imageUrl) return;
+                                            setIsOutpainting(true);
+                                            try {
+                                                const base64 = await getBase64(selectedImage.imageUrl);
+                                                const res = await fetch('/api/outpaint', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        imageBase64: base64.split(',')[1],
+                                                        apiKey: localStorage.getItem('geminiApiKey') || '',
+                                                        prompt: selectedImage.prompt,
+                                                        ratio: "16:9" // Default to 16:9 expansion
+                                                    }),
+                                                });
+                                                if (!res.ok) throw new Error('擴圖失敗');
+                                                const data = await res.json();
+                                                if (data.imageBase64) {
+                                                    const resultUrl = `data:${data.mimeType};base64,${data.imageBase64}`;
+                                                    setPreviewUrl(resultUrl);
+                                                    setPreviewMode('outpaint');
+                                                    showToast('✨ 智慧擴圖 (16:9) 完成，請確認預覽');
+                                                }
+                                            } catch (err: any) { alert('擴圖失敗: ' + (err.message)); } finally { setIsOutpainting(false); }
+                                        }}
+                                        disabled={isOutpainting}
+                                        className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 hover:border-blue-500/40 text-blue-200 rounded-xl text-[11px] font-medium transition-all hover:bg-blue-500/20"
+                                    >
+                                        {isOutpainting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Expand className="w-3.5 h-3.5" />}
+                                        擴展 16:9
                                     </button>
                                 </div>
                             </div>

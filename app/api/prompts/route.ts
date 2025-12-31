@@ -3,6 +3,23 @@ import { prisma } from '@/lib/prisma';
 import { GoogleGenAI } from "@google/genai";
 // @ts-ignore
 import sharp from 'sharp';
+import { generateImage } from '@/services/geminiImageService';
+
+const MASTER_ALCHEMIST_INSTRUCTION = `
+### 🔮 [MASTER ALCHEMIST MODE: ON]
+You are now in Master Alchemist Mode. Your goal is to transform the user's input into an ELITE-LEVEL masterpiece prompt.
+1. **Artistic Precision**: Focus on high-fidelity technical details and artistic craftsmanship. Use descriptions of lighting, texture, and composition to elevate the prompt.
+2. **Technically Rich**: Instead of "high quality", use technical terms: "Volumetric lighting", "Ray-tracing", "Global illumination", "PBR materials", "8k resolution photorealistic", "Subsurface scattering of light on materials".
+3. **Environmental Alchemy**: Describe the atmosphere, dust motes in sunbeams, subtle lens flares, and the interplay of shadows.
+4. **Compositional Drama**: Define specific camera setups: "Cinematic wide sweep", "Micro-macro close-up with soft bokeh", "Crisp architectural line perspective".
+5. **SAFETY PROTOCOL**: Ensure generated descriptions are graceful, professional, and strictly adhere to AI safety guidelines. Avoid sexually suggestive, violent, or overly aggressive descriptions.
+6. **JSON Response**: You MUST return a JSON object containing:
+   - "enPrompt": The master-level English prompt.
+   - "zhPrompt": A poetic Traditional Chinese translation.
+   - "tags": 5-8 artistic tags.
+   - "suggested_aspect_ratio": "16:9", "9:16", or "1:1" based on the artistic vision.
+   - "negative_prompt": Technical negative prompts (e.g., "blurry, low resolution, distorted") to ensure elite quality.
+`;
 
 // Helper to calculate cosine similarity
 function cosineSimilarity(vecA: number[], vecB: number[]) {
@@ -186,7 +203,8 @@ export async function POST(request: Request) {
             imageBase64 = null, // Optional for img2img
             strength = 50,
             style = "preserve",
-            useSearch = false // NEW: Trigger for Google Search Retrieval
+            useSearch = false, // NEW: Trigger for Google Search Retrieval
+            useMagicEnhance = false // NEW: Trigger for AI Prompt Alchemist
         } = body;
 
         // Ensure imageCount is an integer and within bounds
@@ -198,6 +216,10 @@ export async function POST(request: Request) {
         let originalPrompt = prompt;
         let finalImageUrl = "";
         let tagsResult = provider;
+        let finalNegativePrompt = negativePrompt || "";
+        let finalWidth = width;
+        let finalHeight = height;
+        let isEnhanced = false;
 
         // Parallel Processing for Translation & Tagging (Only if API Key is present)
         if (apiKey) {
@@ -333,13 +355,25 @@ Return ONLY a JSON object with this structure:
 User Input: ${searchOptimizedPrompt}
                 `;
 
-                const analysisResp = await fetch(geminiUrl, {
+                const useModel = useMagicEnhance ? "gemini-3-flash-preview" : "gemini-2.5-flash";
+                const systemInstruction = (useMagicEnhance ? MASTER_ALCHEMIST_INSTRUCTION : "") + analysisPrompt;
+
+                console.log(`🚀 Using Analysis Model: ${useModel} (Alchemy: ${useMagicEnhance})`);
+
+                const analysisResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${useModel}:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: analysisPrompt }] }],
-                        tools: tools, // NEW: Pass tools
-                        generationConfig: { responseMimeType: "application/json" } // Force JSON mode
+                        contents: [{ parts: [{ text: searchOptimizedPrompt }] }],
+                        systemInstruction: { parts: [{ text: systemInstruction }] },
+                        tools: tools,
+                        safetySettings: [
+                            { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+                            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+                            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+                            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+                        ],
+                        generationConfig: { responseMimeType: "application/json" }
                     })
                 });
 
@@ -352,7 +386,7 @@ User Input: ${searchOptimizedPrompt}
                         const fs = require('fs');
                         const path = require('path');
                         const logPath = path.join(process.cwd(), 'debug_log.txt');
-                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] Raw Gemini Response:\n${text}\n-------------------\n`);
+                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] Model: ${useModel}, Alchemy: ${useMagicEnhance}\nRaw Gemini Response:\n${text}\n-------------------\n`);
                     } catch (e) { console.error("Log write failed", e); }
 
                     console.log("Raw Gemini Analysis Response:", text); // Debug Log
@@ -371,7 +405,26 @@ User Input: ${searchOptimizedPrompt}
                             promptZh = result.zhPrompt || "";
                             tagsResult = result.tags || "";
 
-                            console.log("Gemini Analysis Parsing Success:", result);
+                            // Manage Alchemy suggestions
+                            if (useMagicEnhance) {
+                                if (result.negative_prompt) {
+                                    finalNegativePrompt = result.negative_prompt;
+                                }
+                                // DISABLE ASPECT RATIO OVERRIDE
+                                // Users want to control the ratio manually.
+                                // if (result.suggested_aspect_ratio && width === 1024 && height === 1024) {
+                                //     if (result.suggested_aspect_ratio === "16:9") {
+                                //         finalWidth = 1216;
+                                //         finalHeight = 684;
+                                //     } else if (result.suggested_aspect_ratio === "9:16") {
+                                //         finalWidth = 684;
+                                //         finalHeight = 1216;
+                                //     }
+                                // }
+                                isEnhanced = true;
+                            }
+
+                            console.log("Gemini Analysis Parsing Success:", { finalPrompt, finalWidth, finalHeight });
                         } catch (parseErr) {
                             console.error("Gemini Analysis JSON Parse Failed via Substring method. Raw:", text);
                         }
@@ -401,12 +454,36 @@ User Input: ${searchOptimizedPrompt}
                 }
             } catch (err) {
                 console.error("Bilingual/Tagging analysis failed:", err);
-                // Fallback: Use original prompt, simple tag
+                // Fallback: Use current finalPrompt
             }
         }
 
+        // 使用優化後的尺寸
+        const currentWidth = finalWidth;
+        const currentHeight = finalHeight;
+
+        // Prepend Engine information to tags for frontend display
+        const imageEngineName = body.imageEngine || (provider === "gemini" ? "imagen" : provider);
+        const finalTags = `Engine:${imageEngineName}${tagsResult ? `, ${tagsResult}` : ""}`;
+
         // Seed Generation
         const finalSeed = seed && seed !== -1 ? seed : Math.floor(Math.random() * 1000000);
+
+        // Aspect Ratio Calculation (Based on final calculated dimensions)
+        // Use a small tolerance for aspect ratio matching
+        const ratio = finalWidth / finalHeight;
+        let finalAspectRatio = "1:1";
+        if (Math.abs(ratio - (16 / 9)) < 0.1) {
+            finalAspectRatio = "16:9";
+        } else if (Math.abs(ratio - (9 / 16)) < 0.1) {
+            finalAspectRatio = "9:16";
+        } else if (ratio > 1.2) {
+            finalAspectRatio = "16:9";
+        } else if (ratio < 0.8) {
+            finalAspectRatio = "9:16";
+        }
+
+        console.log(`Final Dimensions: ${finalWidth}x${finalHeight}, Interpreted Aspect Ratio: ${finalAspectRatio}`);
 
         // Provider Logic (Now uses finalPrompt which is likely English)
         if (imageBase64 && apiKey) {
@@ -443,21 +520,48 @@ User Input: ${searchOptimizedPrompt}
                 User Request: ${finalPrompt}
                 `;
 
-                const response = await client.models.generateContent({
-                    model: "gemini-2.5-flash-image",
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${apiKey}`;
+
+                const payload = {
                     contents: [
-                        { text: img2imgPrompt },
                         {
-                            inlineData: {
-                                data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, ''),
-                                mimeType: "image/png" // Gemini usually handles this base64
-                            }
+                            parts: [
+                                { text: img2imgPrompt },
+                                {
+                                    inlineData: {
+                                        data: imageBase64.replace(/^data:image\/[a-z]+;base64,/, ''),
+                                        mimeType: "image/png"
+                                    }
+                                }
+                            ]
                         }
                     ],
-                    config: {
-                        responseModalities: ["TEXT", "IMAGE"]
+                    generationConfig: {
+                        responseModalities: ["IMAGE"],
+                        imageConfig: {
+                            aspectRatio: finalAspectRatio
+                        }
                     }
+                };
+
+                // Log Img2Img params
+                try {
+                    const fs = require('fs');
+                    const path = require('path');
+                    const logPath = path.join(process.cwd(), 'debug_log.txt');
+                    fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] ENGINE: Img2Img (gemini-2.5-flash-image)\nENDPOINT: generateContent, ASPECT RATIO: ${finalAspectRatio}\nPROMPT: ${img2imgPrompt}\n-------------------\n`);
+                } catch (e) { }
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
                 });
+
+                const responseText = await response.text();
+                if (!response.ok) throw new Error(`Img2Img API Error (${response.status}): ${responseText}`);
+
+                const data = JSON.parse(responseText);
 
                 const fs = require('fs');
                 const path = require('path');
@@ -465,15 +569,17 @@ User Input: ${searchOptimizedPrompt}
                 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
                 const generatedImages: string[] = [];
-                for (const part of response.candidates?.[0]?.content?.parts || []) {
-                    if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
-                        const buffer = Buffer.from(part.inlineData.data, 'base64');
-                        // Directly write raw bytes to preserve quality (PNG or High-Quality WebP/JPEG)
-                        const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
-                        const filename = `img2img-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
-                        const filepath = path.join(uploadDir, filename);
-                        fs.writeFileSync(filepath, buffer);
-                        generatedImages.push(`/uploads/${filename}`);
+
+                if (data.candidates && data.candidates[0]?.content?.parts) {
+                    for (const part of data.candidates[0].content.parts) {
+                        if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
+                            const buffer = Buffer.from(part.inlineData.data, 'base64');
+                            const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
+                            const filename = `img2img-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
+                            const filepath = path.join(uploadDir, filename);
+                            fs.writeFileSync(filepath, buffer);
+                            generatedImages.push(`/uploads/${filename}`);
+                        }
                     }
                 }
 
@@ -491,12 +597,12 @@ User Input: ${searchOptimizedPrompt}
                             seed: finalSeed,
                             cfgScale,
                             steps,
-                            negativePrompt
+                            negativePrompt: finalNegativePrompt
                         });
                     }
                     finalImageUrl = generatedImages[0];
                 } else {
-                    const textResponse = response.candidates?.[0]?.content?.parts?.[0]?.text || "";
+                    const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
                     console.error("Img2Img returned no image, text response:", textResponse);
                     throw new Error("Failed to generate image from reference");
                 }
@@ -521,20 +627,44 @@ User Input: ${searchOptimizedPrompt}
             if (imageEngine === "pro" || imageEngine === "flash" || imageEngine === "gemini-native") {
                 // Gemini Native Image Generation (better text rendering)
                 try {
-                    console.log("Attempting Gemini Native Image Generation with:", finalPrompt);
-                    const client = new GoogleGenAI({ apiKey });
+                    console.log(`Attempting Gemini Native REST Generation (${imageEngine}) with:`, finalPrompt);
 
                     const modelName = imageEngine === "pro"
                         ? "gemini-3-pro-image-preview"
                         : "gemini-2.5-flash-image";
 
-                    const response = await client.models.generateContent({
-                        model: modelName,
-                        contents: [{ text: finalPrompt }],
-                        config: {
-                            responseModalities: ["TEXT", "IMAGE"]
+                    // Use :generateContent instead of :predict for Gemini Native models
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+
+                    // Build payload for generateContent
+                    const payload = {
+                        contents: [{ parts: [{ text: finalPrompt }] }],
+                        generationConfig: {
+                            responseModalities: ["IMAGE"],
+                            imageConfig: {
+                                aspectRatio: finalAspectRatio
+                            }
                         }
+                    };
+
+                    // Log parameters for verification
+                    try {
+                        const fs = require('fs');
+                        const path = require('path');
+                        const logPath = path.join(process.cwd(), 'debug_log.txt');
+                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] ENGINE: ${imageEngine}, MODEL: ${modelName}\nENDPOINT: generateContent, ASPECT RATIO: ${finalAspectRatio}\nPROMPT: ${finalPrompt}\n-------------------\n`);
+                    } catch (e) { }
+
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
                     });
+
+                    const responseText = await response.text();
+                    if (!response.ok) throw new Error(`Gemini Native API Error (${response.status}): ${responseText}`);
+
+                    const data = JSON.parse(responseText);
 
                     const fs = require('fs');
                     const path = require('path');
@@ -543,22 +673,22 @@ User Input: ${searchOptimizedPrompt}
 
                     const generatedImages: string[] = [];
 
-                    // Extract images from response
-                    for (const part of response.candidates?.[0]?.content?.parts || []) {
-                        if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
-                            const buffer = Buffer.from(part.inlineData.data, 'base64');
-                            // Directly write raw bytes to preserve quality
-                            const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
-                            const filename = `gemini-native-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
-                            const filepath = path.join(uploadDir, filename);
-                            fs.writeFileSync(filepath, buffer);
-                            generatedImages.push(`/uploads/${filename}`);
+                    // Extract images from generateContent response format
+                    if (data.candidates && data.candidates[0]?.content?.parts) {
+                        for (const part of data.candidates[0].content.parts) {
+                            if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
+                                const buffer = Buffer.from(part.inlineData.data, 'base64');
+                                const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
+                                const filename = `gemini-native-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
+                                const filepath = path.join(uploadDir, filename);
+                                fs.writeFileSync(filepath, buffer);
+                                generatedImages.push(`/uploads/${filename}`);
+                            }
                         }
                     }
 
                     if (generatedImages.length === 0) {
-                        // Fallback to Imagen if Gemini Native fails
-                        console.log("Gemini Native returned no image, falling back to Imagen...");
+                        console.log("Gemini Native REST returned no image, falling back to Imagen...");
                         throw new Error("FALLBACK_TO_IMAGEN");
                     }
 
@@ -570,13 +700,15 @@ User Input: ${searchOptimizedPrompt}
                             prompt: finalPrompt,
                             originalPrompt: originalPrompt,
                             promptZh: promptZh,
-                            tags: tagsResult,
-                            width,
-                            height,
+                            tags: finalTags,
+                            width: finalWidth,
+                            height: finalHeight,
                             seed: finalSeed,
                             cfgScale,
                             steps,
-                            negativePrompt
+                            negativePrompt: finalNegativePrompt,
+                            isEnhanced: useMagicEnhance,
+                            usedPrompt: finalPrompt,
                         });
                     }
 
@@ -605,8 +737,8 @@ User Input: ${searchOptimizedPrompt}
                         instances: [{ prompt: finalPrompt }],
                         parameters: {
                             sampleCount: parsedImageCount,
-                            aspectRatio: width === height ? "1:1" : width > height ? "16:9" : "9:16",
-                            safetySetting: "block_low_and_above", // 修正：API 僅支持此設定
+                            aspectRatio: finalAspectRatio,
+                            safetySetting: "block_low_and_above",
                             personGeneration: "allow_adult",
                         }
                     };
@@ -641,6 +773,9 @@ User Input: ${searchOptimizedPrompt}
                             }
                         }
 
+                        const imageEngineName = body.imageEngine || (provider === "gemini" ? "imagen" : provider);
+                        const finalTags = `Engine:${imageEngineName}${tagsResult ? `, ${tagsResult}` : ""}`;
+
                         // If preview mode or multiple images, return array without saving to DB
                         if (previewMode || parsedImageCount > 1) {
                             return NextResponse.json({
@@ -652,13 +787,15 @@ User Input: ${searchOptimizedPrompt}
                                 prompt: finalPrompt,
                                 originalPrompt: originalPrompt,
                                 promptZh: promptZh,
-                                tags: tagsResult,
-                                width,
-                                height,
+                                tags: finalTags,
+                                width: finalWidth,
+                                height: finalHeight,
                                 seed: finalSeed,
                                 cfgScale,
                                 steps,
-                                negativePrompt
+                                negativePrompt: finalNegativePrompt,
+                                isEnhanced: useMagicEnhance,
+                                usedPrompt: finalPrompt,
                             });
                         }
 
@@ -670,6 +807,15 @@ User Input: ${searchOptimizedPrompt}
 
                 } catch (err: any) {
                     console.error("Imagen Gen Failed:", err);
+
+                    // Log the final prompt that caused failure
+                    try {
+                        const fs = require('fs');
+                        const path = require('path');
+                        const logPath = path.join(process.cwd(), 'debug_log.txt');
+                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] IMAGEN FAILURE:\nPrompt: ${finalPrompt}\nError: ${err.message}\n-------------------\n`);
+                    } catch (logErr) { }
+
                     throw new Error("Imagen Generation Failed: " + err.message);
                 }
             }
@@ -682,19 +828,18 @@ User Input: ${searchOptimizedPrompt}
             finalImageUrl = `https://picsum.photos/seed/${finalSeed}/${width}/${height}`;
         }
 
-        // Prepend Engine information to tags for frontend display
-        const imageEngine = body.imageEngine || (provider === "gemini" ? "imagen" : provider);
-        const finalTags = `Engine:${imageEngine}${tagsResult ? `, ${tagsResult}` : ""}`;
+        // 使用生成的種子碼
+        const finalSeedVal = finalSeed;
 
         const entry = await prisma.promptEntry.create({
             data: {
                 prompt: finalPrompt, // English / Optimized
                 originalPrompt: originalPrompt, // What user typed
                 promptZh: promptZh, // Chinese Display
-                negativePrompt,
+                negativePrompt: finalNegativePrompt,
                 imageUrl: finalImageUrl,
-                width,
-                height,
+                width: finalWidth,
+                height: finalHeight,
                 sampler,
                 seed: finalSeed,
                 cfgScale,
@@ -703,7 +848,13 @@ User Input: ${searchOptimizedPrompt}
             }
         });
 
-        return NextResponse.json(entry);
+        // 如果使用了 Magic Enhance，在回傳物件中標註並提供最終提示詞
+        const responseData = {
+            ...entry,
+            isEnhanced: useMagicEnhance,
+            usedPrompt: finalPrompt // 回傳增強後的完整英文提示詞
+        };
+        return NextResponse.json(responseData);
     } catch (error: any) {
         console.error('Failed to create prompt:', error);
 

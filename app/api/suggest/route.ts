@@ -54,7 +54,7 @@ Output ONLY a JSON object:
 }`;
 
         const response = await client.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: "gemini-3-flash-preview",
             contents: [{ text: suggestPrompt }],
             config: {
                 responseMimeType: "application/json",

@@ -299,6 +299,8 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
     // Template Selector State
     const [isTemplateOpen, setIsTemplateOpen] = useState(false);
     const [activeCategory, setActiveCategory] = useState<TemplateCategory>("Commercial");
+    const [lastEnhancedPrompt, setLastEnhancedPrompt] = useState("");
+    const [isLastResultEnhanced, setIsLastResultEnhanced] = useState(false);
 
     const [imageCount, setImageCount] = useState(1);
 
@@ -642,6 +644,20 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
         setPreviewData(null);
     };
 
+    const handleBananaProSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setImageEngine("pro");
+        setUseMagicEnhancer(true);
+
+        // Use a timeout to ensure state updates (though React might batch them)
+        // or just pass the values directly in a helper.
+        // For simplicity, I'll call a shared generation function or just wait a tick.
+        setTimeout(() => {
+            const submitBtn = document.querySelector('button[type="submit"]') as HTMLButtonElement;
+            if (submitBtn) submitBtn.click();
+        }, 100);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -649,13 +665,12 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
         try {
             const payload = {
                 ...formData,
-                prompt: useMagicEnhancer
-                    ? applyUltimateMasterFilter(formData.prompt, imageEngine)
-                    : formData.prompt,
+                prompt: formData.prompt,
                 imageCount: imageEngine === "imagen" ? imageCount : 1,
                 imageEngine,
                 previewMode: imageEngine === "imagen" && imageCount > 1,
-                useSearch: useSearch, // NEW: Pass search flag
+                useSearch: useSearch,
+                useMagicEnhance: useMagicEnhancer, // 修正為 useMagicEnhancer
                 // Add reference image if exists
                 imageBase64: referenceImage,
                 strength: referenceMode === 'preserve' ? 30 : (referenceMode === '3d' ? 80 : 50),
@@ -673,6 +688,15 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             }
 
             const data = await res.json();
+
+            // Store enhancement info for display
+            if (data.usedPrompt) {
+                setLastEnhancedPrompt(data.usedPrompt);
+                setIsLastResultEnhanced(!!data.isEnhanced);
+            } else {
+                setLastEnhancedPrompt("");
+                setIsLastResultEnhanced(false);
+            }
 
             // Check if preview mode response
             if (data.previewMode && data.images?.length > 0) {
@@ -923,15 +947,13 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                     <button
                         type="button"
                         onClick={() => setUseMagicEnhancer(!useMagicEnhancer)}
-                        className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${useMagicEnhancer
-                            ? "bg-amber-400 text-black border-amber-400 font-bold shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+                        className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${useMagicEnhancer
+                            ? "bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/50 text-yellow-200 shadow-[0_0_15px_rgba(234,179,8,0.2)] font-bold"
                             : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
                             }`}
                     >
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={useMagicEnhancer ? "currentColor" : "none"} stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                        {useMagicEnhancer ? "✨ 魔法增強已啟用" : "🪄 魔法增強"}
+                        <Sparkles className={`w-3.5 h-3.5 ${useMagicEnhancer ? "animate-pulse text-yellow-400" : ""}`} />
+                        {useMagicEnhancer ? "✨ 煉金術 (Magic Enhance)" : "🪄 提示詞煉金術"}
                     </button>
 
                     <button
@@ -1580,6 +1602,22 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                             </button>
                         </div>
 
+                        {/* Magic Enhance Feedback */}
+                        {isLastResultEnhanced && lastEnhancedPrompt && (
+                            <div className="mb-6 p-4 bg-purple-500/10 border border-purple-500/30 rounded-xl animate-in fade-in slide-in-from-top-4 duration-500">
+                                <div className="flex items-center gap-2 mb-2 text-purple-300 font-bold text-sm">
+                                    <Sparkles className="w-4 h-4 animate-pulse" />
+                                    <span>AI 煉金成果 (Master Alchemist Result)</span>
+                                </div>
+                                <div className="text-xs text-purple-200/80 leading-relaxed font-mono bg-black/30 p-3 rounded-lg border border-purple-500/10">
+                                    {lastEnhancedPrompt}
+                                </div>
+                                <div className="mt-2 text-[10px] text-purple-400 italic">
+                                    * 以此高品質指令為例，AI 為您擴充了光影、質感與構圖細節。
+                                </div>
+                            </div>
+                        )}
+
                         <div className={`grid gap-4 ${previewImages.length === 2 ? 'grid-cols-2' : previewImages.length >= 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                             {previewImages.map((imgUrl, idx) => (
                                 <div key={idx} className="group relative bg-black/40 rounded-xl overflow-hidden border border-white/10">
@@ -1637,20 +1675,38 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 </div>
             )}
 
-            <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-bold text-lg text-white shadow-lg hover:shadow-cyan-500/25 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-                {loading ? (
-                    <span className="flex items-center justify-center gap-2">
-                        <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        {useSearch ? "AI 分析與聯網中..." : "生成中..."}
-                    </span>
-                ) : (
-                    "開始生圖 (Generate)"
-                )}
-            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-lg text-white shadow-lg hover:shadow-cyan-500/25 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                    {loading && imageEngine !== 'pro' ? (
+                        <>
+                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            {useSearch ? "AI 分析與聯網中..." : "生成中..."}
+                        </>
+                    ) : (
+                        <>🎨 開始生圖 (Generate)</>
+                    )}
+                </button>
+
+                <button
+                    type="button"
+                    onClick={handleBananaProSubmit}
+                    disabled={loading}
+                    className="w-full py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-purple-600 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-orange-500/30 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-white/20"
+                >
+                    {loading && imageEngine === 'pro' && useMagicEnhancer ? (
+                        <>
+                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>🍌 Banana Pro 思考中...</span>
+                        </>
+                    ) : (
+                        <>🍌 Banana Pro (100% Web 版)</>
+                    )}
+                </button>
+            </div>
 
             <CharacterManager
                 isOpen={showCharManager}

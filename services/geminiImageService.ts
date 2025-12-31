@@ -2,9 +2,11 @@
  * Gemini Image Generation Service
  * 
  * 支援三種引擎類型：
- * - flash: 使用 gemini-3-flash-preview，低思考等級，1:1 比例
+ * - flash: 使用 gemini-2.5-flash-image，低思考等級，1:1 比例
  * - pro: 使用 gemini-3-pro-image-preview，高思考等級，支援多圖輸入
  * - imagen: 使用 imagen-4，無思考等級參數
+ * 
+ * 注意：提示詞優化 (Suggest API) 應使用文字模型 gemini-3-flash-preview。
  */
 
 import { GoogleGenAI } from "@google/genai";
@@ -116,7 +118,9 @@ export async function generateImage(options: GenerateImageOptions): Promise<Gene
         const generateConfig: Record<string, unknown> = {
             responseModalities: ['IMAGE'],
             ...(aspectRatio || config.aspectRatio) && {
-                aspectRatio: aspectRatio || config.aspectRatio
+                imageConfig: {
+                    aspectRatio: aspectRatio || config.aspectRatio
+                }
             }
         };
 
