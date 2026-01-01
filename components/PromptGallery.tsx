@@ -384,6 +384,15 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         });
     }, [prompts, searchQuery, selectedTags, showFavoritesOnly, activeCollectionId, useSemanticSearch]);
 
+    // Masonry Stability Logic: Force reset if list shrinks (Filter/Delete) to avoid "No data at index" error
+    const prevLengthRef = useRef(0);
+    useEffect(() => {
+        if (filteredPrompts.length < prevLengthRef.current) {
+            setMasonryKey(k => k + 1);
+        }
+        prevLengthRef.current = filteredPrompts.length;
+    }, [filteredPrompts.length]);
+
     const toggleTag = (tag: string) => {
         setSelectedTags(prev =>
             prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
