@@ -77,7 +77,7 @@ export function PromptCard({
                 }
             }}
             className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer ${isSelected
-                ? "border-red-500 shadow-lg shadow-red-500/20"
+                ? "border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                 : "border-white/5 hover:border-purple-500/50"
                 }`}
         >
@@ -85,7 +85,7 @@ export function PromptCard({
             {isSelectionMode && (
                 <div className="absolute top-3 left-3 z-20">
                     <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${isSelected
-                        ? "bg-red-500 border-red-500"
+                        ? "bg-purple-500 border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.6)]"
                         : "bg-black/50 border-white/50 group-hover:border-white"
                         }`}>
                         {isSelected && (
