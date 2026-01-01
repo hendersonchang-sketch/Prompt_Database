@@ -19,22 +19,35 @@ model PromptEntry {
   cfgScale       Float?   @default(7.0)
   steps          Int?     @default(25)
   tags           String?
-  promptZh       String?  // Translated Chinese prompt for display
-  originalPrompt String?  // User's original input (preserving language)
+  promptZh       String? // Translated Chinese prompt for display
+  originalPrompt String? // User's original input (preserving language)
   isFavorite     Boolean  @default(false)
   createdAt      DateTime @default(now())
-  embedding      String?  // JSON string of float array for semantic search
+  embedding      String? // JSON string of float array for semantic search
 
   // Relations
-  personaId      String?
-  persona        AlchemistPersona? @relation(fields: [personaId], references: [id])
-  
-  tagsRelation   Tag[] // Many-to-Many relation with normalized tags
+  personaId String?
+  persona   AlchemistPersona? @relation(fields: [personaId], references: [id])
+
+  tagsRelation Tag[] // Many-to-Many relation with normalized tags
+
+  collections Collection[] // Many-to-Many relation
 
   // Indexes for performance
   @@index([isFavorite])
   @@index([createdAt])
   @@index([personaId])
+}
+
+model Collection {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  coverImage  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  prompts PromptEntry[]
 }
 
 model Tag {
@@ -51,9 +64,9 @@ model Tag {
 
 model PromptSnippet {
   id        String   @id @default(uuid())
-  category  String   // "Lighting", "Camera", "Style", "Quality", "subject"
-  content   String   // "rim lighting", "8k resolution"
-  label     String   // "輪廓光", "8K"
+  category  String // "Lighting", "Camera", "Style", "Quality", "subject"
+  content   String // "rim lighting", "8k resolution"
+  label     String // "輪廓光", "8K"
   createdAt DateTime @default(now())
 }
 
@@ -69,7 +82,7 @@ model Character {
 
 model PromptTemplate {
   id        String   @id @default(uuid())
-  category  String   // e.g. "Commercial", "3D Art"
+  category  String // e.g. "Commercial", "3D Art"
   name      String
   prompt    String
   desc      String
@@ -78,12 +91,13 @@ model PromptTemplate {
 }
 
 model AlchemistPersona {
-  id           String   @id @default(uuid())
+  id           String        @id @default(uuid())
   name         String
   description  String?
-  systemPrompt String   // large text
-  isDefault    Boolean  @default(false)
-  builtin      Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  systemPrompt String // large text
+  isDefault    Boolean       @default(false)
+  builtin      Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  PromptEntry  PromptEntry[]
 }

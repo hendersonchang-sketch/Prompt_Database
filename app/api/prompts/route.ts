@@ -39,6 +39,7 @@ export async function GET(request: Request) {
         const { searchParams } = new URL(request.url);
         const search = searchParams.get('search');
         const semantic = searchParams.get('semantic') === 'true';
+        const collectionId = searchParams.get('collectionId');
         const apiKey = request.headers.get('x-api-key') || searchParams.get('apiKey');
 
         // Paging Parameters
@@ -94,7 +95,9 @@ export async function GET(request: Request) {
 
             // Fetch prompts with embeddings for matching
             // Fetch prompts with embeddings for matching
+            // Fetch prompts with embeddings for matching
             const allWithEmbeds = await prisma.promptEntry.findMany({
+                where: collectionId ? { collections: { some: { id: collectionId } } } : undefined,
                 select: { ...selectFields, embedding: true }
             });
 
@@ -131,7 +134,7 @@ export async function GET(request: Request) {
 
         // 2. Keyword Search
         else if (search) {
-            const where = {
+            const where: any = {
                 OR: [
                     { prompt: { contains: search } },
                     { promptZh: { contains: search } },
@@ -139,6 +142,12 @@ export async function GET(request: Request) {
                     { originalPrompt: { contains: search } }
                 ]
             };
+
+            if (collectionId) {
+                where.AND = {
+                    collections: { some: { id: collectionId } }
+                };
+            }
             const prompts = await prisma.promptEntry.findMany({
                 where,
                 orderBy: { createdAt: 'desc' },
@@ -160,13 +169,15 @@ export async function GET(request: Request) {
 
         // 3. Default List
         else {
+            const where = collectionId ? { collections: { some: { id: collectionId } } } : undefined;
             const prompts = await prisma.promptEntry.findMany({
+                where,
                 orderBy: { createdAt: 'desc' },
                 skip: skip,
                 take: limit,
                 select: selectFields
             });
-            const total = await prisma.promptEntry.count();
+            const total = await prisma.promptEntry.count({ where });
             return NextResponse.json({
                 prompts,
                 pagination: {

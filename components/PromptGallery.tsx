@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
 
@@ -10,7 +10,7 @@ import GalleryToolbar from "./GalleryToolbar";
 import { ImageModal } from "./ImageModal";
 import { PromptCard, PromptEntry } from "./PromptCard";
 import {
-    Search, Trash2, Loader2, Download, Zap, X
+    Search, Trash2, Loader2, Download, Zap, X, Map as MapIcon, RefreshCw, Upload, Edit, MoreHorizontal, FolderPlus
 } from "lucide-react";
 
 
@@ -19,6 +19,9 @@ interface PromptGalleryProps {
     onReuse?: (data: any) => void;
     onSetAsReference?: (image: any) => void;
 }
+
+import CollectionSidebar from "./collections/CollectionSidebar";
+import CollectionSelector from "./collections/CollectionSelector";
 
 export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReference }: PromptGalleryProps) {
     const [prompts, setPrompts] = useState<PromptEntry[]>([]);
@@ -62,6 +65,11 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
     // Scroll state for sticky header
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // Collections
+    const [isCollectionSidebarOpen, setIsCollectionSidebarOpen] = useState(false);
+    const [activeCollectionId, setActiveCollectionId] = useState<string | null>(null);
+    const [showCollectionSelector, setShowCollectionSelector] = useState(false);
+
     // Extract Unique Tags
     const allTags = Array.from(new Set(
         prompts.flatMap(p => p.tags ? p.tags.split(',').map(t => t.trim()) : [])
@@ -85,7 +93,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         setPage(1);
         setPrompts([]);
         fetchPrompts(undefined, undefined, 1, false);
-    }, [refreshTrigger, searchQuery, useSemanticSearch, showFavoritesOnly, selectedTags]);
+    }, [refreshTrigger, searchQuery, useSemanticSearch, showFavoritesOnly, selectedTags, activeCollectionId]);
 
     // Scroll listener for sticky header effect
     useEffect(() => {
@@ -121,6 +129,10 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
                     const key = localStorage.getItem("geminiApiKey");
                     if (key) params.append("apiKey", key);
                 }
+            }
+
+            if (activeCollectionId) {
+                params.append("collectionId", activeCollectionId);
             }
 
             url += "?" + params.toString();
@@ -341,28 +353,31 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         setPrompts(prev => prev.map(p => p.id === id ? { ...p, tags: newTags } : p));
     };
 
-    const filteredPrompts = prompts.filter((p) => {
-        // If using semantic search and we have a query, skip local keyword filtering
-        // (Trust the backend results which are already sorted by similarity)
-        if (useSemanticSearch && searchQuery) {
-            const matchesFav = showFavoritesOnly ? p.isFavorite : true;
-            // Still allow tag filtering on top of semantic results
-            const itemTags = p.tags ? p.tags.split(',').map(t => t.trim()) : [];
-            const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => itemTags.includes(tag));
-            return matchesFav && matchesTags;
-        }
+    // Filter prompts based on search, tags, favorites, and COLLECTIONS
+    const filteredPrompts = useMemo(() => {
+        return prompts.filter(p => {
+            // If using semantic search and we have a query, skip local keyword filtering
+            // (Trust the backend results which are already sorted by similarity)
+            if (useSemanticSearch && searchQuery) {
+                const matchesFav = showFavoritesOnly ? p.isFavorite : true;
+                // Still allow tag filtering on top of semantic results
+                const itemTags = p.tags ? p.tags.split(',').map(t => t.trim()) : [];
+                const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => itemTags.includes(tag));
 
-        const matchesSearch = p.prompt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (p.tags && p.tags.toLowerCase().includes(searchQuery.toLowerCase()));
+                return matchesFav && matchesTags;
+            }
 
-        const matchesFav = showFavoritesOnly ? p.isFavorite : true;
+            const matchesSearch = (p.prompt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                (p.promptZh && p.promptZh.includes(searchQuery)));
+            const matchesTags = selectedTags.length === 0 || selectedTags.every(t => p.tags?.includes(t));
+            const matchesFavorite = !showFavoritesOnly || p.isFavorite;
 
-        // Tag Filter (AND Logic)
-        const itemTags = p.tags ? p.tags.split(',').map(t => t.trim()) : [];
-        const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => itemTags.includes(tag));
+            // Collection Filter - Handled by API
+            // const matchesCollection = !activeCollectionId || (p.collections && p.collections.some((c: any) => c.id === activeCollectionId));
 
-        return matchesSearch && matchesFav && matchesTags;
-    });
+            return matchesSearch && matchesTags && matchesFavorite;
+        });
+    }, [prompts, searchQuery, selectedTags, showFavoritesOnly, activeCollectionId, useSemanticSearch]);
 
     const toggleTag = (tag: string) => {
         setSelectedTags(prev =>
@@ -383,7 +398,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
 
         if (mode === "themeA") {
             basePrompt = imageA.prompt;
-            customInstruction = `Keep the MAIN SUBJECT from the first prompt ("${imageA.prompt}") as the primary focus (${ratio}% emphasis). 
+            customInstruction = `Keep the MAIN SUBJECT from the first prompt ("${imageA.prompt}") as the primary focus (${ratio}% emphasis).
 Apply the VISUAL STYLE, colors, mood, and artistic elements from this second prompt: "${imageB.prompt}" (${100 - ratio}% influence).
 The result should look like the subject from the first image, rendered in the style of the second.
 Create a cohesive, detailed prompt that combines these elements.`;
@@ -433,7 +448,18 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
     if (loading) return <div className="text-center p-10 opacity-50">載入畫廊中...</div>;
 
     return (
+
         <div className="w-full max-w-[1600px] px-4 space-y-8">
+            <CollectionSidebar
+                isOpen={isCollectionSidebarOpen}
+                onClose={() => setIsCollectionSidebarOpen(false)}
+                activeCollectionId={activeCollectionId}
+                onSelectCollection={(id) => {
+                    setActiveCollectionId(id);
+                    // Close sidebar on mobile/small screens if needed, or keep open
+                }}
+            />
+
             {/* Batch Action Bar */}
             {isSelectionMode && (
                 <div className="flex items-center justify-between p-4 bg-red-500/10 border border-red-500/30 rounded-xl animate-in slide-in-from-top-2">
@@ -457,6 +483,15 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                             className="px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors"
                         >
                             取消
+                        </button>
+
+                        <button
+                            onClick={() => setShowCollectionSelector(true)}
+                            className="p-2 bg-purple-600/80 text-white rounded-full hover:bg-purple-600 transition-colors shadow-lg backdrop-blur-sm flex items-center gap-2 px-4"
+                            title="加入收藏集"
+                        >
+                            <FolderPlus size={20} />
+                            <span className="text-sm font-medium">加入收藏</span>
                         </button>
 
                         {/* Export Button */}
@@ -501,9 +536,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                             disabled={selectedIds.size === 0}
                             className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                            </svg>
+                            <Download className="w-4 h-4" />
                             匯出 ({selectedIds.size})
                         </button>
 
@@ -564,10 +597,11 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                         </button>
                     </div>
                 </div>
-            )}
+            )
+            }
 
             {/* Toolbar */}
-            <GalleryToolbar
+            < GalleryToolbar
                 viewMode={viewMode}
                 setViewMode={setViewMode}
                 filteredCount={prompts.length}
@@ -575,7 +609,8 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 selectedTagsCount={selectedTags.length}
                 isSelectionMode={isSelectionMode}
                 setIsSelectionMode={setIsSelectionMode}
-                onClearSelection={() => setSelectedIds(new Set())}
+                onClearSelection={() => setSelectedIds(new Set())
+                }
                 showFavoritesOnly={showFavoritesOnly}
                 setShowFavoritesOnly={setShowFavoritesOnly}
                 isTagMenuOpen={isTagMenuOpen}
@@ -586,7 +621,9 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 onToggleTag={toggleTag}
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
+
                 useSemanticSearch={useSemanticSearch}
+                onToggleSidebar={() => setIsCollectionSidebarOpen(true)}
                 setUseSemanticSearch={setUseSemanticSearch}
                 onSearch={fetchPrompts}
                 onReindex={handleReindex}
@@ -619,96 +656,108 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
             />
             {/* Masonry Grid */}
             {/* Content Area */}
-            {viewMode === 'map' ? (
-                <InspirationMap onSelect={(id) => {
-                    const found = prompts.find(p => p.id === id);
-                    if (found) {
-                        setSelectedImage(found);
-                    }
-                }} />
-            ) : (
-                <div className="relative">
-                    {/* Empty State */}
-                    {!loading && filteredPrompts.length === 0 && (
-                        <div className="flex flex-col items-center justify-center py-20 animate-in fade-in zoom-in duration-500">
-                            <div className="w-24 h-24 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex items-center justify-center mb-6 shadow-2xl">
-                                <Search className="w-10 h-10 text-gray-500" strokeWidth={1.5} />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-2">找不到相關的提示詞</h3>
-                            <p className="text-gray-400 mb-8 max-w-xs text-center">試著調整標籤、切換語義搜尋，或是清除搜尋條件以查看更多內容。</p>
-                            <button
-                                onClick={() => {
-                                    setSearchQuery("");
-                                    setSelectedTags([]);
-                                    setShowFavoritesOnly(false);
-                                    setUseSemanticSearch(false);
-                                }}
-                                className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-all flex items-center gap-2 font-medium"
-                            >
-                                <Trash2 className="w-4 h-4" />
-                                清除所有搜尋條件
-                            </button>
-                        </div>
-                    )}
-
-                    {/* Masonry Grid */}
-                    {filteredPrompts.length > 0 && (
-                        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 pb-20">
-                            {filteredPrompts.map((item) => (
-                                <PromptCard
-                                    key={item.id}
-                                    item={item}
-                                    isSelectionMode={isSelectionMode}
-                                    isSelected={selectedIds.has(item.id)}
-                                    onToggleSelection={toggleSelection}
-                                    onSelect={setSelectedImage}
-                                    onToggleFavorite={toggleFavorite}
-                                    onDelete={handleDelete}
-                                    handleSetAsReference={onSetAsReference}
-                                    onTagClick={toggleTag}
-                                />
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Loading/Infinite Scroll Indicator at the end of the grid */}
-                    <div ref={observerTarget} className="h-20 w-full flex items-center justify-center">
-                        {isLoadingMore && (
-                            <div className="flex items-center gap-2 text-gray-400">
-                                <Loader2 className="w-5 h-5 animate-spin" />
-                                <span className="text-sm">載入更多圖片...</span>
+            {
+                viewMode === 'map' ? (
+                    <InspirationMap onSelect={(id) => {
+                        const found = prompts.find(p => p.id === id);
+                        if (found) {
+                            setSelectedImage(found);
+                        }
+                    }} />
+                ) : (
+                    <div className="relative">
+                        {/* Empty State */}
+                        {!loading && filteredPrompts.length === 0 && (
+                            <div className="flex flex-col items-center justify-center py-20 animate-in fade-in zoom-in duration-500">
+                                <div className="w-24 h-24 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex items-center justify-center mb-6 shadow-2xl">
+                                    <Search className="w-10 h-10 text-gray-500" strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2">找不到相關的提示詞</h3>
+                                <p className="text-gray-400 mb-8 max-w-xs text-center">試著調整標籤、切換語義搜尋，或是清除搜尋條件以查看更多內容。</p>
+                                <button
+                                    onClick={() => {
+                                        setSearchQuery("");
+                                        setSelectedTags([]);
+                                        setShowFavoritesOnly(false);
+                                        setUseSemanticSearch(false);
+                                    }}
+                                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 transition-all flex items-center gap-2 font-medium"
+                                >
+                                    <Trash2 className="w-4 h-4" />
+                                    清除所有搜尋條件
+                                </button>
                             </div>
                         )}
-                        {!hasMore && filteredPrompts.length > 0 && !loading && (
-                            <div className="py-10 text-center">
-                                <span className="text-gray-500 text-sm bg-white/5 px-4 py-2 rounded-full border border-white/10">✨ 已顯示所有圖片 (共 {totalCount} 筆)</span>
+
+                        {/* Masonry Grid */}
+                        {filteredPrompts.length > 0 && (
+                            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 pb-20">
+                                {filteredPrompts.map((item) => (
+                                    <PromptCard
+                                        key={item.id}
+                                        item={item}
+                                        isSelectionMode={isSelectionMode}
+                                        isSelected={selectedIds.has(item.id)}
+                                        onToggleSelection={toggleSelection}
+                                        onSelect={setSelectedImage}
+                                        onToggleFavorite={toggleFavorite}
+                                        onDelete={handleDelete}
+                                        handleSetAsReference={onSetAsReference}
+                                        onTagClick={toggleTag}
+                                    />
+                                ))}
                             </div>
                         )}
+
+                        {/* Loading/Infinite Scroll Indicator at the end of the grid */}
+                        <div ref={observerTarget} className="h-20 w-full flex items-center justify-center">
+                            {isLoadingMore && (
+                                <div className="flex items-center gap-2 text-gray-400">
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                    <span className="text-sm">載入更多圖片...</span>
+                                </div>
+                            )}
+                            {!hasMore && filteredPrompts.length > 0 && !loading && (
+                                <div className="py-10 text-center">
+                                    <span className="text-gray-500 text-sm bg-white/5 px-4 py-2 rounded-full border border-white/10">✨ 已顯示所有圖片 (共 {totalCount} 筆)</span>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Lightbox Modal */}
-            {selectedImage && (
-                <ImageModal
-                    selectedImage={selectedImage}
-                    onClose={() => setSelectedImage(null)}
-                    toggleFavorite={toggleFavorite}
-                    handleReuse={handleReuse}
-                    handleDelete={handleDelete}
-                    onTagUpdate={handleTagSync}
-                    onPromptUpdate={(id, prompt, promptZh) => {
-                        setPrompts(prev => prev.map(p => p.id === id ? { ...p, prompt, promptZh } : p));
-                    }}
-                    handleCopyPrompt={handleCopyPrompt}
-                    copyFeedback={copyFeedback}
-                    handleSetAsReference={(image) => {
-                        setSelectedImage(null);
-                    }}
-                    onTagClick={(tag) => {
-                        setSelectedImage(null);
-                        toggleTag(tag);
-                    }}
+            {
+                selectedImage && (
+                    <ImageModal
+                        selectedImage={selectedImage}
+                        onClose={() => setSelectedImage(null)}
+                        toggleFavorite={toggleFavorite}
+                        handleReuse={handleReuse}
+                        handleDelete={handleDelete}
+                        onTagUpdate={handleTagSync}
+                        onPromptUpdate={(id, prompt, promptZh) => {
+                            setPrompts(prev => prev.map(p => p.id === id ? { ...p, prompt, promptZh } : p));
+                        }}
+                        handleCopyPrompt={handleCopyPrompt}
+                        copyFeedback={copyFeedback}
+                        handleSetAsReference={(image) => {
+                            setSelectedImage(null);
+                        }}
+                        onTagClick={(tag) => {
+                            setSelectedImage(null);
+                            toggleTag(tag);
+                        }}
+                    />
+                )
+            }
+
+            {/* Collection Selector Modal */}
+            {showCollectionSelector && (
+                <CollectionSelector
+                    promptIds={Array.from(selectedIds)}
+                    onClose={() => setShowCollectionSelector(false)}
                 />
             )}
 
@@ -758,7 +807,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     />
                 )
             }
-        </div>
+        </div >
     );
 }
 
