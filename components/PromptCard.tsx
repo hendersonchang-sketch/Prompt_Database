@@ -36,6 +36,21 @@ interface PromptCardProps {
     onTagClick?: (tag: string) => void;
 }
 
+// Generate a deterministic soft gradient based on string ID
+function getDeterministicBackground(id: string) {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+        hash = id.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    // Generate two colors
+    const c1 = Math.floor(Math.abs(Math.sin(hash) * 16777215)).toString(16).padStart(6, '0');
+    const c2 = Math.floor(Math.abs(Math.cos(hash) * 16777215)).toString(16).padStart(6, '0');
+
+    // Return gradient style
+    return `linear-gradient(135deg, #${c1}20 0%, #${c2}20 100%)`;
+}
+
 export function PromptCard({
     item,
     isSelectionMode,
@@ -82,11 +97,17 @@ export function PromptCard({
                 </div>
             )}
 
-            {/* Image Container with Skeleton */}
-            <div className="relative w-full overflow-hidden bg-white/5" style={{ paddingBottom: imageLoaded ? '0' : `${aspectRatio}%` }}>
+            {/* Image Container with Smart Placeholder */}
+            <div
+                className="relative w-full overflow-hidden transition-colors duration-500"
+                style={{
+                    paddingBottom: imageLoaded ? '0' : `${aspectRatio}%`,
+                    background: imageLoaded ? 'transparent' : getDeterministicBackground(item.id)
+                }}
+            >
                 {!imageLoaded && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/10 animate-pulse flex items-center justify-center">
-                        <ImageIcon className="w-8 h-8 text-white/10" />
+                    <div className="absolute inset-0 flex items-center justify-center animate-pulse">
+                        <ImageIcon className="w-8 h-8 text-white/20" />
                     </div>
                 )}
 

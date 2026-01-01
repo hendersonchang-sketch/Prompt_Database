@@ -715,7 +715,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                             <div className="min-h-screen pb-20">
                                 <Masonry
                                     items={filteredPrompts}
-                                    columnGutter={24}
+                                    columnGutter={12}
                                     columnWidth={280}
                                     overscanBy={2}
                                     render={MasonryCard}
