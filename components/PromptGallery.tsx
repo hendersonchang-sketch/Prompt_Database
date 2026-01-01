@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
 
@@ -12,6 +12,7 @@ import { PromptCard, PromptEntry } from "./PromptCard";
 import {
     Search, Trash2, Loader2, Download, Zap, X, Map as MapIcon, RefreshCw, Upload, Edit, MoreHorizontal, FolderPlus
 } from "lucide-react";
+import { Masonry } from "masonic";
 
 
 interface PromptGalleryProps {
@@ -445,6 +446,25 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
         }
     };
 
+    // Masonry Card Renderer - defined inside to access handlers
+    // Using useCallback to prevent unnecessary remounts, dependent on selection state
+    const MasonryCard = useCallback(({ data, width }: { data: PromptEntry, width: number }) => (
+        <div className="mb-6">
+            <PromptCard
+                item={data}
+                // width={width} // PromptCard internally manages width/aspect, but we pass current width if needed optimization? promptCard uses data.width.
+                isSelectionMode={isSelectionMode}
+                isSelected={selectedIds.has(data.id)}
+                onToggleSelection={toggleSelection}
+                onSelect={setSelectedImage}
+                onToggleFavorite={toggleFavorite}
+                onDelete={handleDelete}
+                handleSetAsReference={onSetAsReference}
+                onTagClick={toggleTag}
+            />
+        </div>
+    ), [isSelectionMode, selectedIds, toggleSelection, setSelectedImage, toggleFavorite, handleDelete, onSetAsReference, toggleTag]);
+
     if (loading) return <div className="text-center p-10 opacity-50">載入畫廊中...</div>;
 
     return (
@@ -690,22 +710,16 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                         )}
 
                         {/* Masonry Grid */}
+                        {/* Masonry Grid (Virtualized) */}
                         {filteredPrompts.length > 0 && (
-                            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 pb-20">
-                                {filteredPrompts.map((item) => (
-                                    <PromptCard
-                                        key={item.id}
-                                        item={item}
-                                        isSelectionMode={isSelectionMode}
-                                        isSelected={selectedIds.has(item.id)}
-                                        onToggleSelection={toggleSelection}
-                                        onSelect={setSelectedImage}
-                                        onToggleFavorite={toggleFavorite}
-                                        onDelete={handleDelete}
-                                        handleSetAsReference={onSetAsReference}
-                                        onTagClick={toggleTag}
-                                    />
-                                ))}
+                            <div className="min-h-screen pb-20">
+                                <Masonry
+                                    items={filteredPrompts}
+                                    columnGutter={24}
+                                    columnWidth={280}
+                                    overscanBy={2}
+                                    render={MasonryCard}
+                                />
                             </div>
                         )}
 

@@ -61,9 +61,9 @@ export function PromptCard({
                     onSelect(item);
                 }
             }}
-            className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 cursor-pointer ${isSelected
+            className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer ${isSelected
                 ? "border-red-500 shadow-lg shadow-red-500/20"
-                : "border-white/5 hover:border-white/20"
+                : "border-white/5 hover:border-purple-500/50"
                 }`}
         >
             {/* Selection Checkbox */}
@@ -97,7 +97,7 @@ export function PromptCard({
                         width={item.width || 1024}
                         height={item.height || 1024}
                         onLoad={() => setImageLoaded(true)}
-                        className={`w-full h-auto object-cover transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`w-full h-auto object-cover transition-opacity duration-700 group-hover:scale-105 transition-transform duration-700 ease-out ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         loading="lazy"
                         unoptimized={true}
                     />
