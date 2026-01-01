@@ -9135,3 +9135,35 @@ Raw Gemini Response:
 ENDPOINT: generateContent, ASPECT RATIO: 1:1
 PROMPT: A breathtaking cinematic portrait captured from a dramatic low angle, emphasizing a graceful, elongated silhouette. A young Taiwanese woman with natural K-pop idol visuals and glowing skin sits at a chic Taipei outdoor cafe. She is positioned on the right third of the frame, creating dynamic negative space on the left to capture the bustling city atmosphere. She wears a 2026-style tailored charcoal wool blazer, a matching mini skirt, ultra-fine sheer black silk stockings, and glossy obsidian stiletto heels. The shot is artistically framed through the foreground bokeh of a glass carafe, adding atmospheric depth. Side-lit by the warm, directional golden light of a January afternoon sun, the scene features rich contrast and the subtle grain of Kodak Portra 400. Shot on a Sony A7R V with an 85mm lens, the background dissolves into a creamy bokeh of Taipei's Xinyi District architecture. Hyper-realistic textures, 8K resolution, capturing a moment of quiet, elegant contemplation.
 -------------------
+
+[2026-01-01T10:59:15.414Z] Model: gemini-3-flash-preview, Alchemy: true
+Raw Gemini Response:
+[
+  {
+    "enPrompt": "Hyperrealistic master-level portrait of a visionary individual standing in the crisp winter air of New Year's night 2026. The subject's skin exhibits flawless PBR textures with realistic subsurface scattering and micro-pore detail. They are adorned in a 2027-concept high-tech winter garment crafted from iridescent bio-engineered fibers with metallic thread weaving. The lighting is a sophisticated interplay of ray-traced global illumination: a cool cerulean moonlight rim-light contrasted against the warm amber glow of distant volumetric city lights. Shot on a premium 35mm prime lens at f/1.8, featuring a cinematic shallow depth of field with creamy bokeh background. Razor-sharp focus on the iris reveals intricate crystalline reflections of the urban horizon. Subtle atmospheric dust motes and frozen vapor are captured in the lens flare, enhancing the sense of environmental alchemy.",
+    "zhPrompt": "2026年新年之夜，一位站在清冷冬日空氣中的遠見者之超寫實大師級肖像。人物皮膚展現出完美的PBR紋理、真實的次表面散射與毛孔微觀細節。身著2027年概念高科技冬季服裝，由虹彩生物工程纖維與金屬絲線編織而成。燈光採用複雜的光線追蹤全局照明：酷冷的蔚藍月光輪廓燈與遠處體積感城市燈光的暖琥珀色餘輝形成鮮明對比。使用高端35mm定焦鏡頭以f/1.8光圈拍攝，具有電影級的淺景深效果與奶油般的背景散景。虹膜上的銳利焦點揭示了城市地平線的複雜結晶反射。镜头光暈中捕捉到細微的大氣塵埃與冰凍水汽，提升了環境的煉金術美感。",
+    "tags": [
+      "Hyperrealism",
+      "PBR Textures",
+      "Volumetric Lighting",
+      "Cinematic Portrait",
+      "Ray-tracing",
+      "8k Resolution",
+      "Future Fashion 2027",
+      "Subsurface Scattering"
+    ],
+    "suggested_aspect_ratio": "1:1",
+    "negative_prompt": "blurry, low resolution, distorted features, flat textures, simplified skin, plastic appearance, amateur photography, overexposed, low-fidelity, grainy, 2D art, cartoonish, missing details"
+  }
+]
+-------------------
+
+[2026-01-01T11:20:33.725Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: 一個年輕台灣女生走在充滿夕陽下的時尚大道，因為風的吹動，一手扶頭髮回眸，一手扶迷你短裙防止走光。
+-------------------
+
+[2026-01-01T11:22:52.073Z] ENGINE: pro, MODEL: gemini-3-pro-image-preview
+ENDPOINT: generateContent, ASPECT RATIO: 1:1
+PROMPT: A high-fidelity cinematic full-body shot of a stylish young Taiwanese woman strolling down a high-end fashion boulevard during the golden hour sunset of early 2026. A sudden breeze creates a dynamic, candid moment: she gracefully uses one hand to brush back her wind-swept dark hair as she looks back over her shoulder with a subtle, elegant expression, while her other hand holds down the hem of her pleated iridescent mini-skirt to prevent it from fluttering. The scene features elite volumetric lighting with golden rays piercing through urban structures, creating long dramatic shadows and ray-traced reflections on the glass of luxury boutiques. The textures of her clothing exhibit advanced subsurface scattering, rendered with 8k photorealistic precision. Soft bokeh highlights shimmering dust motes in the evening air, with a crisp architectural perspective of the modern city street.
+-------------------

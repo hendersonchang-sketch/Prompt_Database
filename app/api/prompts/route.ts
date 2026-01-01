@@ -400,7 +400,10 @@ User Input: ${searchOptimizedPrompt}
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: searchOptimizedPrompt }] }],
+                        contents: [{
+                            role: "user",
+                            parts: [{ text: searchOptimizedPrompt }]
+                        }],
                         systemInstruction: { parts: [{ text: systemInstruction }] },
                         tools: tools,
                         safetySettings: [
@@ -413,84 +416,134 @@ User Input: ${searchOptimizedPrompt}
                     })
                 });
 
-                if (analysisResp.ok) {
-                    const data = await analysisResp.json();
-                    let text = data.candidates[0].content.parts[0].text;
+                if (!analysisResp.ok) {
+                    const errText = await analysisResp.text();
+                    console.error("Analysis API Failed", errText);
+                    throw new Error("AI Analysis Failed: " + errText);
+                }
 
-                    // DEBUG LOGGING
-                    try {
-                        const fs = require('fs');
-                        const path = require('path');
-                        const logPath = path.join(process.cwd(), 'debug_log.txt');
-                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] Model: ${useModel}, Alchemy: ${useMagicEnhance}\nRaw Gemini Response:\n${text}\n-------------------\n`);
-                    } catch (e) { console.error("Log write failed", e); }
+                const analysisData = await analysisResp.json();
+                const jsonString = analysisData.candidates?.[0]?.content?.parts?.[0]?.text;
 
-                    console.log("Raw Gemini Analysis Response:", text); // Debug Log
+                if (!jsonString) throw new Error("No analysis returned");
 
-                    // Robust JSON Extraction: Find first '{' and last '}'
-                    const start = text.indexOf('{');
-                    const end = text.lastIndexOf('}');
+                console.log("🧩 AI Analysis Result:", jsonString); // DEBUG Log
 
+                // Robust JSON Extraction
+                let parsed: any = {};
+                try {
+                    const start = jsonString.indexOf('{');
+                    const end = jsonString.lastIndexOf('}');
                     if (start !== -1 && end !== -1) {
+                        const extracted = jsonString.substring(start, end + 1);
                         try {
-                            const jsonStr = text.substring(start, end + 1);
-                            const result = JSON.parse(jsonStr);
-
-                            // Valid result
-                            finalPrompt = result.enPrompt || prompt;
-                            promptZh = result.zhPrompt || "";
-                            tagsResult = result.tags || "";
-
-                            // Manage Alchemy suggestions
-                            if (useMagicEnhance) {
-                                if (result.negative_prompt) {
-                                    finalNegativePrompt = result.negative_prompt;
-                                }
-                                // DISABLE ASPECT RATIO OVERRIDE
-                                // Users want to control the ratio manually.
-                                // if (result.suggested_aspect_ratio && width === 1024 && height === 1024) {
-                                //     if (result.suggested_aspect_ratio === "16:9") {
-                                //         finalWidth = 1216;
-                                //         finalHeight = 684;
-                                //     } else if (result.suggested_aspect_ratio === "9:16") {
-                                //         finalWidth = 684;
-                                //         finalHeight = 1216;
-                                //     }
-                                // }
-                                isEnhanced = true;
-                            }
-
-                            console.log("Gemini Analysis Parsing Success:", { finalPrompt, finalWidth, finalHeight });
-                        } catch (parseErr) {
-                            console.error("Gemini Analysis JSON Parse Failed via Substring method. Raw:", text);
+                            parsed = JSON.parse(extracted);
+                        } catch (firstPassErr: any) {
+                            console.warn("Initial JSON Parse Failed, attempting newline repair...", firstPassErr.message);
+                            // Repair: Replace all newlines with spaces (JSON does not allow literal newlines in strings)
+                            // This is safe because prompt text usually doesn't need structural newlines
+                            const fixedString = extracted.replace(/[\n\r]+/g, " ");
+                            parsed = JSON.parse(fixedString);
+                            console.log("JSON Repair Successful!");
                         }
                     } else {
-                        console.warn("No JSON object found in Gemini response");
+                        throw new Error("No JSON found");
                     }
-                } else {
-                    const errText = await analysisResp.text();
-                    console.error("Gemini Analysis API Failed:", analysisResp.status, errText);
+                } catch (e: any) {
+                    console.error("JSON Parse Failed (Final)", e.message);
+                    // Fallback to simple text if JSON fails? Or just throw?
+                    // For now, let's assume if JSON fails, we can't proceed with enhancements
+                }
 
-                    // DIAGNOSTIC: List Models
-                    let availableModels = "Could not fetch models";
-                    try {
-                        const listResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-                        const listData = await listResp.json();
-                        if (listData.models) {
-                            availableModels = listData.models.map((m: any) => m.name).join(", ");
+                // --- STORYBOARD MODE LOGIC (NEW) ---
+                if (parsed.storyboard && Array.isArray(parsed.storyboard)) {
+                    console.log("🎬 Storyboard Mode Detected! Frames:", parsed.storyboard.length);
+                    const results = [];
+
+                    // Process up to 4 frames (Hard limit)
+                    const frames = parsed.storyboard.slice(0, 4);
+
+                    for (let i = 0; i < frames.length; i++) {
+                        const frame = frames[i];
+                        console.log(`Generating Frame ${i + 1}/${frames.length}: ${frame.shot_type}`);
+
+                        // Generate Image for this frame
+                        // Note: generateImage is imported from geminiImageService
+                        console.log(`Calling generateImage for Frame ${i + 1}...`);
+                        try {
+                            const genResult = await generateImage({
+                                prompt: frame.prompt,
+                                // Map properties to service expectation
+                                engineType: (body.imageEngine || "imagen") as any,
+                                apiKey: apiKey,
+                                aspectRatio: "16:9" // Storyboard is strictly 16:9
+                            });
+                            console.log(`Frame ${i + 1} Result Success:`, genResult.success);
+
+                            if (!genResult.success || !genResult.imageBase64) {
+                                console.error(`Frame ${i + 1} generation failed: ${genResult.error}`);
+                                // Continue to next frame, do not throw
+                            }
+
+                            const imgUrl = genResult.imageBase64
+                                ? `data:image/png;base64,${genResult.imageBase64}`
+                                : null;
+
+                            // Bilingual Data for this frame
+                            const frameZh = frame.description || "分鏡圖";
+
+                            // Save to Database
+                            if (!previewMode && imgUrl) {
+                                const newEntry = await prisma.promptEntry.create({
+                                    data: {
+                                        prompt: frame.prompt,
+                                        promptZh: frameZh,
+                                        originalPrompt: `[Storyboard ${i + 1}] ${originalPrompt}`,
+                                        negativePrompt: finalNegativePrompt,
+                                        imageUrl: imgUrl,
+                                        width: finalWidth,
+                                        height: finalHeight,
+                                        sampler: sampler || "Euler a",
+                                        seed: seed || -1,
+                                        cfgScale: cfgScale || 7.0,
+                                        steps: steps || 25,
+                                        tags: `Storyboard, ${frame.shot_type}, ${parsed.tags || ""}`,
+                                        // Remove personaId temporarily to ensure saving works (avoid FK errors)
+                                        // personaId: personaId || undefined,
+                                        tagsRelation: {
+                                            connectOrCreate: [] // Simplify tags relation for now
+                                        }
+                                    }
+                                });
+                                console.log(`Frame ${i + 1} Saved to DB: ID ${newEntry.id}`);
+                                results.push(newEntry);
+                            } else if (previewMode && imgUrl) {
+                                results.push(imgUrl);
+                            }
+                        } catch (genErr) {
+                            console.error(`Frame ${i + 1} Generation Error:`, genErr);
                         }
-                    } catch (e) { }
+                    }
 
-                    try {
-                        const fs = require('fs');
-                        const path = require('path');
-                        const logPath = path.join(process.cwd(), 'debug_log.txt');
-                        fs.appendFileSync(logPath, `\n[${new Date().toISOString()}] API Error ${analysisResp.status}:\n${errText}\nAVAILABLE MODELS: ${availableModels}\n`);
-                    } catch (e) { }
+                    if (previewMode) {
+                        return NextResponse.json({ previewMode: true, images: results });
+                    }
+
+                    // Return success for storyboard
+                    return NextResponse.json({ success: true, storyboard: results });
+                }
+
+                // --- COMPATIBILITY WITH SINGLE IMAGE FLOW ---
+                if (parsed.enPrompt) {
+                    finalPrompt = parsed.enPrompt;
+                    promptZh = parsed.zhPrompt || "";
+                    tagsResult = parsed.tags || "";
+                    if (parsed.negative_prompt) finalNegativePrompt = parsed.negative_prompt;
+                    isEnhanced = true;
                 }
             } catch (err) {
-                console.error("Bilingual/Tagging analysis failed:", err);
-                // Fallback: Use current finalPrompt
+                console.error("Bilingual/Tagging analysis error:", err);
+                // Continue with original prompt if analysis fails
             }
         }
 
@@ -879,9 +932,9 @@ User Input: ${searchOptimizedPrompt}
                 sampler,
                 seed: finalSeed,
                 cfgScale,
-                steps,
+                steps: steps || 25,
                 tags: finalTags,
-                personaId: personaId || null, // Save Persona Link
+                // personaId: personaId || null, // Removed to prevent FK error
                 tagsRelation: {
                     connectOrCreate: finalTags ? finalTags.split(',').map(t => t.trim()).filter(Boolean).map(t => ({
                         where: { name: t },

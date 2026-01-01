@@ -8,7 +8,7 @@ async function main() {
     console.log('Start seeding templates...');
 
     // Optional: Clear existing templates to avoid duplicates if re-running
-    // await prisma.promptTemplate.deleteMany({});
+    await prisma.promptTemplate.deleteMany({});
 
     for (let index = 0; index < PROMPT_TEMPLATES.length; index++) {
         const template = PROMPT_TEMPLATES[index];

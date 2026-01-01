@@ -352,6 +352,14 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
                 setPreviewImages(data.images);
                 setPreviewData(data);
                 setIsPreviewMode(true);
+            } else if (data.storyboard) {
+                // [NEW] Storyboard Mode Success
+                // setLastEnhancedPrompt("Storyboard Sequence Generated"); // Optional feedback
+                // Show a brief toast or alert if needed, or just let the gallery refresh handle it.
+                // For now, let's trust the refresh.
+                onSuccess();
+                setReferenceImage(null);
+                fetchQuotaStats();
             } else {
                 // Success: entry was created or returned
                 onSuccess();

@@ -70,6 +70,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
     const [isCollectionSidebarOpen, setIsCollectionSidebarOpen] = useState(false);
     const [activeCollectionId, setActiveCollectionId] = useState<string | null>(null);
     const [showCollectionSelector, setShowCollectionSelector] = useState(false);
+    const [masonryKey, setMasonryKey] = useState(0); // Force reset Masonry on full reload
 
     // Extract Unique Tags
     const allTags = Array.from(new Set(
@@ -149,6 +150,9 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
                 setPrompts(prev => [...prev, ...newPrompts]);
             } else {
                 setPrompts(newPrompts);
+                // Force Masonry to remount/reset its internal cache when the list is completely replaced.
+                // This prevents "No data found at index" errors when the list shrinks.
+                setMasonryKey(prev => prev + 1);
             }
 
             // Update pagination state
@@ -714,6 +718,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                         {filteredPrompts.length > 0 && (
                             <div className="min-h-screen pb-20">
                                 <Masonry
+                                    key={masonryKey}
                                     items={filteredPrompts}
                                     columnGutter={12}
                                     columnWidth={280}

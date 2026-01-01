@@ -77,7 +77,7 @@ export function PromptCard({
                 }
             }}
             className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer ${isSelected
-                ? "border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                ? "border-4 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                 : "border-white/5 hover:border-purple-500/50"
                 }`}
         >
