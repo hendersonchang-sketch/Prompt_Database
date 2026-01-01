@@ -18,6 +18,7 @@ interface ImageModalProps {
     handleCopyPrompt: (text: string) => void;
     copyFeedback: string | null;
     handleSetAsReference?: (image: PromptEntry) => void;
+    onTagClick?: (tag: string) => void;
 }
 
 export function ImageModal({
@@ -30,7 +31,8 @@ export function ImageModal({
     onPromptUpdate,
     handleCopyPrompt,
     copyFeedback,
-    handleSetAsReference
+    handleSetAsReference,
+    onTagClick
 }: ImageModalProps) {
     const [selectedImage, setSelectedImage] = useState(initialImage);
 
@@ -349,7 +351,7 @@ export function ImageModal({
             )}
 
             <div
-                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] overflow-hidden shadow-2xl"
+                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[#0B0F17]/90 backdrop-blur-2xl border border-white/10 rounded-[40px] overflow-hidden shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
@@ -689,18 +691,22 @@ export function ImageModal({
                                 <div className="flex flex-wrap gap-1.5">
                                     {selectedImage.tags ? selectedImage.tags.split(',').map((tag, idx) => {
                                         return (
-                                            <span
+                                            <button
                                                 key={idx}
-                                                className="group flex items-center gap-1.5 px-3 py-1 bg-white/5 text-gray-400 rounded-lg border border-white/5 text-[10px] font-medium transition-all cursor-default hover:bg-white/10 hover:text-white"
+                                                onClick={() => onTagClick?.(tag.trim())}
+                                                className="group flex items-center gap-1.5 px-3 py-1 bg-white/5 text-gray-400 rounded-lg border border-white/5 text-[10px] font-medium transition-all cursor-pointer hover:bg-purple-500/20 hover:text-purple-300 hover:border-purple-500/50"
                                             >
                                                 {tag.trim()}
-                                                <button
-                                                    onClick={() => handleRemoveTag(tag.trim())}
+                                                <div
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleRemoveTag(tag.trim());
+                                                    }}
                                                     className="w-3.5 h-3.5 rounded-full hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100"
                                                 >
                                                     <X className="w-2 h-2" />
-                                                </button>
-                                            </span>
+                                                </div>
+                                            </button>
                                         );
                                     }) : (
                                         <p className="text-[10px] text-gray-600 italic">尚未添加標籤</p>

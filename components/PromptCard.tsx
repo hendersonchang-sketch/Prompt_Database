@@ -21,6 +21,7 @@ export interface PromptEntry {
     sampler?: string;
     engine?: string;
     modelName?: string;
+    createdAt: Date | string;
 }
 
 interface PromptCardProps {
@@ -32,6 +33,7 @@ interface PromptCardProps {
     onToggleFavorite: (e: React.MouseEvent, id: string, current: boolean) => void;
     onDelete: (id: string) => void;
     handleSetAsReference?: (image: PromptEntry) => void;
+    onTagClick?: (tag: string) => void;
 }
 
 export function PromptCard({
@@ -42,7 +44,8 @@ export function PromptCard({
     onSelect,
     onToggleFavorite,
     onDelete,
-    handleSetAsReference
+    handleSetAsReference,
+    onTagClick
 }: PromptCardProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -58,9 +61,9 @@ export function PromptCard({
                     onSelect(item);
                 }
             }}
-            className={`break-inside-avoid group relative bg-white/5 rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer ${isSelected
+            className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 cursor-pointer ${isSelected
                 ? "border-red-500 shadow-lg shadow-red-500/20"
-                : "border-white/10 hover:shadow-purple-500/30"
+                : "border-white/5 hover:border-white/20"
                 }`}
         >
             {/* Selection Checkbox */}
@@ -106,12 +109,16 @@ export function PromptCard({
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-2">
                     {item.tags && item.tags.split(',').slice(0, 3).map((tag, idx) => (
-                        <span
+                        <button
                             key={idx}
-                            className="text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm bg-white/10 text-white/80"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onTagClick?.(tag.trim());
+                            }}
+                            className="text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm bg-white/10 text-white/80 hover:bg-purple-500 hover:text-white transition-colors"
                         >
                             {tag.trim()}
-                        </span>
+                        </button>
                     ))}
                 </div>
 

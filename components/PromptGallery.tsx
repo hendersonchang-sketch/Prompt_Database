@@ -665,6 +665,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                     onToggleFavorite={toggleFavorite}
                                     onDelete={handleDelete}
                                     handleSetAsReference={onSetAsReference}
+                                    onTagClick={toggleTag}
                                 />
                             ))}
                         </div>
@@ -702,8 +703,11 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                     handleCopyPrompt={handleCopyPrompt}
                     copyFeedback={copyFeedback}
                     handleSetAsReference={(image) => {
-                        onSetAsReference?.(image);
                         setSelectedImage(null);
+                    }}
+                    onTagClick={(tag) => {
+                        setSelectedImage(null);
+                        toggleTag(tag);
                     }}
                 />
             )}

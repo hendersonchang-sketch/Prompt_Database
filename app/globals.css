@@ -3,22 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* Premium Dark Theme Variables (Enforced) */
+  --foreground-rgb: 240, 240, 240; /* Slightly off-white for better readability */
+  --background-start-rgb: 10, 10, 15; /* Very deep blue/black */
+  --background-end-rgb: 15, 23, 42; /* Slate 900 */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: linear-gradient(
+      to bottom right,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed; /* Fixed attachment ensures gradient covers full scroll */
+  min-height: 100vh;
 }
 
 /* Custom Scrollbar */

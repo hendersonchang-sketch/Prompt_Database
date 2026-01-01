@@ -24,6 +24,29 @@ model PromptEntry {
   isFavorite     Boolean  @default(false)
   createdAt      DateTime @default(now())
   embedding      String?  // JSON string of float array for semantic search
+
+  // Relations
+  personaId      String?
+  persona        AlchemistPersona? @relation(fields: [personaId], references: [id])
+  
+  tagsRelation   Tag[] // Many-to-Many relation with normalized tags
+
+  // Indexes for performance
+  @@index([isFavorite])
+  @@index([createdAt])
+  @@index([personaId])
+}
+
+model Tag {
+  id        String        @id @default(uuid())
+  name      String        @unique
+  count     Int           @default(0) // Cache count of prompts for sorting
+  lastUsed  DateTime      @default(now())
+  createdAt DateTime      @default(now())
+  prompts   PromptEntry[]
+
+  @@index([count])
+  @@index([lastUsed])
 }
 
 model PromptSnippet {
@@ -42,4 +65,25 @@ model Character {
   seed        Int?     @default(-1)
   avatarUrl   String?
   createdAt   DateTime @default(now())
+}
+
+model PromptTemplate {
+  id        String   @id @default(uuid())
+  category  String   // e.g. "Commercial", "3D Art"
+  name      String
+  prompt    String
+  desc      String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model AlchemistPersona {
+  id           String   @id @default(uuid())
+  name         String
+  description  String?
+  systemPrompt String   // large text
+  isDefault    Boolean  @default(false)
+  builtin      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

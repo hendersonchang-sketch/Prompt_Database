@@ -126,7 +126,7 @@ export async function generateImage(options: GenerateImageOptions): Promise<Gene
 
         // 根據引擎類型設定 thinkingLevel（imagen 排除此參數）
         if (engineType !== 'imagen' && ('thinkingLevel' in config || thinkingLevel)) {
-            generateConfig.thinkingLevel = thinkingLevel || (config as any).thinkingLevel;
+            generateConfig.thinkingLevel = thinkingLevel || (config as { thinkingLevel?: string }).thinkingLevel;
         }
 
         // 呼叫 API 生成圖片
@@ -142,6 +142,7 @@ export async function generateImage(options: GenerateImageOptions): Promise<Gene
         });
 
         // 解析回應取得圖片
+        // @ts-ignore - The google-genai package types might be slightly different version
         const candidate = response.candidates?.[0];
         if (!candidate || !candidate.content?.parts) {
             return {

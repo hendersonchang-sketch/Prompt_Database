@@ -93,23 +93,27 @@ export async function GET(request: Request) {
             if (!queryVector) throw new Error("No embedding returned");
 
             // Fetch prompts with embeddings for matching
-            // @ts-ignore
+            // Fetch prompts with embeddings for matching
             const allWithEmbeds = await prisma.promptEntry.findMany({
                 select: { ...selectFields, embedding: true }
             });
 
+            // Define type for prompt with embedding
+            type PromptWithEmbedding = typeof allWithEmbeds[0] & { score?: number };
+
             const scoredPrompts = allWithEmbeds
-                .filter((p: any) => p.embedding)
-                .map((p: any) => {
+                .filter((p: PromptWithEmbedding) => p.embedding)
+                .map((p: PromptWithEmbedding) => {
                     try {
-                        const vec = JSON.parse(p.embedding);
+                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        const vec = JSON.parse(p.embedding!);
                         return { ...p, score: cosineSimilarity(queryVector, vec) };
                     } catch (e) {
                         return { ...p, score: -1 };
                     }
                 })
-                .filter((p: any) => p.score > 0.3)
-                .sort((a: any, b: any) => b.score - a.score);
+                .filter((p: PromptWithEmbedding) => (p.score ?? 0) > 0.3)
+                .sort((a: PromptWithEmbedding, b: PromptWithEmbedding) => (b.score ?? 0) - (a.score ?? 0));
 
             // Manual pagination for semantic results
             const paginatedResults = scoredPrompts.slice(skip, skip + limit).map(({ embedding, ...rest }: any) => rest);
@@ -135,7 +139,6 @@ export async function GET(request: Request) {
                     { originalPrompt: { contains: search } }
                 ]
             };
-            // @ts-ignore
             const prompts = await prisma.promptEntry.findMany({
                 where,
                 orderBy: { createdAt: 'desc' },
@@ -143,7 +146,6 @@ export async function GET(request: Request) {
                 take: limit,
                 select: selectFields
             });
-            // @ts-ignore
             const total = await prisma.promptEntry.count({ where });
             return NextResponse.json({
                 prompts,
@@ -158,14 +160,12 @@ export async function GET(request: Request) {
 
         // 3. Default List
         else {
-            // @ts-ignore
             const prompts = await prisma.promptEntry.findMany({
                 orderBy: { createdAt: 'desc' },
                 skip: skip,
                 take: limit,
                 select: selectFields
             });
-            // @ts-ignore
             const total = await prisma.promptEntry.count();
             return NextResponse.json({
                 prompts,
@@ -204,7 +204,8 @@ export async function POST(request: Request) {
             strength = 50,
             style = "preserve",
             useSearch = false, // NEW: Trigger for Google Search Retrieval
-            useMagicEnhance = false // NEW: Trigger for AI Prompt Alchemist
+            useMagicEnhance = false, // NEW: Trigger for AI Prompt Alchemist
+            personaId = null // NEW: Custom Persona ID
         } = body;
 
         // Ensure imageCount is an integer and within bounds
@@ -264,6 +265,21 @@ export async function POST(request: Request) {
                         // Force-inject the "Future Concept" intent directly into the User Input slot
                         searchOptimizedPrompt += ` \n\n(SYSTEM OVERRIDE: The user is asking about the FUTURE ${nextYear} model. DO NOT search for old released products. SEARCH QUERY MUST BE: '${prompt} concept design rumors ${nextYear}' or 'future design leaks ${nextYear}'. Ignore old models.)`;
                         console.log(`Smart Search Intercepted: Injected ${nextYear} Bias.`);
+                    }
+                }
+
+                // [NEW] Fetch custom persona if selected
+                let activeSystemPrompt = MASTER_ALCHEMIST_INSTRUCTION;
+                let isCustomPersona = false;
+
+                if (personaId && useMagicEnhance) {
+                    const persona = await prisma.alchemistPersona.findUnique({
+                        where: { id: personaId }
+                    });
+                    if (persona) {
+                        console.log(`⚗️ Using Custom Persona: ${persona.name}`);
+                        activeSystemPrompt = persona.systemPrompt;
+                        isCustomPersona = true;
                     }
                 }
 
@@ -356,9 +372,18 @@ User Input: ${searchOptimizedPrompt}
                 `;
 
                 const useModel = useMagicEnhance ? "gemini-3-flash-preview" : "gemini-2.5-flash";
-                const systemInstruction = (useMagicEnhance ? MASTER_ALCHEMIST_INSTRUCTION : "") + analysisPrompt;
 
-                console.log(`🚀 Using Analysis Model: ${useModel} (Alchemy: ${useMagicEnhance})`);
+                // [MODIFIED] Use Custom Persona if available, otherwise default logic
+                // Note: If using Custom Persona, we might want to ONLY use that, or Append it.
+                // Decision: If Custom Persona is active, Replace MASTER_ALCHEMIST_INSTRUCTION with it.
+                // But keep the Analysis/Search logic appended? 
+                // Currently systemInstruction = (useMagicEnhance ? MASTER_ALCHEMIST_INSTRUCTION : "") + analysisPrompt;
+                // Since Custom Persona replaces the "Magic" part, we do:
+
+                const magicPart = useMagicEnhance ? activeSystemPrompt : "";
+                const systemInstruction = magicPart + "\n\n" + analysisPrompt;
+
+                console.log(`🚀 Using Analysis Model: ${useModel} (Alchemy: ${useMagicEnhance}, Custom: ${isCustomPersona})`);
 
                 const analysisResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${useModel}:generateContent?key=${apiKey}`, {
                     method: 'POST',
@@ -845,6 +870,13 @@ User Input: ${searchOptimizedPrompt}
                 cfgScale,
                 steps,
                 tags: finalTags,
+                personaId: personaId || null, // Save Persona Link
+                tagsRelation: {
+                    connectOrCreate: finalTags ? finalTags.split(',').map(t => t.trim()).filter(Boolean).map(t => ({
+                        where: { name: t },
+                        create: { name: t }
+                    })) : []
+                }
             }
         });
 
@@ -892,8 +924,11 @@ export async function PUT(request: Request) {
             seed,
             cfgScale,
             steps,
-            tags
+            tags,
+            personaId
         } = body;
+
+        const finalTags = body.imageEngine ? `Engine:${body.imageEngine}${tags ? `, ${tags}` : ""}` : (tags || "");
 
         const entry = await prisma.promptEntry.create({
             data: {
@@ -908,7 +943,14 @@ export async function PUT(request: Request) {
                 seed: seed || 0,
                 cfgScale: cfgScale || 7.0,
                 steps: steps || 25,
-                tags: body.imageEngine ? `Engine:${body.imageEngine}${tags ? `, ${tags}` : ""}` : (tags || ""),
+                tags: finalTags,
+                personaId: personaId || null,
+                tagsRelation: {
+                    connectOrCreate: finalTags ? finalTags.split(',').map(t => t.trim()).filter(Boolean).map(t => ({
+                        where: { name: t },
+                        create: { name: t }
+                    })) : []
+                }
             }
         });
 
