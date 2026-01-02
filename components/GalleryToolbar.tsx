@@ -3,10 +3,6 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface GalleryToolbarProps {
-    // View Mode
-    viewMode: 'gallery' | 'map';
-    setViewMode: Dispatch<SetStateAction<'gallery' | 'map'>>;
-
     // Stats
     filteredCount: number;
     totalCount: number;
@@ -48,8 +44,6 @@ interface GalleryToolbarProps {
 }
 
 export default function GalleryToolbar({
-    viewMode,
-    setViewMode,
     filteredCount,
     totalCount,
     selectedTagsCount,
@@ -93,39 +87,18 @@ export default function GalleryToolbar({
                 </button>
                 <div className="w-px h-4 bg-white/10 mx-1" />
 
-                {/* Left: View Toggle + Stats */}
-                <div className="flex items-center gap-2">
-                    {/* View Toggle */}
-                    <div className="flex bg-white/5 p-0.5 rounded-full h-9">
-                        <button
-                            onClick={() => setViewMode('gallery')}
-                            className={`w-9 h-8 flex items-center justify-center rounded-full text-[11px] transition-all ${viewMode === 'gallery' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white hover:bg-white/10'
-                                }`}
-                            title="畫廊視圖"
-                        >
-                            🖼️
-                        </button>
-                        <button
-                            onClick={() => setViewMode('map')}
-                            className={`w-9 h-8 flex items-center justify-center rounded-full text-[11px] transition-all ${viewMode === 'map' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white hover:bg-white/10'
-                                }`}
-                            title="關係圖"
-                        >
-                            🕸️
-                        </button>
-                    </div>
 
-                    {/* Compact Stats Badge */}
-                    <div className="flex items-center gap-1 bg-white/5 px-2 h-8 rounded-full">
-                        <span className="text-[11px] text-gray-300 font-medium whitespace-nowrap">
-                            {filteredCount}/{totalCount}
+
+                {/* Compact Stats Badge */}
+                <div className="flex items-center gap-1 bg-white/5 px-2 h-8 rounded-full">
+                    <span className="text-[11px] text-gray-300 font-medium whitespace-nowrap">
+                        {filteredCount}/{totalCount}
+                    </span>
+                    {selectedTagsCount > 0 && (
+                        <span className="text-[9px] text-purple-400 bg-purple-500/20 px-1.5 py-0.5 rounded-full">
+                            {selectedTagsCount}
                         </span>
-                        {selectedTagsCount > 0 && (
-                            <span className="text-[9px] text-purple-400 bg-purple-500/20 px-1.5 py-0.5 rounded-full">
-                                {selectedTagsCount}
-                            </span>
-                        )}
-                    </div>
+                    )}
                 </div>
 
                 {/* Right: Action Buttons */}
@@ -283,6 +256,6 @@ export default function GalleryToolbar({
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

@@ -29,9 +29,12 @@ export default function CollectionSelector({ promptIds, onClose }: CollectionSel
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ promptIds })
             });
+            const data = await res.json();
             if (res.ok) {
-                alert(`已將 ${promptIds.length} 張圖片加入收藏！`);
+                alert(`成功加入 ${data.added} 張圖片 (已忽略 ${data.ignored} 張無效ID)！`);
                 onClose();
+            } else {
+                alert(data.error || '加入失敗');
             }
         } catch (error) {
             alert('加入失敗');

@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { GoogleGenAI } from "@google/genai";
-// @ts-ignore
+import { saveImageToDisk } from '@/services/imageStorage';
 import sharp from 'sharp';
-import { generateImage } from '@/services/geminiImageService';
+import { generateImage, EngineType } from '@/services/geminiImageService';
 
 const MASTER_ALCHEMIST_INSTRUCTION = `
 ### 🔮 [MASTER ALCHEMIST MODE: ON]
@@ -134,7 +134,7 @@ export async function GET(request: Request) {
 
         // 2. Keyword Search
         else if (search) {
-            const where: any = {
+            const where: Prisma.PromptEntryWhereInput = {
                 OR: [
                     { prompt: { contains: search } },
                     { promptZh: { contains: search } },
@@ -196,7 +196,30 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
     try {
-        const body = await request.json();
+        interface PromptRequestBody {
+            prompt: string;
+            negativePrompt?: string;
+            width?: number;
+            height?: number;
+            sampler?: string;
+            seed?: number;
+            cfgScale?: number;
+            steps?: number;
+            provider?: string;
+            apiUrl?: string;
+            apiKey?: string;
+            imageCount?: number;
+            previewMode?: boolean;
+            imageBase64?: string | null;
+            strength?: number;
+            style?: string;
+            useSearch?: boolean;
+            useMagicEnhance?: boolean;
+            personaId?: string | null;
+            imageEngine?: string;
+        }
+
+        const body = await request.json() as PromptRequestBody;
         const {
             prompt,
             negativePrompt,
@@ -429,30 +452,75 @@ User Input: ${searchOptimizedPrompt}
 
                 console.log("🧩 AI Analysis Result:", jsonString); // DEBUG Log
 
+                // Define expected AI Response structure
+                interface AIResponse {
+                    storyboard?: Array<{
+                        prompt: string;
+                        shot_type: string;
+                        description?: string;
+                    }>;
+                    enPrompt?: string;
+                    zhPrompt?: string;
+                    tags?: string;
+                    negative_prompt?: string;
+                }
+
                 // Robust JSON Extraction
-                let parsed: any = {};
+                let parsed: AIResponse = {};
                 try {
-                    const start = jsonString.indexOf('{');
-                    const end = jsonString.lastIndexOf('}');
-                    if (start !== -1 && end !== -1) {
-                        const extracted = jsonString.substring(start, end + 1);
-                        try {
-                            parsed = JSON.parse(extracted);
-                        } catch (firstPassErr: any) {
-                            console.warn("Initial JSON Parse Failed, attempting newline repair...", firstPassErr.message);
-                            // Repair: Replace all newlines with spaces (JSON does not allow literal newlines in strings)
-                            // This is safe because prompt text usually doesn't need structural newlines
-                            const fixedString = extracted.replace(/[\n\r]+/g, " ");
-                            parsed = JSON.parse(fixedString);
-                            console.log("JSON Repair Successful!");
+                    // Find potential starts
+                    const startBrace = jsonString.indexOf('{');
+                    const startBracket = jsonString.indexOf('[');
+
+                    let jsonStart = -1;
+                    let jsonEnd = -1;
+
+                    // Determine which valid start comes first
+                    if (startBrace !== -1 && startBracket !== -1) {
+                        jsonStart = Math.min(startBrace, startBracket);
+                    } else if (startBrace !== -1) {
+                        jsonStart = startBrace;
+                    } else if (startBracket !== -1) {
+                        jsonStart = startBracket;
+                    }
+
+                    if (jsonStart !== -1) {
+                        const startChar = jsonString[jsonStart];
+
+                        // Strictly pair the end delimiter based on start
+                        // This prevents capturing trailing text that might contain the OTHER delimiter
+                        if (startChar === '{') {
+                            jsonEnd = jsonString.lastIndexOf('}');
+                        } else if (startChar === '[') {
+                            jsonEnd = jsonString.lastIndexOf(']');
+                        }
+
+                        if (jsonEnd > jsonStart) {
+                            const extracted = jsonString.substring(jsonStart, jsonEnd + 1);
+
+                            try {
+                                parsed = JSON.parse(extracted);
+                            } catch (firstPassErr: any) {
+                                console.warn("Initial JSON Parse Failed, attempting newline repair...", firstPassErr.message);
+                                // Repair: Replace all newlines with spaces
+                                const fixedString = extracted.replace(/[\n\r]+/g, " ");
+                                parsed = JSON.parse(fixedString);
+                                console.log("JSON Repair Successful!");
+                            }
+
+                            // Normalization: If API returned raw array, wrap it in 'storyboard'
+                            if (Array.isArray(parsed)) {
+                                console.log("Detected Array Output, wrapping in 'storyboard' object");
+                                parsed = { storyboard: parsed };
+                            }
+                        } else {
+                            throw new Error(`No valid JSON end found for ${startChar}`);
                         }
                     } else {
-                        throw new Error("No JSON found");
+                        throw new Error("No JSON found (no opening brace/bracket)");
                     }
                 } catch (e: any) {
                     console.error("JSON Parse Failed (Final)", e.message);
-                    // Fallback to simple text if JSON fails? Or just throw?
-                    // For now, let's assume if JSON fails, we can't proceed with enhancements
                 }
 
                 // --- STORYBOARD MODE LOGIC (NEW) ---
@@ -474,7 +542,7 @@ User Input: ${searchOptimizedPrompt}
                             const genResult = await generateImage({
                                 prompt: frame.prompt,
                                 // Map properties to service expectation
-                                engineType: (body.imageEngine || "imagen") as any,
+                                engineType: (body.imageEngine || "imagen") as EngineType,
                                 apiKey: apiKey,
                                 aspectRatio: "16:9" // Storyboard is strictly 16:9
                             });
@@ -485,9 +553,15 @@ User Input: ${searchOptimizedPrompt}
                                 // Continue to next frame, do not throw
                             }
 
-                            const imgUrl = genResult.imageBase64
-                                ? `data:image/png;base64,${genResult.imageBase64}`
-                                : null;
+                            // Save to disk instead of Base64
+                            let imgUrl = null;
+                            if (genResult.imageBase64) {
+                                try {
+                                    imgUrl = await saveImageToDisk(genResult.imageBase64, `storyboard-${i}`);
+                                } catch (e) {
+                                    console.error(`Frame ${i + 1} save failed:`, e);
+                                }
+                            }
 
                             // Bilingual Data for this frame
                             const frameZh = frame.description || "分鏡圖";
@@ -508,8 +582,7 @@ User Input: ${searchOptimizedPrompt}
                                         cfgScale: cfgScale || 7.0,
                                         steps: steps || 25,
                                         tags: `Storyboard, ${frame.shot_type}, ${parsed.tags || ""}`,
-                                        // Remove personaId temporarily to ensure saving works (avoid FK errors)
-                                        // personaId: personaId || undefined,
+                                        personaId: personaId || null,
                                         tagsRelation: {
                                             connectOrCreate: [] // Simplify tags relation for now
                                         }
@@ -662,12 +735,8 @@ User Input: ${searchOptimizedPrompt}
                 if (data.candidates && data.candidates[0]?.content?.parts) {
                     for (const part of data.candidates[0].content.parts) {
                         if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
-                            const buffer = Buffer.from(part.inlineData.data, 'base64');
-                            const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
-                            const filename = `img2img-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
-                            const filepath = path.join(uploadDir, filename);
-                            fs.writeFileSync(filepath, buffer);
-                            generatedImages.push(`/uploads/${filename}`);
+                            const url = await saveImageToDisk(part.inlineData.data, "img2img");
+                            generatedImages.push(url);
                         }
                     }
                 }
@@ -763,15 +832,12 @@ User Input: ${searchOptimizedPrompt}
                     const generatedImages: string[] = [];
 
                     // Extract images from generateContent response format
+                    // Extract images from generateContent response format
                     if (data.candidates && data.candidates[0]?.content?.parts) {
                         for (const part of data.candidates[0].content.parts) {
                             if (part.inlineData && part.inlineData.data && part.inlineData.mimeType?.startsWith('image/')) {
-                                const buffer = Buffer.from(part.inlineData.data, 'base64');
-                                const extension = part.inlineData.mimeType === 'image/png' ? 'png' : 'jpg';
-                                const filename = `gemini-native-${Date.now()}-${Math.random().toString(36).substring(7)}.${extension}`;
-                                const filepath = path.join(uploadDir, filename);
-                                fs.writeFileSync(filepath, buffer);
-                                generatedImages.push(`/uploads/${filename}`);
+                                const url = await saveImageToDisk(part.inlineData.data, "gemini-native");
+                                generatedImages.push(url);
                             }
                         }
                     }
@@ -853,12 +919,8 @@ User Input: ${searchOptimizedPrompt}
                         for (let i = 0; i < data.predictions.length; i++) {
                             const pred = data.predictions[i];
                             if (pred.bytesBase64Encoded) {
-                                const buffer = Buffer.from(pred.bytesBase64Encoded, 'base64');
-                                // Directly write raw bytes (Imagen 4 returns PNG by default)
-                                const filename = `imagen-${Date.now()}-${i}-${Math.random().toString(36).substring(7)}.png`;
-                                const filepath = path.join(uploadDir, filename);
-                                fs.writeFileSync(filepath, buffer);
-                                generatedImages.push(`/uploads/${filename}`);
+                                const url = await saveImageToDisk(pred.bytesBase64Encoded, `imagen-${i}`);
+                                generatedImages.push(url);
                             }
                         }
 
@@ -934,7 +996,7 @@ User Input: ${searchOptimizedPrompt}
                 cfgScale,
                 steps: steps || 25,
                 tags: finalTags,
-                // personaId: personaId || null, // Removed to prevent FK error
+                personaId: personaId || null,
                 tagsRelation: {
                     connectOrCreate: finalTags ? finalTags.split(',').map(t => t.trim()).filter(Boolean).map(t => ({
                         where: { name: t },
@@ -976,7 +1038,23 @@ User Input: ${searchOptimizedPrompt}
 // PUT: Save selected image from preview to database
 export async function PUT(request: Request) {
     try {
-        const body = await request.json();
+        interface PutRequestBody {
+            imageUrl: string;
+            prompt: string;
+            originalPrompt?: string;
+            promptZh?: string;
+            negativePrompt?: string;
+            width?: number;
+            height?: number;
+            seed?: number;
+            cfgScale?: number;
+            steps?: number;
+            tags?: string;
+            personaId?: string | null;
+            imageEngine?: string;
+        }
+
+        const body = await request.json() as PutRequestBody;
         const {
             imageUrl,
             prompt,

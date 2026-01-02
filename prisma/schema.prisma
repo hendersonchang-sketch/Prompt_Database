@@ -62,13 +62,7 @@ model Tag {
   @@index([lastUsed])
 }
 
-model PromptSnippet {
-  id        String   @id @default(uuid())
-  category  String // "Lighting", "Camera", "Style", "Quality", "subject"
-  content   String // "rim lighting", "8k resolution"
-  label     String // "輪廓光", "8K"
-  createdAt DateTime @default(now())
-}
+
 
 model Character {
   id          String   @id @default(uuid())

@@ -26,8 +26,10 @@ Break the story into 4 distinct narrative beats with specific camera languages:
 
 ### 3. OUTPUT FORMAT (JSON ONLY)
 You must return a STRICT JSON object containing a "storyboard" array.
-CRITICAL: Do NOT use line breaks inside JSON strings. Inspect your JSON validity carefully.
-Each item in the array must have:
+CRITICAL: Do NOT use line breaks inside JSON strings.
+CRITICAL: Do NOT return a single "enPrompt" field containing multiple shots. You MUST return an ARRAY of 4 distinct objects.
+
+Each item in the "storyboard" array must have:
 * "shot_type": The camera angle (e.g., "Wide Shot", "Close-up").
 * "prompt": The final constructed image prompt.
 * "description": A short explanation of the shot.
@@ -40,15 +42,10 @@ Each item in the array must have:
   "storyboard": [
     {
       "shot_type": "Wide Shot",
-      "prompt": "Wide Shot, Leo, a 10-year-old boy with messy red hair and goggles, wearing a blue mechanic jumpsuit, standing in a vast junkyard filled with towering scrap metal robots, sunset lighting, masterpiece, best quality, 8k resolution, cinematic lighting --ar 16:9",
-      "description": "Establishing shot of Leo in the junkyard."
+      "prompt": "Wide Shot, Leo, a 10-year-old boy...",
+      "description": "Establishing shot..."
     },
-    {
-      "shot_type": "Medium Shot",
-      "prompt": "Medium Shot, Leo, a 10-year-old boy with messy red hair and goggles, wearing a blue mechanic jumpsuit, welding a metal arm with sparks flying, intense concentration, dynamic lighting, masterpiece, best quality, 8k resolution --ar 16:9",
-      "description": "Action shot of Leo working."
-    },
-    ... (Shot 3 & 4)
+    ... (Shot 2, 3, 4)
   ]
 }
 `,

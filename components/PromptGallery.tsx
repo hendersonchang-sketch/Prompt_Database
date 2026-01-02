@@ -4,13 +4,13 @@ import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import ABCompare from "./ABCompare";
 import StyleFusionDialog from "./StyleFusionDialog";
 
-import InspirationMap from "./InspirationMap";
+
 import ImageEditor from "./ImageEditor";
 import GalleryToolbar from "./GalleryToolbar";
 import { ImageModal } from "./ImageModal";
 import { PromptCard, PromptEntry } from "./PromptCard";
 import {
-    Search, Trash2, Loader2, Download, Zap, X, Map as MapIcon, RefreshCw, Upload, Edit, MoreHorizontal, FolderPlus
+    Search, Trash2, Loader2, Download, Zap, X, RefreshCw, Upload, Edit, MoreHorizontal, FolderPlus
 } from "lucide-react";
 import { Masonry } from "masonic";
 
@@ -50,7 +50,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
     const [fusionLoading, setFusionLoading] = useState(false);
 
     const [editorImage, setEditorImage] = useState<string | null>(null);
-    const [viewMode, setViewMode] = useState<'gallery' | 'map'>('gallery');
+
 
     const [useSemanticSearch, setUseSemanticSearch] = useState(false);
 
@@ -384,14 +384,18 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         });
     }, [prompts, searchQuery, selectedTags, showFavoritesOnly, activeCollectionId, useSemanticSearch]);
 
-    // Masonry Stability Logic: Force reset if list shrinks (Filter/Delete) to avoid "No data at index" error
-    const prevLengthRef = useRef(0);
-    useEffect(() => {
-        if (filteredPrompts.length < prevLengthRef.current) {
-            setMasonryKey(k => k + 1);
-        }
-        prevLengthRef.current = filteredPrompts.length;
-    }, [filteredPrompts.length]);
+    // Masonry Stability Logic: Force reset synchronously if list shrinks (Filter/Delete)
+    // accessible before render to avoid "No data at index" error
+    const masonryGenRef = useRef(0);
+    const prevCountRef = useRef(filteredPrompts.length);
+
+    // If length decreases, we MUST generate a new key immediately for this render cycle
+    if (filteredPrompts.length < prevCountRef.current) {
+        masonryGenRef.current++;
+    }
+    // If length increases significantly (not just append), we might also want to reset?
+    // For now, rely on shrinkage check which is the crash cause.
+    prevCountRef.current = filteredPrompts.length;
 
     const toggleTag = (tag: string) => {
         setSelectedTags(prev =>
@@ -635,8 +639,6 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
 
             {/* Toolbar */}
             < GalleryToolbar
-                viewMode={viewMode}
-                setViewMode={setViewMode}
                 filteredCount={prompts.length}
                 totalCount={totalCount}
                 selectedTagsCount={selectedTags.length}
@@ -690,14 +692,8 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
             {/* Masonry Grid */}
             {/* Content Area */}
             {
-                viewMode === 'map' ? (
-                    <InspirationMap onSelect={(id) => {
-                        const found = prompts.find(p => p.id === id);
-                        if (found) {
-                            setSelectedImage(found);
-                        }
-                    }} />
-                ) : (
+                (
+
                     <div className="relative">
                         {/* Empty State */}
                         {!loading && filteredPrompts.length === 0 && (
@@ -727,7 +723,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                         {filteredPrompts.length > 0 && (
                             <div className="min-h-screen pb-20">
                                 <Masonry
-                                    key={masonryKey}
+                                    key={`${masonryKey}-${masonryGenRef.current}`}
                                     items={filteredPrompts}
                                     columnGutter={12}
                                     columnWidth={280}
