@@ -106,6 +106,16 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Force layout refresh when sidebar toggles (to fix Masonry width)
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            // Force Masonry to completely re-calculate layout by updating its key
+            // This is necessary because CSS transitions change the container width
+            setMasonryKey(prev => prev + 1);
+        }, 350); // Wait slightly longer than transition (300ms) to ensure final width is ready
+        return () => clearTimeout(timer);
+    }, [isCollectionSidebarOpen]);
+
     const fetchPrompts = async (overrideSearch?: string, useSemantic?: boolean, pageNum: number = 1, append: boolean = false) => {
         try {
             if (append) {
@@ -486,14 +496,13 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
 
     return (
 
-        <div className="w-full max-w-[1600px] px-4 space-y-8">
+        <div className={`w-full max-w-[1600px] mx-auto px-4 space-y-8 transition-all duration-300 ease-in-out ${isCollectionSidebarOpen ? 'pl-72' : ''}`}>
             <CollectionSidebar
                 isOpen={isCollectionSidebarOpen}
                 onClose={() => setIsCollectionSidebarOpen(false)}
                 activeCollectionId={activeCollectionId}
                 onSelectCollection={(id) => {
                     setActiveCollectionId(id);
-                    // Close sidebar on mobile/small screens if needed, or keep open
                 }}
             />
 
@@ -658,7 +667,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 setSearchQuery={setSearchQuery}
 
                 useSemanticSearch={useSemanticSearch}
-                onToggleSidebar={() => setIsCollectionSidebarOpen(true)}
+                onToggleSidebar={() => setIsCollectionSidebarOpen(prev => !prev)}
                 setUseSemanticSearch={setUseSemanticSearch}
                 onSearch={fetchPrompts}
                 onReindex={handleReindex}

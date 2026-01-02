@@ -25,7 +25,7 @@ export default function CollectionSidebar({ isOpen, onClose, activeCollectionId,
     const [loading, setLoading] = useState(true);
     const [isCreating, setIsCreating] = useState(false);
     const [newCollectionName, setNewCollectionName] = useState("");
-    const [editingId, setEditingId] = useState<string | null>(null);
+    const [dragOverId, setDragOverId] = useState<string | null>(null);
 
     useEffect(() => {
         if (isOpen) fetchCollections();
@@ -71,6 +71,57 @@ export default function CollectionSidebar({ isOpen, onClose, activeCollectionId,
             fetchCollections();
         } catch (error) {
             alert('刪除失敗');
+        }
+    };
+
+    const handleDragOver = (e: React.DragEvent, id: string) => {
+        e.preventDefault();
+        setDragOverId(id);
+    };
+
+    const handleDragLeave = (e: React.DragEvent) => {
+        e.preventDefault();
+        setDragOverId(null);
+    };
+
+    const handleDrop = async (e: React.DragEvent, collectionId: string) => {
+        e.preventDefault();
+        setDragOverId(null);
+        const itemId = e.dataTransfer.getData("text/plain");
+
+        if (itemId) {
+            // Optimistic Update: Immediately increment the count
+            setCollections(prev => prev.map(col =>
+                col.id === collectionId
+                    ? { ...col, _count: { prompts: (col._count?.prompts || 0) + 1 } }
+                    : col
+            ));
+
+            // Show lightweight toast
+            const toast = document.createElement("div");
+            toast.className = "fixed bottom-10 right-10 bg-green-600 text-white px-4 py-2 rounded-lg shadow-xl z-[100] animate-in fade-in slide-in-from-bottom-2";
+            toast.innerText = `已加入收藏！`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+
+            try {
+                const res = await fetch(`/api/collections/${collectionId}/items`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ promptIds: [itemId] })
+                });
+
+                if (!res.ok) {
+                    // Rollback if failed (optional, but good practice)
+                    // For now, simpler to just alert error
+                    const data = await res.json();
+                    alert(data.error || '加入失敗');
+                    fetchCollections(); // Re-sync
+                }
+            } catch (error) {
+                console.error(error);
+                fetchCollections(); // Re-sync
+            }
         }
     };
 
@@ -138,9 +189,15 @@ export default function CollectionSidebar({ isOpen, onClose, activeCollectionId,
                             <div
                                 key={col.id}
                                 onClick={() => onSelectCollection(col.id)}
+                                onDragOver={(e) => handleDragOver(e, col.id)}
+                                onDragLeave={handleDragLeave}
+                                onDrop={(e) => handleDrop(e, col.id)}
                                 className={`group relative w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all cursor-pointer border ${activeCollectionId === col.id
                                     ? "bg-white/10 border-purple-500/30 text-white shadow-lg shadow-purple-900/20"
-                                    : "border-transparent text-gray-400 hover:bg-white/5 hover:text-white"}`}
+                                    : dragOverId === col.id
+                                        ? "bg-purple-600/20 border-purple-500 text-white shadow"
+                                        : "border-transparent text-gray-400 hover:bg-white/5 hover:text-white"
+                                    }`}
                             >
                                 <div className="relative">
                                     {col.coverImage ? (
