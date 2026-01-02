@@ -60,6 +60,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
     const [hasMore, setHasMore] = useState(true);
     const [isLoadingMore, setIsLoadingMore] = useState(false);
     const observerTarget = useRef<HTMLDivElement>(null);
+    const [localRefresh, setLocalRefresh] = useState(0);
 
     const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
 
@@ -71,6 +72,34 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
     const [activeCollectionId, setActiveCollectionId] = useState<string | null>(null);
     const [showCollectionSelector, setShowCollectionSelector] = useState(false);
     const [masonryKey, setMasonryKey] = useState(0); // Force reset Masonry on full reload
+    const [collectionRefreshTrigger, setCollectionRefreshTrigger] = useState(0);
+
+    // Set Collection Cover Image
+    const handleSetAsCover = async (id: string, url: string) => {
+        if (!activeCollectionId) return;
+        try {
+            const res = await fetch(`/api/collections/${activeCollectionId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ coverImage: url })
+            });
+
+            if (res.ok) {
+                // Trigger sidebar refresh to show new cover
+                setCollectionRefreshTrigger(prev => prev + 1);
+
+                // Show toast (simple alert for now)
+                const toast = document.createElement("div");
+                toast.className = "fixed bottom-10 right-10 bg-yellow-600 text-white px-4 py-2 rounded-lg shadow-xl z-[100] animate-in fade-in slide-in-from-bottom-2";
+                toast.innerText = `已設為封面！`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
+        } catch (error) {
+            console.error(error);
+            alert('設定封面失敗');
+        }
+    };
 
     // Extract Unique Tags
     const allTags = Array.from(new Set(
@@ -95,7 +124,7 @@ export default function PromptGallery({ refreshTrigger, onReuse, onSetAsReferenc
         setPage(1);
         setPrompts([]);
         fetchPrompts(undefined, undefined, 1, false);
-    }, [refreshTrigger, searchQuery, useSemanticSearch, showFavoritesOnly, selectedTags, activeCollectionId]);
+    }, [refreshTrigger, searchQuery, useSemanticSearch, showFavoritesOnly, selectedTags, activeCollectionId, localRefresh]);
 
     // Scroll listener for sticky header effect
     useEffect(() => {
@@ -488,9 +517,10 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 onDelete={handleDelete}
                 handleSetAsReference={onSetAsReference}
                 onTagClick={toggleTag}
+                onSetAsCover={activeCollectionId ? handleSetAsCover : undefined}
             />
         </div>
-    ), [isSelectionMode, selectedIds, toggleSelection, setSelectedImage, toggleFavorite, handleDelete, onSetAsReference, toggleTag]);
+    ), [isSelectionMode, selectedIds, toggleSelection, setSelectedImage, toggleFavorite, handleDelete, onSetAsReference, toggleTag, activeCollectionId]);
 
     if (loading) return <div className="text-center p-10 opacity-50">載入畫廊中...</div>;
 
@@ -504,6 +534,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                 onSelectCollection={(id) => {
                     setActiveCollectionId(id);
                 }}
+                refreshTrigger={collectionRefreshTrigger}
             />
 
             {/* Batch Action Bar */}
@@ -547,6 +578,7 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                 if (selectedPrompts.length === 0) return;
 
                                 // Create export data
+                                // Create export data
                                 const exportData = {
                                     exportDate: new Date().toISOString(),
                                     itemCount: selectedPrompts.length,
@@ -571,21 +603,73 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
                                 const url = URL.createObjectURL(blob);
                                 const a = document.createElement('a');
                                 a.href = url;
-                                a.download = `prompt-export-${new Date().toISOString().slice(0, 10)}.json`;
-                                document.body.appendChild(a);
+                                a.download = `prompts_export_${new Date().toISOString().slice(0, 10)}.json`;
                                 a.click();
-                                document.body.removeChild(a);
-                                URL.revokeObjectURL(url);
-
-                                alert(`已匯出 ${selectedPrompts.length} 筆資料！`);
                             }}
-                            disabled={selectedIds.size === 0}
-                            className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                            className="p-2 bg-blue-600/80 text-white rounded-full hover:bg-blue-600 transition-colors shadow-lg backdrop-blur-sm flex items-center gap-2 px-4"
+                            title="匯出 JSON"
                         >
-                            <Download className="w-4 h-4" />
-                            匯出 ({selectedIds.size})
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span className="text-sm font-medium">匯出</span>
                         </button>
 
+                        {/* AI Auto-Tag */}
+                        <button
+                            onClick={async () => {
+                                const ids = Array.from(selectedIds);
+                                if (ids.length === 0) return;
+
+                                const confirmTag = confirm(`確定要使用 AI 為這 ${ids.length} 張圖片自動產生標籤嗎？`);
+                                if (!confirmTag) return;
+
+                                try {
+                                    // Show loading feedback
+                                    const toast = document.createElement("div");
+                                    toast.id = "tag-toast";
+                                    toast.className = "fixed bottom-10 right-10 bg-purple-600 text-white px-4 py-2 rounded-lg shadow-xl z-[100] animate-in fade-in slide-in-from-bottom-2";
+                                    toast.innerText = `AI 分析中 (${ids.length} 張)...`;
+                                    document.body.appendChild(toast);
+
+                                    const res = await fetch('/api/tags/auto-tag', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ promptIds: ids })
+                                    });
+
+                                    const data = await res.json();
+
+                                    // Remove loading toast
+                                    document.getElementById("tag-toast")?.remove();
+
+                                    if (data.success) {
+                                        // Show success toast
+                                        const successToast = document.createElement("div");
+                                        successToast.className = "fixed bottom-10 right-10 bg-green-600 text-white px-4 py-2 rounded-lg shadow-xl z-[100] animate-in fade-in slide-in-from-bottom-2";
+                                        successToast.innerText = `成功為 ${data.successCount} 張圖片加上標籤！`;
+                                        document.body.appendChild(successToast);
+                                        setTimeout(() => successToast.remove(), 3000);
+
+                                        // Refresh gallery
+                                        setLocalRefresh(prev => prev + 1);
+                                        setIsSelectionMode(false);
+                                        setSelectedIds(new Set());
+                                    } else {
+                                        alert('部分失敗: ' + (data.error || '不明錯誤'));
+                                    }
+                                } catch (e) {
+                                    console.error(e);
+                                    alert('AI Tagging 發生錯誤');
+                                    document.getElementById("tag-toast")?.remove();
+                                }
+                            }}
+                            className="p-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all shadow-lg backdrop-blur-sm flex items-center gap-2 px-4 border border-white/20"
+                            title="AI 自動標籤"
+                        >
+                            <span className="text-lg">🪄</span>
+                            <span className="text-sm font-bold">AI Tag</span>
+                        </button>
                         {/* A/B Compare Button - only when exactly 2 selected */}
                         {selectedIds.size === 2 && (
                             <button

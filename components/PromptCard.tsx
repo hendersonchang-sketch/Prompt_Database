@@ -34,6 +34,7 @@ interface PromptCardProps {
     onDelete: (id: string) => void;
     handleSetAsReference?: (image: PromptEntry) => void;
     onTagClick?: (tag: string) => void;
+    onSetAsCover?: (id: string, url: string) => void;
 }
 
 // Generate a deterministic soft gradient based on string ID
@@ -60,7 +61,8 @@ export function PromptCard({
     onToggleFavorite,
     onDelete,
     handleSetAsReference,
-    onTagClick
+    onTagClick,
+    onSetAsCover
 }: PromptCardProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -79,6 +81,10 @@ export function PromptCard({
             draggable="true"
             onDragStart={(e) => {
                 e.dataTransfer.setData("text/plain", item.id);
+                // Also pass image URL for optimistic cover image update
+                if (item.imageUrl) {
+                    e.dataTransfer.setData("image/url", item.imageUrl);
+                }
                 e.dataTransfer.effectAllowed = "copy";
             }}
             className={`break-inside-avoid group relative bg-neutral-900/40 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer ${isSelected
@@ -184,6 +190,20 @@ export function PromptCard({
                         >
                             <ImageIcon className="w-4 h-4" />
                         </button>
+                        {onSetAsCover && item.imageUrl && (
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onSetAsCover(item.id, item.imageUrl!);
+                                }}
+                                title="設為封面"
+                                className="p-2 bg-yellow-500/20 hover:bg-yellow-500 text-yellow-200 hover:text-white rounded-full transition-colors"
+                            >
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

@@ -2,6 +2,33 @@
 
 ## 2025-12-17
 
+## 2026-01-02 (v1.2 Release)
+
+### 📚 魔導書系統 (Collections) (Phase 2-4)
+- **新增** 個人化收藏集系統 (`Collection` Model)
+- **新增** `/api/collections` 系列 API (CRUD, Batch Import/Delete)
+- **新增** `CollectionSidebar` 側邊欄：支援拖曳加入、建立新收藏
+- **新增** 自動封面管理 (Cover Image Auto-Selection)
+
+### 🪄 AI 自動標籤 (Auto-Tagging) (Phase 10)
+- **新增** `/api/tags/auto-tag` API
+- **整合** Gemini 1.5 Flash Vision 模型 (因 Rate Limit 回退至 gemini-2.0-flash-exp 並限流 7s/圖)
+- **新增** 畫廊批次操作：「🪄 AI Tag」按鈕
+- **新增** 自動節流保護機制 (Rate Limiting Protection)
+
+### 🎬 分鏡導演模式 (Storyboard Mode) (Phase 6)
+- **新增** "Storyboard Director" Persona
+- **新增** 連續生成邏輯：單一 Prompt 自動拆解為 4 張連貫分鏡 (建立/行動/情感/結局)
+- **優化** 嚴格 JSON 修復機制，防止 AI 格式錯誤
+
+### ⚡ 效能與 UX 優化 (Phase 6 & 8)
+- **新增** `Masonic` 瀑布流佈局：解決大量圖片下的渲染效能問題
+- **新增** Smart Placeholders：基於 ID 的確定性漸層佔位符，提升視覺體驗
+- **新增** 圖片拖曳功能 (Native Drag & Drop)：直觀整理圖片至收藏集
+- **優化** 圖片儲存機制：Base64 轉為本地檔案系統 (`/public/uploads`)，大幅減少 DB 負擔
+
+---
+
 ## 2025-12-18
 
 ### ⚡ Gemini 3 Flash 高級功能（NEW）

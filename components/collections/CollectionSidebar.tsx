@@ -18,9 +18,10 @@ interface CollectionSidebarProps {
     onClose: () => void;
     activeCollectionId: string | null;
     onSelectCollection: (id: string | null) => void;
+    refreshTrigger?: number;
 }
 
-export default function CollectionSidebar({ isOpen, onClose, activeCollectionId, onSelectCollection }: CollectionSidebarProps) {
+export default function CollectionSidebar({ isOpen, onClose, activeCollectionId, onSelectCollection, refreshTrigger = 0 }: CollectionSidebarProps) {
     const [collections, setCollections] = useState<Collection[]>([]);
     const [loading, setLoading] = useState(true);
     const [isCreating, setIsCreating] = useState(false);
@@ -29,7 +30,7 @@ export default function CollectionSidebar({ isOpen, onClose, activeCollectionId,
 
     useEffect(() => {
         if (isOpen) fetchCollections();
-    }, [isOpen]);
+    }, [isOpen, refreshTrigger]);
 
     const fetchCollections = async () => {
         setLoading(true);
@@ -89,11 +90,18 @@ export default function CollectionSidebar({ isOpen, onClose, activeCollectionId,
         setDragOverId(null);
         const itemId = e.dataTransfer.getData("text/plain");
 
+        const itemImageUrl = e.dataTransfer.getData("image/url");
+
         if (itemId) {
-            // Optimistic Update: Immediately increment the count
+            // Optimistic Update: Immediately increment count AND set cover image if empty
             setCollections(prev => prev.map(col =>
                 col.id === collectionId
-                    ? { ...col, _count: { prompts: (col._count?.prompts || 0) + 1 } }
+                    ? {
+                        ...col,
+                        _count: { prompts: (col._count?.prompts || 0) + 1 },
+                        // If no cover image exists, use the dropped image immediately
+                        coverImage: col.coverImage || itemImageUrl || col.coverImage
+                    }
                     : col
             ));
 
