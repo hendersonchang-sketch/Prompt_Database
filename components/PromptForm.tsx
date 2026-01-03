@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Copy, User, Users, Loader2, Sparkles, Globe, Undo2, Beaker } from "lucide-react";
+import { X, Copy, User, Users, Loader2, Sparkles, Globe, Undo2, Beaker, MoreHorizontal, Wand2, Languages } from "lucide-react";
+import { DropdownMenu, DropdownItem, DropdownDivider } from "./ui/DropdownMenu";
+import { Button } from "./ui/Button";
 import CharacterManager from "./CharacterManager";
 import { ASPECT_RATIOS, TemplateCategory } from "@/lib/prompt-data";
 import { LOGIC_PREFIX, QUALITY_SUFFIX_BASE, SCENE_PROFILES, applyUltimateMasterFilter } from "@/lib/prompt-logic";
@@ -451,7 +453,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
         <form
             id="prompt-form-section"
             onSubmit={handleSubmit}
-            className="w-full max-w-4xl bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 shadow-xl space-y-6"
+            className="relative w-full max-w-4xl bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-purple-500/[0.05] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_60px_rgba(0,0,0,0.4)] space-y-6 overflow-hidden group/form"
         >
             {/* Error Message */}
             {errorMsg && (
@@ -510,169 +512,156 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
             <div className="space-y-2">
                 <div className="flex flex-wrap justify-between items-center gap-2">
                     <label className="text-xs md:text-sm font-medium text-purple-200">正向提示詞 (Prompt)</label>
-                    <button
-                        type="button"
-                        onClick={() => setUseMagicEnhancer(!useMagicEnhancer)}
-                        className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${useMagicEnhancer
-                            ? "bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/50 text-yellow-200 shadow-[0_0_15px_rgba(234,179,8,0.2)] font-bold"
-                            : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
-                            }`}
-                    >
-                        <Sparkles className={`w-3.5 h-3.5 ${useMagicEnhancer ? "animate-pulse text-yellow-400" : ""}`} />
-                        {useMagicEnhancer ? "✨ 煉金術 (Magic Enhance)" : "🪄 提示詞煉金術"}
-                    </button>
 
-                    {/* Alchemist Lab Trigger */}
-                    {useMagicEnhancer && (
+                    {/* Primary Actions: Magic Enhancer Toggle */}
+                    <div className="flex items-center gap-2">
                         <button
                             type="button"
-                            onClick={() => setIsAlchemistOpen(true)}
-                            className="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500 hover:text-white transition-all animate-in zoom-in-50"
-                            title="配置煉金術師人格"
+                            onClick={() => setUseMagicEnhancer(!useMagicEnhancer)}
+                            className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${useMagicEnhancer
+                                ? "bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/50 text-yellow-200 shadow-[0_0_15px_rgba(234,179,8,0.2)] font-bold"
+                                : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
+                                }`}
                         >
-                            <Beaker className="w-3 h-3" />
-                            {activePersonaId ? "🎭 自定義人格" : "🧪 實驗室"}
+                            <Sparkles className={`w-3.5 h-3.5 ${useMagicEnhancer ? "animate-pulse text-yellow-400" : ""}`} />
+                            {useMagicEnhancer ? "✨ 煉金術 ON" : "🪄 煉金術"}
                         </button>
-                    )}
 
-                    <button
-                        type="button"
-                        onClick={() => setUseSearch(!useSearch)}
-                        className={`text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${useSearch
-                            ? "bg-blue-500 text-white border-blue-400 font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)]"
-                            : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
-                            }`}
-                        title="啟用智慧聯網：AI 將先進行視覺研究 (如最新型號、即時資訊)"
-                    >
-                        <Globe className={`w-3.5 h-3.5 ${useSearch ? 'animate-pulse' : ''}`} />
-                        {useSearch ? "🌐 智慧聯網 (Live)" : "智慧聯網"}
-                    </button>
-
-                    {/* Undo Button */}
-                    {previousPrompt && (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setFormData(prev => ({ ...prev, prompt: previousPrompt }));
-                                setPreviousPrompt(null);
-                            }}
-                            className="text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white"
-                            title="復原上一次的擴寫 (Undo)"
-                        >
-                            <Undo2 className="w-3.5 h-3.5" />
-                            復原
-                        </button>
-                    )}
-
-                    {/* AI Enhance Button */}
-                    <button
-                        type="button"
-                        disabled={loading || !formData.prompt.trim()}
-                        onClick={async () => {
-                            if (!formData.prompt.trim()) return;
-
-                            // Save current prompt for Undo
-                            setPreviousPrompt(formData.prompt);
-
-                            setLoading(true);
-                            try {
-                                const res = await fetch("/api/enhance", {
-                                    method: "POST",
-                                    headers: { "Content-Type": "application/json" },
-                                    body: JSON.stringify({
-                                        prompt: formData.prompt,
-                                        apiKey: formData.apiKey
-                                    }),
-                                });
-                                if (!res.ok) throw new Error(await res.text());
-                                const data = await res.json();
-                                if (data.enhanced) {
-                                    setFormData(prev => ({ ...prev, prompt: data.enhanced }));
-                                }
-                            } catch (err: any) {
-                                setErrorMsg(err.message || "AI 優化失敗");
-                            } finally {
-                                setLoading(false);
-                            }
-                        }}
-                        className="text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-pink-200 border-pink-500/30 hover:from-pink-500 hover:to-purple-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                        title="AI 幫您擴寫成專業 Prompt"
-                    >
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                        AI 擴寫
-                    </button>
-
-                    {/* Chinese to English Translation Button */}
-                    <button
-                        type="button"
-                        disabled={loading || !formData.prompt.trim()}
-                        onClick={async () => {
-                            if (!formData.prompt.trim()) return;
-                            setLoading(true);
-                            try {
-                                const res = await fetch("/api/translate", {
-                                    method: "POST",
-                                    headers: { "Content-Type": "application/json" },
-                                    body: JSON.stringify({
-                                        text: formData.prompt,
-                                        apiKey: formData.apiKey
-                                    }),
-                                });
-                                if (!res.ok) throw new Error(await res.text());
-                                const data = await res.json();
-                                if (data.translated) {
-                                    setFormData(prev => ({ ...prev, prompt: data.translated }));
-                                }
-                            } catch (err: any) {
-                                setErrorMsg(err.message || "翻譯失敗");
-                            } finally {
-                                setLoading(false);
-                            }
-                        }}
-                        className="text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-200 border-blue-500/30 hover:from-blue-500 hover:to-cyan-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                        title="中文轉英文 Prompt"
-                    >
-                        🇨🇳→🇺🇸
-                    </button>
-
-                    {/* Queue Buttons - shows when there are queued prompts */}
-                    {promptQueue.length > 0 && (
-                        <>
+                        {/* Alchemist Lab Trigger */}
+                        {useMagicEnhancer && (
                             <button
                                 type="button"
-                                onClick={() => {
-                                    const [nextPrompt, ...rest] = promptQueue;
-                                    if (nextPrompt) {
-                                        setFormData(prev => ({ ...prev, prompt: nextPrompt }));
-                                        setPromptQueue(rest);
-                                        localStorage.setItem('promptQueue', JSON.stringify(rest));
+                                onClick={() => setIsAlchemistOpen(true)}
+                                className="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500 hover:text-white transition-all animate-in zoom-in-50"
+                                title="配置煉金術師人格"
+                            >
+                                <Beaker className="w-3 h-3" />
+                                {activePersonaId ? "🎭 人格" : "🧪 實驗室"}
+                            </button>
+                        )}
+
+                        {/* Smart Search Toggle (quick access since commonly used) */}
+                        <button
+                            type="button"
+                            onClick={() => setUseSearch(!useSearch)}
+                            className={`text-xs flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border transition-all ${useSearch
+                                ? "bg-blue-500 text-white border-blue-400 font-bold shadow-[0_0_12px_rgba(59,130,246,0.4)]"
+                                : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30"
+                                }`}
+                            title="啟用智慧聯網"
+                        >
+                            <Globe className={`w-3.5 h-3.5 ${useSearch ? 'animate-pulse' : ''}`} />
+                            {useSearch ? "🌐" : ""}
+                        </button>
+
+                        {/* Secondary Actions: Dropdown Menu */}
+                        <DropdownMenu
+                            trigger={
+                                <button
+                                    type="button"
+                                    className="p-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-xl border border-white/10 transition-all"
+                                    title="更多工具"
+                                >
+                                    <MoreHorizontal className="w-4 h-4" />
+                                </button>
+                            }
+                            align="right"
+                        >
+                            <DropdownItem
+                                icon={<Wand2 className="w-4 h-4" />}
+                                disabled={loading || !formData.prompt.trim()}
+                                onClick={async () => {
+                                    if (!formData.prompt.trim()) return;
+                                    setPreviousPrompt(formData.prompt);
+                                    setLoading(true);
+                                    try {
+                                        const res = await fetch("/api/enhance", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/json" },
+                                            body: JSON.stringify({ prompt: formData.prompt, apiKey: formData.apiKey }),
+                                        });
+                                        if (!res.ok) throw new Error(await res.text());
+                                        const data = await res.json();
+                                        if (data.enhanced) setFormData(prev => ({ ...prev, prompt: data.enhanced }));
+                                    } catch (err: any) {
+                                        setErrorMsg(err.message || "AI 優化失敗");
+                                    } finally {
+                                        setLoading(false);
                                     }
                                 }}
-                                className="text-xs flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-gradient-to-r from-orange-500/20 to-amber-500/20 text-orange-200 border-orange-500/30 hover:from-orange-500 hover:to-amber-500 hover:text-white animate-pulse"
-                                title="載入佇列中的下一個 Prompt"
                             >
-                                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                                📋 下一個 ({promptQueue.length})
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setPromptQueue([]);
-                                    localStorage.removeItem('promptQueue');
+                                AI 擴寫
+                            </DropdownItem>
+                            <DropdownItem
+                                icon={<Languages className="w-4 h-4" />}
+                                disabled={loading || !formData.prompt.trim()}
+                                onClick={async () => {
+                                    if (!formData.prompt.trim()) return;
+                                    setLoading(true);
+                                    try {
+                                        const res = await fetch("/api/translate", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/json" },
+                                            body: JSON.stringify({ text: formData.prompt, apiKey: formData.apiKey }),
+                                        });
+                                        if (!res.ok) throw new Error(await res.text());
+                                        const data = await res.json();
+                                        if (data.translated) setFormData(prev => ({ ...prev, prompt: data.translated }));
+                                    } catch (err: any) {
+                                        setErrorMsg(err.message || "翻譯失敗");
+                                    } finally {
+                                        setLoading(false);
+                                    }
                                 }}
-                                className="text-xs flex items-center gap-1 px-2 py-1.5 rounded-full border transition-all bg-red-500/10 text-red-300 border-red-500/20 hover:bg-red-500 hover:text-white"
-                                title="清除佇列"
                             >
-                                ✕
-                            </button>
-                        </>
-                    )}
+                                中翻英
+                            </DropdownItem>
+                            <DropdownDivider />
+                            {previousPrompt && (
+                                <DropdownItem
+                                    icon={<Undo2 className="w-4 h-4" />}
+                                    onClick={() => {
+                                        setFormData(prev => ({ ...prev, prompt: previousPrompt }));
+                                        setPreviousPrompt(null);
+                                    }}
+                                >
+                                    復原上一步
+                                </DropdownItem>
+                            )}
+                        </DropdownMenu>
 
-
+                        {/* Queue Buttons - shows when there are queued prompts */}
+                        {promptQueue.length > 0 && (
+                            <div className="flex items-center gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const [nextPrompt, ...rest] = promptQueue;
+                                        if (nextPrompt) {
+                                            setFormData(prev => ({ ...prev, prompt: nextPrompt }));
+                                            setPromptQueue(rest);
+                                            localStorage.setItem('promptQueue', JSON.stringify(rest));
+                                        }
+                                    }}
+                                    className="text-xs flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border bg-orange-500/20 text-orange-200 border-orange-500/30 hover:bg-orange-500 hover:text-white transition-all"
+                                    title="載入下一個 Prompt"
+                                >
+                                    📋 {promptQueue.length}
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setPromptQueue([]);
+                                        localStorage.removeItem('promptQueue');
+                                    }}
+                                    className="p-1.5 rounded-full bg-red-500/10 text-red-300 hover:bg-red-500 hover:text-white transition-all"
+                                    title="清除佇列"
+                                >
+                                    <X className="w-3 h-3" />
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Magic Reverse Prompt Area */}
