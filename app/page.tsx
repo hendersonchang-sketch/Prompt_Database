@@ -48,28 +48,28 @@ export default function Home() {
         setEditorImage(null);
     };
 
-    // Helper Component for Navigation Cards
-    const NavCard = ({ label, emoji, onClick, active = false, accent = "gray", small = false }: any) => {
+    // Helper Component for Navigation Cards - Alchemy Theme
+    const NavCard = ({ label, emoji, onClick, active = false, accent = "gold", small = false }: any) => {
         const accentMap: any = {
-            purple: {
-                active: 'bg-purple-500/20 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]',
-                indicator: 'bg-purple-500'
+            gold: {
+                active: 'bg-amber-500/20 border-amber-500/50 shadow-[0_0_20px_rgba(212,175,55,0.3)]',
+                indicator: 'bg-amber-500'
             },
-            blue: {
-                active: 'bg-blue-500/20 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.2)]',
-                indicator: 'bg-blue-500'
+            copper: {
+                active: 'bg-orange-500/20 border-orange-500/50 shadow-[0_0_20px_rgba(184,115,51,0.3)]',
+                indicator: 'bg-orange-600'
             },
-            violet: {
-                active: 'bg-violet-500/20 border-violet-500/50 shadow-[0_0_20px_rgba(139,92,246,0.2)]',
-                indicator: 'bg-violet-500'
+            bronze: {
+                active: 'bg-yellow-600/20 border-yellow-600/50 shadow-[0_0_20px_rgba(205,127,50,0.3)]',
+                indicator: 'bg-yellow-600'
             },
-            cyan: {
-                active: 'bg-cyan-500/20 border-cyan-500/50 shadow-[0_0_20px_rgba(6,182,212,0.2)]',
-                indicator: 'bg-cyan-500'
+            ember: {
+                active: 'bg-red-500/20 border-red-500/50 shadow-[0_0_20px_rgba(255,107,53,0.3)]',
+                indicator: 'bg-red-500'
             },
-            gray: {
-                active: 'bg-white/20 border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.1)]',
-                indicator: 'bg-gray-400'
+            parchment: {
+                active: 'bg-amber-100/10 border-amber-200/30 shadow-[0_0_20px_rgba(245,230,200,0.1)]',
+                indicator: 'bg-amber-200'
             }
         };
 
@@ -100,10 +100,10 @@ export default function Home() {
     return (
         <main className="min-h-screen flex flex-col items-center py-6 md:py-12 gap-8 md:gap-12 px-4">
             <div className="text-center space-y-1 md:space-y-2 mb-2">
-                <h1 className="text-3xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-600 tracking-tight">
-                    Prompt Database
+                <h1 className="text-3xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-500 to-orange-600 tracking-tight drop-shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+                    ⚗️ Prompt Alchemy
                 </h1>
-                <p className="text-gray-400 text-xs md:text-base font-medium">打造您的專屬提示詞庫</p>
+                <p className="text-amber-200/70 text-xs md:text-base font-medium">煉金術士的提示詞實驗室</p>
             </div>
 
 
@@ -118,25 +118,25 @@ export default function Home() {
                         label="AI 換臉" emoji="🎭"
                         active={showFaceSwap}
                         onClick={() => setShowFaceSwap(!showFaceSwap)}
-                        accent="violet"
+                        accent="copper"
                     />
                     <NavCard
                         label="批量匯入" emoji="📥"
                         active={showBatchImport}
                         onClick={() => setShowBatchImport(true)}
-                        accent="green"
+                        accent="bronze"
                     />
                     <NavCard
                         label="智能標籤" emoji="🏷️"
                         active={showSmartTag}
                         onClick={() => setShowSmartTag(true)}
-                        accent="emerald"
+                        accent="gold"
                     />
                     <NavCard
                         label="更新日誌" emoji="📋"
                         active={showChangelog}
                         onClick={() => setShowChangelog(true)}
-                        accent="gray"
+                        accent="parchment"
                     />
                 </div>
             </div>
