@@ -539,15 +539,15 @@ Combine the best visual elements, subjects, styles, colors, and moods from both.
 
             {/* Batch Action Bar */}
             {isSelectionMode && (
-                <div className="flex items-center justify-between p-4 bg-red-500/10 border border-red-500/30 rounded-xl animate-in slide-in-from-top-2">
+                <div className="flex items-center justify-between p-4 bg-slate-800/80 border-l-4 border-purple-500 rounded-xl backdrop-blur-sm animate-in slide-in-from-top-2">
                     <div className="flex items-center gap-4">
                         <button
                             onClick={toggleSelectAll}
-                            className="text-sm text-white hover:text-red-200 transition-colors"
+                            className="text-sm text-purple-300 hover:text-white transition-colors"
                         >
                             {selectedIds.size === filteredPrompts.length ? "取消全選" : "全選"}
                         </button>
-                        <span className="text-sm text-red-200">
+                        <span className="text-sm text-gray-300">
                             已選擇 <span className="font-bold text-white">{selectedIds.size}</span> 張
                         </span>
                     </div>

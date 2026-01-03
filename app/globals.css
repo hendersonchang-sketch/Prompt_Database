@@ -4,19 +4,20 @@
 
 :root {
   /* Premium Dark Theme Variables (Enforced) */
-  --foreground-rgb: 240, 240, 240; /* Slightly off-white for better readability */
-  --background-start-rgb: 10, 10, 15; /* Very deep blue/black */
-  --background-end-rgb: 15, 23, 42; /* Slate 900 */
+  --foreground-rgb: 240, 240, 240;
+  /* Slightly off-white for better readability */
+  --background-start-rgb: 10, 10, 15;
+  /* Very deep blue/black */
+  --background-end-rgb: 15, 23, 42;
+  /* Slate 900 */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom right,
+  background: linear-gradient(to bottom right,
       rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    )
-    fixed; /* Fixed attachment ensures gradient covers full scroll */
+      rgb(var(--background-end-rgb))) fixed;
+  /* Fixed attachment ensures gradient covers full scroll */
   min-height: 100vh;
 }
 
@@ -45,4 +46,77 @@ details[open] {
 
 details summary {
   transition: all 0.3s ease;
+}
+
+/* ==================== Design System Tokens ==================== */
+
+:root {
+  /* Accent Colors */
+  --accent-primary: 168 85 247;
+  /* purple-500 */
+  --accent-secondary: 59 130 246;
+  /* blue-500 */
+  --accent-success: 34 197 94;
+  /* green-500 */
+  --accent-warning: 234 179 8;
+  /* yellow-500 */
+  --accent-danger: 239 68 68;
+  /* red-500 */
+
+  /* Surface Colors */
+  --surface-elevated: 17 17 27;
+  --surface-overlay: 0 0 0;
+}
+
+/* ==================== Utility Classes ==================== */
+
+/* Button Base */
+.btn-base {
+  @apply inline-flex items-center justify-center font-medium rounded-xl border transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-500/50;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Button Variants */
+.btn-primary {
+  @apply btn-base px-4 py-2 text-sm;
+  @apply bg-purple-600 text-white border-purple-500/50;
+  @apply hover:bg-purple-500 shadow-lg shadow-purple-500/20;
+}
+
+.btn-secondary {
+  @apply btn-base px-4 py-2 text-sm;
+  @apply bg-white/10 text-white border-white/20;
+  @apply hover:bg-white/20;
+}
+
+.btn-ghost {
+  @apply btn-base px-4 py-2 text-sm;
+  @apply bg-transparent text-gray-400 border-transparent;
+  @apply hover:bg-white/10 hover:text-white;
+}
+
+.btn-danger {
+  @apply btn-base px-4 py-2 text-sm;
+  @apply bg-red-600/80 text-white border-red-500/50;
+  @apply hover:bg-red-500;
+}
+
+/* Icon Button */
+.icon-btn {
+  @apply p-2 rounded-full transition-all duration-200;
+  @apply text-gray-400 hover:text-white hover:bg-white/10;
+  @apply focus:outline-none focus:ring-2 focus:ring-white/20;
+}
+
+/* Card Surface */
+.card-surface {
+  @apply bg-neutral-900/60 backdrop-blur-sm rounded-2xl border border-white/5;
+  @apply transition-all duration-300;
+  @apply hover:border-white/20 hover:shadow-xl;
+}
+
+/* Glass Effect */
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
