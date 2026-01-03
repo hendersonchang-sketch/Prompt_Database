@@ -166,11 +166,11 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
-            <div className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-6xl h-[90vh] flex overflow-hidden" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
+            <div className="bg-[#1A1206] border-2 border-amber-700/40 shadow-[0_8px_60px_rgba(139,69,19,0.4)] rounded-2xl w-full max-w-6xl h-[90vh] flex overflow-hidden" onClick={e => e.stopPropagation()}>
 
                 {/* Left Sidebar: Controls */}
-                <div className="w-80 bg-gray-800/50 border-r border-white/10 p-6 flex flex-col gap-6 overflow-y-auto">
+                <div className="w-80 bg-[#1A1206]/80 border-r border-amber-700/30 p-6 flex flex-col gap-6 overflow-y-auto">
                     <div>
                         <h2 className="text-xl font-bold text-white mb-1">🎬 AI 故事板</h2>
                         <p className="text-xs text-gray-400">連貫分鏡生成工具</p>
@@ -200,7 +200,7 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
                                 <button
                                     key={r}
                                     onClick={() => setAspectRatio(r as any)}
-                                    className={`flex-1 py-1.5 text-xs rounded transition-colors ${aspectRatio === r ? "bg-purple-600/50 text-white" : "text-gray-400 hover:text-white"}`}
+                                    className={`flex-1 py-1.5 text-xs rounded transition-colors ${aspectRatio === r ? "bg-amber-600/50 text-white" : "text-gray-400 hover:text-white"}`}
                                 >
                                     {r}
                                 </button>
@@ -231,7 +231,7 @@ export default function StoryboardModal({ isOpen, onClose }: StoryboardModalProp
                     <button
                         onClick={handleGenerate}
                         disabled={isGenerating || isAnalyzing}
-                        className="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl font-bold transition-all disabled:opacity-50"
+                        className="w-full py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white rounded-xl font-bold transition-all disabled:opacity-50"
                     >
                         {isGenerating ? "生成中..." : "🚀 生成四格漫畫"}
                     </button>

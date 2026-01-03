@@ -129,8 +129,8 @@ export default function BatchImportModal({ isOpen, onClose }: BatchImportModalPr
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="w-full max-w-2xl bg-gray-900 border border-white/20 rounded-2xl p-6 flex flex-col h-[80vh] relative">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="w-full max-w-2xl bg-[#1A1206] border-2 border-amber-700/40 shadow-[0_8px_60px_rgba(139,69,19,0.4)] rounded-2xl p-6 flex flex-col h-[80vh] relative">
                 <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-white">✕</button>
 
                 <h2 className="text-2xl font-bold text-white mb-2">📥 批量匯入 & 自動標註</h2>
@@ -140,7 +140,7 @@ export default function BatchImportModal({ isOpen, onClose }: BatchImportModalPr
                 <div
                     onDragOver={e => e.preventDefault()}
                     onDrop={handleDrop}
-                    className="border-2 border-dashed border-gray-700 hover:border-green-500 rounded-xl p-8 text-center transition-colors cursor-pointer bg-gray-800/50 mb-4"
+                    className="border-2 border-dashed border-amber-700/50 hover:border-amber-500 rounded-xl p-8 text-center transition-colors cursor-pointer bg-black/20 mb-4"
                 >
                     <input type="file" multiple onChange={handleFileSelect} accept="image/*" className="hidden" id="file-upload" />
                     <label htmlFor="file-upload" className="cursor-pointer">

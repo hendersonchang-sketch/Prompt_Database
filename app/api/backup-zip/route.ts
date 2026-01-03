@@ -5,6 +5,9 @@ import { Readable, PassThrough } from "stream";
 
 const prisma = new PrismaClient();
 
+export const dynamic = 'force-dynamic';
+
+
 // Helper to convert stream to buffer
 async function streamToBuffer(stream: Readable): Promise<Buffer> {
     const chunks: Buffer[] = [];
@@ -14,7 +17,6 @@ async function streamToBuffer(stream: Readable): Promise<Buffer> {
     return Buffer.concat(chunks);
 }
 
-// Helper to download image and return buffer
 async function downloadImage(url: string): Promise<Buffer | null> {
     try {
         // Handle data URLs (base64)
@@ -23,8 +25,29 @@ async function downloadImage(url: string): Promise<Buffer | null> {
             return Buffer.from(base64Data, "base64");
         }
 
+        // Handle relative URLs (local files)
+        let fetchUrl = url;
+        if (url.startsWith("/")) {
+            // Assume it's a local file relative to the public directory in dev/prod
+            // BUT for fetch, we need a full URL. During build time, this is tricky.
+            // Better approach: Read from filesystem directly if it's a local file.
+            const fs = require('fs');
+            const path = require('path');
+
+            // Construct absolute filesystem path
+            // assuming url starts with /uploads/...
+            const localPath = path.join(process.cwd(), 'public', url);
+
+            if (fs.existsSync(localPath)) {
+                return fs.readFileSync(localPath);
+            } else {
+                console.warn(`Local file not found: ${localPath}`);
+                return null;
+            }
+        }
+
         // Handle remote URLs
-        const response = await fetch(url, {
+        const response = await fetch(fetchUrl, {
             signal: AbortSignal.timeout(10000) // 10s timeout
         });
         if (!response.ok) return null;
@@ -33,7 +56,7 @@ async function downloadImage(url: string): Promise<Buffer | null> {
         return Buffer.from(arrayBuffer);
     } catch (error) {
         console.error(`Failed to download image: ${url}`, error);
-        return null;
+        return null; // Don't crash the entire zip process
     }
 }
 

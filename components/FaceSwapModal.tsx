@@ -161,8 +161,8 @@ export default function FaceSwapModal({ isOpen, onClose }: FaceSwapModalProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 overflow-hidden">
-            <div className="w-full max-w-6xl mx-auto bg-gray-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+        <div className="fixed inset-0 z-[60] bg-[#1A1206]/95 flex items-center justify-center p-4 overflow-hidden">
+            <div className="w-full max-w-6xl mx-auto bg-[#1A1206] border-2 border-amber-700/40 shadow-[0_8px_60px_rgba(139,69,19,0.4)] rounded-2xl overflow-hidden flex flex-col max-h-[90vh]">
                 {/* Header */}
                 <div className="flex justify-between items-center p-6 border-b border-white/5 shrink-0">
                     <div>

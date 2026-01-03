@@ -131,11 +131,11 @@ export default function MemeGeneratorModal({ isOpen, onClose, onEdit }: MemeGene
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
             <div className="w-full max-w-5xl h-[85vh] flex flex-col md:flex-row gap-6">
 
                 {/* Left Panel: Controls */}
-                <div className="w-full md:w-1/3 bg-gray-900 border border-white/10 rounded-2xl p-6 flex flex-col gap-6 overflow-y-auto">
+                <div className="w-full md:w-1/3 bg-[#1A1206] border border-amber-700/40 rounded-2xl p-6 flex flex-col gap-6 overflow-y-auto">
                     <div className="flex justify-between items-center">
                         <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
                             🤡 Meme God
@@ -144,7 +144,7 @@ export default function MemeGeneratorModal({ isOpen, onClose, onEdit }: MemeGene
                     </div>
 
                     {/* Mode Toggle */}
-                    <div className="flex bg-black/40 p-1 rounded-lg">
+                    <div className="flex bg-[#0F0A05]/60 p-1 rounded-lg">
                         <button
                             onClick={() => setMode('upload')}
                             className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${mode === 'upload' ? 'bg-orange-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
@@ -194,7 +194,7 @@ export default function MemeGeneratorModal({ isOpen, onClose, onEdit }: MemeGene
                         )}
                     </div>
 
-                    <hr className="border-white/10" />
+                    <hr className="border-amber-700/30" />
 
                     {/* Caption Gen */}
                     <div className="space-y-3">
@@ -239,7 +239,7 @@ export default function MemeGeneratorModal({ isOpen, onClose, onEdit }: MemeGene
                     </div>
 
                     {/* Captions List */}
-                    <div className="flex-1 bg-gray-900 rounded-2xl p-6 overflow-y-auto border border-white/10">
+                    <div className="flex-1 bg-[#1A1206] rounded-2xl p-6 overflow-y-auto border border-amber-700/40">
                         <h3 className="text-lg font-bold text-white mb-4">📝 AI Suggestions</h3>
                         {captions.length === 0 ? (
                             <div className="text-gray-500 text-center py-10">

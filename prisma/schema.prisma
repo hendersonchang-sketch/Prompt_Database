@@ -95,3 +95,11 @@ model AlchemistPersona {
   updatedAt    DateTime      @updatedAt
   PromptEntry  PromptEntry[]
 }
+
+model PromptSnippet {
+  id        String   @id @default(uuid())
+  category  String
+  label     String
+  content   String
+  createdAt DateTime @default(now())
+}

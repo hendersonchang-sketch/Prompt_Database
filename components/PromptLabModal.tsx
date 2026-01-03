@@ -80,16 +80,16 @@ export default function PromptLabModal({ isOpen, onClose, onUsePrompt }: PromptL
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gray-900 border border-white/10 rounded-2xl w-full max-w-6xl h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] border border-amber-700/40 rounded-2xl w-full max-w-6xl h-[85vh] flex flex-col overflow-hidden shadow-2xl relative">
 
                 {/* Header */}
-                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-gray-900/50 relative">
+                <div className="p-4 border-b border-amber-700/40 flex justify-between items-center bg-[#1A1206]/50 relative z-10">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl">🧪</span>
                         <div>
-                            <h2 className="text-xl font-bold text-white">Prompt 實驗室</h2>
-                            <p className="text-xs text-gray-400">積木式構建您的完美提示詞</p>
+                            <h2 className="text-xl font-bold text-amber-100">Prompt 實驗室</h2>
+                            <p className="text-xs text-amber-500/80">積木式構建您的完美提示詞</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -139,12 +139,12 @@ export default function PromptLabModal({ isOpen, onClose, onUsePrompt }: PromptL
                 <div className="flex-1 flex overflow-hidden">
 
                     {/* Left: Snippet Library */}
-                    <div className="w-1/3 border-r border-white/10 flex flex-col bg-gray-900/30">
-                        <div className="p-4 border-b border-white/10 flex justify-between items-center">
-                            <h3 className="font-bold text-gray-300">語句庫</h3>
+                    <div className="w-1/3 border-r border-amber-700/40 flex flex-col bg-[#0F0A05]/30">
+                        <div className="p-4 border-b border-amber-700/40 flex justify-between items-center">
+                            <h3 className="font-bold text-amber-200">語句庫</h3>
                             <button
                                 onClick={() => setIsAdding(!isAdding)}
-                                className="text-xs px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded transition-colors"
+                                className="text-xs px-2 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded transition-colors"
                             >
                                 + 新增片段
                             </button>
@@ -247,7 +247,7 @@ export default function PromptLabModal({ isOpen, onClose, onUsePrompt }: PromptL
                         </div>
 
                         {/* Result Area */}
-                        <div className="p-6 bg-gray-900 border-t border-white/10">
+                        <div className="p-6 bg-[#1A1206] border-t border-amber-700/40 relative z-10">
                             <div className="mb-4">
                                 <label className="text-xs text-gray-400 font-bold uppercase mb-2 block">自定義輸入 (補充細節)</label>
                                 <input
@@ -286,7 +286,7 @@ export default function PromptLabModal({ isOpen, onClose, onUsePrompt }: PromptL
                                 </button>
                                 <button
                                     onClick={() => onUsePrompt(fullPrompt)}
-                                    className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+                                    className="px-6 py-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold rounded-lg shadow-lg hover:shadow-amber-500/20 transition-all transform hover:-translate-y-0.5"
                                 >
                                     ✨ 使用此 Prompt
                                 </button>

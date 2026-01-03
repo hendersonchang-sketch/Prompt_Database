@@ -165,13 +165,13 @@ export default function StickerMakerModal({ isOpen, onClose }: StickerMakerModal
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
             <div className="w-full max-w-5xl h-[85vh] flex flex-col md:flex-row gap-6">
 
                 {/* Left Panel: Controls */}
-                <div className="w-full md:w-1/3 bg-gray-900 border border-white/10 rounded-2xl p-6 flex flex-col gap-6">
+                <div className="w-full md:w-1/3 bg-[#1A1206] border border-amber-700/40 rounded-2xl p-6 flex flex-col gap-6">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-500">
+                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-500">
                             🏷️ Sticker Maker
                         </h2>
                         <button onClick={onClose} className="text-gray-500 hover:text-white">✕</button>
@@ -181,13 +181,13 @@ export default function StickerMakerModal({ isOpen, onClose }: StickerMakerModal
                     <div className="flex bg-black/40 p-1 rounded-lg">
                         <button
                             onClick={() => setMode('generate')}
-                            className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${mode === 'generate' ? 'bg-green-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
+                            className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${mode === 'generate' ? 'bg-amber-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
                         >
                             ✨ Generate
                         </button>
                         <button
                             onClick={() => setMode('upload')}
-                            className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${mode === 'upload' ? 'bg-green-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
+                            className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${mode === 'upload' ? 'bg-amber-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
                         >
                             📤 Upload
                         </button>
@@ -207,7 +207,7 @@ export default function StickerMakerModal({ isOpen, onClose }: StickerMakerModal
                                 <button
                                     onClick={handleGenerate}
                                     disabled={loading || !prompt}
-                                    className="w-full mt-4 py-3 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-500 hover:to-teal-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-green-900/20 disabled:opacity-50"
+                                    className="w-full mt-4 py-3 bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/20 disabled:opacity-50"
                                 >
                                     {loading ? "Generating..." : "🎨 Create Sticker"}
                                 </button>
@@ -256,7 +256,7 @@ export default function StickerMakerModal({ isOpen, onClose }: StickerMakerModal
                 </div>
 
                 {/* Right Panel: Preview */}
-                <div className="flex-1 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-gray-800 rounded-2xl flex items-center justify-center border border-white/10 relative overflow-hidden p-8">
+                <div className="flex-1 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-[#2D1B0E] rounded-2xl flex items-center justify-center border border-amber-700/40 relative overflow-hidden p-8">
                     {/* Checkerboard pattern for transparency */}
                     <div className="absolute inset-0 opacity-20" style={{
                         backgroundImage: 'linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%)',
@@ -291,8 +291,8 @@ export default function StickerMakerModal({ isOpen, onClose }: StickerMakerModal
 
                     {loading && (
                         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-20 flex flex-col items-center justify-center">
-                            <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                            <p className="text-green-400 font-bold animate-pulse">Processing...</p>
+                            <div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                            <p className="text-amber-400 font-bold animate-pulse">Processing...</p>
                         </div>
                     )}
                 </div>

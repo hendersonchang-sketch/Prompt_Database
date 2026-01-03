@@ -116,10 +116,10 @@ export default function SmartTagModal({ isOpen, onClose, initialImageUrl, onAppl
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 border-amber-700/40 shadow-[0_8px_60px_rgba(139,69,19,0.4)]">
                 {/* Header */}
-                <div className="p-6 border-b border-white/10 sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10">
+                <div className="p-6 border-b border-amber-700/40 sticky top-0 bg-[#1A1206]/90 backdrop-blur-sm z-10">
                     <div className="flex justify-between items-center">
                         <h2 className="text-xl font-bold text-white flex items-center gap-2">
                             🏷️ 智能標籤系統
@@ -142,8 +142,8 @@ export default function SmartTagModal({ isOpen, onClose, initialImageUrl, onAppl
                             <div
                                 onClick={() => fileInputRef.current?.click()}
                                 className={`relative aspect-square rounded-xl border-2 border-dashed cursor-pointer transition-all overflow-hidden ${imagePreview
-                                        ? 'border-emerald-500/50'
-                                        : 'border-white/20 hover:border-emerald-500/50'
+                                    ? 'border-emerald-500/50'
+                                    : 'border-white/20 hover:border-emerald-500/50'
                                     }`}
                             >
                                 {imagePreview ? (
@@ -201,8 +201,8 @@ export default function SmartTagModal({ isOpen, onClose, initialImageUrl, onAppl
                                         <button
                                             onClick={() => setActiveCategory(null)}
                                             className={`px-3 py-1.5 rounded-lg text-xs transition-all ${activeCategory === null
-                                                    ? 'bg-white/20 text-white'
-                                                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                                ? 'bg-white/20 text-white'
+                                                : 'bg-white/5 text-gray-400 hover:bg-white/10'
                                                 }`}
                                         >
                                             全部
@@ -212,8 +212,8 @@ export default function SmartTagModal({ isOpen, onClose, initialImageUrl, onAppl
                                                 key={cat.key}
                                                 onClick={() => setActiveCategory(cat.key)}
                                                 className={`px-3 py-1.5 rounded-lg text-xs transition-all ${activeCategory === cat.key
-                                                        ? `bg-${cat.color}-500/30 text-${cat.color}-300 border border-${cat.color}-500`
-                                                        : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                                    ? `bg-${cat.color}-500/30 text-${cat.color}-300 border border-${cat.color}-500`
+                                                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
                                                     }`}
                                             >
                                                 {cat.icon} {cat.label}
@@ -246,8 +246,8 @@ export default function SmartTagModal({ isOpen, onClose, initialImageUrl, onAppl
                                                                 key={idx}
                                                                 onClick={() => toggleTag(tag)}
                                                                 className={`px-2 py-1 rounded text-xs transition-all ${selectedTags.has(tag)
-                                                                        ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-500'
-                                                                        : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                                                                    ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-500'
+                                                                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
                                                                     }`}
                                                             >
                                                                 {tag}

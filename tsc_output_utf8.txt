@@ -1,0 +1,4 @@
+﻿app/api/prompt-lab/snippets/route.ts(8,39): error TS2339: Property 'promptSnippet' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+app/api/prompt-lab/snippets/route.ts(36,38): error TS2339: Property 'promptSnippet' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+app/api/prompt-lab/snippets/route.ts(59,22): error TS2339: Property 'promptSnippet' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+app/api/prompts/route.ts(137,26): error TS2503: Cannot find namespace 'Prisma'.

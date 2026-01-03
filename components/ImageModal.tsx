@@ -351,7 +351,7 @@ export function ImageModal({
             )}
 
             <div
-                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[#0B0F17]/90 backdrop-blur-2xl border border-white/10 rounded-[40px] overflow-hidden shadow-2xl"
+                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[#1A1206]/95 backdrop-blur-2xl border-2 border-amber-700/40 rounded-[40px] overflow-hidden shadow-[0_8px_60px_rgba(139,69,19,0.4)]"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
@@ -461,12 +461,12 @@ export function ImageModal({
                 </div>
 
                 {/* Right Partition: Professional Sidebar */}
-                <div ref={sidebarRef} className="w-full md:w-1/3 h-full overflow-y-auto bg-neutral-900/50 backdrop-blur-3xl border-l border-white/5 custom-scrollbar p-8 pt-16 flex flex-col">
+                <div ref={sidebarRef} className="w-full md:w-1/3 h-full overflow-y-auto bg-[#1A1206]/90 backdrop-blur-3xl border-l border-amber-700/30 custom-scrollbar p-8 pt-16 flex flex-col">
                     <div className="flex-1 space-y-8">
                         {/* Section: Header/Title with Copy */}
                         <div ref={promptSectionRef} className="space-y-4">
-                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                <div className="w-1 h-5 bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
+                            <h3 className="text-lg font-bold text-amber-100 flex items-center gap-2">
+                                <div className="w-1 h-5 bg-gradient-to-b from-amber-500 to-orange-600 rounded-full" />
                                 提示詞
                             </h3>
                             <div className="space-y-4">
@@ -733,10 +733,9 @@ export function ImageModal({
                             {/* Action Subgroup: Essential Tools */}
                             <div className="grid grid-cols-2 gap-2">
                                 <button
-                                    onClick={(e) => toggleFavorite(e, selectedImage.id, selectedImage.isFavorite)}
                                     className={`flex items-center justify-center gap-2 py-3 rounded-xl border text-[11px] font-bold transition-all active:scale-95 ${selectedImage.isFavorite
-                                        ? "bg-purple-600/20 border-purple-500/50 text-purple-300"
-                                        : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
+                                        ? "bg-amber-600/20 border-amber-500/50 text-amber-300"
+                                        : "bg-amber-900/20 border-amber-700/30 text-amber-500/60 hover:bg-amber-900/40 hover:text-amber-200"
                                         }`}
                                 >
                                     <Heart className={`w-3.5 h-3.5 ${selectedImage.isFavorite ? 'fill-current' : ''}`} />
@@ -748,7 +747,7 @@ export function ImageModal({
                                         e.stopPropagation();
                                         handleReversePrompt();
                                     }}
-                                    className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-600 to-pink-600 border border-purple-500/50 rounded-xl text-[11px] font-bold text-white hover:from-purple-500 hover:to-pink-500 transition-all active:scale-95 shadow-lg shadow-purple-500/20"
+                                    className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-amber-600 to-orange-600 border border-amber-500/50 rounded-xl text-[11px] font-bold text-white hover:from-amber-500 hover:to-orange-500 transition-all active:scale-95 shadow-lg shadow-amber-500/20"
                                 >
                                     <Sparkles className="w-3.5 h-3.5" />
                                     圖片反推
@@ -1430,7 +1429,7 @@ export function ImageModal({
                     onClick={() => setShowEvalModal(false)}
                 >
                     <div
-                        className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
+                        className="bg-[#1A1206] border border-amber-700/40 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_8px_60px_rgba(0,0,0,0.6)]"
                         onClick={e => e.stopPropagation()}
                     >
                         {/* Header */}
@@ -1783,7 +1782,7 @@ export function ImageModal({
                     onClick={() => setIsReuseConfirmOpen(false)}
                 >
                     <div
-                        className="bg-gray-900 border border-white/20 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col"
+                        className="bg-[#1A1206] border border-amber-700/40 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col"
                         onClick={e => e.stopPropagation()}
                     >
                         {/* Header */}

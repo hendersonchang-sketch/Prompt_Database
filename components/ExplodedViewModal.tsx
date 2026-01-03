@@ -62,14 +62,14 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-amber-700/40">
                 {/* Header */}
-                <div className="p-6 border-b border-white/10 sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10">
+                <div className="p-6 border-b border-amber-700/40 sticky top-0 bg-[#1A1206]/90 backdrop-blur-sm z-10">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-amber-100 flex items-center gap-2">
                             📦 零件拆解圖
-                            <span className="text-sm font-normal text-gray-400">產品分解 • 爆炸視圖生成</span>
+                            <span className="text-sm font-normal text-amber-500/80">產品分解 • 爆炸視圖生成</span>
                         </h2>
                         <button onClick={onClose} className="text-gray-400 hover:text-white">
                             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,8 +88,8 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
                             <div
                                 onClick={() => fileInputRef.current?.click()}
                                 className={`relative aspect-square rounded-xl border-2 border-dashed cursor-pointer transition-all overflow-hidden ${imagePreview
-                                        ? 'border-amber-500/50'
-                                        : 'border-white/20 hover:border-amber-500/50'
+                                    ? 'border-amber-500/50'
+                                    : 'border-amber-700/30 hover:border-amber-500/60 bg-[#0F0A05]/30 hover:bg-[#0F0A05]/50'
                                     }`}
                             >
                                 {imagePreview ? (
@@ -109,8 +109,8 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
                                                                 setSelectedComponent(selectedComponent === idx ? null : idx);
                                                             }}
                                                             className={`absolute border-2 cursor-pointer transition-all ${selectedComponent === idx
-                                                                    ? 'border-amber-400 bg-amber-400/20'
-                                                                    : 'border-white/40 hover:border-amber-400 hover:bg-amber-400/10'
+                                                                ? 'border-amber-400 bg-amber-400/20'
+                                                                : 'border-white/40 hover:border-amber-400 hover:bg-amber-400/10'
                                                                 }`}
                                                             style={{
                                                                 top: `${ymin / 10}%`,
@@ -150,7 +150,7 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
                                 value={productName}
                                 onChange={(e) => setProductName(e.target.value)}
                                 placeholder="產品名稱（選填，例如：無線耳機、機械鍵盤）"
-                                className="w-full p-3 bg-black/30 border border-white/10 rounded-lg text-white text-sm"
+                                className="w-full p-3 bg-[#0F0A05] border border-amber-700/40 rounded-lg text-amber-100 placeholder-amber-900/50 text-sm focus:border-amber-500 focus:outline-none"
                             />
 
                             {/* Analyze Button */}
@@ -188,8 +188,8 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
                                                 key={idx}
                                                 onClick={() => setSelectedComponent(selectedComponent === idx ? null : idx)}
                                                 className={`p-2 rounded-lg text-xs cursor-pointer transition-all ${selectedComponent === idx
-                                                        ? 'bg-amber-500/20 border border-amber-500/50'
-                                                        : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                                                    ? 'bg-amber-900/40 border border-amber-500/50'
+                                                    : 'bg-white/5 border border-amber-700/20 hover:bg-white/10'
                                                     }`}
                                             >
                                                 <div className="flex justify-between items-center">
@@ -219,8 +219,8 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
                                                         key={idx}
                                                         onClick={() => setSelectedStyle(idx)}
                                                         className={`px-3 py-1.5 rounded-lg text-xs transition-all ${selectedStyle === idx
-                                                                ? 'bg-amber-500 text-white'
-                                                                : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                                                            ? 'bg-amber-500 text-white'
+                                                            : 'bg-white/10 text-gray-300 hover:bg-white/20'
                                                             }`}
                                                     >
                                                         {style.style}
@@ -259,7 +259,7 @@ export default function ExplodedViewModal({ isOpen, onClose, onUsePrompt }: Expl
 
                                     {/* Technical Notes */}
                                     {result.technicalNotes && (
-                                        <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                                        <div className="p-3 bg-blue-900/20 border border-blue-500/20 rounded-lg">
                                             <p className="text-xs text-blue-300 font-medium mb-1">📝 技術說明</p>
                                             <p className="text-gray-400 text-[10px] leading-relaxed">{result.technicalNotes}</p>
                                         </div>

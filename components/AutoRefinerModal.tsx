@@ -172,12 +172,12 @@ export default function AutoRefinerModal({ isOpen, onClose }: AutoRefinerModalPr
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
             <div className="w-full max-w-6xl h-[90vh] flex gap-4">
 
                 {/* Left: Controls & Logs */}
-                <div className="w-1/3 bg-gray-900 border border-white/10 rounded-2xl p-6 flex flex-col">
-                    <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-4 flex items-center gap-2">
+                <div className="w-1/3 bg-[#1A1206] border border-amber-700/40 rounded-2xl p-6 flex flex-col">
+                    <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 mb-4 flex items-center gap-2">
                         🤖 Auto-Refiner Agent
                     </h2>
 
@@ -207,7 +207,7 @@ export default function AutoRefinerModal({ isOpen, onClose }: AutoRefinerModalPr
                             <button
                                 onClick={handleStart}
                                 disabled={!startPrompt.trim()}
-                                className="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-cyan-500/20 disabled:opacity-50"
+                                className="w-full py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-500/20 disabled:opacity-50"
                             >
                                 Start Agent Loop
                             </button>
@@ -231,7 +231,7 @@ export default function AutoRefinerModal({ isOpen, onClose }: AutoRefinerModalPr
                 </div>
 
                 {/* Right: Visualization */}
-                <div className="flex-1 bg-gray-900 border border-white/10 rounded-2xl p-6 overflow-y-auto">
+                <div className="flex-1 bg-[#1A1206] border border-amber-700/40 rounded-2xl p-6 overflow-y-auto">
                     <div className="space-y-8">
                         {history.length === 0 && (
                             <div className="h-full flex flex-col items-center justify-center text-gray-600">
@@ -243,7 +243,7 @@ export default function AutoRefinerModal({ isOpen, onClose }: AutoRefinerModalPr
                         {history.map((step) => (
                             <div key={step.round} className="animate-fade-in">
                                 <div className="flex items-center gap-4 mb-2">
-                                    <span className="bg-cyan-900/50 text-cyan-200 px-3 py-1 rounded-full text-xs font-bold border border-cyan-500/30">
+                                    <span className="bg-amber-900/50 text-amber-200 px-3 py-1 rounded-full text-xs font-bold border border-amber-500/30">
                                         Round {step.round}
                                     </span>
                                     {step.score !== undefined && (
@@ -278,7 +278,7 @@ export default function AutoRefinerModal({ isOpen, onClose }: AutoRefinerModalPr
                                     </div>
                                 </div>
 
-                                <div className="ml-8 w-0.5 h-8 bg-gradient-to-b from-cyan-500/50 to-transparent my-2"></div>
+                                <div className="ml-8 w-0.5 h-8 bg-gradient-to-b from-amber-500/50 to-transparent my-2"></div>
                             </div>
                         ))}
                     </div>

@@ -83,12 +83,12 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-amber-700/40">
                 {/* Header */}
-                <div className="p-6 border-b border-white/10">
+                <div className="p-6 border-b border-amber-700/40">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-amber-100 flex items-center gap-2">
                             🧬 Prompt DNA 比較
                             <span className="text-sm font-normal text-gray-400">分析兩個 Prompt 的核心差異</span>
                         </h2>
@@ -105,21 +105,21 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                     {/* Input Section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label className="text-sm text-blue-400 mb-2 block font-medium">🅰️ Prompt A</label>
+                            <label className="text-sm text-amber-400 mb-2 block font-medium">🅰️ Prompt A (Gold)</label>
                             <textarea
                                 value={promptA}
                                 onChange={(e) => setPromptA(e.target.value)}
-                                className="w-full p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg text-white text-sm resize-none"
+                                className="w-full p-3 bg-amber-900/10 border border-amber-500/30 rounded-lg text-amber-100 text-sm resize-none focus:border-amber-500 focus:outline-none"
                                 rows={4}
                                 placeholder="輸入第一個 Prompt..."
                             />
                         </div>
                         <div>
-                            <label className="text-sm text-pink-400 mb-2 block font-medium">🅱️ Prompt B</label>
+                            <label className="text-sm text-rose-400 mb-2 block font-medium">🅱️ Prompt B (Red)</label>
                             <textarea
                                 value={promptB}
                                 onChange={(e) => setPromptB(e.target.value)}
-                                className="w-full p-3 bg-pink-500/10 border border-pink-500/30 rounded-lg text-white text-sm resize-none"
+                                className="w-full p-3 bg-rose-900/10 border border-rose-500/30 rounded-lg text-rose-100 text-sm resize-none focus:border-rose-500 focus:outline-none"
                                 rows={4}
                                 placeholder="輸入第二個 Prompt（可選）..."
                             />
@@ -130,7 +130,7 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                     <button
                         onClick={handleCompare}
                         disabled={loading || (!promptA.trim() && !imageAUrl)}
-                        className="w-full py-3 bg-gradient-to-r from-blue-600 to-pink-600 hover:from-blue-500 hover:to-pink-500 text-white rounded-xl font-medium transition-all disabled:opacity-50"
+                        className="w-full py-3 bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white rounded-xl font-medium transition-all disabled:opacity-50 shadow-lg shadow-amber-900/20"
                     >
                         {loading ? '分析中...' : '🔬 分析 DNA 差異'}
                     </button>
@@ -140,14 +140,14 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                         <div className="space-y-6">
                             {/* Similarity Score */}
                             {result.comparison && (
-                                <div className="text-center p-4 bg-gradient-to-r from-blue-500/10 to-pink-500/10 rounded-xl border border-white/10">
-                                    <div className="text-4xl font-bold text-white mb-1">
+                                <div className="text-center p-4 bg-gradient-to-r from-amber-900/20 to-rose-900/20 rounded-xl border border-amber-700/30">
+                                    <div className="text-4xl font-bold text-amber-100 mb-1">
                                         {result.comparison.overallSimilarity}%
                                     </div>
-                                    <div className="text-sm text-gray-400">整體相似度</div>
-                                    <div className="mt-3 w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="text-sm text-amber-500/80">整體相似度</div>
+                                    <div className="mt-3 w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                                         <div
-                                            className="h-full bg-gradient-to-r from-blue-500 to-pink-500 transition-all duration-500"
+                                            className="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-500"
                                             style={{ width: `${result.comparison.overallSimilarity}%` }}
                                         />
                                     </div>
@@ -158,13 +158,13 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* A DNA */}
                                 {result.promptA_DNA && (
-                                    <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
-                                        <h3 className="text-blue-400 font-medium mb-3">🅰️ Prompt A DNA</h3>
+                                    <div className="p-4 bg-amber-900/10 border border-amber-500/30 rounded-xl">
+                                        <h3 className="text-amber-400 font-medium mb-3">🅰️ Prompt A DNA</h3>
                                         <div className="space-y-2 text-xs">
                                             {DNA_ELEMENTS.map(el => (
                                                 <div key={el.key} className="flex gap-2">
-                                                    <span className="text-gray-500 w-16">{el.icon} {el.label}:</span>
-                                                    <span className="text-gray-300">{result.promptA_DNA[el.key] || '-'}</span>
+                                                    <span className="text-amber-500/70 w-16">{el.icon} {el.label}:</span>
+                                                    <span className="text-amber-100">{result.promptA_DNA[el.key] || '-'}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -173,13 +173,13 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
 
                                 {/* B DNA */}
                                 {result.promptB_DNA && (
-                                    <div className="p-4 bg-pink-500/10 border border-pink-500/30 rounded-xl">
-                                        <h3 className="text-pink-400 font-medium mb-3">🅱️ Prompt B DNA</h3>
+                                    <div className="p-4 bg-rose-900/10 border border-rose-500/30 rounded-xl">
+                                        <h3 className="text-rose-400 font-medium mb-3">🅱️ Prompt B DNA</h3>
                                         <div className="space-y-2 text-xs">
                                             {DNA_ELEMENTS.map(el => (
                                                 <div key={el.key} className="flex gap-2">
-                                                    <span className="text-gray-500 w-16">{el.icon} {el.label}:</span>
-                                                    <span className="text-gray-300">{result.promptB_DNA[el.key] || '-'}</span>
+                                                    <span className="text-rose-500/70 w-16">{el.icon} {el.label}:</span>
+                                                    <span className="text-rose-100">{result.promptB_DNA[el.key] || '-'}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -198,8 +198,8 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                                                     <span className="text-gray-500 font-medium">{diff.element}:</span>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-2 text-[10px]">
-                                                    <div className="text-blue-300">A: {diff.a}</div>
-                                                    <div className="text-pink-300">B: {diff.b}</div>
+                                                    <div className="text-amber-300">A: {diff.a}</div>
+                                                    <div className="text-rose-300">B: {diff.b}</div>
                                                 </div>
                                                 {diff.impact && (
                                                     <div className="text-gray-500 mt-1 italic">影響：{diff.impact}</div>
@@ -216,10 +216,10 @@ export default function DNACompareModal({ isOpen, onClose, promptA: initA, promp
                                     <h3 className="text-emerald-400 font-medium mb-3">💡 學習要點</h3>
                                     <div className="space-y-2 text-xs text-gray-300">
                                         {result.insights.whyAWorks && (
-                                            <p><span className="text-blue-400">A 的優勢：</span>{result.insights.whyAWorks}</p>
+                                            <p><span className="text-amber-400">A 的優勢：</span>{result.insights.whyAWorks}</p>
                                         )}
                                         {result.insights.whyBWorks && (
-                                            <p><span className="text-pink-400">B 的優勢：</span>{result.insights.whyBWorks}</p>
+                                            <p><span className="text-rose-400">B 的優勢：</span>{result.insights.whyBWorks}</p>
                                         )}
                                         {result.insights.combinationTip && (
                                             <p className="text-emerald-300 mt-2">🎯 結合建議：{result.insights.combinationTip}</p>

@@ -63,12 +63,12 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-amber-700/40">
                 {/* Header */}
-                <div className="p-6 border-b border-white/10">
+                <div className="p-6 border-b border-amber-700/40">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-amber-100 flex items-center gap-2">
                             🎨 情緒滑桿
                             <span className="text-sm font-normal text-gray-400">調整 Prompt 的情緒氛圍</span>
                         </h2>
@@ -88,7 +88,7 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
                         <textarea
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
-                            className="w-full p-3 bg-black/30 border border-white/10 rounded-lg text-white text-sm resize-none"
+                            className="w-full p-3 bg-[#0F0A05]/60 border border-amber-700/40 rounded-lg text-amber-100 text-sm resize-none focus:border-amber-500 focus:outline-none"
                             rows={3}
                             placeholder="輸入要調整情緒的 Prompt..."
                         />
@@ -134,7 +134,7 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
                         <div className="pt-4 border-t border-white/10">
                             <div className="flex justify-between text-xs mb-2">
                                 <span className="text-gray-500">輕微</span>
-                                <span className="text-blue-400 font-medium">🎚️ 調整強度</span>
+                                <span className="text-amber-400 font-medium">🎚️ 調整強度</span>
                                 <span className="text-gray-500">強烈</span>
                             </div>
                             <input
@@ -143,7 +143,7 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
                                 max="100"
                                 value={intensity}
                                 onChange={(e) => setIntensity(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
                             />
                             <div className="text-center text-xs text-gray-500 mt-1">{intensity}%</div>
                         </div>
@@ -153,7 +153,7 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
                     <button
                         onClick={handleGenerate}
                         disabled={loading || !prompt.trim()}
-                        className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-xl font-medium transition-all disabled:opacity-50"
+                        className="w-full py-3 bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white rounded-xl font-medium transition-all disabled:opacity-50 shadow-lg shadow-amber-900/20"
                     >
                         {loading ? '調整中...' : '✨ 生成情緒版本'}
                     </button>
@@ -161,8 +161,8 @@ export default function MoodSliderModal({ isOpen, onClose, initialPrompt, onAppl
                     {/* Result */}
                     {result && (
                         <div className="space-y-4">
-                            <div className="p-4 bg-purple-500/10 border border-purple-500/30 rounded-xl">
-                                <p className="text-sm text-purple-300 font-medium mb-2">🎭 調整後 Prompt</p>
+                            <div className="p-4 bg-amber-900/10 border border-amber-500/30 rounded-xl">
+                                <p className="text-sm text-amber-300 font-medium mb-2">🎭 調整後 Prompt</p>
                                 <p className="text-white text-sm leading-relaxed">{result.modified}</p>
                                 {result.modifiedZH && (
                                     <p className="text-gray-400 text-xs mt-2">{result.modifiedZH}</p>

@@ -104,10 +104,10 @@ export default function Img2ImgModal({ isOpen, onClose, initialImageUrl, onSaveT
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-white/10">
+        <div className="fixed inset-0 z-50 bg-[#1A1206]/95 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-[#1A1206] rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border-2 border-amber-700/40 shadow-[0_8px_60px_rgba(139,69,19,0.4)]">
                 {/* Header */}
-                <div className="p-6 border-b border-white/10 sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10">
+                <div className="p-6 border-b border-amber-700/40 sticky top-0 bg-[#1A1206]/90 backdrop-blur-sm z-10">
                     <div className="flex justify-between items-center">
                         <h2 className="text-xl font-bold text-white flex items-center gap-2">
                             🖼️ 圖生圖
@@ -131,8 +131,8 @@ export default function Img2ImgModal({ isOpen, onClose, initialImageUrl, onSaveT
                             <div
                                 onClick={() => fileInputRef.current?.click()}
                                 className={`relative aspect-square rounded-xl border-2 border-dashed cursor-pointer transition-all overflow-hidden ${sourceImage
-                                        ? 'border-blue-500/50'
-                                        : 'border-white/20 hover:border-blue-500/50'
+                                    ? 'border-blue-500/50'
+                                    : 'border-white/20 hover:border-blue-500/50'
                                     }`}
                             >
                                 {sourceImage ? (
@@ -205,7 +205,7 @@ export default function Img2ImgModal({ isOpen, onClose, initialImageUrl, onSaveT
                         <div className="space-y-2">
                             <div className="flex justify-between text-xs">
                                 <span className="text-gray-500">保留原圖</span>
-                                <span className="text-purple-400 font-medium">🎚️ 變化強度: {strength}%</span>
+                                <span className="text-amber-400 font-medium">🎚️ 變化強度: {strength}%</span>
                                 <span className="text-gray-500">大幅改變</span>
                             </div>
                             <input
@@ -214,21 +214,21 @@ export default function Img2ImgModal({ isOpen, onClose, initialImageUrl, onSaveT
                                 max="90"
                                 value={strength}
                                 onChange={(e) => setStrength(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
                             />
                         </div>
 
                         {/* Style Mode */}
                         <div className="space-y-2">
-                            <p className="text-xs text-purple-400 font-medium">🎨 轉換模式</p>
+                            <p className="text-xs text-amber-400 font-medium">🎨 轉換模式</p>
                             <div className="flex gap-2">
                                 {STYLE_MODES.map((mode) => (
                                     <button
                                         key={mode.id}
                                         onClick={() => setStyle(mode.id)}
                                         className={`flex-1 p-2 rounded-lg text-xs transition-all ${style === mode.id
-                                                ? 'bg-purple-500/30 border border-purple-500 text-white'
-                                                : 'bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10'
+                                            ? 'bg-amber-500/30 border border-amber-500 text-white'
+                                            : 'bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10'
                                             }`}
                                     >
                                         <div className="font-medium">{mode.label}</div>
@@ -251,7 +251,7 @@ export default function Img2ImgModal({ isOpen, onClose, initialImageUrl, onSaveT
                         <button
                             onClick={handleGenerate}
                             disabled={loading || !sourceImage || !prompt.trim()}
-                            className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-xl font-medium transition-all disabled:opacity-50"
+                            className="flex-1 py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white rounded-xl font-medium transition-all disabled:opacity-50"
                         >
                             {loading ? '🔄 生成中...' : '✨ 生成新圖'}
                         </button>
