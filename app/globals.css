@@ -3,21 +3,35 @@
 @tailwind utilities;
 
 :root {
-  /* Premium Dark Theme Variables (Enforced) */
-  --foreground-rgb: 240, 240, 240;
-  /* Slightly off-white for better readability */
-  --background-start-rgb: 10, 10, 15;
-  /* Very deep blue/black */
-  --background-end-rgb: 15, 23, 42;
-  /* Slate 900 */
+  /* ==================== Alchemy Theme Palette ==================== */
+  --alchemy-gold: #D4AF37;
+  --alchemy-copper: #B87333;
+  --alchemy-bronze: #CD7F32;
+  --alchemy-parchment: #F5E6C8;
+  --alchemy-burnt: #1A1206;
+  --alchemy-ink: #2D1B0E;
+  --alchemy-ember: #FF6B35;
+  --alchemy-sepia: #704214;
+
+  /* Foreground/Background (Alchemy Override) */
+  --foreground-rgb: 245, 230, 200;
+  /* Warm parchment white */
+  --background-start-rgb: 26, 18, 6;
+  /* Deep burnt umber */
+  --background-end-rgb: 45, 27, 14;
+  /* Rich ink brown */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom right,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))) fixed;
-  /* Fixed attachment ensures gradient covers full scroll */
+  background:
+    /* Subtle parchment texture overlay */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
+    /* Warm gradient base */
+    linear-gradient(165deg,
+      rgb(var(--background-start-rgb)) 0%,
+      rgb(var(--background-end-rgb)) 50%,
+      rgb(26, 18, 6) 100%) fixed;
   min-height: 100vh;
 }
 
@@ -31,17 +45,20 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(212, 175, 55, 0.3);
+  /* Alchemy Gold */
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.4);
+  background: rgba(212, 175, 55, 0.6);
+  /* Brighter Gold */
 }
 
 /* Details Expansion Decoration */
 details[open] {
-  border-left: 2px solid rgba(168, 85, 247, 0.5);
+  border-left: 2px solid rgba(212, 175, 55, 0.5);
+  /* Gold */
 }
 
 details summary {
@@ -51,21 +68,23 @@ details summary {
 /* ==================== Design System Tokens ==================== */
 
 :root {
-  /* Accent Colors */
-  --accent-primary: 168 85 247;
-  /* purple-500 */
-  --accent-secondary: 59 130 246;
-  /* blue-500 */
-  --accent-success: 34 197 94;
-  /* green-500 */
-  --accent-warning: 234 179 8;
-  /* yellow-500 */
-  --accent-danger: 239 68 68;
-  /* red-500 */
+  /* Alchemy Accent Colors */
+  --accent-primary: 212 175 55;
+  /* Gold */
+  --accent-secondary: 184 115 51;
+  /* Copper */
+  --accent-success: 139 119 42;
+  /* Antique Brass */
+  --accent-warning: 255 107 53;
+  /* Ember */
+  --accent-danger: 139 69 19;
+  /* Saddle Brown */
 
-  /* Surface Colors */
-  --surface-elevated: 17 17 27;
-  --surface-overlay: 0 0 0;
+  /* Alchemy Surface Colors */
+  --surface-elevated: 45 27 14;
+  /* Ink */
+  --surface-overlay: 26 18 6;
+  /* Burnt */
 }
 
 /* ==================== Utility Classes ==================== */
@@ -77,11 +96,18 @@ details summary {
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-/* Button Variants */
+/* Button Variants - Alchemy Wax Seal Style */
 .btn-primary {
   @apply btn-base px-4 py-2 text-sm;
-  @apply bg-purple-600 text-white border-purple-500/50;
-  @apply hover:bg-purple-500 shadow-lg shadow-purple-500/20;
+  background: linear-gradient(135deg, #B87333, #8B4513);
+  color: #F5E6C8;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #CD7F32, #A0522D);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
 }
 
 .btn-secondary {
