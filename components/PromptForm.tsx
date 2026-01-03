@@ -453,7 +453,7 @@ export default function PromptForm({ onSuccess, initialData }: PromptFormProps) 
         <form
             id="prompt-form-section"
             onSubmit={handleSubmit}
-            className="relative w-full max-w-4xl bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-purple-500/[0.05] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_60px_rgba(0,0,0,0.4)] space-y-6 overflow-hidden group/form"
+            className="relative w-full max-w-4xl bg-gradient-to-br from-amber-900/20 via-yellow-900/10 to-orange-900/15 backdrop-blur-xl border-2 border-amber-700/40 rounded-2xl p-8 shadow-[0_8px_60px_rgba(139,69,19,0.3),inset_0_1px_0_rgba(212,175,55,0.1)] space-y-6 overflow-hidden group/form"
         >
             {/* Error Message */}
             {errorMsg && (
