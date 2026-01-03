@@ -158,33 +158,33 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
     return (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
             <div
-                className="bg-[#0B0F17] border border-white/10 rounded-3xl w-full max-w-5xl h-[85vh] flex overflow-hidden shadow-2xl"
+                className="bg-[#1A1206] border-2 border-amber-700/40 rounded-2xl w-full max-w-5xl h-[85vh] flex overflow-hidden shadow-[0_8px_60px_rgba(139,69,19,0.4)]"
                 onClick={e => e.stopPropagation()}
             >
                 {/* Sidebar List */}
                 <div className={`w-full md:w-1/3 border-r border-white/5 flex flex-col ${viewMode === 'edit' ? 'hidden md:flex' : 'flex'}`}>
-                    <div className="p-6 border-b border-white/5 flex flex-col gap-4 bg-black/20">
+                    <div className="p-6 border-b border-amber-900/30 flex flex-col gap-4 bg-black/20">
                         <div className="flex justify-between items-center">
                             <div>
-                                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <Beaker className="w-5 h-5 text-purple-400" />
+                                <h2 className="text-xl font-bold text-amber-100 flex items-center gap-2">
+                                    <Beaker className="w-5 h-5 text-amber-400" />
                                     煉金術師實驗室
                                 </h2>
-                                <p className="text-xs text-gray-500 mt-1">打造您的專屬優化人格</p>
+                                <p className="text-xs text-amber-600/70 mt-1">打造您的專屬優化人格</p>
                             </div>
                             <button
                                 onClick={handleCreateNew}
-                                className="p-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg text-white hover:opacity-90 transition-all font-bold shadow-lg shadow-purple-500/20"
+                                className="p-2 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg text-white hover:opacity-90 transition-all font-bold shadow-lg shadow-amber-500/20"
                             >
                                 <Plus className="w-5 h-5" />
                             </button>
                         </div>
 
                         {/* Status Bar */}
-                        <div className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                        <div className="flex items-center justify-between p-3 bg-amber-900/20 rounded-xl border border-amber-700/30">
                             <div className="flex items-center gap-2">
-                                <div className={`w-2 h-2 rounded-full ${currentPersonaId ? "bg-green-500 animate-pulse" : "bg-gray-600"}`} />
-                                <span className="text-xs text-gray-300">
+                                <div className={`w-2 h-2 rounded-full ${currentPersonaId ? "bg-amber-400 animate-pulse" : "bg-gray-600"}`} />
+                                <span className="text-xs text-amber-200/70">
                                     {currentPersonaId ? "人格運作中" : "未啟用 (使用預設)"}
                                 </span>
                             </div>
@@ -201,7 +201,7 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
 
                     <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
                         {loading ? (
-                            <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-purple-500" /></div>
+                            <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-amber-500" /></div>
                         ) : (
                             personas.map(p => {
                                 const isActive = currentPersonaId === p.id;
@@ -210,10 +210,10 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
                                         key={p.id}
                                         onClick={() => handleEdit(p)}
                                         className={`p-4 rounded-xl border transition-all cursor-pointer group relative ${isActive
-                                                ? 'bg-green-500/10 border-green-500/50 shadow-[0_0_15px_rgba(34,197,94,0.2)]'
-                                                : editingPersona.id === p.id && viewMode === 'edit'
-                                                    ? 'bg-purple-500/10 border-purple-500/50'
-                                                    : 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/10'
+                                            ? 'bg-amber-500/10 border-amber-500/50 shadow-[0_0_15px_rgba(212,175,55,0.2)]'
+                                            : editingPersona.id === p.id && viewMode === 'edit'
+                                                ? 'bg-amber-500/10 border-amber-500/50'
+                                                : 'bg-amber-900/20 border-amber-700/30 hover:bg-amber-900/30 hover:border-amber-600/40'
                                             }`}
                                     >
                                         <div className="flex justify-between items-start">
@@ -250,7 +250,7 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
                 </div>
 
                 {/* Main Editor Area */}
-                <div className={`w-full md:w-2/3 flex flex-col bg-[#0F1218] ${viewMode === 'list' ? 'hidden md:flex' : 'flex'}`}>
+                <div className={`w-full md:w-2/3 flex flex-col bg-[#1A1206] ${viewMode === 'list' ? 'hidden md:flex' : 'flex'}`}>
                     {viewMode === 'edit' ? (
                         <>
                             {/* Editor Header */}
