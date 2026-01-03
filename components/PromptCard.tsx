@@ -107,24 +107,24 @@ export function PromptCard({
             style={{ transformStyle: 'preserve-3d', transition: 'transform 0.15s ease-out, box-shadow 0.3s ease' }}
             className={`
                 break-inside-avoid group relative cursor-pointer
-                bg-gradient-to-br from-white/[0.08] to-white/[0.02]
-                backdrop-blur-xl rounded-2xl overflow-hidden
-                border transition-all duration-300
+                bg-gradient-to-br from-amber-900/20 to-yellow-900/10
+                backdrop-blur-xl rounded-xl overflow-hidden
+                border-2 transition-all duration-300
                 ${isSelected
-                    ? "border-2 border-purple-400 shadow-[0_0_40px_rgba(168,85,247,0.5),inset_0_0_30px_rgba(168,85,247,0.1)]"
-                    : "border-white/10 hover:border-purple-500/50 hover:shadow-[0_8px_40px_rgba(168,85,247,0.25),0_0_60px_rgba(59,130,246,0.15)]"
+                    ? "border-amber-400 shadow-[0_0_40px_rgba(212,175,55,0.5),inset_0_0_30px_rgba(212,175,55,0.1)]"
+                    : "border-amber-700/40 hover:border-amber-500/60 hover:shadow-[0_8px_40px_rgba(212,175,55,0.25),0_0_60px_rgba(184,115,51,0.15)]"
                 }
             `}
         >
-            {/* Glassmorphism Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-cyan-500/5 pointer-events-none z-0" />
+            {/* Alchemy Parchment Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5 pointer-events-none z-0" />
 
             {/* Selection Checkbox */}
             {isSelectionMode && (
                 <div className="absolute top-3 left-3 z-30">
                     <div className={`w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all backdrop-blur-sm ${isSelected
-                        ? "bg-purple-500 border-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.8)]"
-                        : "bg-black/30 border-white/40 group-hover:border-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                        ? "bg-amber-500 border-amber-400 shadow-[0_0_20px_rgba(212,175,55,0.8)]"
+                        : "bg-black/30 border-amber-700/40 group-hover:border-amber-500 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                         }`}>
                         {isSelected && (
                             <svg className="w-4 h-4 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -201,10 +201,10 @@ export function PromptCard({
                                     onTagClick?.(tag.trim());
                                 }}
                                 className="text-[11px] px-2.5 py-1 rounded-full 
-                                    bg-purple-500/20 text-purple-200 
-                                    border border-purple-500/30
-                                    hover:bg-purple-500/40 hover:border-purple-400 hover:text-white
-                                    hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
+                                    bg-amber-500/20 text-amber-200 
+                                    border border-amber-500/30
+                                    hover:bg-amber-500/40 hover:border-amber-400 hover:text-white
+                                    hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]
                                     transition-all duration-200"
                             >
                                 {tag.trim()}
