@@ -35,3 +35,14 @@ pnpm-debug.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# temporary files
+downloads/
+temp_restore
+
+# user content
+**/uploads/
+backups/
+
+
+

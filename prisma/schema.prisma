@@ -89,6 +89,7 @@ model AlchemistPersona {
   name         String
   description  String?
   systemPrompt String // large text
+  category     String?       @default("其他") // 人格分類：攝影類、設計類、藝術類等
   isDefault    Boolean       @default(false)
   builtin      Boolean       @default(false)
   createdAt    DateTime      @default(now())

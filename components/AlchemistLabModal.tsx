@@ -9,6 +9,7 @@ interface AlchemistPersona {
     name: string;
     description: string;
     systemPrompt: string;
+    category?: string;
     isDefault: boolean;
 }
 
@@ -23,6 +24,7 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
     const [personas, setPersonas] = useState<AlchemistPersona[]>([]);
     const [loading, setLoading] = useState(true);
     const [viewMode, setViewMode] = useState<'list' | 'edit'>('list');
+    const [selectedCategory, setSelectedCategory] = useState<string>('全部');
 
     // Edit State
     const [editingPersona, setEditingPersona] = useState<Partial<AlchemistPersona>>({
@@ -197,13 +199,32 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
                                 </button>
                             )}
                         </div>
+
+                        {/* Category Filter */}
+                        <div className="flex flex-wrap gap-2">
+                            {['全部', '01_攝影類', '02_設計類', '03_藝術類', '04_海報旅遊類', '05_食物類', '06_特殊場景類', '07_角色參考類', '08_進階融合類'].map(cat => {
+                                const count = cat === '全部' ? personas.length : personas.filter(p => p.category === cat).length;
+                                return (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setSelectedCategory(cat)}
+                                        className={`px-3 py-1 text-[10px] rounded-full transition-all ${selectedCategory === cat
+                                                ? 'bg-amber-500 text-black font-bold'
+                                                : 'bg-amber-900/20 text-amber-300/70 hover:bg-amber-900/40 border border-amber-700/30'
+                                            }`}
+                                    >
+                                        {cat.replace(/\d+_/, '')} ({count})
+                                    </button>
+                                );
+                            })}
+                        </div>
                     </div>
 
                     <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
                         {loading ? (
                             <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-amber-500" /></div>
                         ) : (
-                            personas.map(p => {
+                            personas.filter(p => selectedCategory === '全部' || p.category === selectedCategory).map(p => {
                                 const isActive = currentPersonaId === p.id;
                                 return (
                                     <div
@@ -217,9 +238,16 @@ export default function AlchemistLabModal({ isOpen, onClose, currentPersonaId, o
                                             }`}
                                     >
                                         <div className="flex justify-between items-start">
-                                            <h3 className={`font-bold ${isActive ? "text-green-400" : "text-white"}`}>
-                                                {p.name}
-                                            </h3>
+                                            <div className="flex-1">
+                                                <h3 className={`font-bold ${isActive ? "text-green-400" : "text-white"}`}>
+                                                    {p.name}
+                                                </h3>
+                                                {p.category && (
+                                                    <span className="text-[9px] bg-blue-500/20 text-blue-300 px-1.5 py-0.5 rounded mt-1 inline-block">
+                                                        {p.category.replace(/\d+_/, '')}
+                                                    </span>
+                                                )}
+                                            </div>
                                             {isActive && <span className="text-[10px] bg-green-500 text-black font-bold px-2 py-0.5 rounded-full animate-pulse">Running</span>}
                                             {!isActive && p.isDefault && <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full">Default</span>}
                                         </div>
